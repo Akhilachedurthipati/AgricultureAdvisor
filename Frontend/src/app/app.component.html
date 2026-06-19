@@ -1,0 +1,14 @@
+<div class="global-lang-container" *ngIf="!isHomePage()">
+  <button class="theme-toggle-btn" (click)="toggleTheme()" [title]="isLightMode ? 'Switch to Dark Mode' : 'Switch to Light Mode'">
+    <span class="material-icons-round">{{ isLightMode ? 'dark_mode' : 'light_mode' }}</span>
+  </button>
+  <span class="divider"></span>
+  <span class="material-icons-round lang-icon">translate</span>
+  <select [ngModel]="currentLang" (ngModelChange)="changeLang($event)">
+    <option value="en">English</option>
+    <option value="hi">हिंदी</option>
+    <option value="te">తెలుగు</option>
+  </select>
+</div>
+
+<router-outlet></router-outlet>

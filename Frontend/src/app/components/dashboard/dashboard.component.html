@@ -1,0 +1,31 @@
+<div class="dashboard-wrapper animate-fade-in">
+  <div class="glass-card dashboard-card">
+    <div class="dashboard-header">
+      <span class="material-icons-round dash-logo">eco</span>
+      <h1>{{ t.dashboardTitle }}</h1>
+      <div class="welcome-banner">
+        <span class="material-icons-round">account_circle</span>
+        <span>{{ t.welcome }} <strong>{{ farmerName}}</strong> 🌱</span>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="grid-item" routerLink="/crop">
+        <span class="material-icons-round grid-icon">science</span>
+        <h3>{{ t.cropRecBtn }}</h3>
+        <p>Analyze parameters to recommend the best crop</p>
+      </div>
+
+      <div class="grid-item" routerLink="/history">
+        <span class="material-icons-round grid-icon">history</span>
+        <h3>{{ t.viewHistoryBtn }}</h3>
+        <p>Review past queries, modify logs, and inspect statistics</p>
+      </div>
+    </div>
+
+    <button class="btn-secondary logout-btn" (click)="logout()">
+      <span class="material-icons-round">logout</span>
+      {{ t.logoutBtn }}
+    </button>
+  </div>
+</div>

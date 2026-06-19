@@ -1,0 +1,117 @@
+<div class="home-wrapper animate-fade-in">
+  <div class="home-container">
+    <!-- Hero Header -->
+    <header class="home-header">
+      <div class="brand-badge animate-float">
+        <span class="material-icons-round brand-icon">grass</span>
+        <span>Agriculture Advisor</span>
+      </div>
+      <h1 class="hero-title">{{ t.homeWelcome }}</h1>
+      <p class="hero-subtitle">{{ t.homeSub }}</p>
+    </header>
+
+    <!-- Interactive Grid for Login and Register Cards -->
+    <div class="options-grid">
+      <!-- Login Card -->
+      <div class="glass-card option-card" (click)="navigateTo('/login')">
+        <div class="card-icon-wrapper login-icon">
+          <span class="material-icons-round">account_circle</span>
+        </div>
+        <h2 class="card-title">{{ t.homeLoginCardTitle }}</h2>
+        <p class="card-description">{{ t.homeLoginCardDesc }}</p>
+        <button class="btn-primary card-btn">
+          <span>{{ t.loginBtn }}</span>
+          <span class="material-icons-round">arrow_forward</span>
+        </button>
+      </div>
+
+      <!-- Register Card -->
+      <div class="glass-card option-card" (click)="navigateTo('/register')">
+        <div class="card-icon-wrapper register-icon">
+          <span class="material-icons-round">how_to_reg</span>
+        </div>
+        <h2 class="card-title">{{ t.homeRegisterCardTitle }}</h2>
+        <p class="card-description">{{ t.homeRegisterCardDesc }}</p>
+        <button class="btn-primary card-btn accent-btn">
+          <span>{{ t.registerBtn }}</span>
+          <span class="material-icons-round">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Settings / Preferences Section -->
+    <div class="glass-card settings-card">
+      <h3 class="settings-title">
+        <span class="material-icons-round">tune</span>
+        <span>Quick Settings & Preferences</span>
+      </h3>
+
+      <div class="settings-grid">
+        <!-- Theme Setting -->
+        <div class="setting-item">
+          <div class="setting-info">
+            <span class="material-icons-round setting-icon">palette</span>
+            <div>
+              <span class="setting-label">{{ t.homeThemeTitle }}</span>
+              <span class="setting-sublabel">Toggle between light and dark modes</span>
+            </div>
+          </div>
+          <div class="theme-toggle-group">
+            <button 
+              class="theme-option-btn" 
+              [class.active]="!isLightMode" 
+              (click)="selectTheme('dark')"
+              [title]="t.darkMode"
+            >
+              <span class="material-icons-round">dark_mode</span>
+              <span>{{ t.darkMode }}</span>
+            </button>
+            <button 
+              class="theme-option-btn" 
+              [class.active]="isLightMode" 
+              (click)="selectTheme('light')"
+              [title]="t.lightMode"
+            >
+              <span class="material-icons-round">light_mode</span>
+              <span>{{ t.lightMode }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Language Setting -->
+        <div class="setting-item">
+          <div class="setting-info">
+            <span class="material-icons-round setting-icon">translate</span>
+            <div>
+              <span class="setting-label">{{ t.homeLangTitle }}</span>
+              <span class="setting-sublabel">Select your preferred system language</span>
+            </div>
+          </div>
+          <div class="lang-selector-group">
+            <button 
+              class="lang-btn" 
+              [class.active]="currentLang === 'en'" 
+              (click)="changeLang('en')"
+            >
+              English
+            </button>
+            <button 
+              class="lang-btn" 
+              [class.active]="currentLang === 'hi'" 
+              (click)="changeLang('hi')"
+            >
+              हिंदी
+            </button>
+            <button 
+              class="lang-btn" 
+              [class.active]="currentLang === 'te'" 
+              (click)="changeLang('te')"
+            >
+              తెలుగు
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

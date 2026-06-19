@@ -1,0 +1,71 @@
+.register-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+.register-card {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.brand-header {
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+.brand-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.brand-header h1 {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.register-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  font-size: 1rem;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 0.25rem;
+}
+
+.form-footer a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.form-footer a:hover {
+  color: var(--color-primary-hover);
+  text-shadow: 0 0 10px var(--color-primary-glow);
+}

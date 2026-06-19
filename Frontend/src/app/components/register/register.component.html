@@ -1,0 +1,36 @@
+<div class="register-wrapper animate-fade-in">
+  <div class="glass-card register-card">
+    <div class="brand-header">
+      <span class="material-icons-round brand-icon">person_add</span>
+      <h1>{{ t.registerTitle }}</h1>
+    </div>
+
+    <div class="form-group">
+      <label>{{ t.nameLabel }}</label>
+      <input type="text" [placeholder]="t.nameLabel" [(ngModel)]="farmer.name">
+    </div>
+
+    <div class="form-group">
+      <label>{{ t.emailLabel }}</label>
+      <input type="email" [placeholder]="t.emailLabel" [(ngModel)]="farmer.email">
+    </div>
+
+    <div class="form-group">
+      <label>{{ t.passwordLabel }}</label>
+      <input type="password" [placeholder]="t.passwordLabel" [(ngModel)]="farmer.password">
+    </div>
+
+    <div class="form-group">
+      <label>{{ t.mobileLabel }}</label>
+      <input type="text" [placeholder]="t.mobileLabel" [(ngModel)]="farmer.mobile">
+    </div>
+
+    <button class="btn-primary register-btn" (click)="registerFarmer()">
+      {{ t.registerBtn }}
+    </button>
+
+    <div class="form-footer">
+      <a routerLink="/">{{ t.alreadyAccount }}</a>
+    </div>
+  </div>
+</div>

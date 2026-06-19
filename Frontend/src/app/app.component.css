@@ -1,0 +1,68 @@
+/* Floating Language Selector Styling scoped to AppComponent */
+.global-lang-container {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--glass-border);
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  box-shadow: var(--glass-shadow);
+  transition: var(--transition-smooth);
+}
+
+.global-lang-container:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 15px var(--color-primary-glow);
+}
+
+.global-lang-container .lang-icon {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.global-lang-container select {
+  background: transparent;
+  color: var(--text-primary);
+  border: none;
+  outline: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding-right: 0.5rem;
+}
+
+.global-lang-container select option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+}
+
+.theme-toggle-btn:hover {
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.divider {
+  width: 1px;
+  height: 1.2rem;
+  background: var(--border-color);
+  margin: 0 0.25rem;
+}

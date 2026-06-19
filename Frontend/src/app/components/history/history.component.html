@@ -1,0 +1,211 @@
+<div class="history-wrapper animate-fade-in">
+  <div class="glass-card history-container">
+    
+    <!-- Header -->
+    <div class="card-header">
+      <div class="header-left">
+        <button class="btn-back" routerLink="/dashboard">
+          <span class="material-icons-round">arrow_back</span>
+        </button>
+        <div>
+          <h1>{{ t.historyTitle }}</h1>
+          <p>{{ t.historySub }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Panel -->
+    <div class="stats-panel" *ngIf="!loading">
+      <div class="stat-card">
+        <span class="material-icons-round stat-icon text-info">analytics</span>
+        <div class="stat-details">
+          <span class="stat-label">{{ t.statsTotal }}</span>
+          <h3 class="stat-value">{{ totalQueries }}</h3>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="material-icons-round stat-icon text-primary">grass</span>
+        <div class="stat-details">
+          <span class="stat-label">{{ t.statsTopCrop }}</span>
+          <h3 class="stat-value">{{ topCrop }}</h3>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="material-icons-round stat-icon text-accent">thermostat</span>
+        <div class="stat-details">
+          <span class="stat-label">{{ t.statsAvgTemp }}</span>
+          <h3 class="stat-value">{{ avgTemp | number:'1.1-1' }}°C</h3>
+        </div>
+      </div>
+
+      <div class="stat-card text-info-light-container">
+        <span class="material-icons-round stat-icon text-info-light">grain</span>
+        <div class="stat-details">
+          <span class="stat-label">{{ t.statsAvgRainfall }}</span>
+          <h3 class="stat-value">{{ avgRainfall | number:'1.0-0' }} mm</h3>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="material-icons-round stat-icon text-warning">science</span>
+        <div class="stat-details">
+          <span class="stat-label">{{ t.statsAvgPh }}</span>
+          <h3 class="stat-value">{{ avgPh | number:'1.1-1' }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filters Bar -->
+    <div class="filters-bar" *ngIf="!loading">
+      <div class="search-box">
+        <span class="material-icons-round search-icon">search</span>
+        <input type="text" [placeholder]="t.searchPlaceholder" [(ngModel)]="searchQuery" (ngModelChange)="applyFilters()">
+      </div>
+
+      <div class="filter-dropdowns">
+        <!-- Soil Select -->
+        <select [(ngModel)]="soilFilter" (ngModelChange)="applyFilters()">
+          <option value="">{{ t.allSoils }}</option>
+          <option value="Black">{{ t.soilBlack }}</option>
+          <option value="Red">{{ t.soilRed }}</option>
+          <option value="Alluvial">{{ t.soilAlluvial }}</option>
+        </select>
+
+        <!-- Season Select -->
+        <select [(ngModel)]="seasonFilter" (ngModelChange)="applyFilters()">
+          <option value="">{{ t.allSeasons }}</option>
+          <option value="Kharif">{{ t.seasonKharif }}</option>
+          <option value="Rabi">{{ t.seasonRabi }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-state" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Loading historical records...</p>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="!loading && filteredList.length === 0">
+      <span class="material-icons-round empty-icon">history_toggle_off</span>
+      <p>{{ t.noHistory }}</p>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container" *ngIf="!loading && filteredList.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>{{ t.tableFarmer }}</th>
+            <th>{{ t.tableSoil }}</th>
+            <th>{{ t.tableSeason }}</th>
+            <th>{{ t.tableTemp }}</th>
+            <th>{{ t.tableHum }}</th>
+            <th>{{ t.tablePh }}</th>
+            <th>{{ t.tableRain }}</th>
+            <th>{{ t.tableCrop }}</th>
+            <th>{{ t.tableFert }}</th>
+            <th>{{ t.tableActions }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of filteredList" class="table-row">
+            <td class="farmer-name-cell">{{ item.farmerName }}</td>
+            <td>
+              <span class="badge badge-soil">{{ item.soilType }}</span>
+            </td>
+            <td>
+              <span [class]="'badge badge-' + (item.season?.toLowerCase() || 'kharif')">
+                {{ item.season === 'Kharif' ? t.seasonKharif : (item.season === 'Rabi' ? t.seasonRabi : item.season) }}
+              </span>
+            </td>
+            <td>{{ item.temperature }}°C</td>
+            <td>{{ item.humidity }}%</td>
+            <td>{{ item.ph }}</td>
+            <td>{{ item.rainfall }} mm</td>
+            <td class="crop-cell">{{ item.recommendedCrop }}</td>
+            <td class="fert-cell">{{ item.recommendedFertilizer || '-' }}</td>
+            <td class="actions-cell">
+              <button class="btn-action btn-edit" (click)="editItem(item)">
+                <span class="material-icons-round">edit</span>
+              </button>
+              <button class="btn-action btn-delete" (click)="deleteItem(item.id)">
+                <span class="material-icons-round">delete</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- Edit Modal Overlay -->
+<div class="modal-overlay animate-fade-in" *ngIf="isEditing">
+  <div class="glass-card modal-card animate-slide-up">
+    <div class="modal-header">
+      <h2>{{ t.editModalTitle }}</h2>
+      <button class="btn-close" (click)="closeEditModal()">
+        <span class="material-icons-round">close</span>
+      </button>
+    </div>
+
+    <div class="modal-body" *ngIf="editingItem">
+      <div class="modal-form-grid">
+        <div class="form-group">
+          <label>{{ t.farmerNameLabel }}</label>
+          <input type="text" [(ngModel)]="editingItem.farmerName">
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.soilTypeLabel }}</label>
+          <select [(ngModel)]="editingItem.soilType">
+            <option value="Black">{{ t.soilBlack }}</option>
+            <option value="Red">{{ t.soilRed }}</option>
+            <option value="Alluvial">{{ t.soilAlluvial }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.seasonLabel }}</label>
+          <select [(ngModel)]="editingItem.season">
+            <option value="Kharif">{{ t.seasonKharif }}</option>
+            <option value="Rabi">{{ t.seasonRabi }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.tempLabel }}</label>
+          <input type="number" [(ngModel)]="editingItem.temperature">
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.humidityLabel }}</label>
+          <input type="number" [(ngModel)]="editingItem.humidity">
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.phLabel }}</label>
+          <input type="number" [(ngModel)]="editingItem.ph">
+        </div>
+
+        <div class="form-group">
+          <label>{{ t.rainfallLabel }}</label>
+          <input type="number" [(ngModel)]="editingItem.rainfall">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-secondary" (click)="closeEditModal()">{{ t.cancelBtn }}</button>
+      <button class="btn-primary" (click)="saveEdit()">
+        <span class="material-icons-round">save</span>
+        {{ t.saveBtn }}
+      </button>
+    </div>
+  </div>
+</div>

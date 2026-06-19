@@ -1,0 +1,92 @@
+<div class="crop-rec-wrapper animate-fade-in">
+  <div class="glass-card crop-rec-card">
+    <div class="card-header">
+      <div class="header-left">
+        <button class="btn-back" routerLink="/dashboard">
+          <span class="material-icons-round">arrow_back</span>
+        </button>
+        <div>
+          <h1>{{ t.cropRecTitle }}</h1>
+          <p>{{ t.cropRecSub }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <!-- Farmer Name -->
+      <div class="form-group">
+        <label>{{ t.farmerNameLabel }}</label>
+        <input type="text" [placeholder]="t.farmerNameLabel" [(ngModel)]="cropData.farmerName">
+      </div>
+
+      <!-- Soil Type -->
+      <div class="form-group">
+        <label>{{ t.soilTypeLabel }}</label>
+        <select [(ngModel)]="cropData.soilType">
+          <option value="">{{ t.selectSoil }}</option>
+          <option value="Black">{{ t.soilBlack }}</option>
+          <option value="Red">{{ t.soilRed }}</option>
+          <option value="Alluvial">{{ t.soilAlluvial }}</option>
+        </select>
+      </div>
+
+      <!-- Season -->
+      <div class="form-group">
+        <label>{{ t.seasonLabel }}</label>
+        <select [(ngModel)]="cropData.season">
+          <option value="">{{ t.selectSeason }}</option>
+          <option value="Kharif">{{ t.seasonKharif }}</option>
+          <option value="Rabi">{{ t.seasonRabi }}</option>
+        </select>
+      </div>
+
+      <!-- Temperature -->
+      <div class="form-group">
+        <label>{{ t.tempLabel }}</label>
+        <input type="number" [placeholder]="t.tempLabel" [(ngModel)]="cropData.temperature">
+      </div>
+
+      <!-- Humidity -->
+      <div class="form-group">
+        <label>{{ t.humidityLabel }}</label>
+        <input type="number" [placeholder]="t.humidityLabel" [(ngModel)]="cropData.humidity">
+      </div>
+
+      <!-- pH -->
+      <div class="form-group">
+        <label>{{ t.phLabel }}</label>
+        <input type="number" [placeholder]="t.phLabel" [(ngModel)]="cropData.ph">
+      </div>
+
+      <!-- Rainfall -->
+      <div class="form-group">
+        <label>{{ t.rainfallLabel }}</label>
+        <input type="number" [placeholder]="t.rainfallLabel" [(ngModel)]="cropData.rainfall">
+      </div>
+    </div>
+
+    <button class="btn-primary recommend-btn" (click)="recommend()">
+      <span class="material-icons-round">psychology</span>
+      {{ t.recommendBtn }}
+    </button>
+
+    <!-- Results Display -->
+    <div class="recommendation-result" *ngIf="recommendedCrop">
+      <div class="result-card crop-result">
+        <span class="material-icons-round result-icon">grass</span>
+        <div class="result-details">
+          <span class="result-label">{{ t.resultTitle }}</span>
+          <h2 class="result-value">{{ translateCrop(recommendedCrop) }}</h2>
+        </div>
+      </div>
+
+      <div class="result-card fertilizer-result" *ngIf="recommendedFertilizer">
+        <span class="material-icons-round result-icon">opacity</span>
+        <div class="result-details">
+          <span class="result-label">{{ t.resultSub }}</span>
+          <h2 class="result-value">{{ translateFertilizer(recommendedFertilizer) }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

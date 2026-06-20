@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CropService {
 
-  private apiUrl = 'http://localhost:8080/crop';
+  private apiUrl = `${environment.apiUrl}/crop`;
 
   constructor(private http: HttpClient) {}
 

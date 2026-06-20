@@ -1,0 +1,7 @@
+{
+  "outputDirectory": "dist/agriculture-advisor-ui/browser",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

@@ -30,3 +30,4 @@ export const getDBStatus = () => {
     stateDescription: ['disconnected', 'connected', 'connecting', 'disconnecting'][mongoose.connection.readyState] || 'unknown'
   };
 };
+

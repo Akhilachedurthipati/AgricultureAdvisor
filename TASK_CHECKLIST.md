@@ -22,17 +22,19 @@ Status Legend:
 ---
 
 ## Phase 2: User Authentication & Security
-- [ ] User schema definition in Mongoose (`server/src/models/User.js`)
-- [ ] Password hashing using bcryptjs
-- [ ] JWT token generation and validation middleware (`server/src/middleware/auth.js`)
-- [ ] Farmer registration endpoint (`POST /api/auth/register`) with Zod validation
-- [ ] Farmer login endpoint (`POST /api/auth/login`) with Zod validation
-- [ ] Farmer profile retrieval & update endpoint (`GET/PUT /api/auth/profile`)
-- [ ] Frontend Auth Context (`client/src/context/AuthContext.jsx`)
-- [ ] Farmer Registration UI with validation & alerts
-- [ ] Farmer Login UI with remember-me & state preservation
-- [ ] Protected Route wrapper component (`client/src/components/ProtectedRoute.jsx`)
-- [ ] End-to-end authentication testing
+- [x] User schema definition in Mongoose (`server/src/models/User.js`)
+- [x] Password hashing using bcryptjs
+- [x] JWT token generation and validation middleware (`server/src/middleware/auth.middleware.js`, `server/src/utils/jwt.js`)
+- [x] Farmer registration endpoint (`POST /api/auth/register`) with Zod validation
+- [x] Farmer login endpoint (`POST /api/auth/login`) with Zod validation
+- [x] Farmer profile retrieval & update endpoint (`GET/PUT /api/auth/profile`)
+- [x] Frontend Auth Context (`client/src/context/AuthContext.jsx`)
+- [x] Farmer Registration UI with validation & alerts (`client/src/pages/Register.jsx`)
+- [x] Farmer Login UI with remember-me & quick-fill demo (`client/src/pages/Login.jsx`)
+- [x] Protected Route wrapper component (`client/src/components/common/ProtectedRoute.jsx`)
+- [x] Farmer Profile Page (`client/src/pages/UserProfile.jsx`)
+- [x] Farmer Dashboard (`client/src/pages/Dashboard.jsx`)
+- [x] End-to-end authentication testing (automated unit + integration + E2E tests passing)
 
 ---
 

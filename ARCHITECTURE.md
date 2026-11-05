@@ -259,3 +259,4 @@ Agriculture-Advisor/
 2. **Input Validation:** Zod schemas validate all API request payloads before execution.
 3. **Data Isolation:** History endpoints strictly enforce `userId` filtering from verified JWT tokens.
 4. **Advisory Clarification:** Agricultural recommendations provide clear disclaimers that output is advisory and not a replacement for certified soil testing or localized agricultural extension officers.
+

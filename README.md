@@ -59,3 +59,4 @@ Major Project for B.Tech in Computer Science and Engineering (Artificial Intelli
 - Refer to `NEXT_SESSION.md` for handovers between sessions.
 - Refer to `TASK_CHECKLIST.md` for complete feature implementation tracking.
 - Refer to `ARCHITECTURE.md` for detailed technical specifications.
+

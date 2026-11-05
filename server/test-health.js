@@ -25,3 +25,4 @@ testServer.listen(5001, async () => {
     testServer.close(() => process.exit(1));
   }
 });
+

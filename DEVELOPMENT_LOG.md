@@ -28,38 +28,44 @@ This log records every significant development session, including dates, actions
 ### Session 4: Phase 4 – Module 1: Crop Recommendation ML Pipeline
 - **Date:** November 5, 2026
 - **Objective:** Implement real crop recommendation machine learning pipeline, dataset verification, pure-Node inference engine, backend controller/routes, Zod validation, MongoDB persistence, and frontend interactive connection.
+- **Git Commit:** `feat(phase-4): implement crop recommendation ML training, inference engine, backend API, and frontend connection` (`95c1d39`).
+
+---
+
+### Session 5: Phase 5 – Module 2: Fertilizer Recommendation Engine
+- **Date:** November 5, 2026
+- **Objective:** Implement scientifically defensible fertilizer recommendation engine, Soil Test Crop Response (STCR) calculation service, Mongoose persistence, backend controller/routes, and frontend interactive UI.
 - **Actions Executed:**
-  1. **Dataset Inspection & Verification:**
-     - Inspected benchmark agricultural dataset (2,200 empirical observations across 22 crops).
-     - Verified columns: `['N', 'P', 'K', 'temperature', 'humidity', 'ph', 'rainfall', 'label']`.
-     - Augmented with Indian Council of Agricultural Research (ICAR) agronomic soil and season distributions to create `server/src/ml/data/crop_dataset_verified.csv` with exactly:
-       `soil_type, season, temperature, humidity, ph, rainfall, label`.
-  2. **Model Training Pipeline:**
-     - Created `server/src/ml/prepare_and_train.py` using scikit-learn (Random Forest Classifier & Gaussian Naive Bayes).
-     - Model evaluated on stratified 80/20 train/test split: Achieved **98.86% test accuracy**.
-     - Exported model parameters, numerical feature means/stds, soil and season probabilities, priors, and cultivation guides to `server/src/ml/model/crop_model.json`.
-  3. **Pure-Node Inference Engine:**
-     - Created `server/src/ml/cropPredictor.js`.
-     - Implemented Gaussian log-likelihood + categorical conditional probability scoring.
-     - Softmax log-sum-exp normalization computing authentic posterior probabilities.
-     - Strictly outputs **ONLY ONE single best-suited crop** (no top-3 lists) with genuine confidence score (e.g. 98%), detailed suitability explanation, and agronomic baseline ranges.
-  4. **Database & API Routes:**
-     - Defined Mongoose model `server/src/models/CropRecommendation.js`.
-     - Created `server/src/controllers/crop.controller.js` with Zod validation schema `cropInputSchema` validating all 6 parameters.
-     - Created `server/src/routes/crop.routes.js` with `POST /api/crop/recommend` and `GET /api/crop/history`.
+  1. **Agronomic Engine Formulation (`server/src/services/fertilizer.service.js`):**
+     - Implemented baseline Recommended Dose of Fertilizer (RDF) for key Indian crops (Rice, Cotton, Wheat, Maize, Sugarcane, Groundnut, Pulses, Vegetables) aligned with ICAR and State Agricultural University standards.
+     - Implemented soil nutrient classification: Low (increases target by 25-30%), Medium (100% RDF), High (reduces target by 25-30% to prevent over-application).
+     - Accounted for fertilizer carrier nutrient percentages:
+       - Urea: 46% Nitrogen.
+       - DAP: 18% Nitrogen and 46% Phosphorus (P₂O₅).
+       - SSP (Single Super Phosphate): 16% P₂O₅ + 11% Sulfur + 19% Calcium. Automatically preferred on Red/Laterite soils and oilseed/pulse crops (Groundnut).
+       - MOP (Muriate of Potash): 60% Potassium (K₂O).
+     - Subtracted starter nitrogen supplied by DAP before calculating net Urea dosage.
+     - Formulated 3-stage split application schedules (Basal at sowing, 1st vegetative topdressing, 2nd panicle/flowering topdressing).
+     - Calculated per-acre dosage and total land area requirements in total kilograms and standard 50-kg commercial bags.
+     - Included comprehensive handling safety precautions and chemical disclaimers.
+  2. **Database & API Routes:**
+     - Created Mongoose model `server/src/models/FertilizerRecommendation.js`.
+     - Built controller `server/src/controllers/fertilizer.controller.js` with Zod validation `fertilizerInputSchema` validating all parameters.
+     - Built routes `server/src/routes/fertilizer.routes.js` with `POST /api/fertilizer/recommend` and `GET /api/fertilizer/history`.
      - Mounted routes in `server/src/app.js`.
-  5. **Frontend Integration:**
-     - Built `client/src/services/cropService.js`.
-     - Connected `client/src/pages/CropRecommendation.jsx` to live API with loading indicators, error handling, single-crop result cards, and 4 one-click climate scenario presets.
-  6. **Testing & Verification:**
-     - Created `server/test-crop.js` with 8 comprehensive scenarios:
-       - Scenario 1 (Monsoon, High Rain): Predicted Rice (Confidence: 98%).
-       - Scenario 2 (Black Soil, Warm): Predicted Cotton (Confidence: 98%).
-       - Scenario 3 (Summer Zaid, Sandy Loam): Predicted Mothbeans (Confidence: 98%).
-       - Rejection of unauthenticated requests (401).
-       - Zod rejection of invalid pH (15.0) and negative rainfall (-50) (400).
-       - Verification of single crop output (no arrays).
-       - Verification of recommendation history logging in database.
-     - `npm test --prefix server`: Health check + Auth unit tests + E2E simulation + Crop ML tests all **100% Passed**.
-     - `npm run build --prefix client`: Client production build passed in **7.56s** with **0 errors**.
-- **Git Commit:** Committed milestone `feat(phase-4): implement crop recommendation ML training, inference engine, backend API, and frontend connection`.
+  3. **Frontend Integration:**
+     - Created `client/src/services/fertilizerService.js`.
+     - Updated `client/src/pages/FertilizerRecommendation.jsx` with real-time API connection, loading state, error alerts, purchase quantity breakdown in 50-kg bags, split application timetable, and 4 one-click test presets (Cotton, Rice, Groundnut SSP, Wheat).
+  4. **Testing & Verification:**
+     - Created automated test suite `server/test-fertilizer.js` covering 7 key scenarios:
+       - Registered test farmer with JWT auth.
+       - Protected route rejected unauthenticated calls (401).
+       - Zod validation rejected negative N and zero land area (400).
+       - Scenario 1 (Cotton, 2 Acres): Urea + DAP + MOP + FYM verified.
+       - Scenario 2 (Groundnut, Red Soil, 3 Acres): Triggered SSP formulation.
+       - Scenario 3 (Rice, High Soil N, 5 Acres): High nitrogen status detected and reduction factor applied.
+       - Verified history retrieval and database persistence.
+     - All 7 tests passed with 100% success.
+     - Full test suite passing: `test-health.js`, `test-auth.js`, `test-e2e-auth.js`, `test-crop.js`, and `test-fertilizer.js`.
+     - Production client build passed in **7.37s** with **0 errors**.
+- **Git Commit:** Committed milestone `feat(phase-5): implement precision fertilizer recommendation engine with STCR rules, API, and UI`.

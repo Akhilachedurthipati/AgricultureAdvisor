@@ -74,14 +74,16 @@ Status Legend:
 ---
 
 ## Phase 5: Module 2 – Fertilizer Recommendation
-- [ ] Validated agricultural rules and nutrient calculation engine based on (Soil type, Season, Crop, N, P, K, Land Area)
-- [ ] Backend route & controller (`POST /api/fertilizer/recommend`) with Zod input validation
-- [ ] Accurate fertilizer recommendation output with nutrient deficit analysis
-- [ ] Practical application guidelines, dosage calculations per land area, and safety precautions
-- [ ] Soil test requirement warnings and agricultural expert disclaimer
-- [ ] Frontend Fertilizer Recommendation interactive form
-- [ ] Fertilizer result view with safety guidelines and printable report option
-- [ ] Verification across distinct crops and soil nutrient profiles
+- [x] Validated agricultural rules and nutrient calculation engine based on (Soil type, Season, Crop, N, P, K, Land Area) (`server/src/services/fertilizer.service.js`)
+- [x] Backend route & controller (`POST /api/fertilizer/recommend`, `GET /api/fertilizer/history`) with Zod input validation (`server/src/controllers/fertilizer.controller.js`, `server/src/routes/fertilizer.routes.js`)
+- [x] Mongoose FertilizerRecommendation Model with database persistence (`server/src/models/FertilizerRecommendation.js`)
+- [x] Accurate fertilizer recommendation output with nutrient deficit analysis (Low/Medium/High soil status)
+- [x] Practical application guidelines, per-acre dosage, total field quantities in 50-kg bags, and safety precautions
+- [x] Soil test requirement warnings and official agricultural extension officer disclaimers
+- [x] Frontend Fertilizer Recommendation interactive form (`client/src/pages/FertilizerRecommendation.jsx`)
+- [x] Fertilizer result view with visual badges, purchase breakdown, split application schedule, and safety guidelines
+- [x] Quick evaluation presets for rapid scenario testing (Cotton, Rice, Groundnut SSP, Wheat)
+- [x] Verification across distinct crops, land areas, and soil nutrient profiles (`server/test-fertilizer.js` all 7 tests passing)
 
 ---
 

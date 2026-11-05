@@ -288,3 +288,26 @@ Agriculture-Advisor/
 - Computes genuine posterior probabilities via numerically stable log-sum-exp softmax.
 - **Single-Crop Guarantee:** Strictly outputs the single highest-probability crop with confidence score, scientific suitability rationale, and baseline parameter bounds.
 
+---
+
+## 6. Precision Fertilizer Recommendation Engine
+
+### A. Scientific Principles (STCR Alignment)
+- Implements Indian Council of Agricultural Research (ICAR) & State Agricultural University (SAU) Soil Test Crop Response (STCR) principles.
+- Categorizes measured soil nutrients:
+  - **Low:** Increases recommended dose by 25% - 30%.
+  - **Medium:** Applies 100% baseline Recommended Dose of Fertilizer (RDF).
+  - **High:** Decreases recommended dose by 25% - 30% to prevent over-fertilization, luxury consumption, and fertilizer burn.
+
+### B. Chemical Carriers & Nutrient Deductions
+- **Urea:** 46% Nitrogen.
+- **DAP:** 18% Nitrogen and 46% Phosphorus (P₂O₅). Starter Nitrogen supplied by DAP is deducted from the net Urea requirement to avoid nitrogen overdosage.
+- **SSP:** 16% P₂O₅ + 11% Sulfur + 19% Calcium. Preferred for acidic/laterite/red soils and oilseeds/legumes.
+- **MOP:** 60% Potassium (K₂O).
+- **Organic FYM:** 2 - 3 tonnes/acre to enhance cation exchange capacity and microbial activity.
+
+### C. Output Breakdown
+- Per-acre baseline rate and total land area requirements in both kg and standard 50-kg commercial bags.
+- 3-stage split application schedule (Basal at sowing, 1st vegetative topdressing, 2nd panicle/flowering topdressing).
+- Environmental & handling safety precautions.
+

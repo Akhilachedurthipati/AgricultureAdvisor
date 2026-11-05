@@ -35,3 +35,4 @@ const cropRecommendationSchema = new mongoose.Schema(
 
 const CropRecommendation = mongoose.model('CropRecommendation', cropRecommendationSchema);
 export default CropRecommendation;
+

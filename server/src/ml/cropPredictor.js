@@ -159,3 +159,4 @@ function generateSuitabilityExplanation({ cropName, soilType, season, temp, humi
 export default {
   predictCrop
 };
+

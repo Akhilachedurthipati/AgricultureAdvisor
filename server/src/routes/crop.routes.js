@@ -10,3 +10,4 @@ router.post('/recommend', protect, validate(cropInputSchema), recommendCrop);
 router.get('/history', protect, getCropHistory);
 
 export default router;
+

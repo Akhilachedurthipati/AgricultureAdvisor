@@ -1,0 +1,1024 @@
+{
+  "metadata": {
+    "modelType": "Agronomic Gaussian & Frequency Classifier",
+    "trainingDataset": "ICAR-Augmented Agricultural Crop Dataset",
+    "sampleCount": 2200,
+    "featureCount": 6,
+    "features": [
+      "soil_type",
+      "season",
+      "temperature",
+      "humidity",
+      "ph",
+      "rainfall"
+    ],
+    "cropClasses": [
+      "apple",
+      "banana",
+      "blackgram",
+      "chickpea",
+      "coconut",
+      "coffee",
+      "cotton",
+      "grapes",
+      "jute",
+      "kidneybeans",
+      "lentil",
+      "maize",
+      "mango",
+      "mothbeans",
+      "mungbean",
+      "muskmelon",
+      "orange",
+      "papaya",
+      "pigeonpeas",
+      "pomegranate",
+      "rice",
+      "watermelon"
+    ],
+    "soilTypes": [
+      "Alluvial Soil",
+      "Black Cotton Soil",
+      "Clay Soil",
+      "Laterite Soil",
+      "Red Soil",
+      "Sandy Loam Soil"
+    ],
+    "seasons": [
+      "Kharif (Monsoon: Jun - Oct)",
+      "Rabi (Winter: Oct - Mar)",
+      "Zaid (Summer: Mar - Jun)"
+    ],
+    "validationAccuracy": 0.9886
+  },
+  "crops": {
+    "apple": {
+      "cropName": "Apple",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 22.630399999999998,
+          "std": 0.8230770559309744,
+          "min": 21.04,
+          "max": 24.0
+        },
+        "humidity": {
+          "mean": 92.33370000000001,
+          "std": 1.4514183786903072,
+          "min": 90.03,
+          "max": 94.92
+        },
+        "ph": {
+          "mean": 5.929600000000001,
+          "std": 0.2679325288202237,
+          "min": 5.51,
+          "max": 6.5
+        },
+        "rainfall": {
+          "mean": 112.6549,
+          "std": 7.067436663317188,
+          "min": 100.12,
+          "max": 124.98
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.4811320754716981,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.9805825242718447,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Temperate fruit crop requiring chilling hours during winter and well-drained loamy soil with neutral to slightly acidic pH."
+    },
+    "banana": {
+      "cropName": "Banana",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 27.377000000000002,
+          "std": 1.4209753692446612,
+          "min": 25.01,
+          "max": 29.91
+        },
+        "humidity": {
+          "mean": 80.35829999999999,
+          "std": 2.7911463791782762,
+          "min": 75.03,
+          "max": 84.98
+        },
+        "ph": {
+          "mean": 5.9846,
+          "std": 0.26957900511723837,
+          "min": 5.51,
+          "max": 6.49
+        },
+        "rainfall": {
+          "mean": 104.62699999999997,
+          "std": 9.351583448806945,
+          "min": 90.11,
+          "max": 119.85
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.4811320754716981,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.49514563106796117
+      },
+      "cultivationGuide": "Heavy feeder demanding fertile alluvial soil with high organic mulch and constant adequate moisture throughout growth."
+    },
+    "blackgram": {
+      "cropName": "Blackgram",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 29.973499999999994,
+          "std": 2.6728619025306934,
+          "min": 25.1,
+          "max": 34.95
+        },
+        "humidity": {
+          "mean": 65.1186,
+          "std": 2.7842076143851053,
+          "min": 60.07,
+          "max": 69.96
+        },
+        "ph": {
+          "mean": 7.133500000000001,
+          "std": 0.3708810456197512,
+          "min": 6.5,
+          "max": 7.78
+        },
+        "rainfall": {
+          "mean": 67.8845,
+          "std": 4.1636148657146475,
+          "min": 60.42,
+          "max": 74.92
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.4811320754716981,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Requires well-drained black or alluvial soil. High organic matter content improves pod filling and yield."
+    },
+    "chickpea": {
+      "cropName": "Chickpea",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 18.8727,
+          "std": 1.1639113840838573,
+          "min": 17.02,
+          "max": 21.0
+        },
+        "humidity": {
+          "mean": 16.8604,
+          "std": 1.7032263032257342,
+          "min": 14.26,
+          "max": 19.97
+        },
+        "ph": {
+          "mean": 7.3373,
+          "std": 0.7971497412657174,
+          "min": 5.99,
+          "max": 8.87
+        },
+        "rainfall": {
+          "mean": 80.0591,
+          "std": 7.904414727859361,
+          "min": 65.11,
+          "max": 94.78
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.330188679245283,
+        "Black Cotton Soil": 0.32075471698113206,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.32075471698113206
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.9805825242718447,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Ideal for winter Rabi planting on deep alluvial and black soils. Moderate water requirement; avoid excessive irrigation to prevent root rot."
+    },
+    "coconut": {
+      "cropName": "Coconut",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 27.41,
+          "std": 1.378708816248014,
+          "min": 25.01,
+          "max": 29.87
+        },
+        "humidity": {
+          "mean": 94.8442,
+          "std": 2.6725142394382106,
+          "min": 90.02,
+          "max": 99.98
+        },
+        "ph": {
+          "mean": 5.976599999999999,
+          "std": 0.28601475486415034,
+          "min": 5.5,
+          "max": 6.47
+        },
+        "rainfall": {
+          "mean": 175.68670000000003,
+          "std": 29.324437967504164,
+          "min": 131.09,
+          "max": 225.63
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.32075471698113206,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.32075471698113206,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.330188679245283
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Coastal and tropical perennial thriving in sandy loam and laterite soils with high humidity and warm temperatures."
+    },
+    "coffee": {
+      "cropName": "Coffee",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 25.540100000000002,
+          "std": 1.4951658737411042,
+          "min": 23.06,
+          "max": 27.92
+        },
+        "humidity": {
+          "mean": 58.8699,
+          "std": 5.809204505782182,
+          "min": 50.05,
+          "max": 69.95
+        },
+        "ph": {
+          "mean": 6.7901,
+          "std": 0.41521439040572766,
+          "min": 6.02,
+          "max": 7.49
+        },
+        "rainfall": {
+          "mean": 158.06650000000002,
+          "std": 25.566097957060244,
+          "min": 115.16,
+          "max": 199.47
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.009433962264150943,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.4811320754716981,
+        "Red Soil": 0.4811320754716981,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Shade-loving plantation crop thriving on sloping laterite and red soils with high organic humus and mild temperatures."
+    },
+    "cotton": {
+      "cropName": "Cotton",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 23.988699999999998,
+          "std": 1.129576606521222,
+          "min": 22.0,
+          "max": 25.99
+        },
+        "humidity": {
+          "mean": 79.84369999999998,
+          "std": 3.0356533580104292,
+          "min": 75.01,
+          "max": 84.88
+        },
+        "ph": {
+          "mean": 6.912699999999998,
+          "std": 0.6237994148762885,
+          "min": 5.8,
+          "max": 7.99
+        },
+        "rainfall": {
+          "mean": 80.398,
+          "std": 11.175840281607464,
+          "min": 60.65,
+          "max": 99.93
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.4811320754716981,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Cash crop thriving on moisture-retentive black cotton soil with high sunshine and warm growing seasons."
+    },
+    "grapes": {
+      "cropName": "Grapes",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 23.849899999999995,
+          "std": 9.689906139380298,
+          "min": 8.83,
+          "max": 41.95
+        },
+        "humidity": {
+          "mean": 81.87519999999999,
+          "std": 1.1707437635964593,
+          "min": 80.02,
+          "max": 83.98
+        },
+        "ph": {
+          "mean": 6.025900000000002,
+          "std": 0.29714674825748977,
+          "min": 5.51,
+          "max": 6.5
+        },
+        "rainfall": {
+          "mean": 69.61190000000002,
+          "std": 2.937432448584988,
+          "min": 65.01,
+          "max": 74.92
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.009433962264150943,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.4811320754716981,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.9805825242718447,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Prefers well-drained sandy loam soil with good trellis support. Dry weather during berry ripening is essential."
+    },
+    "jute": {
+      "cropName": "Jute",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 24.9582,
+          "std": 1.1793840595836456,
+          "min": 23.09,
+          "max": 26.99
+        },
+        "humidity": {
+          "mean": 79.6398,
+          "std": 5.479969156847509,
+          "min": 70.88,
+          "max": 89.89
+        },
+        "ph": {
+          "mean": 6.7326999999999995,
+          "std": 0.44381044377076123,
+          "min": 6.0,
+          "max": 7.49
+        },
+        "rainfall": {
+          "mean": 174.79240000000001,
+          "std": 15.002761620448418,
+          "min": 150.24,
+          "max": 199.84
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.4811320754716981,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Commercial fiber crop requiring hot, humid tropical monsoon climates and fertile river alluvial soils."
+    },
+    "kidneybeans": {
+      "cropName": "Kidneybeans",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 20.115099999999998,
+          "std": 2.586263132397784,
+          "min": 15.33,
+          "max": 24.92
+        },
+        "humidity": {
+          "mean": 21.6056,
+          "std": 2.1562779598187243,
+          "min": 18.09,
+          "max": 24.97
+        },
+        "ph": {
+          "mean": 5.749599999999999,
+          "std": 0.14436010529228638,
+          "min": 5.5,
+          "max": 6.0
+        },
+        "rainfall": {
+          "mean": 105.91940000000001,
+          "std": 25.9802849029798,
+          "min": 60.28,
+          "max": 149.74
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.4811320754716981,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Grows optimally in rich red and alluvial soils. Requires well-distributed moderate rainfall and mild temperatures."
+    },
+    "lentil": {
+      "cropName": "Lentil",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 24.508799999999997,
+          "std": 3.3043566030318217,
+          "min": 18.06,
+          "max": 29.94
+        },
+        "humidity": {
+          "mean": 64.8051,
+          "std": 2.9207565783543137,
+          "min": 60.09,
+          "max": 69.92
+        },
+        "ph": {
+          "mean": 6.9281,
+          "std": 0.5464571254911039,
+          "min": 5.92,
+          "max": 7.84
+        },
+        "rainfall": {
+          "mean": 45.68030000000001,
+          "std": 5.604956102415076,
+          "min": 35.03,
+          "max": 54.94
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.4811320754716981,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.9805825242718447,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Cool-season Rabi legume suited for alluvial and clay soils. Requires minimal nitrogen due to high atmospheric nitrogen-fixing capacity."
+    },
+    "maize": {
+      "cropName": "Maize",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 22.389199999999995,
+          "std": 2.6654945807485713,
+          "min": 18.04,
+          "max": 26.55
+        },
+        "humidity": {
+          "mean": 65.092,
+          "std": 5.421221264622945,
+          "min": 55.28,
+          "max": 74.83
+        },
+        "ph": {
+          "mean": 6.2451,
+          "std": 0.41109973242511366,
+          "min": 5.51,
+          "max": 7.0
+        },
+        "rainfall": {
+          "mean": 84.7668,
+          "std": 15.469697920774017,
+          "min": 60.65,
+          "max": 109.75
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.32075471698113206,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.330188679245283,
+        "Sandy Loam Soil": 0.32075471698113206
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.49514563106796117,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Thrives in well-drained loamy to alluvial soils. Sensitive to waterlogging; ensure ridge planting during heavy monsoon spells."
+    },
+    "mango": {
+      "cropName": "Mango",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 31.208299999999994,
+          "std": 2.640969161122485,
+          "min": 27.0,
+          "max": 35.99
+        },
+        "humidity": {
+          "mean": 50.15689999999999,
+          "std": 2.7419605011742965,
+          "min": 45.02,
+          "max": 54.96
+        },
+        "ph": {
+          "mean": 5.766099999999999,
+          "std": 0.6996597673155146,
+          "min": 4.51,
+          "max": 6.97
+        },
+        "rainfall": {
+          "mean": 94.70460000000001,
+          "std": 3.3217511706929526,
+          "min": 89.29,
+          "max": 100.81
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.32075471698113206,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.330188679245283,
+        "Red Soil": 0.32075471698113206,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.49514563106796117
+      },
+      "cultivationGuide": "Deep-rooted perennial requiring deep alluvial or red loamy soil. Avoid heavy rainfall during the flowering stage."
+    },
+    "mothbeans": {
+      "cropName": "Mothbeans",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 28.194799999999997,
+          "std": 2.198246337424448,
+          "min": 24.02,
+          "max": 32.0
+        },
+        "humidity": {
+          "mean": 53.160199999999996,
+          "std": 6.959474546257066,
+          "min": 40.01,
+          "max": 64.96
+        },
+        "ph": {
+          "mean": 6.8308,
+          "std": 1.852752374172005,
+          "min": 3.5,
+          "max": 9.94
+        },
+        "rainfall": {
+          "mean": 51.19880000000001,
+          "std": 13.682223816324594,
+          "min": 30.92,
+          "max": 74.44
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.009433962264150943,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.4811320754716981,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Highly resilient arid-zone pulse ideal for sandy loam soils with low moisture and high temperatures."
+    },
+    "mungbean": {
+      "cropName": "Mungbean",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 28.526000000000003,
+          "std": 0.8368835044377445,
+          "min": 27.01,
+          "max": 29.91
+        },
+        "humidity": {
+          "mean": 85.50000000000001,
+          "std": 2.8373998660745716,
+          "min": 80.03,
+          "max": 90.0
+        },
+        "ph": {
+          "mean": 6.7237,
+          "std": 0.2849093013574671,
+          "min": 6.22,
+          "max": 7.2
+        },
+        "rainfall": {
+          "mean": 48.403600000000004,
+          "std": 7.08162884088117,
+          "min": 36.12,
+          "max": 59.87
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.330188679245283,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.32075471698113206,
+        "Sandy Loam Soil": 0.32075471698113206
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.49514563106796117
+      },
+      "cultivationGuide": "Short-duration legume that thrives across warm Kharif and Zaid seasons. Excellent green manure crop."
+    },
+    "muskmelon": {
+      "cropName": "Muskmelon",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 28.662900000000004,
+          "std": 0.8568854007392119,
+          "min": 27.02,
+          "max": 29.94
+        },
+        "humidity": {
+          "mean": 92.3432,
+          "std": 1.4972353722778535,
+          "min": 90.02,
+          "max": 94.96
+        },
+        "ph": {
+          "mean": 6.3592,
+          "std": 0.23057614794249645,
+          "min": 6.0,
+          "max": 6.78
+        },
+        "rainfall": {
+          "mean": 24.6904,
+          "std": 2.760381466391919,
+          "min": 20.21,
+          "max": 29.87
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.9805825242718447
+      },
+      "cultivationGuide": "Requires warm temperatures, abundant sunshine, and well-aerated sandy loam soil for optimal brix sugar development."
+    },
+    "orange": {
+      "cropName": "Orange",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 22.765499999999992,
+          "std": 7.305692352542639,
+          "min": 10.01,
+          "max": 34.91
+        },
+        "humidity": {
+          "mean": 92.17,
+          "std": 1.423253315471283,
+          "min": 90.01,
+          "max": 94.96
+        },
+        "ph": {
+          "mean": 7.017300000000001,
+          "std": 0.5733338556199172,
+          "min": 6.01,
+          "max": 8.0
+        },
+        "rainfall": {
+          "mean": 110.47500000000002,
+          "std": 5.688332532473818,
+          "min": 100.17,
+          "max": 119.69
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Citrus tree requiring well-drained sandy loam soil. Sensitive to water stagnancy and high soil salinity."
+    },
+    "papaya": {
+      "cropName": "Papaya",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 33.723600000000005,
+          "std": 6.231230620030043,
+          "min": 23.01,
+          "max": 43.68
+        },
+        "humidity": {
+          "mean": 92.40360000000001,
+          "std": 1.413323402480832,
+          "min": 90.04,
+          "max": 94.94
+        },
+        "ph": {
+          "mean": 6.7410000000000005,
+          "std": 0.14667310591925165,
+          "min": 6.5,
+          "max": 6.99
+        },
+        "rainfall": {
+          "mean": 142.62790000000004,
+          "std": 64.07385613953636,
+          "min": 40.35,
+          "max": 248.86
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.49514563106796117
+      },
+      "cultivationGuide": "Fast-growing fruit requiring frost-free tropical climate and rich, porous alluvial soil with strict drainage."
+    },
+    "pigeonpeas": {
+      "cropName": "Pigeonpeas",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 27.741500000000002,
+          "std": 5.686981338988199,
+          "min": 18.32,
+          "max": 36.98
+        },
+        "humidity": {
+          "mean": 48.061699999999995,
+          "std": 10.908565080247723,
+          "min": 30.4,
+          "max": 69.69
+        },
+        "ph": {
+          "mean": 5.793900000000001,
+          "std": 0.8261875029313867,
+          "min": 4.55,
+          "max": 7.45
+        },
+        "rainfall": {
+          "mean": 149.4573,
+          "std": 32.82104522573893,
+          "min": 90.05,
+          "max": 198.83
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.330188679245283,
+        "Black Cotton Soil": 0.32075471698113206,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.32075471698113206,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Drought-tolerant pulse crop well-suited for black and red soils. Intercropping with cereals improves soil nitrogen levels."
+    },
+    "pomegranate": {
+      "cropName": "Pomegranate",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 21.837600000000002,
+          "std": 2.1954198322872096,
+          "min": 18.07,
+          "max": 24.96
+        },
+        "humidity": {
+          "mean": 90.1261,
+          "std": 2.81102895573845,
+          "min": 85.13,
+          "max": 95.0
+        },
+        "ph": {
+          "mean": 6.429199999999998,
+          "std": 0.4892170888266271,
+          "min": 5.56,
+          "max": 7.2
+        },
+        "rainfall": {
+          "mean": 107.52859999999998,
+          "std": 2.880870708657367,
+          "min": 102.52,
+          "max": 112.48
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.32075471698113206,
+        "Black Cotton Soil": 0.32075471698113206,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.330188679245283
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.49514563106796117,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.49514563106796117
+      },
+      "cultivationGuide": "Drought-hardy fruit crop ideal for well-drained sandy loam and black soils with sunny, dry ripening periods."
+    },
+    "rice": {
+      "cropName": "Rice",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 23.6897,
+          "std": 2.0210865666764497,
+          "min": 20.05,
+          "max": 26.93
+        },
+        "humidity": {
+          "mean": 82.27269999999999,
+          "std": 1.4109754462782125,
+          "min": 80.12,
+          "max": 84.97
+        },
+        "ph": {
+          "mean": 6.425100000000001,
+          "std": 0.7645894257704589,
+          "min": 5.01,
+          "max": 7.87
+        },
+        "rainfall": {
+          "mean": 236.18099999999998,
+          "std": 34.11988046579296,
+          "min": 182.56,
+          "max": 298.56
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.4811320754716981,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.009433962264150943
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.9805825242718447,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.009708737864077669
+      },
+      "cultivationGuide": "Requires fertile clayey/alluvial soil with high water-retention capacity. Maintain 2-5 cm standing water during early vegetative stages."
+    },
+    "watermelon": {
+      "cropName": "Watermelon",
+      "prior": 0.045454545454545456,
+      "numericalStats": {
+        "temperature": {
+          "mean": 25.591499999999996,
+          "std": 0.8458940536497462,
+          "min": 24.04,
+          "max": 26.99
+        },
+        "humidity": {
+          "mean": 85.1604,
+          "std": 2.941820497583086,
+          "min": 80.03,
+          "max": 89.98
+        },
+        "ph": {
+          "mean": 6.4957,
+          "std": 0.2797829694602586,
+          "min": 6.0,
+          "max": 6.96
+        },
+        "rainfall": {
+          "mean": 50.786500000000004,
+          "std": 5.837835108154392,
+          "min": 40.13,
+          "max": 59.76
+        }
+      },
+      "soilProbabilities": {
+        "Alluvial Soil": 0.4811320754716981,
+        "Black Cotton Soil": 0.009433962264150943,
+        "Clay Soil": 0.009433962264150943,
+        "Laterite Soil": 0.009433962264150943,
+        "Red Soil": 0.009433962264150943,
+        "Sandy Loam Soil": 0.4811320754716981
+      },
+      "seasonProbabilities": {
+        "Kharif (Monsoon: Jun - Oct)": 0.009708737864077669,
+        "Rabi (Winter: Oct - Mar)": 0.009708737864077669,
+        "Zaid (Summer: Mar - Jun)": 0.9805825242718447
+      },
+      "cultivationGuide": "Warm-season fruit thriving in sandy soils and riverbeds during hot, dry Zaid seasons with moderate watering."
+    }
+  }
+}

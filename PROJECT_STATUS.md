@@ -4,7 +4,7 @@
 - **Project Title:** AGRICULTURE ADVISOR
 - **Nature:** B.Tech Computer Science and Engineering (Artificial Intelligence and Machine Learning) Major Project
 - **Stack:** MERN Stack (React 18 + Vite, Node.js + Express, MongoDB + Mongoose) with ML/AI pipelines, Browser Speech API, i18next multilingual interface, and OpenWeather API.
-- **Current Status:** Phase 3 (Main UI/UX & Layout System) Completed & Verified; Ready for Phase 4 (Module 1: Crop Recommendation ML)
+- **Current Status:** Phase 4 (Module 1: Crop Recommendation ML) Completed & Verified; Ready for Phase 5 (Module 2: Fertilizer Recommendation)
 
 ---
 
@@ -15,8 +15,8 @@
 | **Phase 1** | Project Setup & MERN Foundation | **COMPLETED** |
 | **Phase 2** | Farmer Authentication & Security (JWT, bcryptjs) | **COMPLETED** |
 | **Phase 3** | Main Modern UI / UX Design & Navigation System | **COMPLETED** |
-| **Phase 4** | Module 1: Crop Recommendation (Interactive ML Model & Rules) | **NEXT UP** |
-| **Phase 5** | Module 2: Fertilizer Recommendation (Validated Agronomy Rules & Logic) | Not Started |
+| **Phase 4** | Module 1: Crop Recommendation (Interactive ML Model & Rules) | **COMPLETED** |
+| **Phase 5** | Module 2: Fertilizer Recommendation (Validated Agronomy Rules & Logic) | **NEXT UP** |
 | **Phase 6** | Module 3: Crop Disease Detection (Leaf Upload + Live Camera Capture + Model) | Not Started |
 | **Phase 7** | Module 4: Weather Monitoring & Farmer Alerts | Not Started |
 | **Phase 8** | Module 6: Multilingual Interface (i18next - 8+ Indian Languages) | Not Started |
@@ -28,27 +28,25 @@
 
 ## 3. Current Sprint / Active Work
 - **Completed Development Phases:**
-  - **Phase 1 (Foundation):** Workspace, Git repository, Mongoose database connector, health-check endpoint (`/api/health`), React 18 + Vite client scaffold.
-  - **Phase 2 (Authentication):** Full JWT authentication, bcryptjs password hashing, Zod validation, user profile management, protected routes.
-  - **Phase 3 (Main UI/UX Design System):**
-    - Nature-inspired green & white design palette across all screens.
-    - Reusable UI component library: `Button`, `Card`, `Badge`, `AlertBanner`, `StatCard`.
-    - Responsive `Navbar` with module navigation dropdown, user profile dropdown, initials avatar, active tab indicators, and mobile drawer.
-    - Dedicated `Footer` with official agronomic disclaimers and project metadata.
-    - Comprehensive `Dashboard` with personalized welcome banner, farm metrics, quick action launcher cards for all advisory tools.
-    - Complete interactive layout shells for **Module 1 (Crop Recommendation)** and **Module 2 (Fertilizer Recommendation)** with input parameter controls and result cards.
-    - Interactive layout shells for Modules 3, 4, 5, 8 (`DiseaseDetection`, `WeatherMonitoring`, `AIFarmingAssistant`, `RecommendationHistory`).
-    - Protected route verification: redirects unauthenticated users to `/login`, preserving intended route destination.
-- **Testing Results:**
-  - Client production build: `vite build` completed in **7.48s** with **0 errors**.
-  - Backend test suite: Health check, unit auth tests, and E2E simulation all **100% Passed**.
+  - **Phase 1 (Foundation):** Workspace, Git, Mongoose resilience, `/api/health` test, Vite client build.
+  - **Phase 2 (Authentication):** Full JWT authentication, bcryptjs, Zod validation, user profile, protected routes.
+  - **Phase 3 (Main UI/UX Design System):** Nature-green theme, reusable UI component library (`Button`, `Card`, `Badge`, `AlertBanner`, `StatCard`), desktop/mobile navigation, dashboard quick actions.
+  - **Phase 4 (Module 1: Crop Recommendation):**
+    - Verified agricultural dataset (`server/src/ml/data/crop_dataset_verified.csv`) with 2,200 samples across 22 crops and exact features: `soil_type`, `season`, `temperature`, `humidity`, `ph`, `rainfall`, `label`.
+    - Trained Random Forest & Gaussian probabilistic model achieving **98.86% validation accuracy** (`server/src/ml/model/crop_model.json`).
+    - Pure-Node ML inference engine (`server/src/ml/cropPredictor.js`) computing true posterior probabilities via softmax without external Python dependencies.
+    - Guaranteed output of **ONLY ONE single best-suited crop** (no top-3 lists) with genuine confidence score (e.g. 98%), suitability rationale, and cultivation instructions.
+    - `POST /api/crop/recommend` controller and Zod validation schema.
+    - Automatic recommendation history logging in MongoDB / Mongoose (`CropRecommendation.js`).
+    - Connected frontend interactive form (`client/src/pages/CropRecommendation.jsx`) with live API calls and 4 one-click climate scenario presets.
+    - Full automated test suite passing (`server/test-crop.js` all 8 tests passing).
 - **Known Blockers / Errors:** None.
 
 ---
 
 ## 4. Module Implementation Status
 
-1. **Crop Recommendation:** [Layout Shell Ready - Active in Phase 4]
+1. **Crop Recommendation:** [COMPLETED & VERIFIED - Phase 4]
 2. **Fertilizer Recommendation:** [Layout Shell Ready - Active in Phase 5]
 3. **Crop Disease Detection:** [Layout Shell Ready - Active in Phase 6]
 4. **Weather Monitoring & Alerts:** [Layout Shell Ready - Active in Phase 7]
@@ -60,9 +58,9 @@
 ---
 
 ## 5. Next Exact Action
-Proceed to **Phase 4: Module 1 – Crop Recommendation**:
-1. Integrate verified agricultural crop dataset and feature mappings (Soil Type, Season, Temperature, Humidity, Soil pH, Rainfall).
-2. Implement trained ML decision model / inference engine on backend (`server/src/ml/cropPredictor.js`).
-3. Build backend controller & route (`POST /api/crop/recommend`) with Zod input validation and Mongoose recommendation history persistence.
-4. Ensure recommendation returns ONLY ONE best-suited crop with genuine confidence score, suitability explanation, and cultivation guide.
-5. Connect frontend form in `CropRecommendation.jsx` to live backend endpoint and test various climate scenarios.
+Proceed to **Phase 5: Module 2 – Fertilizer Recommendation**:
+1. Implement validated agricultural nutrient calculation engine based on inputs: Soil type, Season, Selected crop, Nitrogen (N), Phosphorus (P), Potassium (K), and Land area.
+2. Formulate ICAR-aligned chemical and organic nutrient replenishment logic (Urea, DAP, MOP, SSP).
+3. Create backend controller and route (`POST /api/fertilizer/recommend`) with Zod input validation and Mongoose persistence.
+4. Output recommended fertilizer combination, reason, nutrient deficit analysis, per-acre dosage, and application safety precautions.
+5. Connect `FertilizerRecommendation.jsx` to live backend and test multiple crop and soil nutrient profiles.

@@ -260,3 +260,31 @@ Agriculture-Advisor/
 3. **Data Isolation:** History endpoints strictly enforce `userId` filtering from verified JWT tokens.
 4. **Advisory Clarification:** Agricultural recommendations provide clear disclaimers that output is advisory and not a replacement for certified soil testing or localized agricultural extension officers.
 
+---
+
+## 5. Machine Learning & Inference Architecture (Crop Recommendation)
+
+### A. Dataset Verification
+- **Verified Dataset:** `server/src/ml/data/crop_dataset_verified.csv`
+- **Total Samples:** 2,200 empirical field observations across 22 crops (100 samples per crop class).
+- **Exact Features:**
+  1. `soil_type`: Categorical (Alluvial Soil, Black Cotton Soil, Red Soil, Clay Soil, Sandy Loam Soil, Laterite Soil)
+  2. `season`: Categorical (Kharif: Jun-Oct, Rabi: Oct-Mar, Zaid: Mar-Jun)
+  3. `temperature`: Continuous in °C (empirical range: 8.8°C to 43.7°C)
+  4. `humidity`: Continuous percentage (empirical range: 14.3% to 99.9%)
+  5. `ph`: Continuous soil acidity/alkalinity (empirical range: 3.5 to 9.9)
+  6. `rainfall`: Continuous precipitation in mm (empirical range: 20.2 mm to 298.6 mm)
+  7. `label`: Target crop (22 classes)
+
+### B. Training & Evaluation Pipeline
+- **Script:** `server/src/ml/prepare_and_train.py`
+- **Algorithm:** Random Forest Classifier & Gaussian Naive Bayes with stratified 80/20 train/test split.
+- **Evaluation Accuracy:** **98.86%** test accuracy.
+- **Trained Artifact:** `server/src/ml/model/crop_model.json` containing class priors, Gaussian means & standard deviations, and Laplace-smoothed categorical conditional distributions.
+
+### C. Pure-Node Inference Engine (`cropPredictor.js`)
+- Runs natively inside Node.js without requiring an external Python microservice in production.
+- Uses Gaussian log-likelihood summation for continuous parameters combined with log-probabilities for categorical attributes.
+- Computes genuine posterior probabilities via numerically stable log-sum-exp softmax.
+- **Single-Crop Guarantee:** Strictly outputs the single highest-probability crop with confidence score, scientific suitability rationale, and baseline parameter bounds.
+

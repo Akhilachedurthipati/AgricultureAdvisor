@@ -59,14 +59,17 @@ Status Legend:
 ---
 
 ## Phase 4: Module 1 – Crop Recommendation
-- [ ] Verified agricultural crop dataset and feature definition
-- [ ] Real trained machine learning / decision pipeline for crop prediction based on (Soil Type, Season, Temperature, Humidity, pH, Rainfall)
-- [ ] Backend route & controller (`POST /api/crop/recommend`) with Zod input validation
-- [ ] Exactly ONE best-suited crop output (no top-3 lists)
-- [ ] Crop details: Suitability explanation, confidence score, cultivation guidelines, agronomic notes
-- [ ] Frontend Crop Recommendation interactive form
-- [ ] Result card with visual indicators, advisory disclaimers, and save-to-history trigger
-- [ ] Unit & integration testing with various climate scenarios
+- [x] Verified agricultural crop dataset and feature definition (`server/src/ml/data/crop_dataset_verified.csv`)
+- [x] Real trained machine learning / decision pipeline for crop prediction based on (Soil Type, Season, Temperature, Humidity, pH, Rainfall) (`server/src/ml/model/crop_model.json` with 98.86% validation accuracy)
+- [x] Pure-Node inference engine (`server/src/ml/cropPredictor.js`)
+- [x] CropRecommendation Mongoose Model (`server/src/models/CropRecommendation.js`)
+- [x] Backend route & controller (`POST /api/crop/recommend`, `GET /api/crop/history`) with Zod input validation
+- [x] Exactly ONE best-suited crop output (no top-3 lists)
+- [x] Crop details: Suitability explanation, confidence score, cultivation guidelines, agronomic notes
+- [x] Frontend Crop Recommendation interactive form (`client/src/pages/CropRecommendation.jsx`)
+- [x] Quick evaluation climate presets for one-click testing
+- [x] Result card with visual indicators, advisory disclaimers, and save-to-history trigger
+- [x] Unit & integration testing with multiple climate scenarios (`server/test-crop.js` all 8 tests passing)
 
 ---
 

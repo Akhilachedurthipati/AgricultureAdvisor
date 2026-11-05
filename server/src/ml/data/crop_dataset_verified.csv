@@ -1,0 +1,2201 @@
+soil_type,season,temperature,humidity,ph,rainfall,label
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.88,82.0,6.5,202.94,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.77,80.32,7.04,226.66,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.0,82.32,7.84,263.96,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.49,80.16,6.98,242.86,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.13,81.6,7.63,262.72,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.06,83.37,7.07,251.05,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),22.71,82.64,5.7,271.32,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.28,82.89,5.72,241.97,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.52,83.54,6.69,230.45,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.22,83.03,6.34,221.21,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.53,81.42,5.39,264.61,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.98,81.45,7.5,250.08,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.8,80.89,5.11,284.44,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.01,82.06,6.98,185.28,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.67,80.66,6.95,209.59,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.28,80.3,7.04,231.09,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.59,82.79,6.25,276.66,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.79,80.42,6.97,206.26,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.87,80.19,5.95,224.56,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.58,83.59,5.85,291.3,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.33,80.47,6.44,185.5,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.16,83.12,5.07,231.38,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.95,80.97,6.01,213.36,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.05,82.68,6.25,233.11,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.48,81.33,7.38,224.06,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.08,80.52,7.78,257.0,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.36,84.04,6.29,271.36,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.53,80.54,7.07,260.26,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.78,84.5,6.24,240.08,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.3,80.64,6.04,197.98,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.45,84.94,5.82,272.2,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.18,80.33,6.36,200.09,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.53,82.74,6.36,224.68,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.27,81.64,5.01,270.44,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.74,83.88,6.15,233.13,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.8,82.15,5.95,193.35,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.76,81.18,5.96,272.3,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.86,83.15,5.56,285.25,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.02,82.95,7.42,298.4,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.17,83.73,5.58,257.03,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),22.78,82.07,6.43,248.72,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.63,83.53,5.53,209.9,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.6,80.15,6.9,200.83,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.83,84.81,6.27,298.56,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.31,82.37,7.22,265.54,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.9,80.53,6.13,183.68,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.96,84.48,5.21,196.96,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.24,84.59,7.78,233.05,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.67,80.71,7.06,210.81,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.64,80.41,7.73,253.72,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.43,83.06,5.29,219.9,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.05,80.35,6.77,208.58,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.86,82.23,7.38,195.09,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.97,81.9,5.66,227.36,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.23,83.84,5.54,286.51,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.45,84.79,6.22,283.93,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.66,83.47,7.12,217.38,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.44,82.45,5.95,267.98,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.28,82.12,7.24,191.95,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.72,80.24,6.5,277.96,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.41,82.21,7.59,245.15,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.76,83.52,5.88,245.66,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.62,83.77,6.93,279.55,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.84,80.73,6.95,202.38,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),20.08,83.29,5.74,263.64,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.46,82.75,6.74,182.56,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.14,80.34,5.59,198.67,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.79,82.11,6.95,243.51,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.64,80.29,5.01,263.11,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.43,80.57,6.36,269.5,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.98,83.89,6.88,204.8,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.73,82.17,7.3,260.89,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.87,82.84,6.59,295.61,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.32,83.0,7.28,192.32,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.29,84.57,7.02,257.49,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.23,81.86,6.94,278.08,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.73,81.79,7.87,280.4,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.89,81.98,5.01,185.95,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.88,81.46,6.14,194.58,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.68,83.73,7.52,200.91,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.09,80.38,5.71,182.9,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.43,82.95,5.76,195.36,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.4,81.06,6.35,223.37,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.04,84.97,6.0,186.75,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.28,80.54,5.45,220.12,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.09,83.47,6.37,231.74,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.29,81.43,5.11,242.32,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.49,81.41,5.94,182.65,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.68,81.04,5.18,233.7,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.82,84.13,6.46,230.22,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.93,81.91,7.07,290.68,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.84,83.88,7.47,241.2,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.53,80.12,6.16,218.92,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.46,83.86,7.55,248.23,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),22.7,82.81,6.03,257.0,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.68,83.46,6.6,194.27,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),21.53,82.14,6.5,295.92,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.41,83.33,5.94,287.58,rice
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.54,84.67,7.07,183.62,rice
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.36,83.6,5.33,188.41,rice
+Red Soil,Kharif (Monsoon: Jun - Oct),22.61,63.69,5.75,87.76,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),26.1,71.57,6.93,102.27,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.56,71.59,6.66,66.72,maize
+Red Soil,Rabi (Winter: Oct - Mar),19.97,57.68,6.6,60.65,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.48,62.7,5.97,65.44,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.78,57.81,6.16,102.09,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),25.62,66.5,6.05,105.47,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.19,66.69,5.91,78.07,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.42,62.55,5.86,65.28,maize
+Red Soil,Rabi (Winter: Oct - Mar),24.92,66.79,5.75,109.22,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.32,73.45,5.85,94.3,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.84,68.36,6.47,74.05,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),22.28,58.84,6.97,63.87,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.88,65.77,6.08,94.76,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.19,60.2,5.92,72.12,maize
+Red Soil,Rabi (Winter: Oct - Mar),18.25,55.28,6.2,63.72,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.61,70.42,6.6,104.16,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.14,65.26,6.02,76.68,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.09,60.12,6.03,65.5,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.05,62.89,6.29,84.24,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.93,73.8,6.55,79.74,maize
+Red Soil,Rabi (Winter: Oct - Mar),18.15,71.09,5.57,88.08,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.28,66.66,6.83,80.98,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.83,58.75,5.72,79.75,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),25.72,67.22,5.55,74.51,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.34,68.5,6.59,96.46,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.89,57.49,5.89,102.83,maize
+Red Soil,Rabi (Winter: Oct - Mar),21.54,71.51,5.92,102.49,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.09,63.1,5.59,70.43,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.62,63.47,6.58,108.83,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),21.45,63.16,6.18,65.89,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.52,55.53,6.64,90.99,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.54,67.99,6.49,64.41,maize
+Red Soil,Rabi (Winter: Oct - Mar),23.02,61.89,5.68,63.04,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.89,65.61,6.63,87.93,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.77,74.09,6.52,107.49,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),19.4,62.36,5.7,60.95,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),21.54,59.64,6.8,109.75,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.8,74.83,6.25,91.76,maize
+Red Soil,Rabi (Winter: Oct - Mar),18.98,74.53,6.09,94.26,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.11,73.13,6.23,71.08,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.79,70.05,5.72,76.73,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),21.63,60.28,6.43,69.22,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.38,57.21,5.98,101.7,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.22,72.85,6.8,106.62,maize
+Red Soil,Rabi (Winter: Oct - Mar),20.58,69.0,6.5,66.29,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.88,68.74,6.27,91.26,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.04,56.36,6.73,109.02,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),25.95,61.89,6.33,99.58,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.29,65.47,6.81,71.32,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.58,65.35,6.67,78.35,maize
+Red Soil,Rabi (Winter: Oct - Mar),24.71,56.73,6.65,88.45,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),20.27,63.91,6.44,62.5,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.42,64.24,6.47,76.41,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.39,61.74,5.87,107.32,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.85,61.25,5.73,100.77,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.87,61.91,5.85,107.27,maize
+Red Soil,Rabi (Winter: Oct - Mar),22.81,56.51,5.79,101.6,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),19.08,69.02,6.74,80.73,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.03,65.36,6.27,83.73,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.81,59.25,5.72,89.96,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.53,69.03,5.77,88.1,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.5,61.32,5.58,64.78,maize
+Red Soil,Rabi (Winter: Oct - Mar),26.55,72.89,5.79,73.34,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),19.3,69.63,5.78,83.21,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.69,59.44,6.86,103.65,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),19.33,68.03,6.19,84.23,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),24.61,73.59,6.64,96.59,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.27,59.52,5.83,67.97,maize
+Red Soil,Rabi (Winter: Oct - Mar),25.7,61.33,6.96,83.21,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),19.2,68.31,6.11,87.85,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.7,60.47,6.71,95.71,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),20.52,59.21,5.56,67.61,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),23.3,73.63,5.87,97.59,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.25,55.65,7.0,64.24,maize
+Red Soil,Rabi (Winter: Oct - Mar),24.86,65.74,5.71,75.82,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.63,65.77,6.78,88.17,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.04,60.61,5.51,104.23,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.26,72.33,5.8,67.1,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),22.88,71.6,6.35,67.73,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.97,69.36,6.82,103.22,maize
+Red Soil,Rabi (Winter: Oct - Mar),26.14,66.21,6.66,107.24,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.66,61.55,6.12,75.03,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.11,55.98,5.79,78.16,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.34,59.25,6.47,105.01,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.08,65.92,6.46,62.49,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.37,72.52,6.61,107.91,maize
+Red Soil,Rabi (Winter: Oct - Mar),25.34,63.32,6.33,74.52,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.01,67.82,6.53,62.91,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.67,71.52,5.72,69.93,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),20.38,63.74,6.64,108.51,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.09,72.61,6.38,78.96,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.17,71.96,6.25,79.85,maize
+Red Soil,Rabi (Winter: Oct - Mar),18.65,61.38,6.66,93.62,maize
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.07,59.37,6.2,85.76,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.93,72.8,6.16,82.34,maize
+Red Soil,Kharif (Monsoon: Jun - Oct),23.31,63.25,6.39,108.76,maize
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.75,62.5,6.42,70.23,maize
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.74,59.66,6.38,65.51,maize
+Red Soil,Rabi (Winter: Oct - Mar),25.73,70.75,6.88,98.74,maize
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.02,16.99,7.49,88.55,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.02,17.13,6.92,79.93,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.89,15.41,6.0,68.55,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.87,15.66,6.39,88.51,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.37,19.56,7.15,79.26,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.45,15.4,5.99,92.68,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.65,16.61,6.23,74.66,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.33,18.75,7.55,82.62,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.18,18.9,7.01,81.85,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.01,18.31,8.75,81.99,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.99,19.33,8.72,93.55,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.46,15.23,7.98,74.59,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.81,14.7,6.52,78.97,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.97,19.52,8.49,80.71,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.2,14.71,6.58,70.18,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.73,19.18,6.48,71.58,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),21.0,19.86,7.97,73.51,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.28,16.4,8.14,82.52,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.48,15.76,7.23,66.97,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.89,14.32,6.49,90.46,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.08,16.15,7.53,71.31,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.09,15.11,7.7,85.75,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.57,15.0,8.52,89.31,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.12,18.43,6.62,85.53,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.58,19.22,8.1,72.95,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.17,14.42,6.2,72.33,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.29,16.68,6.05,74.87,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.03,18.67,7.69,94.71,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.14,17.07,7.83,83.75,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.48,17.93,6.76,78.92,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.57,14.26,6.65,83.76,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.22,15.82,6.13,76.58,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.69,19.44,8.83,91.76,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.85,19.09,8.62,76.32,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.82,16.11,8.2,89.73,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.48,16.54,6.18,93.35,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.73,17.58,7.98,81.2,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.66,16.18,7.86,81.71,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.24,19.69,6.97,83.75,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.81,15.22,6.21,77.54,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.65,17.81,8.87,77.93,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.37,16.9,8.77,82.25,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.38,16.64,8.74,70.52,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.17,17.3,8.08,72.79,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.37,15.77,6.14,85.25,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.93,14.27,7.5,85.37,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.45,18.23,8.38,75.63,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.13,14.92,6.29,89.62,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.1,17.26,6.59,75.49,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.49,16.96,6.9,86.05,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.41,18.98,7.81,80.25,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.19,19.64,7.15,78.26,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.3,15.15,6.65,75.58,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.5,15.48,7.78,72.94,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.17,14.7,6.36,90.78,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.57,16.72,8.26,77.82,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.93,18.91,6.46,78.07,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.71,17.64,6.61,85.58,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.08,17.87,8.17,69.41,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.55,16.03,7.65,76.33,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.2,17.41,6.55,80.64,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.89,14.99,7.1,80.11,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.49,14.72,7.36,91.95,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.49,17.17,6.47,87.51,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.26,18.75,7.84,94.0,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.62,18.71,7.06,88.46,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.68,19.85,7.6,84.78,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.02,16.63,6.72,68.98,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.12,14.44,6.82,88.68,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.66,15.85,7.99,65.24,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.26,14.28,7.55,65.78,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.93,15.86,7.73,74.64,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.16,15.84,7.35,82.7,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.27,19.97,7.31,69.64,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.09,18.25,7.79,87.27,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.07,17.54,6.31,70.87,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.63,14.44,6.4,92.07,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),20.82,17.85,7.6,79.21,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.46,18.73,7.22,68.81,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.18,16.43,7.56,72.85,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.49,16.39,7.49,79.46,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.48,14.76,6.61,65.11,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.48,17.45,7.48,80.5,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.71,18.1,7.33,73.64,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.49,16.06,6.49,81.53,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.95,14.83,7.79,88.68,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.42,16.8,6.41,68.5,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.46,18.02,8.42,78.45,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.19,16.42,8.72,77.34,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.84,14.74,7.81,94.78,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.71,19.84,6.32,94.04,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.99,15.94,7.11,78.7,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),19.97,15.57,8.14,69.16,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.82,17.61,7.71,90.82,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.71,15.28,7.1,76.78,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),17.34,18.76,8.86,67.95,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),17.44,14.34,7.86,73.09,chickpea
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.9,19.76,7.45,69.1,chickpea
+Black Cotton Soil,Rabi (Winter: Oct - Mar),18.59,14.78,7.17,89.61,chickpea
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.32,15.36,7.26,81.79,chickpea
+Red Soil,Kharif (Monsoon: Jun - Oct),17.14,20.6,5.69,128.26,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.63,18.91,5.76,106.36,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),22.91,21.34,5.87,109.23,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),16.43,24.24,5.93,140.37,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),22.14,23.02,5.96,76.64,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.85,18.78,5.95,143.1,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.88,20.32,5.79,60.92,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.33,23.33,5.58,104.78,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),18.42,23.43,5.69,132.98,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.81,23.21,5.79,130.06,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.73,18.28,5.75,143.76,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.15,19.87,5.57,88.0,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.62,18.67,5.81,144.16,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.63,21.18,5.89,134.36,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),16.07,18.72,6.0,88.07,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.61,24.36,5.79,69.64,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.42,20.4,5.91,116.52,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.07,21.21,5.79,86.22,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.19,19.63,5.73,137.19,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.04,22.43,5.83,108.37,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),20.65,23.11,5.97,67.72,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.1,18.29,5.63,144.79,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),18.24,21.08,5.52,69.45,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.48,18.83,5.95,121.94,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.92,21.47,5.75,82.69,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.28,23.24,5.88,139.75,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),15.77,19.23,5.98,108.34,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),16.71,19.18,5.64,96.77,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),17.66,18.15,5.64,100.67,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.51,23.62,5.68,87.05,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),24.51,20.82,5.67,64.19,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.88,24.54,5.72,105.41,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.59,20.32,5.81,61.14,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.12,24.45,5.78,106.16,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),15.44,18.37,5.61,139.03,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.64,21.59,5.95,122.39,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.99,24.87,5.85,129.57,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.53,18.09,5.82,120.45,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),15.79,21.15,5.5,95.17,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.64,19.69,5.82,96.66,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),20.57,19.75,5.71,87.88,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.16,24.84,5.51,138.24,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.54,24.25,6.0,120.69,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),15.54,23.76,5.7,107.39,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.92,20.7,5.83,108.64,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.77,18.93,5.57,109.02,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.46,23.22,5.65,95.84,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.32,21.03,5.82,60.28,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),20.13,24.97,5.66,100.05,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.81,18.57,5.95,125.1,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.52,24.93,5.95,113.33,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.0,19.91,5.52,103.29,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),16.79,24.97,5.58,75.45,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.85,22.89,5.61,62.21,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),16.52,20.46,5.61,98.78,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.15,19.39,5.51,107.69,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.19,22.31,5.9,63.38,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.38,21.99,5.74,87.67,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),18.36,19.38,5.72,138.41,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.26,20.51,5.54,94.95,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),22.95,24.04,5.86,107.73,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.12,22.9,5.62,104.63,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.14,22.72,5.61,141.61,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.92,18.23,5.58,62.71,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),15.33,24.92,5.57,135.33,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.81,21.28,5.89,125.08,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.44,22.77,5.93,107.41,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.84,18.97,5.68,63.59,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),24.9,22.28,5.71,146.47,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.79,24.36,5.95,119.64,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),22.06,19.6,5.77,126.73,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.87,20.18,5.97,134.18,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),18.62,23.02,5.53,135.34,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.01,18.87,5.67,100.12,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.33,24.14,5.66,68.51,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),16.24,21.36,5.59,66.97,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),17.92,24.91,5.93,69.15,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),15.47,21.44,5.82,88.89,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),17.06,23.77,5.86,81.83,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.33,18.49,5.87,109.1,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.91,20.75,5.71,81.6,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.9,22.74,5.94,112.66,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),22.99,20.58,5.92,143.86,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.35,22.91,5.78,146.45,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),24.16,19.28,5.83,116.73,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.63,18.18,5.51,149.74,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),21.02,24.94,5.66,124.61,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.31,20.02,5.86,115.2,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.83,24.75,5.62,84.64,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.31,23.96,5.59,129.34,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),16.04,22.33,5.98,130.39,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.19,20.83,5.67,80.15,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),19.93,21.8,5.96,64.03,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.56,24.67,5.69,139.29,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),18.31,24.33,5.7,76.14,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.11,23.22,5.6,73.36,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),23.61,21.91,5.53,100.6,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.73,24.89,5.82,84.06,kidneybeans
+Red Soil,Kharif (Monsoon: Jun - Oct),20.93,21.19,5.56,133.19,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.78,20.25,5.63,104.26,kidneybeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),36.51,57.93,6.03,122.65,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),36.89,62.73,5.27,163.73,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.24,59.39,5.99,103.33,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.34,43.36,6.09,142.33,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),21.06,55.47,5.62,184.62,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.33,42.35,6.45,149.3,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.8,45.03,5.62,147.04,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),33.18,38.23,5.86,198.83,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.39,63.48,5.76,90.05,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.27,67.39,4.7,127.78,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),35.46,68.76,5.27,108.63,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.8,40.03,7.45,176.62,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.69,49.47,5.83,96.36,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.24,56.67,7.34,122.01,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.98,57.23,6.35,120.74,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.32,34.14,4.7,96.52,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),21.48,38.8,4.96,180.38,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),18.32,34.7,4.96,107.47,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),36.98,37.74,5.64,161.48,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),24.8,40.12,5.61,121.56,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.35,55.97,4.68,194.59,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.88,50.12,5.71,179.22,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),19.54,47.19,6.41,192.44,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.77,50.55,6.01,114.28,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.33,38.41,4.95,139.65,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),19.15,45.37,5.52,132.77,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.23,49.44,5.9,186.5,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.12,34.13,5.72,157.09,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),33.41,35.43,4.55,139.67,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.19,46.69,6.67,177.34,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.89,41.7,4.75,94.47,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.33,57.97,4.95,161.78,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.31,67.08,5.27,108.51,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.45,46.49,7.11,150.87,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),34.54,39.04,5.62,168.59,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.5,34.51,5.63,197.38,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.77,37.58,4.67,91.72,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),30.98,32.25,7.16,180.72,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),18.4,36.83,6.62,93.12,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),35.09,30.99,5.0,116.91,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),34.93,30.4,6.35,159.26,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.51,35.72,6.22,187.9,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.52,47.53,5.92,129.01,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),28.43,52.1,6.01,147.04,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),18.42,34.81,4.68,163.27,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.08,47.2,7.08,91.31,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),20.89,46.25,6.21,195.57,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.91,52.8,7.05,170.99,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.93,66.45,4.72,145.37,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),35.95,36.53,6.42,136.05,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.54,56.93,4.8,173.17,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.64,32.32,4.61,176.41,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.22,56.47,5.61,129.2,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.51,45.71,7.32,126.67,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.81,45.01,5.02,188.49,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),36.21,31.95,5.62,191.07,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.5,35.49,5.39,162.59,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.02,49.95,5.91,160.33,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.48,35.64,6.57,100.55,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.15,32.46,4.81,105.04,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.5,51.29,4.76,192.3,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),34.87,38.84,5.18,148.25,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.09,44.93,4.9,197.11,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.55,57.34,6.44,118.36,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),33.65,48.41,7.07,100.47,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),20.56,60.55,6.66,191.09,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.96,59.33,5.98,195.79,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),28.88,62.49,5.46,182.27,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),36.04,43.61,4.76,159.89,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.67,47.29,7.34,141.13,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),25.75,40.72,4.82,100.78,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),31.09,66.69,6.24,175.93,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.73,61.33,5.0,139.87,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),29.5,63.47,5.56,189.52,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),20.44,39.37,4.75,137.23,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),36.0,56.01,7.31,134.86,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.47,35.39,5.66,174.57,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),36.3,56.03,4.67,101.61,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.49,67.11,6.47,153.25,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),30.58,34.76,5.38,177.58,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.69,59.97,5.86,91.96,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.17,36.68,6.96,162.59,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),19.04,33.11,6.12,155.37,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.32,45.93,6.42,165.41,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.65,54.32,4.83,180.9,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),22.0,56.31,6.99,136.83,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.0,60.24,4.6,159.69,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.56,35.29,6.98,178.9,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),31.46,48.18,7.06,165.41,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.95,40.58,5.17,109.18,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.01,69.69,5.11,185.2,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),19.25,47.7,5.37,149.06,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.24,50.54,5.67,180.65,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.47,62.57,5.67,96.75,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),36.75,58.26,6.08,124.6,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.89,66.35,6.93,198.14,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.38,44.82,6.84,172.4,pigeonpeas
+Red Soil,Kharif (Monsoon: Jun - Oct),29.65,42.9,6.88,186.92,pigeonpeas
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.54,66.35,6.15,173.11,pigeonpeas
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.05,48.94,4.57,122.46,pigeonpeas
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.91,64.71,3.69,32.68,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.32,51.28,4.37,36.5,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.66,59.32,8.4,36.93,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.03,61.09,8.84,72.98,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.78,54.65,8.15,32.05,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),32.0,54.11,5.27,71.63,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.34,55.28,8.05,73.45,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.93,53.57,9.68,66.36,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.65,58.6,6.97,36.94,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.52,55.77,7.39,61.33,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.02,45.89,6.69,53.57,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.74,45.38,7.88,67.43,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.7,56.85,5.88,44.94,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.48,58.52,8.2,34.97,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.47,51.8,8.99,74.44,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.61,50.73,5.88,53.39,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.3,47.18,7.71,68.04,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.17,43.67,4.52,45.78,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.51,44.83,9.93,74.33,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.13,43.59,6.46,32.77,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.34,55.59,8.02,35.11,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.23,61.56,3.71,72.67,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.04,49.33,5.49,48.25,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.16,55.25,9.25,40.9,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.32,51.67,6.01,32.56,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.41,49.66,7.44,31.87,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.22,46.02,3.81,53.12,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.57,58.23,5.82,62.75,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.43,53.22,4.52,46.19,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.09,43.65,3.51,41.54,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.31,56.33,6.03,59.0,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.06,45.9,5.5,41.06,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.1,60.98,4.61,33.84,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.34,40.01,5.55,55.5,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.61,57.14,8.29,57.03,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.7,44.36,3.83,44.12,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.22,59.79,8.87,42.25,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.51,45.2,3.79,66.18,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.98,64.96,4.19,72.19,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.88,41.37,7.66,55.05,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.5,61.67,9.39,65.08,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.13,51.33,4.52,38.49,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.11,63.57,5.79,62.2,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.1,44.82,7.35,70.8,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.46,56.4,5.99,64.16,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.04,63.56,8.62,31.83,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.78,54.82,9.46,50.28,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.99,43.02,8.03,58.28,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.49,47.37,5.41,36.99,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.97,57.17,6.28,64.26,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.36,46.83,9.16,55.61,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.54,56.97,7.89,48.47,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.99,62.86,8.18,70.47,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.34,60.5,9.07,34.03,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.64,61.39,7.7,68.55,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.83,44.17,5.89,52.08,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.45,58.55,6.16,57.05,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.01,62.4,3.5,63.77,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.06,52.3,7.39,60.75,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.1,42.26,8.34,71.13,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.57,57.31,8.66,64.53,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.8,49.84,3.56,40.86,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.94,45.41,5.96,69.66,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.48,61.58,9.42,61.87,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.58,50.77,8.18,64.59,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.86,41.81,5.13,44.14,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.31,61.19,6.29,35.73,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.78,44.23,7.99,33.96,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.9,43.35,8.92,71.9,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.38,57.7,6.88,38.34,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.17,58.25,5.24,59.19,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.65,59.79,7.55,36.92,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.2,53.51,8.71,52.14,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.76,52.63,7.79,55.22,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.35,61.25,8.06,40.83,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.01,52.61,4.4,36.01,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.86,48.82,5.95,34.74,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.21,40.93,8.53,53.79,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.2,61.43,7.22,46.02,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.99,49.6,4.93,52.93,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.94,54.62,4.63,45.44,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.21,41.56,5.03,68.8,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.8,48.24,3.53,43.88,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.49,62.85,8.87,64.57,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.0,46.43,9.41,38.32,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.61,63.05,5.8,50.2,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.98,57.03,8.35,44.86,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.89,52.63,8.63,55.52,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.39,60.16,7.7,35.37,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.44,55.21,5.26,30.92,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.33,63.18,9.11,32.71,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.54,59.97,4.61,33.49,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.38,40.59,7.12,47.95,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.02,53.77,7.21,35.03,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.7,61.15,9.94,65.68,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.34,49.0,8.91,42.44,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.97,61.35,8.64,70.1,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.87,48.28,8.62,63.92,mothbeans
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.88,45.96,5.84,38.53,mothbeans
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.02,49.98,3.53,32.81,mothbeans
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.43,87.81,7.19,54.73,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.33,80.77,7.03,38.8,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.01,84.34,6.64,55.3,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.17,81.05,6.83,36.36,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.88,87.33,6.89,44.75,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.89,89.72,7.17,42.99,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.56,83.25,6.94,56.48,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),27.54,85.57,7.2,53.02,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.68,87.94,6.99,41.82,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.14,82.12,7.06,46.76,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.53,86.73,7.16,59.87,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.88,86.45,6.36,44.64,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.22,82.36,6.43,44.01,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.01,84.96,6.66,45.91,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.76,86.45,6.64,37.55,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.78,85.17,6.79,40.78,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),27.86,80.45,6.85,42.83,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.11,84.97,7.12,51.53,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.11,83.64,6.88,49.12,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.95,89.08,6.42,57.66,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.22,87.94,6.54,43.14,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.74,85.82,6.45,48.55,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.65,80.3,6.49,56.76,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.24,86.4,6.71,37.31,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.95,81.67,6.51,56.51,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.19,82.61,6.29,37.01,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.3,86.21,6.86,50.47,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.9,88.72,6.78,57.8,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),28.69,87.5,6.77,44.57,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.83,88.73,6.32,56.69,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.71,81.59,6.71,59.87,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.64,84.61,6.79,48.48,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.29,88.44,7.13,48.57,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.61,86.13,7.01,43.8,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),28.61,86.99,7.16,36.95,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.25,84.8,6.99,53.43,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.63,89.11,6.22,50.5,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.57,88.08,7.2,45.04,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.83,87.17,6.39,58.37,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.88,83.15,6.62,40.12,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),27.34,88.5,7.03,51.1,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.83,89.3,6.32,58.87,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.28,82.76,6.4,56.05,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.87,85.99,6.4,58.41,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.59,89.99,6.9,54.96,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.07,82.91,6.48,49.62,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),27.84,90.0,7.06,52.85,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.11,87.45,6.98,55.04,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.69,81.94,6.23,54.62,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.35,85.6,6.23,59.04,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.36,84.86,7.14,52.93,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.65,89.81,6.46,56.53,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),27.31,85.45,6.57,53.15,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.07,86.9,7.13,50.47,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.07,85.92,6.43,39.24,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),27.73,81.14,6.25,44.18,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.54,89.93,6.62,45.49,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.66,84.28,6.38,56.1,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.91,85.85,6.42,41.39,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.36,87.6,6.32,58.0,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.46,87.61,6.98,43.15,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.73,82.89,6.44,50.92,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.47,87.18,7.18,43.78,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.77,87.1,6.4,49.51,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.13,88.48,7.09,36.45,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.11,89.9,6.7,37.46,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.88,86.94,6.59,53.8,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.15,83.8,6.65,37.45,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.89,80.14,7.12,54.8,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.42,80.98,6.91,40.53,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.27,89.49,7.07,50.92,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.65,88.49,6.53,56.02,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.45,82.68,6.68,58.19,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),27.96,83.98,6.58,48.94,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.26,81.98,6.86,42.02,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.36,88.01,6.49,43.05,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),27.63,86.49,6.61,39.26,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.66,86.12,6.86,50.02,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.21,87.11,6.42,51.54,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.41,86.16,6.37,53.35,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.03,84.88,6.56,36.12,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.09,80.35,6.76,38.14,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.16,80.28,6.72,40.17,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.86,80.03,6.67,50.66,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.07,83.69,6.63,43.95,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),27.39,88.67,6.7,58.3,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.93,85.42,7.01,43.25,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.28,81.8,6.89,44.47,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),29.0,83.79,6.82,59.84,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.93,86.55,7.18,43.48,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.55,88.96,6.27,49.49,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),29.36,89.19,6.68,48.3,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.56,83.64,6.69,41.01,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.44,87.91,6.58,43.12,mungbean
+Red Soil,Kharif (Monsoon: Jun - Oct),28.8,80.46,6.73,44.3,mungbean
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.73,89.13,7.07,58.53,mungbean
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.96,83.53,6.92,43.26,mungbean
+Red Soil,Zaid (Summer: Mar - Jun),28.17,83.7,6.77,37.25,mungbean
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.78,86.69,6.98,56.12,mungbean
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.44,83.49,6.27,52.55,mungbean
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.48,63.2,7.45,71.89,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.73,68.14,7.04,67.15,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),26.27,62.29,7.42,70.23,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.04,67.21,6.5,73.24,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.04,65.07,6.81,72.5,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.81,65.34,7.58,62.26,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.04,64.29,7.74,66.86,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.86,61.57,6.57,68.02,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.84,68.68,7.54,73.67,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.1,63.36,6.54,73.85,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.66,61.18,7.22,69.29,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.35,66.61,7.55,64.56,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.59,68.32,6.93,67.53,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.91,68.79,7.75,66.64,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.13,64.21,6.71,70.86,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.09,69.35,6.67,67.14,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),31.74,62.51,7.33,68.97,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.81,62.5,7.6,69.76,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.89,64.59,7.71,71.51,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.36,64.99,7.37,61.91,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),27.83,67.59,6.92,74.01,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.5,60.45,7.19,74.92,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),27.74,68.54,7.08,71.79,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.42,67.66,6.74,63.02,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),27.33,69.09,6.73,61.19,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.28,61.69,6.63,65.63,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.57,61.53,7.13,63.5,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.37,66.64,7.54,65.82,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.95,65.27,7.16,70.14,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.1,67.73,6.86,74.62,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.48,64.35,7.4,65.82,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.86,68.59,6.88,69.24,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.2,60.37,6.58,70.89,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.78,69.02,7.3,61.47,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.9,63.6,6.97,64.73,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.74,68.64,7.24,62.31,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),27.16,66.76,6.92,69.85,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.24,67.89,7.5,73.59,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.2,60.07,7.15,66.37,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.56,67.84,7.14,74.87,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.68,69.09,6.81,65.66,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.05,67.7,7.39,60.47,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.64,61.39,7.7,72.43,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.39,62.94,6.6,63.57,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.84,63.37,6.73,70.25,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.49,63.06,6.52,71.48,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.55,63.95,7.71,63.18,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.37,69.69,6.6,70.27,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.6,63.11,7.4,60.42,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.43,64.94,7.52,72.18,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.11,67.91,7.18,67.83,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.57,65.72,6.59,70.09,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),27.54,69.35,7.14,69.41,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.05,68.94,6.69,62.3,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.95,69.96,7.42,61.16,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.12,60.12,6.58,71.73,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.58,66.18,7.5,69.44,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.26,68.01,7.78,68.92,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),31.36,64.25,7.32,63.86,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.52,66.56,7.58,61.71,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.4,64.26,7.11,67.48,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.38,64.15,7.36,65.24,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.39,61.89,7.41,74.24,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.47,63.54,6.5,69.53,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.64,61.15,7.17,71.37,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.26,61.37,7.26,68.65,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.97,60.18,7.59,73.45,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.67,66.6,7.53,67.33,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.84,68.0,7.25,73.4,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.46,62.9,6.51,69.46,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.69,69.84,7.12,74.62,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.03,64.15,7.57,71.21,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.21,68.27,7.35,64.33,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.27,61.19,7.51,63.3,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.54,64.2,7.03,69.69,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.87,61.61,6.8,63.52,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.8,68.78,7.16,64.11,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.42,64.51,7.34,63.47,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),29.79,63.39,6.62,63.02,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.44,67.1,6.66,72.51,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),34.13,65.15,7.73,70.41,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.95,64.23,7.4,62.79,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.76,61.03,6.6,73.38,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.25,66.1,7.04,62.32,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),28.63,66.77,7.35,62.27,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.42,63.65,7.03,64.42,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.82,66.16,6.81,68.84,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.63,65.91,7.42,71.16,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),33.49,62.73,6.85,65.45,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.87,66.74,7.19,74.22,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.33,65.63,7.01,71.65,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.55,66.31,7.37,62.83,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.03,67.89,7.26,66.47,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.66,60.13,6.53,66.69,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),30.33,63.55,6.87,74.17,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.37,65.68,6.87,64.9,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),31.43,62.99,7.76,64.78,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.72,63.29,6.78,68.57,blackgram
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),32.64,61.3,7.33,61.84,blackgram
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.75,67.78,7.45,63.38,blackgram
+Clay Soil,Rabi (Winter: Oct - Mar),28.05,63.5,7.6,43.36,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),19.44,63.28,7.73,46.83,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),29.85,60.64,7.49,46.8,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.36,69.92,6.63,46.64,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),26.29,68.52,7.32,46.14,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.17,62.14,6.41,53.47,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),26.58,60.98,7.84,50.89,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),26.59,66.14,6.14,50.91,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),19.13,62.58,6.59,36.47,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),28.75,69.16,7.29,35.15,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.79,60.28,6.06,49.14,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.89,61.79,6.66,52.56,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.67,63.19,7.3,42.96,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),28.42,61.77,7.82,49.02,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),21.35,62.6,5.93,41.78,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.13,63.19,6.4,38.72,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.02,61.62,7.4,49.78,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.4,65.86,7.72,51.92,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),29.03,64.49,7.48,54.94,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.21,68.65,6.89,50.9,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),29.2,68.02,7.44,44.93,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.3,69.69,7.63,49.39,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),27.41,63.42,7.34,44.43,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.84,60.09,6.75,48.78,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),29.94,67.31,7.52,40.37,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.88,67.55,6.35,47.9,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),20.05,65.84,7.14,46.05,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.99,66.71,7.67,54.49,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.13,66.93,7.4,49.04,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),28.5,62.45,7.84,53.15,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),18.29,69.49,6.25,48.6,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.38,61.18,6.87,53.14,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),21.32,66.44,7.32,45.43,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.54,62.71,6.3,44.08,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.29,60.86,7.24,49.37,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.43,69.13,7.69,41.03,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.84,69.76,6.89,44.09,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.38,63.94,6.16,49.47,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.32,60.19,6.17,45.37,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.48,62.05,6.86,37.81,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),18.28,68.1,6.98,48.8,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.61,69.3,7.04,42.72,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),23.44,63.22,5.94,45.4,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.96,63.68,7.24,52.4,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),23.79,68.03,6.52,49.74,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.64,65.45,6.23,38.3,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),21.54,65.47,7.51,35.75,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),29.88,65.73,6.95,44.96,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.27,67.1,6.96,48.34,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.18,68.93,6.55,35.03,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.12,61.1,6.46,44.24,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.34,67.4,7.07,36.19,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),21.75,63.4,6.77,50.43,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.6,63.46,5.92,54.38,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.39,62.5,6.71,47.26,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.98,66.9,6.38,38.21,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.23,69.32,6.31,35.37,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),26.03,69.56,7.39,37.11,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.05,64.08,7.5,37.16,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),24.87,64.0,7.2,48.28,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),23.97,62.36,7.01,53.41,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.06,67.76,6.68,42.9,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),19.59,61.29,6.74,41.77,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),29.77,66.29,6.55,35.7,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),27.52,60.54,6.55,48.06,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.63,63.15,6.59,45.5,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),20.39,60.48,6.92,53.32,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.39,60.5,7.44,39.18,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.91,60.71,7.14,42.2,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.7,63.21,7.75,37.46,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),18.06,65.1,6.3,51.55,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),18.13,62.46,6.08,50.61,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),23.83,67.9,6.77,46.91,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.19,62.75,7.64,49.55,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.09,68.18,6.56,41.45,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),25.87,61.88,7.07,36.68,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),18.44,68.05,7.73,39.01,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),27.15,67.03,6.16,52.51,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),23.33,64.51,7.24,47.02,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),26.72,62.97,6.9,42.87,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),19.56,64.45,6.82,53.05,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),26.14,66.77,6.26,46.48,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),28.0,65.58,6.49,49.94,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),29.06,62.11,7.04,36.5,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.71,64.11,7.69,50.17,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.8,63.73,6.25,46.62,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.71,60.27,6.05,53.12,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),20.95,65.81,7.0,44.24,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),24.85,68.98,7.27,41.61,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.91,65.22,5.96,36.1,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),25.93,68.71,7.08,51.02,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),29.82,69.41,6.59,51.56,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),27.52,63.13,7.29,45.21,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),28.0,68.64,7.33,46.11,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),20.77,63.9,6.37,47.93,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.05,60.42,7.01,52.6,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),21.66,63.58,6.28,38.08,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),26.25,67.63,7.62,40.81,lentil
+Clay Soil,Rabi (Winter: Oct - Mar),20.97,63.83,7.63,53.1,lentil
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.9,66.32,7.8,40.75,lentil
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.56,91.64,5.92,111.97,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.66,89.94,5.94,108.05,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),18.78,87.4,6.8,102.52,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.15,94.51,6.42,110.23,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),22.45,89.9,6.74,109.39,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.96,92.41,6.5,109.42,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),22.55,89.33,6.33,104.9,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.77,91.45,6.36,106.97,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),19.2,94.28,6.92,108.04,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.13,92.68,6.63,109.39,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.93,85.19,5.83,104.77,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.77,85.64,6.74,105.76,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),19.87,86.36,5.78,108.32,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.27,93.8,6.54,104.54,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),23.63,89.73,6.15,107.68,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),19.68,89.09,6.89,108.55,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),22.37,92.31,7.18,104.82,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),21.58,94.88,5.94,102.86,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),18.26,88.17,5.71,108.08,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.71,89.62,6.18,105.65,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),22.49,89.92,6.55,111.66,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),21.66,94.79,5.89,112.43,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),20.13,89.32,6.14,107.34,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),18.41,91.12,6.1,105.18,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),19.68,89.75,6.59,111.28,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.2,91.19,6.86,109.09,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),18.92,87.31,6.57,102.8,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.11,91.34,6.77,106.87,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),18.47,89.69,7.13,108.48,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.81,88.93,5.74,102.86,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.49,90.84,5.84,103.2,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.76,89.93,6.65,111.02,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),19.54,90.3,6.9,104.37,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.91,87.75,6.61,111.28,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),19.91,94.95,6.83,104.03,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.73,89.65,6.91,108.23,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),23.83,87.84,6.31,111.22,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.94,94.26,7.01,103.88,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),24.69,93.87,6.3,104.67,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.72,85.56,6.73,111.28,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),20.13,87.6,6.97,108.07,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),21.02,93.06,5.58,104.78,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),22.4,88.15,7.2,109.87,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.34,89.38,5.84,110.97,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),24.25,85.56,6.71,106.92,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.82,91.91,5.97,109.29,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),19.66,87.95,5.56,106.04,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.43,90.34,6.11,112.46,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),22.92,85.13,6.99,110.24,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.92,85.41,7.13,106.28,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),24.88,89.4,7.09,107.2,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.41,93.13,6.75,105.22,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),21.21,94.26,7.16,107.57,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),18.2,91.12,7.01,109.66,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),22.34,89.79,5.65,103.32,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.33,90.88,6.61,110.46,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),19.75,88.72,7.05,102.55,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),19.86,86.2,6.03,111.02,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),18.07,93.15,5.78,106.36,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.89,89.62,6.54,104.62,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),23.99,93.34,5.68,104.99,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.94,85.43,6.12,103.03,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),20.82,87.23,7.0,109.44,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),20.86,91.62,6.28,106.87,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.46,86.11,6.32,111.38,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.51,90.64,5.96,105.62,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.57,92.03,6.59,110.96,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.63,89.02,7.1,110.7,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),20.07,90.98,6.41,103.71,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),21.81,94.64,6.66,102.65,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),22.81,86.34,6.28,110.44,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.73,88.49,6.83,104.68,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),23.28,94.94,6.37,111.14,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.3,87.18,7.01,105.48,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),19.01,88.84,6.9,108.68,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.35,90.89,6.15,105.53,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.72,88.88,5.74,112.19,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),21.93,94.46,7.05,111.72,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.84,86.89,6.03,107.64,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.1,90.42,6.92,104.88,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),20.24,91.09,6.89,109.25,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.23,94.43,6.84,105.69,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),23.5,92.98,5.79,106.62,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),19.45,89.02,5.63,106.16,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),20.51,92.52,5.7,110.58,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.9,95.0,5.57,107.61,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),18.91,89.24,6.08,112.48,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.63,88.46,6.4,109.04,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),19.39,86.79,5.77,109.91,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.38,91.19,7.08,103.6,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),23.78,92.93,5.89,106.98,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.6,93.16,7.06,110.09,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),24.38,85.4,5.78,106.13,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),20.89,91.08,6.27,104.44,pomegranate
+Alluvial Soil,Zaid (Summer: Mar - Jun),18.1,85.71,5.89,107.01,pomegranate
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),20.0,85.84,7.12,112.34,pomegranate
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),19.85,89.81,6.43,102.82,pomegranate
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.25,92.65,7.16,106.28,pomegranate
+Black Cotton Soil,Zaid (Summer: Mar - Jun),23.65,93.33,6.43,109.81,pomegranate
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.88,86.21,6.08,108.31,pomegranate
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.37,76.25,6.15,92.83,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.33,83.68,5.85,101.05,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.4,82.96,6.28,104.94,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.32,80.12,5.93,90.11,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.05,79.4,5.52,113.23,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.87,84.42,6.08,114.54,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.01,80.19,6.13,97.33,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.55,78.07,5.81,99.34,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.29,83.39,5.89,113.87,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.16,76.16,5.82,100.01,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.65,82.69,5.84,98.75,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.07,76.5,6.38,100.17,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.08,75.26,5.62,118.28,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.2,78.81,5.92,99.72,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.05,78.05,6.46,108.4,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.15,83.35,5.57,98.67,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.94,78.34,6.21,119.85,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.67,79.69,6.49,108.66,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.57,75.94,5.59,102.79,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.7,82.54,6.23,116.16,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.34,76.85,6.19,118.69,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.94,78.9,5.92,98.22,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.14,84.88,6.2,91.46,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.51,80.8,6.16,105.08,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.21,82.34,6.31,112.07,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.1,79.2,6.32,92.08,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.24,77.32,5.71,90.67,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.56,77.38,6.12,93.1,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.4,81.36,5.57,98.17,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.1,77.8,5.63,109.54,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.85,83.31,6.1,117.29,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.39,81.47,6.44,94.31,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.15,81.38,6.1,119.22,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.65,79.29,5.7,102.46,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.16,76.67,5.62,109.58,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.57,82.06,6.44,91.34,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.41,82.36,6.18,112.98,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.99,83.34,6.22,112.08,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.29,81.06,5.87,118.67,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.15,78.71,6.39,117.54,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.6,79.36,6.21,107.39,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.36,75.03,6.01,116.55,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.12,80.18,5.91,112.4,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.54,77.26,6.05,110.33,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.67,83.51,6.01,110.25,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.06,84.97,5.74,110.44,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.87,78.52,5.74,116.3,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.85,81.96,5.79,119.09,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.52,77.8,5.51,108.85,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.67,79.59,5.99,118.26,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.15,81.54,5.79,91.41,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.42,83.7,5.92,95.12,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.59,81.41,6.24,109.98,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.72,76.58,6.04,102.21,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.98,82.96,5.83,109.02,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.42,83.97,6.09,117.23,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.4,81.11,6.47,112.14,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.4,84.41,5.72,111.02,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.81,82.69,5.81,99.21,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.2,83.56,5.7,115.86,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.31,75.77,6.17,119.7,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.9,80.47,6.0,110.1,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.49,76.11,6.21,109.28,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.38,83.5,5.77,109.25,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.22,81.08,5.74,108.86,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.09,81.34,5.88,110.13,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.13,81.81,6.1,104.48,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.01,77.95,5.67,90.43,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.97,79.29,5.69,119.48,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.08,76.06,5.91,118.99,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.16,84.98,6.11,90.95,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.79,84.51,6.02,114.2,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.34,84.47,6.44,91.06,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.45,78.35,5.51,96.45,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.48,78.52,5.68,113.12,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.39,83.31,5.72,92.78,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.08,80.26,6.28,94.33,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.67,76.49,6.28,91.73,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.45,79.49,6.2,100.66,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.23,80.64,5.76,98.0,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.13,77.48,6.32,103.5,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.95,82.19,5.9,95.83,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.96,84.15,5.64,97.56,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.0,78.9,6.24,94.68,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.14,80.12,6.28,90.45,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.91,83.36,6.36,90.24,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.43,81.54,5.84,96.48,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.56,84.52,5.65,111.08,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.6,83.0,5.73,100.51,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.2,77.4,6.2,99.47,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.29,79.29,5.61,105.42,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.91,76.99,6.26,92.0,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.95,76.64,6.04,109.09,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.01,78.76,5.76,108.37,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),29.21,84.7,6.16,108.55,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.36,84.55,6.39,90.81,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),28.01,76.53,5.89,103.7,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.67,82.21,5.73,94.38,banana
+Clay Soil,Kharif (Monsoon: Jun - Oct),27.35,78.49,6.28,92.16,banana
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.51,78.21,5.51,98.13,banana
+Laterite Soil,Zaid (Summer: Mar - Jun),29.74,47.55,5.95,90.1,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.56,53.73,4.76,98.68,mango
+Red Soil,Zaid (Summer: Mar - Jun),27.0,47.68,5.7,95.85,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),33.56,45.54,5.98,95.71,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),35.9,54.26,6.43,92.2,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),34.18,50.62,6.11,98.01,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),30.02,53.19,5.07,97.73,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.75,45.16,5.67,93.75,mango
+Red Soil,Zaid (Summer: Mar - Jun),35.99,52.23,5.98,95.37,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.87,52.19,5.06,98.47,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.76,52.35,4.77,94.11,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),34.72,51.43,5.16,97.31,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),27.54,53.64,6.8,99.35,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.7,48.56,6.39,89.86,mango
+Red Soil,Zaid (Summer: Mar - Jun),27.25,52.66,5.57,91.87,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.34,48.89,5.76,94.43,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.86,45.53,5.42,91.56,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),35.4,49.46,6.17,97.41,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),29.81,52.14,5.19,95.75,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.16,54.16,4.95,98.33,mango
+Red Soil,Zaid (Summer: Mar - Jun),28.93,47.94,5.66,99.98,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.98,53.33,5.55,99.61,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.2,54.5,6.8,94.63,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),32.13,50.53,6.1,98.63,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),28.92,48.14,5.08,97.01,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.1,47.41,4.55,90.29,mango
+Red Soil,Zaid (Summer: Mar - Jun),34.74,49.09,5.86,90.65,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.98,49.49,6.44,91.82,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),33.8,46.13,4.51,90.83,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),30.07,50.96,6.11,92.1,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),27.92,51.78,6.48,100.26,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.41,49.22,6.83,93.0,mango
+Red Soil,Zaid (Summer: Mar - Jun),35.79,51.94,5.4,100.22,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),33.36,45.02,6.14,98.82,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),35.96,48.7,4.56,98.01,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),28.33,51.4,6.43,91.67,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),32.28,50.19,5.32,95.99,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.99,50.85,5.28,97.39,mango
+Red Soil,Zaid (Summer: Mar - Jun),27.58,48.57,6.72,95.84,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.38,45.89,5.73,100.81,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),32.39,53.23,4.69,90.22,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),30.91,49.93,6.81,90.14,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),35.38,45.58,6.45,97.42,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.32,52.59,5.84,93.37,mango
+Red Soil,Zaid (Summer: Mar - Jun),28.22,47.41,5.02,97.77,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.27,47.17,6.42,95.26,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.11,50.71,4.94,92.37,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),34.89,48.76,6.41,91.63,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),33.75,48.5,6.78,92.26,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.35,54.44,6.44,96.28,mango
+Red Soil,Zaid (Summer: Mar - Jun),32.89,52.61,4.65,94.49,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),35.39,51.43,5.25,90.3,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.55,47.91,5.91,90.4,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),32.82,47.46,4.76,90.89,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),30.17,51.08,6.81,95.23,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.26,54.82,5.34,100.76,mango
+Red Soil,Zaid (Summer: Mar - Jun),32.06,51.08,6.34,96.6,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.7,47.72,4.75,99.64,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.14,49.41,6.83,97.55,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),28.35,53.54,6.97,90.4,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),27.67,45.42,4.95,92.85,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.12,46.17,5.63,93.3,mango
+Red Soil,Zaid (Summer: Mar - Jun),30.79,46.7,6.27,92.21,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.89,54.81,6.47,94.76,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),33.33,45.61,6.95,98.29,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),27.79,53.97,5.64,91.01,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),31.65,48.21,6.39,91.1,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.75,46.74,4.98,91.41,mango
+Red Soil,Zaid (Summer: Mar - Jun),31.33,50.22,5.42,89.78,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),35.64,48.97,6.94,97.52,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.67,51.99,5.44,89.98,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),32.27,53.56,5.87,95.94,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),27.81,51.59,4.75,95.9,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.59,50.34,5.5,100.31,mango
+Red Soil,Zaid (Summer: Mar - Jun),31.27,52.24,6.81,89.74,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),33.94,52.72,6.46,97.46,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.09,47.02,4.79,91.47,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),31.89,49.02,6.48,89.59,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),32.45,50.7,6.53,95.05,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),35.47,47.97,6.28,97.79,mango
+Red Soil,Zaid (Summer: Mar - Jun),27.33,49.3,6.05,93.53,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),30.9,49.96,5.73,91.78,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.09,45.57,5.32,96.24,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),30.02,46.78,4.67,96.64,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),34.13,51.26,5.1,96.39,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.45,53.06,5.34,98.05,mango
+Red Soil,Zaid (Summer: Mar - Jun),35.39,52.49,5.06,91.23,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),31.53,53.06,5.82,98.57,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),30.76,47.94,5.96,90.39,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),30.02,50.1,5.68,96.09,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),31.33,47.59,6.52,94.67,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.88,54.39,6.27,89.29,mango
+Red Soil,Zaid (Summer: Mar - Jun),28.08,54.96,6.13,97.45,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),35.54,52.95,4.93,91.55,mango
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.71,50.44,5.45,95.89,mango
+Red Soil,Kharif (Monsoon: Jun - Oct),31.48,48.78,4.53,93.17,mango
+Laterite Soil,Zaid (Summer: Mar - Jun),27.7,51.42,5.4,100.77,mango
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.41,52.48,6.62,93.92,mango
+Red Soil,Zaid (Summer: Mar - Jun),32.18,54.01,6.21,91.89,mango
+Laterite Soil,Kharif (Monsoon: Jun - Oct),32.61,47.75,5.42,91.1,mango
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),30.0,81.54,6.11,67.13,grapes
+Red Soil,Rabi (Winter: Oct - Mar),30.73,82.43,6.09,68.38,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),32.45,83.89,5.9,68.74,grapes
+Red Soil,Rabi (Winter: Oct - Mar),37.47,80.66,6.16,66.84,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),22.03,83.74,5.73,65.34,grapes
+Red Soil,Rabi (Winter: Oct - Mar),39.65,82.21,6.25,70.4,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),16.78,82.75,6.11,66.76,grapes
+Red Soil,Rabi (Winter: Oct - Mar),12.14,83.57,5.65,69.63,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),12.76,81.62,6.13,66.78,grapes
+Red Soil,Rabi (Winter: Oct - Mar),39.04,80.18,6.5,73.88,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),39.71,82.69,5.55,74.92,grapes
+Red Soil,Rabi (Winter: Oct - Mar),9.47,82.29,5.8,66.03,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),29.59,80.92,5.57,68.06,grapes
+Red Soil,Rabi (Winter: Oct - Mar),17.83,80.96,6.28,65.85,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),8.83,82.9,5.54,67.24,grapes
+Red Soil,Rabi (Winter: Oct - Mar),27.83,83.51,6.21,73.03,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),11.02,80.56,5.87,68.24,grapes
+Red Soil,Rabi (Winter: Oct - Mar),17.59,80.85,6.33,71.41,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.89,82.73,5.86,69.66,grapes
+Red Soil,Rabi (Winter: Oct - Mar),29.94,81.78,5.9,65.52,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),36.73,80.59,5.78,72.24,grapes
+Red Soil,Rabi (Winter: Oct - Mar),20.42,81.54,5.93,66.93,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.52,83.98,6.23,69.17,grapes
+Red Soil,Rabi (Winter: Oct - Mar),30.51,82.72,5.59,70.08,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.43,80.56,5.57,69.76,grapes
+Red Soil,Rabi (Winter: Oct - Mar),12.09,83.59,5.93,68.67,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),23.6,82.48,6.42,73.24,grapes
+Red Soil,Rabi (Winter: Oct - Mar),12.8,81.21,6.42,67.1,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),38.06,82.25,6.23,65.7,grapes
+Red Soil,Rabi (Winter: Oct - Mar),39.07,82.04,6.0,69.31,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),33.78,81.16,5.69,74.54,grapes
+Red Soil,Rabi (Winter: Oct - Mar),16.76,82.0,5.66,73.29,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),35.89,82.67,6.36,66.54,grapes
+Red Soil,Rabi (Winter: Oct - Mar),21.01,81.18,6.12,66.38,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),10.9,80.02,6.21,68.69,grapes
+Red Soil,Rabi (Winter: Oct - Mar),16.36,83.0,6.49,71.56,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.28,81.32,5.82,71.07,grapes
+Red Soil,Rabi (Winter: Oct - Mar),25.11,83.25,6.33,73.01,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),33.46,83.87,5.56,67.92,grapes
+Red Soil,Rabi (Winter: Oct - Mar),11.8,80.86,6.49,65.07,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),11.36,80.03,6.12,71.18,grapes
+Red Soil,Rabi (Winter: Oct - Mar),25.24,80.69,5.7,67.04,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),15.99,81.24,5.73,74.4,grapes
+Red Soil,Rabi (Winter: Oct - Mar),22.44,80.19,6.33,65.4,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),34.76,81.04,6.17,65.7,grapes
+Red Soil,Rabi (Winter: Oct - Mar),31.11,83.34,5.65,71.43,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),28.58,80.96,5.84,73.34,grapes
+Red Soil,Rabi (Winter: Oct - Mar),41.19,81.02,5.54,68.69,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),27.03,83.17,5.83,70.96,grapes
+Red Soil,Rabi (Winter: Oct - Mar),21.19,82.33,6.4,74.63,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),10.38,83.45,6.14,67.39,grapes
+Red Soil,Rabi (Winter: Oct - Mar),31.31,82.56,5.97,65.01,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),20.47,80.98,6.46,71.3,grapes
+Red Soil,Rabi (Winter: Oct - Mar),29.37,81.54,6.34,66.13,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),10.72,80.02,6.43,65.3,grapes
+Red Soil,Rabi (Winter: Oct - Mar),14.98,80.5,6.29,71.63,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),15.32,81.67,6.48,71.6,grapes
+Red Soil,Rabi (Winter: Oct - Mar),18.74,81.12,5.93,73.56,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.36,83.36,5.98,67.15,grapes
+Red Soil,Rabi (Winter: Oct - Mar),41.21,81.61,6.39,65.9,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),33.34,82.51,5.69,70.68,grapes
+Red Soil,Rabi (Winter: Oct - Mar),23.82,80.12,6.0,67.27,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),40.66,81.25,6.37,74.03,grapes
+Red Soil,Rabi (Winter: Oct - Mar),11.83,80.28,5.51,74.1,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),13.29,83.54,5.7,65.8,grapes
+Red Soil,Rabi (Winter: Oct - Mar),35.83,83.33,5.78,73.68,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),26.18,81.04,6.32,66.06,grapes
+Red Soil,Rabi (Winter: Oct - Mar),24.58,80.71,5.97,69.71,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),29.67,83.71,5.89,66.48,grapes
+Red Soil,Rabi (Winter: Oct - Mar),39.37,81.25,6.13,74.08,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.67,82.93,6.31,69.87,grapes
+Red Soil,Rabi (Winter: Oct - Mar),24.07,82.66,6.05,69.82,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),15.31,80.1,5.8,74.82,grapes
+Red Soil,Rabi (Winter: Oct - Mar),21.77,80.55,6.4,69.4,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),26.92,80.77,5.95,69.31,grapes
+Red Soil,Rabi (Winter: Oct - Mar),41.66,82.22,5.61,74.2,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),17.99,81.18,5.78,72.37,grapes
+Red Soil,Rabi (Winter: Oct - Mar),29.12,82.79,5.68,68.85,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),34.39,83.18,5.86,71.03,grapes
+Red Soil,Rabi (Winter: Oct - Mar),41.36,82.8,6.44,69.92,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),35.12,82.27,5.55,69.72,grapes
+Red Soil,Rabi (Winter: Oct - Mar),19.65,80.15,6.11,73.7,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),16.28,82.94,5.62,66.57,grapes
+Red Soil,Rabi (Winter: Oct - Mar),21.12,80.63,6.35,69.28,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),19.21,82.9,6.48,66.83,grapes
+Red Soil,Rabi (Winter: Oct - Mar),25.96,82.58,5.84,70.32,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),25.67,81.62,6.29,74.11,grapes
+Red Soil,Rabi (Winter: Oct - Mar),41.95,81.16,5.64,73.07,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),11.19,80.81,6.42,66.34,grapes
+Red Soil,Rabi (Winter: Oct - Mar),17.54,82.95,6.32,73.77,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),13.06,80.28,5.76,70.76,grapes
+Red Soil,Rabi (Winter: Oct - Mar),9.72,83.75,6.16,74.46,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),27.92,82.93,5.73,69.92,grapes
+Red Soil,Rabi (Winter: Oct - Mar),9.54,80.73,5.91,69.44,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),13.43,80.07,6.36,71.4,grapes
+Red Soil,Rabi (Winter: Oct - Mar),9.85,80.23,5.97,68.43,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),24.97,82.73,6.48,66.7,grapes
+Red Soil,Rabi (Winter: Oct - Mar),27.24,82.95,6.22,70.43,grapes
+Sandy Loam Soil,Rabi (Winter: Oct - Mar),18.71,83.48,6.21,66.6,grapes
+Red Soil,Rabi (Winter: Oct - Mar),9.95,82.55,5.84,66.01,grapes
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.47,80.92,6.28,53.66,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.19,83.45,6.82,46.87,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.3,81.78,6.38,57.04,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.75,88.31,6.58,57.96,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.59,81.33,6.93,41.88,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.53,88.99,6.14,49.12,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.07,88.73,6.47,57.8,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.97,89.77,6.85,59.46,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.22,85.35,6.51,54.6,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.41,89.82,6.04,44.08,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.49,80.05,6.06,57.73,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.04,84.18,6.42,53.79,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.54,83.32,6.94,57.57,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.75,83.92,6.25,40.79,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.71,80.23,6.19,43.09,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.76,84.17,6.68,44.22,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.79,89.65,6.51,57.74,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.9,89.74,6.77,57.45,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.81,88.23,6.43,58.8,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.11,80.03,6.21,44.21,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.21,87.69,6.42,59.66,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.91,86.97,6.24,49.49,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.79,84.27,6.76,56.45,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.27,87.55,6.61,40.13,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.76,87.59,6.7,46.05,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.85,89.13,6.05,46.85,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.34,81.44,6.76,48.32,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.38,80.99,6.65,57.23,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.86,85.05,6.74,55.3,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.72,88.95,6.1,48.46,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.21,84.21,6.54,48.01,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.82,82.04,6.38,54.83,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.47,84.16,6.42,57.27,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.13,84.84,6.65,51.19,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.18,86.52,6.26,49.43,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.18,86.73,6.12,53.33,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.04,84.64,6.03,44.4,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.53,82.39,6.84,54.31,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.82,87.83,6.55,46.06,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.5,81.4,6.94,48.48,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.2,80.38,6.88,56.48,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.14,89.28,6.46,43.53,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.92,83.47,6.92,42.11,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.66,89.98,6.88,57.41,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.07,81.64,6.92,51.75,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.68,82.75,6.21,57.06,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.11,87.64,6.3,58.48,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.82,87.66,6.4,55.74,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.16,80.28,6.86,55.5,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.28,83.15,6.22,49.29,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.22,80.9,6.09,49.09,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.92,80.62,6.29,50.56,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.22,81.01,6.32,54.65,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.81,87.22,6.87,51.7,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.31,87.47,6.07,48.11,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.29,88.05,6.5,51.26,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.43,86.34,6.68,48.58,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.67,88.7,6.11,54.23,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.08,83.46,6.41,56.4,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.89,85.87,6.11,51.71,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.43,82.91,6.83,56.34,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.37,87.13,6.45,44.64,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.49,88.59,6.31,46.06,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.83,89.0,6.76,45.25,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.42,89.4,6.62,40.32,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.37,81.25,6.13,44.21,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.25,83.04,6.65,54.77,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.64,85.5,6.34,48.31,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.9,86.11,6.22,53.15,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.42,81.12,6.29,49.52,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.26,86.15,6.77,58.98,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.9,87.21,6.74,46.59,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.85,89.2,6.39,59.68,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.98,86.7,6.77,42.91,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.9,86.25,6.73,59.76,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.86,86.67,6.66,41.17,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.71,81.14,6.94,51.51,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.44,80.92,6.51,47.82,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.28,84.42,6.52,50.79,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.84,83.85,6.11,40.23,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.04,83.99,6.28,43.88,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.93,85.01,6.2,48.76,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.51,84.24,6.79,44.21,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.44,87.94,6.47,57.52,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.13,86.55,6.0,40.71,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.1,87.53,6.59,59.27,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.28,86.63,6.96,54.39,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.27,83.09,6.26,46.77,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.74,87.82,6.75,47.46,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.05,85.57,6.93,56.72,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),24.69,85.57,6.35,48.99,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.54,84.61,6.21,42.01,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.9,81.97,6.28,54.5,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.63,84.32,6.56,56.32,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),25.36,80.46,6.9,47.72,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.29,89.64,6.77,58.29,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.64,84.7,6.19,48.32,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.33,84.31,6.9,41.53,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),26.9,83.89,6.46,43.97,watermelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.99,89.41,6.26,58.55,watermelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.58,94.12,6.78,28.08,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.82,93.04,6.53,26.32,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.1,94.22,6.75,22.52,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.05,90.83,6.56,20.76,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.92,94.56,6.12,28.16,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.87,93.25,6.08,26.26,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.17,92.21,6.29,21.3,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.25,90.07,6.07,25.93,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.76,90.36,6.74,25.22,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.83,94.27,6.2,26.24,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.52,92.1,6.04,29.87,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.07,90.98,6.02,29.12,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.08,90.74,6.7,25.33,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.47,94.79,6.49,21.08,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.28,90.39,6.22,21.59,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.47,91.21,6.16,20.89,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.69,94.3,6.17,26.84,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.02,91.67,6.09,21.26,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.1,94.17,6.16,26.71,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.69,92.59,6.61,29.11,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.21,92.87,6.45,28.79,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.05,93.92,6.11,23.67,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.57,93.62,6.56,27.57,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.11,92.44,6.14,27.96,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.2,92.91,6.1,20.36,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.12,92.13,6.41,24.52,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.63,90.1,6.08,23.7,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.81,90.37,6.12,22.69,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.72,90.94,6.7,22.82,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.26,92.92,6.09,28.71,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.73,94.3,6.37,26.52,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.91,90.78,6.43,23.44,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.96,93.88,6.47,23.56,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.59,91.34,6.09,29.44,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.34,90.7,6.15,28.69,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.9,90.75,6.65,25.38,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.43,90.03,6.38,21.75,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.56,90.71,6.73,28.37,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.84,93.76,6.13,23.28,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.54,91.73,6.16,25.13,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.12,94.87,6.44,26.52,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.84,91.61,6.73,26.48,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.03,91.82,6.24,24.94,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.82,90.57,6.27,21.19,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.73,92.01,6.35,20.21,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.7,94.31,6.0,22.22,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.73,90.97,6.34,20.49,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.54,92.92,6.16,21.97,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.8,91.78,6.12,25.16,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.29,90.53,6.13,23.5,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.47,94.88,6.44,27.28,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.49,94.73,6.19,26.31,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.79,92.51,6.16,26.85,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.13,91.52,6.78,21.9,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.93,93.56,6.43,20.66,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.46,92.13,6.71,20.76,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.97,92.17,6.01,28.95,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.49,91.08,6.37,26.02,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.47,90.77,6.67,28.75,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.08,90.14,6.75,24.45,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.3,90.8,6.03,25.09,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.83,90.79,6.4,22.84,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.93,93.23,6.45,24.35,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.94,93.91,6.25,20.39,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.03,91.47,6.27,21.18,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.88,94.04,6.14,21.0,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.71,92.91,6.19,22.06,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.79,94.65,6.33,27.87,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.58,92.87,6.21,27.6,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.48,90.34,6.64,26.04,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.51,94.96,6.69,21.02,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.05,94.82,6.33,21.85,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.03,93.13,6.36,24.16,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.59,91.89,6.09,26.88,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.09,93.42,6.78,25.32,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.0,90.85,6.63,21.62,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.87,91.15,6.48,24.05,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.97,90.72,6.57,22.26,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.88,92.49,6.17,24.44,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.17,94.2,6.01,22.07,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.34,90.02,6.54,21.45,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.07,91.92,6.34,28.84,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.68,92.51,6.15,29.11,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.93,91.39,6.44,23.2,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.0,91.64,6.55,23.29,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.59,91.8,6.4,24.84,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.87,90.61,6.19,24.7,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.56,90.46,6.16,27.27,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.19,91.46,6.66,26.48,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.99,92.78,6.5,27.15,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.05,91.82,6.71,20.77,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.35,94.29,6.07,27.21,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),29.34,94.55,6.42,28.23,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.61,94.22,6.4,28.99,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.05,91.35,6.38,25.08,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.53,94.57,6.7,21.14,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),28.5,93.47,6.57,24.2,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.9,94.79,6.29,23.04,muskmelon
+Sandy Loam Soil,Zaid (Summer: Mar - Jun),27.05,91.38,6.45,23.66,muskmelon
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.96,91.7,6.59,24.75,muskmelon
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.75,90.69,5.52,110.43,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.85,94.35,6.13,114.05,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.61,94.59,6.23,116.04,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.19,91.13,6.32,122.23,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.41,91.7,5.59,116.08,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.86,93.13,5.82,117.73,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.48,93.41,5.77,105.55,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.03,92.96,5.79,121.13,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.91,91.69,6.5,117.08,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.71,93.27,5.66,112.67,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.38,92.72,5.57,106.14,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.85,94.32,6.08,123.6,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.11,92.8,6.38,108.18,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.25,94.54,5.87,105.36,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.67,90.49,5.71,104.23,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.77,90.6,5.8,102.26,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.34,91.48,6.28,104.43,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.64,90.18,5.7,108.34,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.46,94.76,5.61,114.84,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.96,93.58,5.86,104.65,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.07,93.57,6.04,107.87,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.44,92.71,5.69,121.5,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.71,90.45,5.67,109.89,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.7,93.44,5.75,115.18,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.43,92.49,5.8,119.1,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.26,92.84,5.82,109.07,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.92,94.9,6.28,105.69,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.81,91.52,6.03,107.86,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.12,90.69,5.64,102.8,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.11,90.32,5.56,104.51,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.6,90.98,5.6,107.17,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.13,94.71,5.89,108.62,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.98,93.32,5.88,122.2,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.13,90.98,6.39,104.54,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.54,91.48,5.71,101.85,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.49,91.7,5.8,124.39,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.36,94.48,6.05,116.74,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.21,93.51,6.44,120.16,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.45,94.74,5.62,107.18,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.77,92.12,6.44,120.44,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.19,90.03,6.16,112.31,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.61,91.7,5.81,123.59,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.86,94.92,5.77,105.02,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.42,92.63,6.18,102.8,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.37,90.79,5.74,124.98,apple
+Clay Soil,Rabi (Winter: Oct - Mar),24.0,91.61,5.82,117.61,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.8,92.73,5.55,120.06,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.8,92.8,6.02,100.62,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.71,91.53,5.63,121.9,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.34,90.38,5.81,112.9,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.31,90.04,5.73,113.07,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.5,92.21,5.67,107.99,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.46,91.46,5.68,111.78,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.06,92.4,6.25,114.74,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.47,91.23,6.02,124.22,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.7,92.82,5.53,105.05,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.67,93.9,5.95,105.4,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.5,92.46,6.13,100.93,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.83,90.84,6.41,109.6,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.64,93.74,6.16,116.69,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.41,92.99,5.88,118.4,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.85,94.58,5.94,117.53,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.98,93.85,5.97,109.59,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.2,90.81,5.67,103.68,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.87,90.5,5.88,103.05,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.04,94.34,6.09,114.74,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.62,93.52,5.9,116.93,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.45,90.75,6.11,116.7,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.81,92.13,6.21,109.34,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.98,91.13,6.14,115.48,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.53,92.55,6.37,115.38,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.36,91.92,6.26,107.77,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.2,92.16,6.28,105.86,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.88,93.45,5.51,104.91,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.78,94.37,5.68,122.14,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.19,92.44,5.83,121.66,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.91,90.7,5.6,118.6,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.09,90.23,6.1,108.22,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.72,92.84,6.06,121.7,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.44,91.59,6.16,102.56,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.13,91.96,5.81,122.54,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.72,92.25,5.99,107.03,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.75,92.88,5.57,117.66,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.76,93.66,5.97,100.83,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.13,94.68,6.06,112.92,apple
+Clay Soil,Rabi (Winter: Oct - Mar),21.17,90.24,5.9,123.65,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.36,91.16,6.12,118.68,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.78,92.7,5.62,113.78,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),21.23,90.1,5.52,113.98,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.16,90.34,5.73,110.71,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.43,93.92,5.89,102.72,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.64,90.95,5.56,116.74,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.29,90.69,6.22,122.74,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.35,90.9,6.07,113.04,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.04,94.58,6.23,110.98,apple
+Clay Soil,Rabi (Winter: Oct - Mar),23.81,92.49,5.89,119.63,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),22.32,90.85,5.73,100.12,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.14,93.83,6.4,120.63,apple
+Alluvial Soil,Rabi (Winter: Oct - Mar),23.65,94.51,6.5,115.36,apple
+Clay Soil,Rabi (Winter: Oct - Mar),22.17,90.27,6.23,124.47,apple
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),15.78,92.51,6.35,119.04,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.03,91.51,7.51,101.28,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),13.36,91.36,7.34,111.23,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),18.88,92.04,7.81,114.67,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.48,91.58,7.13,111.17,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.07,92.91,6.08,114.13,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.67,92.05,7.41,112.54,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.77,92.01,7.21,114.42,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.55,90.9,7.19,106.07,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.96,90.26,7.37,102.7,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.98,91.55,7.46,118.49,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.26,90.31,6.82,117.37,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.08,90.14,7.03,109.69,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),14.78,91.22,6.12,100.2,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.57,94.45,6.29,116.38,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.86,94.39,6.56,111.78,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.51,93.64,7.16,103.57,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.12,90.72,6.95,102.84,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.85,90.11,7.47,103.92,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.6,91.28,7.6,111.29,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),15.63,94.26,7.56,101.47,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.34,91.98,6.36,116.45,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.26,91.98,6.93,105.21,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.68,93.36,7.48,110.33,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),21.03,92.96,7.68,110.68,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.23,91.06,7.83,115.77,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.3,92.16,6.44,117.37,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),11.5,94.89,6.95,115.57,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),14.34,94.36,7.99,110.22,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),33.11,93.48,7.43,119.17,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.49,90.46,7.78,113.33,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.26,92.03,6.05,116.72,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),12.23,90.26,7.11,108.42,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),10.01,90.22,6.22,119.39,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.79,90.61,6.42,116.51,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.18,90.65,6.97,116.81,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.72,94.01,6.01,106.81,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.36,92.4,6.6,119.69,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),21.21,91.35,7.82,112.98,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),10.79,91.38,6.82,117.53,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),11.9,91.35,7.29,103.58,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.57,93.37,7.6,109.86,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.87,93.25,6.16,119.39,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.34,93.05,7.19,112.72,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.91,92.88,7.42,102.19,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.54,91.91,6.49,115.98,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),13.84,91.75,6.04,107.99,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.36,93.52,6.01,101.52,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.74,93.12,6.95,100.2,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),11.55,94.15,7.91,108.83,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.13,91.95,7.64,104.42,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.98,94.55,7.53,115.36,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),20.88,90.94,6.25,102.46,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),17.25,91.14,6.54,112.51,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),15.83,91.68,7.65,109.76,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.01,91.12,6.71,112.67,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),16.4,92.18,6.63,102.94,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.45,93.11,6.53,109.47,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.88,91.15,6.45,105.34,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.35,91.48,7.18,109.15,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),18.05,90.04,7.02,111.78,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),30.85,92.87,6.39,107.41,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),22.46,91.53,7.57,118.01,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),13.7,90.96,7.61,106.29,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),20.49,93.72,7.14,111.84,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),13.21,94.03,6.35,106.27,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),32.32,93.68,6.2,117.62,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),20.68,90.92,7.83,109.75,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.53,90.51,6.4,113.12,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.35,91.81,7.99,116.76,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),17.67,91.7,6.58,110.69,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),12.59,91.82,6.21,119.39,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),11.87,93.68,6.98,106.06,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),11.03,92.23,6.56,112.77,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.3,94.96,7.26,117.97,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.24,90.15,6.46,104.71,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),17.68,94.36,6.7,108.06,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),10.27,90.19,7.4,106.7,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),17.22,94.79,6.91,108.01,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.67,90.5,7.76,100.17,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),10.36,93.76,7.8,101.15,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.26,91.71,6.97,101.14,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.59,92.13,6.73,115.57,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.4,94.52,6.6,113.25,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),10.16,91.22,6.47,106.36,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),21.49,93.44,6.41,101.48,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),16.53,94.77,6.48,110.04,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.85,90.12,6.41,109.95,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.05,90.01,6.55,117.13,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),31.75,94.6,7.36,115.2,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.07,93.27,7.37,100.79,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),19.14,90.71,7.85,108.02,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),16.15,91.44,8.0,107.43,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),34.05,92.06,6.73,116.8,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.51,90.56,7.79,118.33,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),32.72,90.55,7.66,113.33,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.16,92.55,7.11,114.31,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.68,94.47,7.2,114.0,orange
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),21.35,90.95,7.87,107.09,orange
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),11.7,93.26,7.57,103.2,orange
+Alluvial Soil,Zaid (Summer: Mar - Jun),35.21,91.5,6.79,243.07,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),42.39,90.79,6.58,88.47,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),38.42,91.14,6.75,119.27,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),35.33,92.12,6.56,235.61,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.92,90.08,6.94,196.24,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),33.84,92.85,6.99,203.4,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),33.2,92.76,6.98,197.53,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.49,93.71,6.83,191.78,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.34,90.82,6.74,202.06,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),40.21,94.51,6.99,186.68,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.13,91.7,6.76,197.4,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),32.86,91.46,6.85,47.27,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),29.81,91.38,6.74,232.7,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.56,93.05,6.51,63.62,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),36.32,93.06,6.99,141.17,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),37.13,94.61,6.69,172.48,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),38.44,93.64,6.54,77.72,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),32.66,90.79,6.93,78.85,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.93,91.56,6.72,149.91,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),39.02,91.49,6.99,105.88,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),32.51,94.66,6.7,51.07,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),38.72,91.73,6.7,62.62,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),43.3,92.83,6.64,110.56,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.59,90.73,6.59,238.5,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),40.79,92.91,6.56,132.79,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.19,91.4,6.5,206.4,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),32.68,92.62,6.8,248.86,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.29,93.61,6.72,127.25,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),39.3,94.16,6.57,120.95,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),39.73,91.12,6.92,122.76,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),39.23,91.26,6.52,64.45,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.35,94.18,6.69,40.35,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),40.77,92.09,6.75,209.87,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.27,90.8,6.65,59.49,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.13,93.32,6.5,117.82,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),34.28,90.56,6.83,98.54,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),33.8,93.01,6.99,182.03,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.53,90.87,6.51,207.07,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.3,90.51,6.93,74.88,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.64,90.62,6.71,218.23,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.28,91.37,6.63,179.27,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.49,92.98,6.76,183.49,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.85,94.64,6.69,78.81,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),43.68,93.11,6.61,103.82,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.07,92.92,6.84,165.74,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),33.47,92.13,6.83,136.83,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.7,91.66,6.95,48.84,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),41.42,90.04,6.67,199.31,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.55,94.94,6.66,214.41,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.92,94.64,6.68,63.69,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),43.08,93.9,6.54,211.85,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.2,93.97,6.84,209.41,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),41.04,91.37,6.81,181.53,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.62,93.18,6.76,97.26,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),35.33,91.06,6.68,163.91,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),24.43,92.28,6.58,63.35,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.18,90.22,6.73,54.02,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),31.88,91.33,6.52,79.27,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.93,91.18,6.5,246.36,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.11,94.32,6.76,231.52,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.87,93.91,6.68,135.17,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),43.36,93.35,6.94,114.78,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),26.83,90.75,6.86,144.67,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.42,93.13,6.58,75.95,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),28.65,93.23,6.75,115.82,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),32.5,93.48,6.89,71.74,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),43.04,94.64,6.72,41.59,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),30.11,90.35,6.83,75.25,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),23.69,93.61,6.91,87.53,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),35.68,93.31,6.59,141.34,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),27.72,94.44,6.83,82.83,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),35.27,92.38,6.82,149.85,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),23.17,90.79,6.66,161.69,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),33.09,92.25,6.77,88.13,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),37.46,90.45,6.93,172.35,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),38.73,94.74,6.58,218.14,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),32.58,92.75,6.93,93.79,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),38.38,93.1,6.99,210.27,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),42.94,90.09,6.61,234.85,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.65,92.75,6.81,52.95,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),37.59,92.0,6.97,159.66,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.61,93.16,6.57,62.69,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),25.35,93.03,6.8,174.4,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.93,93.02,6.96,241.82,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),32.77,94.57,6.76,240.48,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.02,90.2,6.62,126.81,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),40.0,90.17,6.53,92.12,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),33.32,91.25,6.71,234.5,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.23,94.94,6.62,46.44,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.68,92.96,6.58,62.51,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),24.71,90.15,6.68,108.41,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),38.2,93.97,6.75,218.09,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),36.57,93.8,6.87,104.42,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.05,93.69,6.74,240.69,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),31.3,92.76,6.99,54.78,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),40.1,94.35,6.98,149.12,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),38.59,91.58,6.83,102.27,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),41.31,91.15,6.62,239.74,papaya
+Alluvial Soil,Zaid (Summer: Mar - Jun),37.04,91.79,6.55,188.52,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),23.01,91.07,6.6,208.34,papaya
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.76,92.86,6.42,224.59,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.61,94.31,5.74,224.32,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.13,95.65,5.69,151.08,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.03,91.54,6.29,179.82,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.8,99.65,6.38,181.69,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.26,95.11,5.54,184.76,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.1,93.7,5.55,150.95,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.85,90.93,5.86,147.89,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.59,90.99,5.56,178.81,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.39,99.19,5.56,189.67,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.44,91.81,5.57,145.54,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.27,96.94,6.07,198.82,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.01,96.46,5.63,144.33,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.64,99.35,6.38,157.92,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.3,99.66,5.69,215.92,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.13,95.24,6.23,204.72,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.57,97.61,6.44,199.79,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.95,93.41,5.84,172.05,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.03,95.02,5.96,218.01,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.13,91.31,5.74,157.24,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.08,97.0,5.95,171.76,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.11,90.02,6.39,172.48,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.51,94.19,5.56,156.67,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.64,95.49,5.86,205.55,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.01,94.01,6.28,150.05,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.58,95.79,6.25,171.63,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.29,97.0,5.97,142.94,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.69,96.65,6.08,178.96,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.71,96.3,6.37,209.85,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.15,96.66,6.03,149.24,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.29,91.96,5.87,132.15,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.07,93.31,6.21,134.84,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.92,91.2,5.57,194.9,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.28,93.65,6.1,171.95,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.18,92.73,6.03,204.96,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.36,91.65,5.54,160.73,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.38,93.28,6.37,218.52,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.39,98.09,5.58,218.08,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.31,98.62,5.8,208.12,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.53,91.91,6.12,194.31,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.83,92.17,6.0,145.42,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.48,97.77,5.82,160.39,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.74,93.4,5.62,156.77,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.01,95.59,6.0,165.81,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.87,91.15,6.31,192.77,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.54,94.59,6.36,150.2,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.52,98.38,5.59,144.63,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.04,95.9,6.18,174.8,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.2,95.67,5.96,211.25,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.06,91.11,5.68,224.7,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.19,96.97,5.61,135.42,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.59,92.49,6.21,162.84,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.76,94.66,5.76,131.25,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.88,95.11,6.2,145.06,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.51,94.48,6.14,199.88,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.87,91.73,6.1,214.41,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.57,94.9,5.71,145.93,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.06,98.37,5.87,171.65,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.52,92.56,6.46,131.21,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.96,95.16,6.17,222.8,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.1,92.36,6.05,157.76,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.19,92.2,6.14,141.32,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),29.03,90.79,5.89,205.57,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.75,95.95,5.56,131.09,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.31,99.97,5.83,201.83,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.84,99.64,6.22,224.4,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.61,96.97,6.14,191.01,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.7,95.66,6.08,215.2,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.55,91.64,5.7,212.87,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.38,91.5,5.55,167.05,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.46,92.91,5.84,142.14,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.02,95.72,6.23,147.17,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.99,90.74,5.72,148.84,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.11,91.52,5.85,134.13,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.07,95.02,5.55,192.9,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.55,96.93,6.16,191.3,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),28.57,95.68,6.44,134.84,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.07,96.7,5.98,143.53,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),25.52,94.38,6.27,178.73,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.95,94.74,6.47,144.16,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.3,95.41,6.14,182.45,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.57,91.41,5.83,224.83,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),29.7,95.21,6.34,148.3,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.14,93.28,6.07,195.41,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.0,94.8,6.33,209.54,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.15,91.49,6.41,164.92,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.97,98.1,5.5,213.9,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.14,96.39,6.34,131.34,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.52,94.33,6.02,135.13,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),27.56,99.98,5.74,174.63,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),27.81,97.48,6.47,154.06,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.6,99.72,5.86,165.82,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.92,99.85,6.32,225.63,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),29.18,90.27,6.01,188.93,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.45,98.3,6.01,221.23,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),28.44,95.88,5.67,203.93,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),28.94,93.0,5.76,191.77,coconut
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.45,93.45,5.9,149.22,coconut
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.79,93.84,5.78,152.42,coconut
+Sandy Loam Soil,Kharif (Monsoon: Jun - Oct),26.93,98.8,5.67,166.57,coconut
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.4,79.2,7.23,90.8,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.1,84.86,6.93,71.3,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.97,76.98,7.63,90.76,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.89,75.62,6.83,89.76,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.36,83.63,6.18,88.44,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.69,81.74,6.63,78.58,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.0,80.54,7.26,96.33,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.46,81.31,6.44,64.23,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.61,79.3,7.72,72.5,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.58,79.12,5.95,71.95,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.09,83.56,7.23,71.84,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.5,83.63,6.22,79.81,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.15,75.88,6.02,69.92,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.69,84.84,6.25,89.8,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.48,84.45,6.19,90.94,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.49,82.24,7.06,64.03,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.48,81.73,6.72,86.76,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.19,76.04,6.43,69.08,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.01,78.18,7.45,86.06,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.99,77.05,7.37,89.12,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.66,81.69,7.35,99.37,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.67,81.38,6.65,78.6,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.05,84.63,6.14,86.01,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.42,84.56,7.32,93.47,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.03,82.21,7.95,95.02,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.53,77.22,6.21,87.54,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.77,82.6,6.63,81.5,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.5,79.98,7.31,67.06,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.25,83.46,5.9,86.56,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.78,77.51,7.24,64.61,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.37,77.43,7.98,71.68,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.87,78.22,5.98,79.57,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.14,84.52,6.79,80.36,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.03,79.04,7.39,97.1,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.66,84.48,6.49,88.54,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.54,84.09,7.18,88.94,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.0,79.47,7.39,90.42,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.64,78.13,6.11,80.96,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.96,78.03,6.42,84.63,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.65,75.64,6.31,61.83,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.3,84.88,6.93,65.02,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.29,81.02,7.81,90.42,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.29,84.62,6.53,81.06,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.72,81.2,7.57,99.93,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.88,76.3,7.04,91.92,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.61,77.34,7.21,75.14,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.87,75.68,6.81,90.45,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.41,76.44,7.44,78.82,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.96,81.32,6.85,80.04,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.17,80.3,7.88,84.62,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.73,77.08,6.01,77.55,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.45,76.26,7.43,86.85,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.05,75.54,6.5,70.66,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.29,75.67,6.21,62.64,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.96,82.34,6.36,66.48,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.8,84.15,7.05,91.64,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.54,75.98,7.95,84.13,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.41,80.8,6.28,98.6,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.94,75.37,6.11,67.08,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.54,81.14,6.75,95.43,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.32,81.79,7.43,83.47,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.43,81.53,6.75,65.54,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.79,75.01,7.64,91.4,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.69,77.91,6.47,66.19,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.15,82.86,7.09,60.65,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.07,82.5,6.52,93.51,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.22,76.18,6.13,70.41,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.96,76.59,7.99,76.13,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.4,76.53,7.52,62.51,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.78,83.04,7.83,66.27,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.16,76.74,6.44,61.95,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.31,77.92,5.91,72.83,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.6,80.35,6.14,88.57,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.95,78.72,6.04,99.75,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.74,80.41,7.6,90.07,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.81,83.92,6.69,70.97,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.46,81.57,6.18,76.89,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.97,81.98,7.27,74.14,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.53,80.05,5.8,99.4,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.44,81.7,6.76,60.8,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.04,76.47,6.98,90.65,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.51,76.73,7.98,80.11,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.76,76.76,6.56,97.77,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.71,77.73,7.98,85.25,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.46,82.45,7.9,93.5,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.55,77.85,6.73,78.58,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),22.08,82.83,6.69,67.06,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.69,78.51,7.84,69.31,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),25.85,84.17,6.61,77.03,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.46,75.41,7.46,71.85,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.66,77.52,7.29,74.9,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.01,81.84,7.76,92.24,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),24.33,80.13,6.36,69.45,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.92,82.69,7.64,92.92,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.44,78.63,6.2,81.15,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.11,78.58,6.36,74.94,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.04,76.11,6.91,91.5,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.55,75.4,7.77,63.88,cotton
+Black Cotton Soil,Kharif (Monsoon: Jun - Oct),23.74,75.78,7.56,76.64,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),22.32,83.86,7.29,65.36,cotton
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.52,72.25,6.0,151.89,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.59,82.94,6.03,161.25,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.3,86.89,7.12,196.62,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.72,88.17,6.21,175.61,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.58,72.0,6.09,190.42,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.31,72.01,6.35,190.56,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.42,85.09,6.66,185.74,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.36,88.8,6.18,169.12,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.28,75.15,7.25,182.27,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.14,83.12,6.39,169.34,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.89,71.92,7.32,150.25,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.76,88.37,6.03,189.43,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.13,74.68,6.34,199.84,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.99,88.96,7.03,151.49,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.22,70.88,7.3,195.86,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.4,79.27,7.01,164.27,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.31,71.45,7.49,164.5,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.73,81.86,6.63,191.96,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.97,78.21,6.24,169.84,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.7,74.64,6.74,181.28,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.9,73.84,6.59,153.9,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.4,72.61,7.1,174.79,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.87,79.79,6.96,173.1,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.14,75.0,7.38,151.9,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.29,77.63,6.18,184.98,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.39,89.89,6.55,197.12,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.76,80.76,6.43,174.51,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.49,84.48,6.74,168.78,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.37,76.24,6.13,183.83,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.21,81.7,6.67,180.12,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.31,78.54,6.19,186.23,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.77,87.98,6.33,150.32,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.8,78.53,7.16,162.28,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.21,74.1,7.42,199.48,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.67,70.89,6.77,184.46,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.12,85.73,6.35,159.57,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.89,83.46,6.1,167.72,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.09,81.45,6.14,196.66,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.22,82.85,7.48,166.14,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.06,71.31,6.51,153.64,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.85,74.44,6.57,175.57,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.42,76.86,7.17,197.21,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.89,77.01,7.21,196.47,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.26,82.7,7.12,166.22,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.76,87.06,6.46,179.16,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.97,78.63,6.86,166.64,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.13,80.49,7.13,150.63,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.98,81.66,6.24,163.35,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.28,73.36,6.7,186.69,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.39,83.31,7.43,176.15,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.27,73.75,6.11,168.04,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.09,78.46,7.1,155.39,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.79,81.77,6.35,193.24,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.17,87.88,6.66,160.62,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.63,79.95,7.05,182.26,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.85,87.82,7.33,152.62,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.57,80.9,6.35,181.29,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.25,72.97,7.12,189.97,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.92,73.2,7.0,177.22,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.37,82.11,6.54,159.92,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.72,79.16,7.17,187.17,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.01,88.33,7.23,169.42,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.41,76.44,7.32,188.64,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.28,74.28,6.61,153.74,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.99,82.09,6.1,167.06,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.49,83.21,6.13,192.23,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.87,84.1,7.36,154.84,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.56,79.46,7.32,185.26,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.22,74.89,7.18,192.49,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.49,86.97,7.3,176.53,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.97,79.48,6.84,195.76,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.81,82.09,6.36,156.36,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.17,76.67,6.51,157.12,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.25,89.86,7.1,175.17,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.58,78.01,6.31,154.82,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.82,78.2,7.09,153.92,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),25.5,81.13,6.69,169.93,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.1,80.57,6.19,176.86,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.19,86.21,6.49,176.1,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.24,78.51,6.86,183.41,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.75,71.15,7.12,160.09,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.14,79.12,6.07,171.49,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.15,71.24,6.43,193.1,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.92,73.49,6.25,171.47,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.52,77.17,7.29,157.85,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.82,80.94,7.16,190.31,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),26.51,86.84,6.07,152.98,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.64,70.96,7.31,199.34,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.33,79.8,6.58,187.31,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.48,73.96,6.73,180.25,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.79,74.37,6.01,172.64,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),25.5,76.0,6.66,193.71,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.25,73.65,6.43,184.77,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.99,89.06,7.43,193.88,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.61,86.14,6.99,150.24,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),23.87,86.79,6.72,177.51,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),23.93,88.07,6.88,154.66,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),24.81,81.69,6.86,190.79,jute
+Alluvial Soil,Kharif (Monsoon: Jun - Oct),24.45,82.29,6.77,190.97,jute
+Clay Soil,Kharif (Monsoon: Jun - Oct),26.57,73.82,7.26,159.32,jute
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.33,57.36,7.26,191.65,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.45,55.32,7.24,144.69,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.71,52.89,7.19,136.73,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.13,56.18,6.43,147.28,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.44,60.4,6.42,122.21,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.41,52.27,6.87,139.37,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.06,50.41,6.97,164.5,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.08,63.66,7.18,129.88,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.65,51.11,6.35,122.84,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.47,69.35,6.39,171.38,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.74,55.55,6.12,140.63,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.21,52.51,6.91,189.09,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.04,57.28,6.5,165.69,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.65,51.94,7.03,135.14,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.35,55.99,7.13,148.98,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.18,62.26,6.65,135.01,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.11,68.0,6.7,161.89,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.23,52.95,7.49,175.73,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.26,60.52,6.72,194.18,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.23,57.53,6.04,124.23,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.6,57.73,7.1,195.77,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.57,60.49,7.47,190.23,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.67,51.29,6.88,196.27,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.41,62.66,6.41,148.7,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.69,66.76,7.39,144.66,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.53,67.0,7.48,180.51,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.13,52.89,6.08,192.43,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.56,68.49,6.52,167.44,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.59,55.28,6.04,191.4,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.18,52.14,6.96,117.31,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.71,51.29,7.24,197.64,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.39,64.73,7.23,119.63,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.16,51.59,6.69,126.18,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.54,67.1,6.81,120.65,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.01,60.77,6.49,191.45,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.56,58.46,6.78,117.94,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.32,53.0,7.17,168.26,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.24,54.3,6.73,115.16,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.43,64.11,6.78,122.68,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.02,55.83,7.28,176.9,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.84,56.77,7.21,124.41,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.24,65.64,7.49,148.38,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.43,66.02,7.23,181.64,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.0,62.14,6.56,153.48,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.22,62.27,6.98,193.75,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.1,63.55,6.78,190.24,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.64,61.03,6.22,199.47,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.75,54.37,7.21,139.86,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.25,54.29,6.85,133.11,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.67,52.24,6.25,156.15,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.1,55.75,6.91,139.5,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.63,61.26,6.78,196.65,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.54,55.52,6.27,130.64,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.57,50.56,6.91,130.38,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.99,57.93,7.16,192.87,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.56,54.41,6.96,177.82,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.98,61.11,6.97,161.53,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.23,67.38,6.84,122.41,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.6,68.66,6.54,168.84,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.31,53.57,6.09,184.41,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.37,52.26,7.46,177.32,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.56,57.16,6.76,152.06,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.35,58.51,7.46,121.56,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.2,57.88,6.65,156.15,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.36,55.19,6.03,171.7,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.61,59.69,6.07,185.16,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.18,69.95,7.05,163.27,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.44,53.84,6.99,175.37,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.12,63.37,6.73,147.8,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.77,64.48,6.94,192.71,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.56,62.67,7.28,193.59,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.92,67.97,7.08,115.23,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.06,52.31,6.14,161.34,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.36,64.58,6.51,163.63,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.91,54.15,7.04,129.55,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.31,68.42,6.35,192.43,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.14,52.26,7.43,136.3,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.11,67.06,6.79,162.58,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.53,68.44,6.74,171.88,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),25.12,68.48,7.01,194.88,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.03,58.85,7.3,134.68,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.71,69.71,6.86,158.86,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.72,50.5,7.13,126.81,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.59,56.47,7.29,137.7,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.51,50.67,6.98,144.0,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.58,58.53,6.17,156.68,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.65,57.57,6.35,145.11,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.97,62.02,6.91,142.86,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),23.17,52.98,6.77,153.12,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.53,65.44,6.39,186.17,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.31,55.2,6.35,141.48,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),27.55,62.88,6.12,181.42,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),25.63,57.04,7.43,188.55,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.29,50.05,6.02,183.47,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),24.91,53.74,6.33,166.25,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),26.77,66.41,6.78,177.77,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),27.42,56.64,6.09,127.92,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),24.13,67.23,6.36,173.32,coffee
+Laterite Soil,Kharif (Monsoon: Jun - Oct),26.27,52.13,6.76,127.18,coffee
+Red Soil,Kharif (Monsoon: Jun - Oct),23.6,60.4,6.78,140.94,coffee

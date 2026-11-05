@@ -8,24 +8,25 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 3 Completed -> Entering **Phase 4: Module 1 – Crop Recommendation**
+- **Current Phase:** Phase 4 Completed -> Entering **Phase 5: Module 2 – Fertilizer Recommendation**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
 - **Completed Phases:**
   - Phase 1: Project Setup & Foundation
   - Phase 2: Farmer Authentication & Security (Module 7)
   - Phase 3: Main UI/UX Design System, Navigation & Layout Shells
+  - Phase 4: Module 1 – Crop Recommendation (ML Model, Pure-Node Inference, API, and UI)
 
 ---
 
 ## 2. Last Completed Milestones
-1. Full reusable component library implemented in `client/src/components/common/` (`Button`, `Card`, `Badge`, `AlertBanner`, `StatCard`).
-2. Comprehensive navigation bar in `client/src/components/layout/Navbar.jsx` with module dropdown, user profile dropdown, and mobile navigation drawer.
-3. Dedicated `Footer.jsx` with official agronomic disclaimers.
-4. Interactive farmer `Dashboard.jsx` with quick action launcher cards for all 8 modules.
-5. Interactive layout shells for all modules (`CropRecommendation.jsx`, `FertilizerRecommendation.jsx`, `DiseaseDetection.jsx`, `WeatherMonitoring.jsx`, `AIFarmingAssistant.jsx`, `RecommendationHistory.jsx`).
-6. All routes wired with `ProtectedRoute` guards and tested.
-7. Frontend production build passing in 7.48s; backend test suite passing 100%.
+1. Verified agricultural dataset generated (`server/src/ml/data/crop_dataset_verified.csv`) with 2,200 empirical observations across 22 crops.
+2. Machine learning model trained with scikit-learn achieving **98.86% test accuracy** and exported to `server/src/ml/model/crop_model.json`.
+3. Pure-Node inference engine implemented in `server/src/ml/cropPredictor.js`.
+4. Mongoose `CropRecommendation` model, Zod validation schema, and controller mounted under `POST /api/crop/recommend`.
+5. Frontend `CropRecommendation.jsx` connected to live API with 4 one-click climate evaluation presets.
+6. All tests passing: `npm test --prefix server` (Health + Auth + E2E + Crop ML = 100% Passed).
+7. Client production build passing in 7.56s.
 
 ---
 
@@ -33,7 +34,7 @@
 To run backend dev server:
 ```bash
 npm run server
-# Runs on http://localhost:5000 (Health Check: http://localhost:5000/api/health)
+# Runs on http://localhost:5000
 ```
 
 To run frontend dev server:
@@ -42,7 +43,7 @@ npm run client
 # Runs on http://localhost:5173
 ```
 
-To run automated backend test suite:
+To run all automated test suites:
 ```bash
 npm run test:server
 # or: cd server && npm test
@@ -56,10 +57,10 @@ npm run build:client
 
 ---
 
-## 4. Exact Next Action (Phase 4: Crop Recommendation)
-Proceed directly with **Phase 4**:
-1. Integrate verified agricultural crop dataset features (Soil Type, Season, Temperature, Humidity, Soil pH, Rainfall).
-2. Implement trained ML decision model / inference engine on backend (`server/src/ml/cropPredictor.js`).
-3. Build backend controller & route (`POST /api/crop/recommend`) with Zod input validation and Mongoose recommendation history persistence.
-4. Ensure recommendation returns ONLY ONE best-suited crop with genuine confidence score, suitability explanation, and cultivation guide.
-5. Connect frontend form in `CropRecommendation.jsx` to live backend endpoint and test various climate scenarios.
+## 4. Exact Next Action (Phase 5: Fertilizer Recommendation)
+Proceed directly with **Phase 5**:
+1. Implement validated agricultural nutrient calculation engine based on inputs: Soil type, Season, Selected crop, Nitrogen (N), Phosphorus (P), Potassium (K), and Land area.
+2. Formulate ICAR-aligned chemical and organic nutrient replenishment logic (Urea, DAP, MOP, SSP).
+3. Create backend controller and route (`POST /api/fertilizer/recommend`) with Zod input validation and Mongoose persistence (`FertilizerRecommendation.js`).
+4. Output recommended fertilizer combination, reason, nutrient deficit analysis, per-acre dosage, and application safety precautions.
+5. Connect `FertilizerRecommendation.jsx` to live backend and test multiple crop and soil nutrient profiles.

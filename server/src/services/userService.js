@@ -126,3 +126,4 @@ export const updateUserProfile = async (id, updateData) => {
   delete copy.password;
   return copy;
 };
+

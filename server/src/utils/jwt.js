@@ -22,3 +22,4 @@ export const generateToken = (userId) => {
 export const verifyToken = (token) => {
   return jwt.verify(token, JWT_SECRET);
 };
+

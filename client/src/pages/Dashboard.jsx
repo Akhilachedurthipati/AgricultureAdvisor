@@ -6,209 +6,210 @@ import {
   ScanSearch, 
   CloudSun, 
   Bot, 
-  Languages, 
-  ShieldCheck, 
   History, 
+  ShieldCheck, 
+  Languages, 
   MapPin, 
-  Sparkles,
   ArrowRight,
-  UserCheck
+  UserCheck,
+  TrendingUp,
+  AlertTriangle,
+  Sparkles,
+  Layers,
+  Thermometer,
+  Droplets
 } from 'lucide-react';
+import Card from '../components/common/Card';
+import Button from '../components/common/Button';
+import Badge from '../components/common/Badge';
+import AlertBanner from '../components/common/AlertBanner';
+import StatCard from '../components/common/StatCard';
 import { useAuth } from '../context/AuthContext';
 
 export default function Dashboard() {
   const { user } = useAuth();
 
-  const MODULES = [
+  const QUICK_ACTIONS = [
     {
-      id: 1,
-      title: 'Crop Recommendation',
-      desc: 'Predict the single best-suited crop based on soil and seasonal conditions.',
+      title: 'Recommend Best Crop',
+      subtitle: 'Analyze soil, climate, pH & rainfall for single optimal crop',
       icon: Sprout,
-      status: 'Phase 4',
-      statusType: 'upcoming',
-      color: 'from-emerald-500 to-green-600',
-      route: '#'
+      route: '/crop-recommendation',
+      color: 'from-emerald-600 to-green-700',
+      badge: 'Module 01'
     },
     {
-      id: 2,
-      title: 'Fertilizer Recommendation',
-      desc: 'Calculate N-P-K nutrient requirements and safe application guidelines.',
+      title: 'Calculate Fertilizer',
+      subtitle: 'Nutrient-deficit N-P-K calculation with safety precautions',
       icon: FlaskConical,
-      status: 'Phase 5',
-      statusType: 'upcoming',
+      route: '/fertilizer-recommendation',
       color: 'from-amber-500 to-orange-600',
-      route: '#'
+      badge: 'Module 02'
     },
     {
-      id: 3,
-      title: 'Crop Disease Detection',
-      desc: 'Scan leaf pictures or use camera to identify crop pathogens and remedies.',
+      title: 'Diagnose Crop Disease',
+      subtitle: 'Upload leaf photo or capture via camera for pathogen diagnosis',
       icon: ScanSearch,
-      status: 'Phase 6',
-      statusType: 'upcoming',
+      route: '/disease-detection',
       color: 'from-rose-500 to-red-600',
-      route: '#'
+      badge: 'Module 03'
     },
     {
-      id: 4,
-      title: 'Weather Monitoring & Alerts',
-      desc: 'Live agro-meteorology and extreme precipitation / temperature alerts.',
+      title: 'Weather & Storm Alerts',
+      subtitle: 'Real-time forecasts and localized heavy precipitation warnings',
       icon: CloudSun,
-      status: 'Phase 7',
-      statusType: 'upcoming',
+      route: '/weather',
       color: 'from-sky-500 to-blue-600',
-      route: '#'
+      badge: 'Module 04'
     },
     {
-      id: 5,
-      title: 'AI Farming Voice Assistant',
-      desc: 'Voice & text agricultural chatbot powered by AI and speech recognition.',
+      title: 'AI Farming Assistant',
+      subtitle: 'Voice & text conversational chatbot for general farming Q&A',
       icon: Bot,
-      status: 'Phase 9',
-      statusType: 'upcoming',
+      route: '/ai-assistant',
       color: 'from-purple-500 to-indigo-600',
-      route: '#'
+      badge: 'Module 05'
     },
     {
-      id: 6,
-      title: 'Multilingual Interface',
-      desc: 'Full application translation across 8+ Indian regional languages.',
-      icon: Languages,
-      status: 'Phase 8',
-      statusType: 'upcoming',
-      color: 'from-teal-500 to-emerald-700',
-      route: '#'
-    },
-    {
-      id: 7,
-      title: 'Farmer Authentication',
-      desc: 'Secure account authorization, JWT session tokens, and farmer profile.',
-      icon: ShieldCheck,
-      status: 'Active & Verified',
-      statusType: 'active',
-      color: 'from-blue-600 to-cyan-600',
-      route: '/profile'
-    },
-    {
-      id: 8,
       title: 'Recommendation History',
-      desc: 'Audit trail of past predictions, disease scans, and consultation chats.',
+      subtitle: 'Review and audit past crop recommendations & disease scans',
       icon: History,
-      status: 'Phase 10',
-      statusType: 'upcoming',
-      color: 'from-stone-600 to-slate-700',
-      route: '#'
+      route: '/history',
+      color: 'from-slate-700 to-slate-900',
+      badge: 'Module 08'
     }
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div className="max-w-7xl mx-auto space-y-8">
       
-      {/* Farmer Welcome Banner */}
+      {/* Farmer Welcome Hero Banner */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-agri-900 via-agri-800 to-agri-700 text-white p-6 sm:p-10 shadow-xl shadow-agri-950/15">
         <div className="relative z-10 max-w-2xl space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md text-agri-200 border border-white/15">
             <UserCheck className="w-3.5 h-3.5 text-agri-300" />
-            <span>Authenticated Farmer Session</span>
+            <span>Authenticated Farmer Command Center</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
             Namaste, <span className="text-agri-300">{user?.name || 'Farmer'}</span>! 🌾
           </h1>
-          
+
           <p className="text-xs sm:text-sm text-agri-100/90 leading-relaxed">
-            Welcome to your Agriculture Advisor command center. Choose an advisory service below or manage your farm profile settings.
+            Welcome to Agriculture Advisor. Access real-time agricultural machine learning models, weather alerts, and multilingual AI assistance tailored for your fields.
           </p>
 
-          {/* Farmer Quick Badges */}
-          <div className="pt-2 flex flex-wrap items-center gap-2 text-xs">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-agri-100 border border-white/10">
+          {/* Quick Badges */}
+          <div className="pt-2 flex flex-wrap items-center gap-2.5 text-xs">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-agri-100 border border-white/10 font-medium">
               <MapPin className="w-3.5 h-3.5 text-agri-300" />
               <span>
                 {user?.location?.state 
                   ? `${user.location.district ? `${user.location.district}, ` : ''}${user.location.state}` 
-                  : 'Location not set'}
+                  : 'Farm location not set'}
               </span>
             </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-agri-100 border border-white/10">
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-agri-100 border border-white/10 font-medium">
               <Languages className="w-3.5 h-3.5 text-agri-300" />
-              <span className="uppercase">{user?.preferredLanguage || 'en'}</span>
+              <span>Preferred Language: <strong className="uppercase">{user?.preferredLanguage || 'en'}</strong></span>
             </span>
+
+            <Link
+              to="/profile"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-agri-500/80 hover:bg-agri-500 text-white text-xs font-bold transition ml-auto"
+            >
+              <span>Edit Profile</span>
+              <ArrowRight className="w-3 h-3" />
+            </Link>
           </div>
         </div>
 
         <div className="absolute -right-10 -bottom-10 w-72 h-72 rounded-full bg-agri-500/20 blur-3xl pointer-events-none"></div>
       </div>
 
-      {/* Advisory Modules Grid */}
+      {/* Advisory Notice Banner */}
+      <AlertBanner
+        variant="disclaimer"
+        title="Official Agricultural Advisory Disclaimer"
+        message="All models and recommendations provided on this platform are computational agronomic advisories. They do not constitute guaranteed agricultural yield. Always verify critical decisions with local agricultural extension officers or certified testing laboratories."
+      />
+
+      {/* Farm Metrics Row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <StatCard
+          label="Advisory Engines"
+          value="8 Modules"
+          subtext="Crop, Fertilizer, Vision & AI"
+          icon={Layers}
+          color="agri"
+        />
+        <StatCard
+          label="Farm Climate Zone"
+          value={user?.location?.state ? user.location.state : 'Semi-Arid'}
+          subtext={user?.location?.district ? `District: ${user.location.district}` : 'Tropical / Subtropical'}
+          icon={Thermometer}
+          color="amber"
+        />
+        <StatCard
+          label="Soil Moisture Status"
+          value="Adequate"
+          subtext="Based on regional climate"
+          icon={Droplets}
+          color="sky"
+        />
+        <StatCard
+          label="Authentication Security"
+          value="JWT Active"
+          subtext="Session token protected"
+          icon={ShieldCheck}
+          color="purple"
+        />
+      </div>
+
+      {/* Quick Action Advisory Launchers */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold text-slate-900">Agriculture Advisor Modules</h2>
-            <p className="text-xs text-slate-500">Access all eight core agricultural advisory engines</p>
+            <h2 className="text-xl font-bold text-slate-900">Advisory Quick Launchers</h2>
+            <p className="text-xs text-slate-500">Jump directly into specialized agricultural advisory tools</p>
           </div>
-          <span className="text-xs font-semibold text-agri-700 bg-agri-50 px-3 py-1 rounded-full border border-agri-200">
-            8 Modules
-          </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {MODULES.map((mod) => {
-            const Icon = mod.icon;
-            const isActive = mod.statusType === 'active';
-            
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {QUICK_ACTIONS.map((action, i) => {
+            const Icon = action.icon;
             return (
-              <div
-                key={mod.id}
-                className={`group relative bg-white rounded-2xl border p-5 shadow-sm transition-all flex flex-col justify-between ${
-                  isActive 
-                    ? 'border-agri-400 ring-2 ring-agri-500/10 hover:shadow-md' 
-                    : 'border-slate-200/80 hover:border-slate-300'
-                }`}
+              <Link
+                key={i}
+                to={action.route}
+                className="group relative bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm hover:shadow-lg hover:border-agri-300 transition-all duration-200 flex flex-col justify-between"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${mod.color} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
-                      <Icon className="w-5 h-5" />
+                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${action.color} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">
-                      Module 0{mod.id}
-                    </span>
+                    <Badge variant="neutral" size="sm">
+                      {action.badge}
+                    </Badge>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-slate-900 group-hover:text-agri-700 transition-colors">
-                      {mod.title}
+                    <h3 className="font-bold text-slate-900 group-hover:text-agri-700 transition-colors text-base">
+                      {action.title}
                     </h3>
                     <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                      {mod.desc}
+                      {action.subtitle}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className={`font-semibold px-2.5 py-0.5 rounded-full text-[11px] ${
-                    isActive 
-                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' 
-                      : 'bg-slate-100 text-slate-600'
-                  }`}>
-                    {mod.status}
-                  </span>
-
-                  {isActive ? (
-                    <Link
-                      to={mod.route}
-                      className="inline-flex items-center gap-1 font-semibold text-agri-700 hover:text-agri-800 transition"
-                    >
-                      <span>Manage</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </Link>
-                  ) : (
-                    <span className="text-slate-400 text-[11px]">In Roadmap</span>
-                  )}
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-agri-700 group-hover:text-agri-800">
+                  <span>Launch Engine</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

@@ -22,3 +22,4 @@ router.get('/profile', protect, getProfile);
 router.put('/profile', protect, validate(updateProfileSchema), updateProfile);
 
 export default router;
+

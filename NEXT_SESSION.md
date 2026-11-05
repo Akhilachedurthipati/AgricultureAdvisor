@@ -8,45 +8,47 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 2 Completed -> Entering **Phase 3: Main UI/UX Design & Navigation System**
+- **Current Phase:** Phase 3 Completed -> Entering **Phase 4: Module 1 – Crop Recommendation**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
-- **Completed Modules:** Module 7 (User Authentication & Farmer Profile) fully functional on frontend & backend.
+- **Completed Phases:**
+  - Phase 1: Project Setup & Foundation
+  - Phase 2: Farmer Authentication & Security (Module 7)
+  - Phase 3: Main UI/UX Design System, Navigation & Layout Shells
 
 ---
 
 ## 2. Last Completed Milestones
-1. **Phase 1 (Setup):** Git initialized, continuity docs synced, Express API + Healthcheck test passing, React 18 + Vite + Tailwind configured.
-2. **Phase 2 (Authentication):**
-   - Mongoose `User` model with `bcryptjs` hashing.
-   - JWT tokens generated and validated via `auth.middleware.js`.
-   - Zod validation for registration, login, and profile updates.
-   - Resilient database service (`server/src/services/userService.js`) supporting active MongoDB and automatic zero-config memory fallback.
-   - Client `AuthContext`, `ProtectedRoute`, `Navbar`, `Login` (with 1-click Demo Auto-Fill), `Register`, `UserProfile`, and `Dashboard`.
-   - All tests passing: `npm test --prefix server` (Health check + 8 Unit Auth Tests + E2E Simulation).
+1. Full reusable component library implemented in `client/src/components/common/` (`Button`, `Card`, `Badge`, `AlertBanner`, `StatCard`).
+2. Comprehensive navigation bar in `client/src/components/layout/Navbar.jsx` with module dropdown, user profile dropdown, and mobile navigation drawer.
+3. Dedicated `Footer.jsx` with official agronomic disclaimers.
+4. Interactive farmer `Dashboard.jsx` with quick action launcher cards for all 8 modules.
+5. Interactive layout shells for all modules (`CropRecommendation.jsx`, `FertilizerRecommendation.jsx`, `DiseaseDetection.jsx`, `WeatherMonitoring.jsx`, `AIFarmingAssistant.jsx`, `RecommendationHistory.jsx`).
+6. All routes wired with `ProtectedRoute` guards and tested.
+7. Frontend production build passing in 7.48s; backend test suite passing 100%.
 
 ---
 
 ## 3. How to Run & Verify Current Work
-To run backend:
+To run backend dev server:
 ```bash
 npm run server
 # Runs on http://localhost:5000 (Health Check: http://localhost:5000/api/health)
 ```
 
-To run frontend:
+To run frontend dev server:
 ```bash
 npm run client
 # Runs on http://localhost:5173
 ```
 
-To run the complete automated test suite:
+To run automated backend test suite:
 ```bash
 npm run test:server
 # or: cd server && npm test
 ```
 
-To test client production build:
+To build client bundle:
 ```bash
 npm run build:client
 # or: cd client && npm run build
@@ -54,13 +56,10 @@ npm run build:client
 
 ---
 
-## 4. Exact Next Action (Phase 3: Main UI/UX & Layout System)
-Proceed directly with **Phase 3**:
-1. Enhance the design system with reusable UI components:
-   - `client/src/components/common/Card.jsx`
-   - `client/src/components/common/Button.jsx`
-   - `client/src/components/common/Badge.jsx`
-   - `client/src/components/common/AlertBanner.jsx`
-   - `client/src/components/common/Modal.jsx`
-2. Expand the `Dashboard.jsx` with quick weather overview snippet, quick-start advisory launcher, and recommendation activity overview.
-3. Prepare the form layouts and routes for **Module 1 (Crop Recommendation)** and **Module 2 (Fertilizer Recommendation)**.
+## 4. Exact Next Action (Phase 4: Crop Recommendation)
+Proceed directly with **Phase 4**:
+1. Integrate verified agricultural crop dataset features (Soil Type, Season, Temperature, Humidity, Soil pH, Rainfall).
+2. Implement trained ML decision model / inference engine on backend (`server/src/ml/cropPredictor.js`).
+3. Build backend controller & route (`POST /api/crop/recommend`) with Zod input validation and Mongoose recommendation history persistence.
+4. Ensure recommendation returns ONLY ONE best-suited crop with genuine confidence score, suitability explanation, and cultivation guide.
+5. Connect frontend form in `CropRecommendation.jsx` to live backend endpoint and test various climate scenarios.

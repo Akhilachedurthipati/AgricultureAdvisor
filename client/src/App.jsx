@@ -2,12 +2,19 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import UserProfile from './pages/UserProfile';
+import CropRecommendation from './pages/CropRecommendation';
+import FertilizerRecommendation from './pages/FertilizerRecommendation';
+import DiseaseDetection from './pages/DiseaseDetection';
+import WeatherMonitoring from './pages/WeatherMonitoring';
+import AIFarmingAssistant from './pages/AIFarmingAssistant';
+import RecommendationHistory from './pages/RecommendationHistory';
 
 export default function App() {
   return (
@@ -23,7 +30,7 @@ export default function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
 
-              {/* Protected Routes */}
+              {/* Protected Routes (Farmer Authentication Required) */}
               <Route 
                 path="/dashboard" 
                 element={
@@ -40,27 +47,61 @@ export default function App() {
                   </ProtectedRoute>
                 } 
               />
+              <Route 
+                path="/crop-recommendation" 
+                element={
+                  <ProtectedRoute>
+                    <CropRecommendation />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/fertilizer-recommendation" 
+                element={
+                  <ProtectedRoute>
+                    <FertilizerRecommendation />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/disease-detection" 
+                element={
+                  <ProtectedRoute>
+                    <DiseaseDetection />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/weather" 
+                element={
+                  <ProtectedRoute>
+                    <WeatherMonitoring />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/ai-assistant" 
+                element={
+                  <ProtectedRoute>
+                    <AIFarmingAssistant />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/history" 
+                element={
+                  <ProtectedRoute>
+                    <RecommendationHistory />
+                  </ProtectedRoute>
+                } 
+              />
 
-              {/* Catch-all redirect to Home */}
+              {/* Catch-all route */}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </main>
 
-          {/* Footer */}
-          <footer className="mt-auto border-t border-slate-200 bg-white py-6">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-              <p>© {new Date().getFullYear()} AGRICULTURE ADVISOR. B.Tech Major Project.</p>
-              <p className="flex items-center gap-2">
-                <span>MERN Stack</span>
-                <span>•</span>
-                <span>Machine Learning</span>
-                <span>•</span>
-                <span>Computer Vision</span>
-                <span>•</span>
-                <span>Multilingual AI</span>
-              </p>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </AuthProvider>
     </BrowserRouter>

@@ -35,3 +35,4 @@ export const updateFarmerProfile = async (profileData) => {
     throw error.response?.data || { success: false, message: error.message };
   }
 };
+

@@ -26,3 +26,4 @@ export const fetchFertilizerHistory = async () => {
     throw error.response?.data || { success: false, message: error.message };
   }
 };
+

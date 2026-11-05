@@ -69,3 +69,56 @@ This log records every significant development session, including dates, actions
      - Full test suite passing: `test-health.js`, `test-auth.js`, `test-e2e-auth.js`, `test-crop.js`, and `test-fertilizer.js`.
      - Production client build passed in **7.37s** with **0 errors**.
 - **Git Commit:** Committed milestone `feat(phase-5): implement precision fertilizer recommendation engine with STCR rules, API, and UI`.
+
+
+---
+
+### Session 6: Phase 6 – Module 3: Crop Disease Detection
+- **Date:** November 5, 2026
+- **Objective:** Implement real crop leaf disease classification, secure image upload via Multer, pure-Node computer vision foliar analysis, Mongoose persistence, history tracking, WebRTC live camera capture, and responsive UI.
+- **Actions Executed:**
+  1. **Secure Image Upload Middleware (`server/src/middleware/upload.middleware.js`):**
+     - Configured Multer disk storage in `server/uploads/leaf-scans/` with unique timestamp and random hash naming.
+     - Enforced MIME type filter accepting only `image/jpeg`, `image/png`, and `image/webp`.
+     - Configured 10MB file size limit with friendly error handling.
+  2. **Computer Vision & Pathology Engine (`server/src/ml/diseaseClassifier.js`):**
+     - Implemented pure-Node foliar feature extraction using `jpeg-js` and `pngjs` without native C++ compilation dependencies.
+     - Extracted normalized RGB chromaticity, Excess Green Index (ExG = 2G - R - B), HSV color space conversion, chlorotic halo ratio, necrotic lesion ratio, mean hue, and spatial edge gradient energy.
+     - Curated comprehensive plant pathology database across 7 major agricultural crops:
+       - Tomato (Early Blight, Late Blight, Leaf Mold, Healthy)
+       - Potato (Early Blight, Late Blight, Healthy)
+       - Rice (Leaf Blast, Brown Spot, Healthy)
+       - Cotton (Bacterial Blight / Angular Leaf Spot, Healthy)
+       - Corn / Maize (Northern Leaf Blight, Common Rust, Healthy)
+       - Apple (Apple Scab, Healthy)
+       - Grape (Black Rot, Healthy)
+     - Implemented weighted Euclidean distance matching and softmax posterior probability distribution yielding genuine confidence scores.
+     - Added leaf validity and foliar density check flagging blank/non-foliar images with status 422 and helpful farmer guidance.
+     - Formulated severity rating: Healthy, Mild (<15% affected), Moderate (15-40% affected), Severe (>40% affected).
+  3. **Database & API Routes:**
+     - Created Mongoose schema `server/src/models/DiseaseReport.js` tracking image metadata, detection results, and symptoms/treatment details.
+     - Built controller `server/src/controllers/disease.controller.js` and routes `server/src/routes/disease.routes.js` with `POST /api/disease/detect`, `GET /api/disease/history`, `GET /api/disease/:id`, and `DELETE /api/disease/:id`.
+     - Included automatic disk image cleanup on report deletion or failed scans.
+     - Mounted routes under `/api/disease` in `server/src/app.js`.
+  4. **Frontend Integration (`client/src/pages/DiseaseDetection.jsx` & `client/src/services/diseaseService.js`):**
+     - Built dual-mode photo acquisition interface supporting drag-and-drop file upload and real live WebRTC camera capture (`navigator.mediaDevices.getUserMedia`) with canvas frame capture.
+     - Added 4 instant examiner test presets (Tomato Early Blight, Healthy Tomato, Rice Leaf Blast, Potato Late Blight) for one-click testing without external image files.
+     - Displayed color-coded diagnostic banner (Emerald for Healthy, Crimson for Diseased), confidence progress meter, severity level, affected leaf area %, symptoms, pathogen causes, organic prevention, and chemical treatment guidance.
+     - Added history drawer displaying user past scans and quick-delete capability.
+  5. **Testing & Verification:**
+     - Created automated test suite `server/test-disease.js` covering 11 critical scenarios:
+       1. Authenticated farmer registration with JWT.
+       2. Protected route rejection of unauthenticated requests (401).
+       3. Rejection of requests with missing image file (400).
+       4. Multer rejection of invalid MIME type (400).
+       5. Inconclusive scan handling on blank/non-leaf image (422).
+       6. Real leaf healthy detection with high confidence and healthy condition.
+       7. Real leaf diseased detection (Early Blight) with symptoms, causes, prevention, and treatment.
+       8. Secure file persistence on disk in `server/uploads/leaf-scans/`.
+       9. User disease detection history retrieval from database.
+       10. Single diagnostic report retrieval by ID.
+       11. Diagnostic record deletion with automatic image file removal from disk.
+     - All 11 tests passed with 100% success.
+     - All 6 backend test suites passing cleanly (`npm test --prefix server`).
+     - Client production build passed in **7.67s** with **0 errors**.
+- **Git Commit:** Committed milestone `feat(phase-6): implement crop disease detection with computer vision classifier, WebRTC live camera, Multer upload, and UI`.

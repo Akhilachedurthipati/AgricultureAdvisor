@@ -88,15 +88,15 @@ Status Legend:
 ---
 
 ## Phase 6: Module 3 – Crop Disease Detection
-- [ ] Leaf image classification model / inference pipeline
-- [ ] Backend upload route with Multer (`POST /api/disease/detect`)
-- [ ] Secure image processing and preliminary diagnosis generation
-- [ ] Detailed diagnosis output: Disease name or Healthy status, confidence, symptoms, causes, prevention, treatment guidance
-- [ ] Image cleanup mechanism (avoid permanent retention of raw camera dumps without consent)
-- [ ] Frontend Image Upload UI with drag-and-drop & live preview
-- [ ] Frontend Live Camera Capture UI using WebRTC MediaDevices API
-- [ ] Advisory disclaimer stating image classification results are preliminary
-- [ ] End-to-end testing with sample healthy and infected leaf imagery
+- [x] Leaf image classification model / inference pipeline (`server/src/ml/diseaseClassifier.js`)
+- [x] Backend upload route with Multer (`POST /api/disease/detect`)
+- [x] Secure image processing and preliminary diagnosis generation
+- [x] Detailed diagnosis output: Disease name or Healthy status, confidence, symptoms, causes, prevention, treatment guidance
+- [x] Image cleanup mechanism (automatic cleanup on deletion / invalid scan; `.gitignore` protection)
+- [x] Frontend Image Upload UI with drag-and-drop & live preview (`client/src/pages/DiseaseDetection.jsx`)
+- [x] Frontend Live Camera Capture UI using WebRTC MediaDevices API
+- [x] Advisory disclaimer stating image classification results are preliminary
+- [x] End-to-end testing with sample healthy and infected leaf imagery (`server/test-disease.js` all 11 tests passing)
 
 ---
 

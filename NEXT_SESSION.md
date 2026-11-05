@@ -8,47 +8,49 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 1: Project Setup & MERN Foundation
-- **Active Task:** Completing Phase 1 server & client setup, connecting health check API, and verifying end-to-end communication.
+- **Current Phase:** Phase 1 Completed -> Entering **Phase 2: User Authentication & Security**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
+- **Active Branch:** `master`
 
 ---
 
 ## 2. Last Completed Milestones
-1. Git initialized and `.gitignore` configured.
-2. All 5 core continuity and architecture documentation files established.
-3. System runtime verified (Node.js v21, npm 10.5, Python 3.13, Git).
+1. Git initialized and verified; strict `.gitignore` in place preventing any credentials or node_modules leakage.
+2. Continuity files created and synchronized (`PROJECT_STATUS.md`, `DEVELOPMENT_LOG.md`, `NEXT_SESSION.md`, `TASK_CHECKLIST.md`, `ARCHITECTURE.md`, `README.md`).
+3. Complete Express backend architecture created (`server/src/app.js`, `server/src/server.js`, `server/src/config/db.js`, `server/src/routes/health.routes.js`, error middleware).
+4. Automated backend health check test written and verified (`server/test-health.js` passing with HTTP 200).
+5. Complete React 18 + Vite frontend created (`client/`) with Tailwind CSS (nature green theme), Lucide React, Axios API client with interceptors.
+6. Frontend production build verified (`npm run build` succeeds).
 
 ---
 
-## 3. Files Currently Active / In Scope
-- `server/package.json`
-- `server/src/app.js`
-- `server/src/server.js`
-- `server/src/config/db.js`
-- `server/src/routes/health.routes.js`
-- `client/package.json`
-- `client/src/App.jsx`
-- `client/src/services/api.js`
-
----
-
-## 4. Commands to Resume / Test
-To run backend:
+## 3. How to Run the Project
+To run backend dev server:
 ```bash
-cd server
-npm install
-npm run dev
+npm run server
+# or: cd server && npm run dev
 ```
 
-To run frontend:
+To run frontend dev server:
 ```bash
-cd client
-npm install
-npm run dev
+npm run client
+# or: cd client && npm run dev
+```
+
+To test backend health check:
+```bash
+npm run test:server
+# or: cd server && npm test
 ```
 
 ---
 
-## 5. Exact Next Action
-Complete backend Express architecture with MongoDB connection and health check route, initialize React + Vite frontend, establish Axios client, and verify `/api/health` test.
+## 4. Exact Next Action (Phase 2: Authentication)
+Proceed directly with **Phase 2**:
+1. Implement `server/src/models/User.js` Mongoose model with email, hashed password, name, phone, preferredLanguage, location.
+2. Implement `server/src/utils/jwt.js` and `server/src/middleware/auth.middleware.js` for JWT token generation and verification.
+3. Implement `server/src/controllers/auth.controller.js` and `server/src/routes/auth.routes.js` with Zod input validation (`/api/auth/register`, `/api/auth/login`, `/api/auth/profile`).
+4. Mount auth routes in `server/src/app.js`.
+5. Implement frontend `client/src/context/AuthContext.jsx` with persistent login state.
+6. Create `client/src/pages/Login.jsx` and `client/src/pages/Register.jsx` with responsive UI.
+7. Test authentication flow end-to-end.

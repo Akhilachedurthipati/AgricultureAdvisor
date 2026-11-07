@@ -163,7 +163,8 @@ const runMasterIntegrationTest = async () => {
     }
     const predictedCrop = cropData.data.cropName;
     const cropConfidence = cropData.data.confidenceScore;
-    console.log(`✅ STEP 4: Crop Recommendation ML Inference Succeeded: "${predictedCrop}" (Confidence: ${cropConfidence}%)`);
+    const cropConfidencePct = cropConfidence <= 1.0 ? Math.round(cropConfidence * 100) : Math.round(cropConfidence);
+    console.log(`✅ STEP 4: Crop Recommendation ML Inference Succeeded: "${predictedCrop}" (Confidence: ${cropConfidencePct}%)`);
 
     // -------------------------------------------------------------
     // STEP 5: Module 2 – Precision Fertilizer Recommendation (STCR Engine)

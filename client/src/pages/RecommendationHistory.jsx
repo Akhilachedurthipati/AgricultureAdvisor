@@ -558,8 +558,12 @@ export default function RecommendationHistory() {
                         {activeModalItem.crop}
                       </h4>
                     </div>
-                    <Badge variant="success">
-                      {activeModalItem.details?.recommendation?.confidenceScore || 98}% Confidence
+                    <Badge variant={activeModalItem.details?.recommendation?.isConfident === false ? "warning" : "success"}>
+                      {activeModalItem.details?.recommendation?.confidenceScore != null
+                        ? (activeModalItem.details.recommendation.confidenceScore <= 1.0
+                            ? Math.round(activeModalItem.details.recommendation.confidenceScore * 100)
+                            : Math.round(activeModalItem.details.recommendation.confidenceScore))
+                        : 98}% Confidence
                     </Badge>
                   </div>
 
@@ -589,6 +593,13 @@ export default function RecommendationHistory() {
                       <span className="font-semibold">{activeModalItem.details?.inputs?.ph}</span>
                     </div>
                   </div>
+
+                  {activeModalItem.details?.recommendation?.uncertaintyWarning && (
+                    <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs">
+                      <span className="font-bold block">Advisory Uncertainty Notice:</span>
+                      <p className="mt-0.5 text-amber-800">{activeModalItem.details.recommendation.uncertaintyWarning}</p>
+                    </div>
+                  )}
 
                   {activeModalItem.details?.recommendation?.suitabilityExplanation && (
                     <div>

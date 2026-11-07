@@ -373,9 +373,22 @@ export default function CropRecommendation() {
                   </div>
                   <div className="text-right bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 backdrop-blur-sm">
                     <span className="text-[10px] uppercase text-agri-200 block font-bold">{t('crop.confidence', 'Model Confidence')}</span>
-                    <span className="text-xl font-extrabold">{(result.confidenceScore * 100).toFixed(0)}%</span>
+                    <span className="text-xl font-extrabold">
+                      {(result.confidenceScore <= 1.0 ? Math.round(result.confidenceScore * 100) : Math.round(result.confidenceScore))}%
+                    </span>
                   </div>
                 </div>
+
+                {/* Uncertainty Warning Notice (when confidence < 70% or OOD) */}
+                {result.uncertaintyWarning && (
+                  <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-2.5">
+                    <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold block text-amber-950">Advisory Uncertainty Notice:</span>
+                      <p className="mt-0.5 text-amber-800 leading-relaxed">{result.uncertaintyWarning}</p>
+                    </div>
+                  </div>
+                )}
 
                 {/* Suitability Explanation */}
                 <div className="space-y-1.5 text-xs">

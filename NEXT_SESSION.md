@@ -9,8 +9,8 @@
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
 - **Current Phase:** **ALL 11 PHASES COMPLETED & FULLY VERIFIED (100% PRODUCTION READY)**
+- **Active Branch:** `fix/crop-confidence-investigation` (Awaiting merge approval)
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
-- **Active Branch:** `master`
 - **Completed Phases:**
   - Phase 1: Project Setup & Foundation
   - Phase 2: Farmer Authentication & Security (Module 7)
@@ -22,22 +22,23 @@
   - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali)
   - Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot (Speech-to-Text STT, Text-to-Speech TTS, Agricultural Knowledge Engine, Safety Guardrails, MongoDB History)
   - Phase 10: Module 8 – Recommendation History & Farmer Profile (Centralized History Dashboard, Module/Keyword/Crop Filtering, Pagination, Record Details Modal, Multi-Tenant Data Isolation, Image Unlinking)
-  - Phase 11: Final Integration, Testing, Viva & Deployment Preparation (Master E2E System Test Suite, 10 Test Suites, 90 Automated Tests 100% Green, Comprehensive Viva Guide & Examiner Cheat Sheet)
+  - Phase 11: Final Integration, Testing, Viva & Deployment Preparation (Master E2E System Test Suite, 11 Test Suites, 96 Automated Tests 100% Green, Comprehensive Viva Guide & Examiner Cheat Sheet)
+  - Crop Confidence & Normalization Improvement: Removed artificial clamping, added canonical alias normalization, implemented OOD detection and uncertainty warnings, fixed percentage formatting, verified with 6 regression tests.
 
 ---
 
-## 2. Last Completed Milestones (Phase 11: Final Integration, Testing & Viva Preparation)
-1. **Master End-to-End System Test Suite (`server/test-master-integration.js`):**
-   - Simulated full farmer lifecycle across all modules: Health check -> Registration with JWT -> Geolocation weather alerts -> Crop ML single-crop prediction -> Precision STCR fertilizer plan in 50-kg bags -> Multi-crop leaf disease classification -> Multilingual voice consultation (Telugu) -> Off-topic safety guardrail deflection -> Centralized history aggregation -> 403 Forbidden tenant isolation -> Resource cleanup on deletion.
-2. **Comprehensive Automated Test Coverage:**
-   - 10 test suites covering all architectural layers (`test-health.js`, `test-auth.js`, `test-e2e-auth.js`, `test-crop.js`, `test-fertilizer.js`, `test-disease.js`, `test-weather.js`, `test-chat.js`, `test-history.js`, `test-master-integration.js`).
-   - 90 total automated tests passing 100% (`npm test --prefix server` or `npm run test:server`).
-3. **Production Client Build & Security Hardening:**
-   - Client bundle compiled cleanly in 7.89s with 0 errors (`npm run build --prefix client`).
-   - Verified Helmet HTTP headers, CORS origin controls, Zod schema validation, bcryptjs password hashing, and zero tracked secrets in `.gitignore`.
-4. **Project Defense & Documentation Deliverables:**
-   - `VIVA_GUIDE.md`: Comprehensive examiner Q&A guide, mathematical formulations, system architecture diagrams, and 5-minute live demonstration script.
-   - `EXAMINER_CHEATSHEET.md`: 1-page rapid reference card for viva examiners with key algorithms and evaluation metrics.
+## 2. Last Completed Milestones (Crop Confidence & Normalization Fix)
+1. **Model Preprocessing & Alias Normalization (`server/src/ml/cropPredictor.js`):**
+   - Added `SOIL_ALIAS_MAP` and `SEASON_ALIAS_MAP` for canonical normalization of common aliases (`"Black Soil" -> "Black Cotton Soil"`, `"alluvial"`, `"clayey"`, etc.).
+   - Removed artificial clamping (`Math.max(0.70, ...)`); outputs genuine model posterior probability.
+   - Added out-of-distribution log-likelihood threshold (`best.logLikelihood < -28.0`) and uncertainty advisory notices (`isConfident: false`, `uncertaintyWarning`).
+2. **Confidence Formatting Across Client & History:**
+   - Standardized percentage calculation (`score <= 1.0 ? Math.round(score * 100) : Math.round(score)`) in `test-master-integration.js`, `CropRecommendation.jsx`, `history.controller.js`, and `RecommendationHistory.jsx`.
+   - Rendered explicit advisory warning banner in `CropRecommendation.jsx` whenever `uncertaintyWarning` is present.
+3. **Automated Testing & Builds:**
+   - Built dedicated regression test suite `server/test-crop-regression.js` with 6 automated tests.
+   - All 11 backend test suites (96 total tests) passed 100% (`npm test --prefix server`).
+   - Vite client production bundle built cleanly in 9.37s with 0 errors (`npm run build --prefix client`).
 
 ---
 
@@ -52,6 +53,28 @@ To run frontend dev server:
 ```bash
 npm run client
 # Runs on http://localhost:5173
+```
+
+To run all 11 automated test suites (96 tests):
+```bash
+npm run test:server
+# or: cd server && npm test
+```
+
+To run the crop regression test suite:
+```bash
+npm run test:regression
+```
+
+To run the master end-to-end integration test:
+```bash
+npm run test:master
+```
+
+To build client bundle:
+```bash
+npm run build:client
+# or: cd client && npm run build
 ```
 
 To run all 10 automated test suites (90 tests):

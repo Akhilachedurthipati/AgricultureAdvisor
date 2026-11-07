@@ -19,6 +19,9 @@ const cropRecommendationSchema = new mongoose.Schema(
     recommendation: {
       cropName: { type: String, required: true },
       confidenceScore: { type: Number, required: true },
+      isConfident: { type: Boolean, default: true },
+      confidenceLevel: { type: String, enum: ['high', 'moderate', 'low'], default: 'high' },
+      uncertaintyWarning: { type: String, default: null },
       suitabilityExplanation: { type: String, required: true },
       cultivationTips: { type: String, required: true },
       agronomicParameters: { type: mongoose.Schema.Types.Mixed }

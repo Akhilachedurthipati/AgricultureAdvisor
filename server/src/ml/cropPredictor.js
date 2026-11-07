@@ -19,6 +19,65 @@ try {
 }
 
 /**
+ * Soil Type Canonical Alias Map
+ */
+export const SOIL_ALIAS_MAP = {
+  'black': 'Black Cotton Soil',
+  'black soil': 'Black Cotton Soil',
+  'black cotton': 'Black Cotton Soil',
+  'black cotton soil': 'Black Cotton Soil',
+  'regur': 'Black Cotton Soil',
+  'alluvial': 'Alluvial Soil',
+  'alluvial soil': 'Alluvial Soil',
+  'loam': 'Alluvial Soil',
+  'loamy': 'Alluvial Soil',
+  'clay': 'Clay Soil',
+  'clay soil': 'Clay Soil',
+  'clayey': 'Clay Soil',
+  'red': 'Red Soil',
+  'red soil': 'Red Soil',
+  'sandy': 'Sandy Loam Soil',
+  'sandy loam': 'Sandy Loam Soil',
+  'sandy loam soil': 'Sandy Loam Soil',
+  'sandy soil': 'Sandy Loam Soil',
+  'laterite': 'Laterite Soil',
+  'laterite soil': 'Laterite Soil'
+};
+
+/**
+ * Cropping Season Canonical Alias Map
+ */
+export const SEASON_ALIAS_MAP = {
+  'kharif': 'Kharif (Monsoon: Jun - Oct)',
+  'monsoon': 'Kharif (Monsoon: Jun - Oct)',
+  'kharif (monsoon: jun - oct)': 'Kharif (Monsoon: Jun - Oct)',
+  'rabi': 'Rabi (Winter: Oct - Mar)',
+  'winter': 'Rabi (Winter: Oct - Mar)',
+  'rabi (winter: oct - mar)': 'Rabi (Winter: Oct - Mar)',
+  'zaid': 'Zaid (Summer: Mar - Jun)',
+  'summer': 'Zaid (Summer: Mar - Jun)',
+  'zaid (summer: mar - jun)': 'Zaid (Summer: Mar - Jun)'
+};
+
+/**
+ * Normalize soil type input to canonical model label
+ */
+export function normalizeSoilType(raw) {
+  if (!raw || typeof raw !== 'string') return raw;
+  const cleaned = raw.trim().toLowerCase();
+  return SOIL_ALIAS_MAP[cleaned] || raw.trim();
+}
+
+/**
+ * Normalize season input to canonical model label
+ */
+export function normalizeSeason(raw) {
+  if (!raw || typeof raw !== 'string') return raw;
+  const cleaned = raw.trim().toLowerCase();
+  return SEASON_ALIAS_MAP[cleaned] || raw.trim();
+}
+
+/**
  * Calculate Gaussian log probability density
  */
 function gaussianLogPdf(x, mean, std) {
@@ -36,7 +95,7 @@ function gaussianLogPdf(x, mean, std) {
  * @param {number} inputs.humidity
  * @param {number} inputs.ph
  * @param {number} inputs.rainfall
- * @returns {object} single recommendation result
+ * @returns {object} single recommendation result with genuine confidence and uncertainty warnings
  */
 export function predictCrop(inputs) {
   if (!modelData || !modelData.crops) {
@@ -55,6 +114,10 @@ export function predictCrop(inputs) {
     throw new Error('Temperature, humidity, soil pH, and rainfall must be valid numeric values.');
   }
 
+  // Normalize soil type and season using canonical alias mappings
+  const canonicalSoil = normalizeSoilType(soilType);
+  const canonicalSeason = normalizeSeason(season);
+
   const cropScores = [];
 
   // Compute log posterior for every candidate crop
@@ -69,8 +132,8 @@ export function predictCrop(inputs) {
     logLikelihood += gaussianLogPdf(numRain, stats.rainfall.mean, stats.rainfall.std);
 
     // Categorical features (Soil type and season likelihoods)
-    const soilProb = cropInfo.soilProbabilities[soilType] || 0.05;
-    const seasonProb = cropInfo.seasonProbabilities[season] || 0.05;
+    const soilProb = cropInfo.soilProbabilities[canonicalSoil] || 0.05;
+    const seasonProb = cropInfo.seasonProbabilities[canonicalSeason] || 0.05;
 
     logLikelihood += Math.log(soilProb);
     logLikelihood += Math.log(seasonProb);
@@ -97,6 +160,7 @@ export function predictCrop(inputs) {
     cropKey: c.cropKey,
     cropName: c.cropName,
     confidence: c.weight / sumExp,
+    logLikelihood: c.logLikelihood,
     cultivationGuide: c.cultivationGuide,
     stats: c.stats
   }));
@@ -106,15 +170,44 @@ export function predictCrop(inputs) {
 
   // EXACTLY ONE BEST-SUITED CROP
   const best = ranked[0];
+  const secondBest = ranked[1] || null;
 
-  // Format confidence score (genuine posterior probability, minimum realistic floor of 0.70 for advisory display)
-  const confidenceScore = Math.min(0.98, Math.max(0.70, Number(best.confidence.toFixed(2))));
+  // Genuine posterior probability directly from model output (no artificial clamping)
+  const rawConfidence = best.confidence;
+  const confidenceScore = Number(rawConfidence.toFixed(2));
+
+  // Out-of-Distribution (OOD) check:
+  // In-distribution minimum log-likelihood on verified dataset is -19.20.
+  // Severe environmental stress / out-of-distribution threshold is -28.0 (extreme cases reach -40 to -60).
+  const isOutOfDistribution = best.logLikelihood < -28.0;
+
+  // Uncertainty evaluation:
+  // High confidence requires in-distribution parameters and >= 70% posterior probability
+  const isConfident = !isOutOfDistribution && rawConfidence >= 0.70;
+
+  let confidenceLevel = 'high';
+  if (rawConfidence < 0.50 || isOutOfDistribution) {
+    confidenceLevel = 'low';
+  } else if (rawConfidence < 0.70) {
+    confidenceLevel = 'moderate';
+  }
+
+  let uncertaintyWarning = null;
+  if (isOutOfDistribution) {
+    uncertaintyWarning = `Extreme or atypical environmental parameters detected. The provided soil and climate values sit outside standard agricultural tolerance envelopes (density metric: ${best.logLikelihood.toFixed(1)}). Recommendation is uncertain; verify conditions with an agricultural extension officer before planting.`;
+  } else if (!isConfident) {
+    const pct = Math.round(rawConfidence * 100);
+    const altMsg = secondBest && secondBest.confidence >= 0.15 
+      ? ` Alternate candidate: ${secondBest.cropName} (${Math.round(secondBest.confidence * 100)}%).` 
+      : '';
+    uncertaintyWarning = `Moderate recommendation certainty (${pct}%). The provided climate or soil parameters sit between multiple crop suitability profiles.${altMsg} Please verify your soil test readings and local seasonal weather expectations before planting.`;
+  }
 
   // Generate scientific suitability explanation
   const suitabilityExplanation = generateSuitabilityExplanation({
     cropName: best.cropName,
-    soilType,
-    season,
+    soilType: canonicalSoil,
+    season: canonicalSeason,
     temp: numTemp,
     humidity: numHum,
     ph: numPh,
@@ -125,6 +218,9 @@ export function predictCrop(inputs) {
   return {
     cropName: best.cropName,
     confidenceScore,
+    isConfident,
+    confidenceLevel,
+    uncertaintyWarning,
     suitabilityExplanation,
     cultivationInformation: best.cultivationGuide,
     agronomicParameters: {
@@ -157,6 +253,11 @@ function generateSuitabilityExplanation({ cropName, soilType, season, temp, humi
 }
 
 export default {
-  predictCrop
+  predictCrop,
+  normalizeSoilType,
+  normalizeSeason,
+  SOIL_ALIAS_MAP,
+  SEASON_ALIAS_MAP
 };
+
 

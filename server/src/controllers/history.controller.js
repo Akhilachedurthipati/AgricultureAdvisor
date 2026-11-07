@@ -25,13 +25,18 @@ function standardizeRecord(item, moduleType) {
 
   if (moduleType === 'crop') {
     const cropName = item.recommendation?.cropName || 'Crop';
+    const confVal = item.recommendation?.confidenceScore != null
+      ? (item.recommendation.confidenceScore <= 1.0
+          ? Math.round(item.recommendation.confidenceScore * 100)
+          : Math.round(item.recommendation.confidenceScore))
+      : 0;
     return {
       id: rawId,
       module: 'crop',
       title: `${cropName} Recommendation`,
       crop: cropName,
       resultType: 'Crop Recommendation',
-      summary: `${item.inputs?.soilType || 'Soil'} • ${item.inputs?.season || 'Season'} • Suitability: ${item.recommendation?.confidenceScore || 0}%`,
+      summary: `${item.inputs?.soilType || 'Soil'} • ${item.inputs?.season || 'Season'} • Suitability: ${confVal}%`,
       date,
       badgeColor: 'agri',
       details: {

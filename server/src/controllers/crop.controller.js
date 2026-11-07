@@ -54,6 +54,9 @@ export const recommendCrop = async (req, res, next) => {
           recommendation: {
             cropName: recommendation.cropName,
             confidenceScore: recommendation.confidenceScore,
+            isConfident: recommendation.isConfident,
+            confidenceLevel: recommendation.confidenceLevel,
+            uncertaintyWarning: recommendation.uncertaintyWarning,
             suitabilityExplanation: recommendation.suitabilityExplanation,
             cultivationTips: recommendation.cultivationInformation,
             agronomicParameters: recommendation.agronomicParameters

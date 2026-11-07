@@ -405,3 +405,28 @@ This log records every significant development session, including dates, actions
      - Created `VIVA_GUIDE.md`: In-depth examination guide with project synopsis, full ASCII system architecture diagram, module-by-module technical breakdown, mathematical formulations, examiner FAQ with model answers, and step-by-step 5-minute live demonstration flow.
      - Created `EXAMINER_CHEATSHEET.md`: 1-page rapid reference cheat sheet for examiner review during viva evaluation.
 - **Git Commit:** Committed milestone `feat(phase-11): complete final system integration, master test runner, security audit, and viva preparation guide`.
+
+---
+
+### Session 13: Crop Recommendation Confidence & Preprocessing Investigation and Fix
+- **Date:** November 7, 2026
+- **Branch:** `fix/crop-confidence-investigation`
+- **Objective:** Investigate and resolve the "Pigeonpeas 0.7% confidence" report from the master integration test. Determine whether dataset/model retraining is needed, eliminate artificial confidence clamping, implement canonical alias normalization, add out-of-distribution (OOD) protection with advisory uncertainty warnings, fix percentage formatting across frontend and test suites, and author comprehensive regression tests.
+- **Root Cause Discovered:**
+  1. *Formatting Mismatch:* `cropPredictor.js` outputs a 0.0 - 1.0 probability ratio (e.g., `0.70`). In `test-master-integration.js`, the log printed `${cropConfidence}%`, printing `"0.7%"` instead of `"70%"`.
+  2. *Artificial Clamping:* Line 111 of `cropPredictor.js` used `Math.max(0.70, Number(best.confidence.toFixed(2)))`, which artificially forced any raw confidence $< 0.70$ up to `0.70`.
+  3. *Unmapped Soil Input:* In `test-master-integration.js`, `soilType: 'Black Soil'` was passed. The dataset uses `'Black Cotton Soil'`. Unmapped soil fell back to 0.05 for all 22 crops, neutralizing soil-based discrimination and resulting in a lower raw confidence (61.63%).
+  4. *Dataset Verification:* Verified that for $29.5^\circ\text{C}$ and $145\text{ mm}$ rain, Cotton's likelihood is virtually zero ($z > 4.8\sigma$ away from Cotton mean), whereas Pigeonpeas is an optimal fit ($z < 0.3\sigma$). Retraining the verified dataset is not required.
+- **Actions Executed:**
+  1. *Removed Artificial Clamping:* Replaced `Math.max(0.70, ...)` with genuine posterior probability calculated directly from log-sum-exp softmax.
+  2. *Alias Normalization:* Added `SOIL_ALIAS_MAP` and `SEASON_ALIAS_MAP` mapping common colloquial names (`"Black Soil" -> "Black Cotton Soil"`, `"regur"`, `"clayey"`, `"monsoon"`, etc.) to canonical model classes.
+  3. *Uncertainty & OOD Detection:* Added log-likelihood boundary check (`best.logLikelihood < -28.0`) and uncertainty flag (`isConfident: false`, `uncertaintyWarning`) when raw confidence $< 0.70$ or conditions are extreme.
+  4. *Mongoose & History Updates:* Updated `CropRecommendation.js` schema and `crop.controller.js` to persist `isConfident`, `confidenceLevel`, and `uncertaintyWarning`.
+  5. *History & UI Confidence Formatting:* Updated `history.controller.js`, `RecommendationHistory.jsx`, and `CropRecommendation.jsx` to render percentage correctly (`<= 1.0 ? Math.round(score * 100) : Math.round(score)`) and display advisory uncertainty warnings whenever present.
+  6. *Master Test Fix:* Updated `test-master-integration.js` line 164 to format confidence percentage properly.
+  7. *Created Regression Suite (`server/test-crop-regression.js`):* Built 6 automated tests verifying alias normalization, removal of artificial floor, extreme OOD handling, single-crop output guarantee, and canonical high-confidence scenarios.
+- **Verification:**
+  - `npm run test:regression`: 6/6 tests passed 100%.
+  - `npm test --prefix server`: All 11 test suites (96 total tests) passed 100%.
+  - `npm run build --prefix client`: Compiled cleanly in 9.37s with 0 errors.
+- **Git Commit:** Committed on branch `fix/crop-confidence-investigation`.

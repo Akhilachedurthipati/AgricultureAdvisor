@@ -8,6 +8,7 @@
     "client": "npm run dev --prefix client",
     "build:client": "npm run build --prefix client",
     "test:server": "npm test --prefix server",
+    "test:master": "npm run test:master --prefix server",
     "install:all": "npm install --prefix server && npm install --prefix client"
   },
   "keywords": [

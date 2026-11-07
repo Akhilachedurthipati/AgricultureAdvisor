@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "node test-health.js && node test-auth.js && node test-e2e-auth.js && node test-crop.js && node test-fertilizer.js && node test-disease.js && node test-weather.js && node test-chat.js && node test-history.js"
+    "test": "node test-health.js && node test-auth.js && node test-e2e-auth.js && node test-crop.js && node test-fertilizer.js && node test-disease.js && node test-weather.js && node test-chat.js && node test-history.js && node test-master-integration.js",
+    "test:master": "node test-master-integration.js"
   },
   "keywords": [
     "agriculture",

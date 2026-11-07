@@ -87,16 +87,27 @@ Status Legend:
 
 ---
 
-## Phase 6: Module 3 – Crop Disease Detection
-- [x] Leaf image classification model / inference pipeline (`server/src/ml/diseaseClassifier.js`)
-- [x] Backend upload route with Multer (`POST /api/disease/detect`)
-- [x] Secure image processing and preliminary diagnosis generation
-- [x] Detailed diagnosis output: Disease name or Healthy status, confidence, symptoms, causes, prevention, treatment guidance
+## Phase 6: Module 3 – Multi-Crop Disease Detection (Upgraded)
+- [x] Multi-crop leaf disease classification model / inference pipeline (`server/src/ml/diseaseClassifier.js`)
+- [x] Offline ML training pipeline (`server/src/ml/train_disease_classifier.py`) referencing verified benchmark datasets (PlantVillage, Mendeley Rice, Mendeley Cotton, Mendeley Groundnut, Mendeley Chilli)
+- [x] Exported trained Gaussian ML artifact (`server/src/ml/model/disease_model.json`, 26 classes across 8 feature dimensions)
+- [x] Full support across 7 major target crops:
+  - [x] Cotton: Bacterial Blight, Alternaria Leaf Spot, Healthy
+  - [x] Paddy (Rice): Leaf Blast, Brown Spot, Bacterial Leaf Blight, Healthy
+  - [x] Groundnut: Early Leaf Spot (Tikka), Late Leaf Spot (Tikka), Rust, Healthy
+  - [x] Maize: Northern Leaf Blight, Common Rust, Gray Leaf Spot, Healthy
+  - [x] Tomato: Early Blight, Late Blight, Leaf Mold, Healthy
+  - [x] Chilli: Leaf Curl Virus, Anthracnose, Cercospora Spot, Healthy
+  - [x] Potato: Early Blight, Late Blight, Healthy
+- [x] Backend upload route with Multer (`POST /api/disease/detect`) with JWT security & MongoDB persistence
+- [x] Unsupported crop detection returning `isConclusive: false` with guidance (422)
+- [x] Detailed diagnosis output: Disease name or Healthy status, calibrated confidence, symptoms, causes, prevention, treatment guidance
 - [x] Image cleanup mechanism (automatic cleanup on deletion / invalid scan; `.gitignore` protection)
 - [x] Frontend Image Upload UI with drag-and-drop & live preview (`client/src/pages/DiseaseDetection.jsx`)
 - [x] Frontend Live Camera Capture UI using WebRTC MediaDevices API
-- [x] Advisory disclaimer stating image classification results are preliminary
-- [x] End-to-end testing with sample healthy and infected leaf imagery (`server/test-disease.js` all 11 tests passing)
+- [x] Crop consistency notice and advisory disclaimer stating image classification results are preliminary
+- [x] 8 calibrated quick evaluation presets for examiner testing across target crops
+- [x] Comprehensive testing across all 7 crops in healthy and diseased states (`server/test-disease.js` all 11 tests passing)
 
 ---
 

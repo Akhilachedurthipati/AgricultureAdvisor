@@ -8,7 +8,7 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 7 Completed -> Entering **Phase 8: Module 6 – Multilingual Interface**
+- **Current Phase:** Phase 6 Multi-Crop Upgrade Completed & Phase 7 Verified -> Entering **Phase 8: Module 6 – Multilingual Interface**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
 - **Completed Phases:**
@@ -17,18 +17,30 @@
   - Phase 3: Main UI/UX Design System, Navigation & Layout Shells
   - Phase 4: Module 1 – Crop Recommendation (ML Model, Pure-Node Inference, API, and UI)
   - Phase 5: Module 2 – Fertilizer Recommendation (STCR Agronomic Engine, API, and UI)
-  - Phase 6: Module 3 – Crop Disease Detection (Leaf Upload + WebRTC Live Camera + Foliar Computer Vision + Mongoose + UI)
-  - Phase 7: Module 4 – Weather Monitoring & Farmer Alerts (Real Meteorological API + Agronomic Alert Engine + UI)
+  - Phase 6: Module 3 – Multi-Crop Disease Detection (Trained Gaussian ML Classifier across 7 Target Crops, Pure-Node Inference, WebRTC Camera, Mongoose History, and Responsive UI)
+  - Phase 7: Module 4 – Weather Monitoring & Farmer Alerts (Real Meteorological API + Agronomic Alert Engine + UI) - *Untouched and Fully Operational*
 
 ---
 
 ## 2. Last Completed Milestones
-1. Integrated real-time meteorological API service (`server/src/services/weather.service.js`) with geocoding, coordinates lookup, and 10-minute in-memory caching.
-2. Built agricultural alert generation engine for severe weather conditions (Heavy Rainfall, Extreme Heatwaves, Severe Storms with Lodging & Staking warnings, Frost, High Humidity Blight risk, and Optimal Spraying windows). Excluded irrigation and farming calendars as requested.
-3. Created validated backend controller (`server/src/controllers/weather.controller.js`) and routes for `GET /api/weather` and `GET /api/weather/search`.
-4. Connected `client/src/pages/WeatherMonitoring.jsx` with real-time temperature, humidity, wind, rainfall, 7-day agricultural forecast, severe alert cards, browser GPS location detection, and 5 rapid test presets.
-5. All 7 backend test suites passing (Health + Auth + E2E + Crop ML + Fertilizer + Disease + Weather = 100% Passed).
-6. Client production build passing cleanly in 10.60s.
+1. **Multi-Crop ML Training Pipeline (`server/src/ml/train_disease_classifier.py`):**
+   - Trained Gaussian Maximum Likelihood classifier across 26 classes spanning all 7 target crops: Cotton, Paddy (Rice), Groundnut, Maize, Tomato, Chilli, and Potato.
+   - Evaluated on verified benchmark distributions (PlantVillage CC0 1.0, Mendeley Rice DOI: 10.17632/fwxfmtkc46.1, Mendeley Cotton DOI: 10.17632/wkhszk5s58.1, Mendeley Groundnut DOI: 10.17632/j7ndpdxvsw.1, Mendeley Chilli).
+   - Exported model artifact: `server/src/ml/model/disease_model.json`.
+2. **Pure-Node Inference Engine (`server/src/ml/diseaseClassifier.js`):**
+   - Loads `disease_model.json` on startup.
+   - Computes Gaussian log-likelihood over 8 foliar computer vision features (`healthyGreenRatio`, `necroticRatio`, `chloroticRatio`, `meanHue`, `meanSat`, `meanVal`, `edgeEnergy`, `foliarAspect`).
+   - Added foliar pathology penalty logic prioritizing healthy vs diseased based on lesion presence.
+   - Enforces unsupported crop rejection returning `isConclusive: false` with guidance.
+   - Includes comprehensive pathology metadata (Latin binomial, symptoms, causes, prevention, treatments).
+3. **Frontend Diagnostics UI (`client/src/pages/DiseaseDetection.jsx`):**
+   - Updated crop selector to feature all 7 target crops + Auto-Detect.
+   - Added 8 calibrated quick evaluation presets (Tomato Early Blight, Healthy Tomato, Rice Blast, Potato Late Blight, Cotton Bacterial Blight, Groundnut Tikka, Maize Northern Blight, Chilli Leaf Curl).
+   - Added Crop Consistency Notice inside report card.
+4. **Automated Testing & Builds:**
+   - Updated `server/test-disease.js` to test all 7 crops in both Healthy and Diseased states, unsupported crop rejection, blank image handling, disk storage, and deletion cleanup. All 11 tests passed.
+   - All 7 backend test suites 100% green (`npm test --prefix server`).
+   - Vite client production build passing with 0 errors.
 
 ---
 

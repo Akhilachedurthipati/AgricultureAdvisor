@@ -51,13 +51,13 @@ export default function DiseaseDetection() {
   // Supported crops
   const CROP_OPTIONS = [
     { value: 'auto', label: '🔍 Auto-Detect Crop' },
-    { value: 'Tomato', label: '🍅 Tomato' },
-    { value: 'Potato', label: '🥔 Potato' },
-    { value: 'Rice', label: '🌾 Rice (Paddy)' },
     { value: 'Cotton', label: '🌱 Cotton' },
-    { value: 'Corn (Maize)', label: '🌽 Corn / Maize' },
-    { value: 'Apple', label: '🍎 Apple' },
-    { value: 'Grape', label: '🍇 Grape' }
+    { value: 'Paddy (Rice)', label: '🌾 Paddy (Rice)' },
+    { value: 'Groundnut', label: '🥜 Groundnut' },
+    { value: 'Maize', label: '🌽 Maize (Corn)' },
+    { value: 'Tomato', label: '🍅 Tomato' },
+    { value: 'Chilli', label: '🌶️ Chilli' },
+    { value: 'Potato', label: '🥔 Potato' }
   ];
 
   // Load history on mount
@@ -269,6 +269,56 @@ export default function DiseaseDetection() {
       ctx.strokeStyle = 'rgb(170, 190, 70)';
       ctx.lineWidth = 3;
       ctx.stroke();
+    } else if (presetType === 'cotton_blight') {
+      setSelectedCrop('Cotton');
+      ctx.fillStyle = 'rgb(45, 145, 45)';
+      ctx.fillRect(0, 0, 120, 120);
+      // Angular water-soaked necrotic lesions strictly bound by veins
+      ctx.fillStyle = 'rgb(55, 30, 18)';
+      ctx.fillRect(35, 35, 26, 26);
+      ctx.fillRect(70, 55, 22, 22);
+      ctx.strokeStyle = 'rgb(190, 160, 40)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(35, 35, 26, 26);
+      ctx.strokeRect(70, 55, 22, 22);
+    } else if (presetType === 'groundnut_tikka') {
+      setSelectedCrop('Groundnut');
+      ctx.fillStyle = 'rgb(48, 155, 45)';
+      ctx.fillRect(0, 0, 120, 120);
+      // Tikka circular dark necrotic spots with distinct chlorotic halos
+      ctx.fillStyle = 'rgb(220, 200, 35)';
+      ctx.beginPath(); ctx.arc(42, 48, 18, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(82, 72, 15, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'rgb(45, 25, 15)';
+      ctx.beginPath(); ctx.arc(42, 48, 11, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.arc(82, 72, 9, 0, Math.PI * 2); ctx.fill();
+    } else if (presetType === 'maize_blight') {
+      setSelectedCrop('Maize');
+      ctx.fillStyle = 'rgb(45, 150, 40)';
+      ctx.fillRect(0, 0, 120, 120);
+      // Elongated cigar-shaped tan necrotic lesion
+      ctx.save();
+      ctx.translate(60, 60);
+      ctx.rotate(-Math.PI / 4);
+      ctx.scale(1, 2.8);
+      ctx.beginPath();
+      ctx.arc(0, 0, 14, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgb(140, 115, 75)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgb(75, 45, 25)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+      ctx.restore();
+    } else if (presetType === 'chilli_curl') {
+      setSelectedCrop('Chilli');
+      ctx.fillStyle = 'rgb(80, 160, 40)';
+      ctx.fillRect(0, 0, 120, 120);
+      // Interveinal chlorosis and puckered leaf curl margin
+      ctx.fillStyle = 'rgb(205, 195, 45)';
+      ctx.beginPath(); ctx.arc(60, 60, 36, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = 'rgb(115, 60, 20)';
+      ctx.lineWidth = 3;
+      ctx.strokeRect(15, 15, 90, 90);
     }
 
     canvas.toBlob((blob) => {
@@ -650,6 +700,38 @@ export default function DiseaseDetection() {
                   <p className="font-bold text-slate-800 text-[11px]">🥔 Potato Late Blight</p>
                   <p className="text-[10px] text-slate-500">Water-soaked blotch</p>
                 </button>
+                <button
+                  type="button"
+                  onClick={() => loadPresetSample('cotton_blight')}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
+                >
+                  <p className="font-bold text-slate-800 text-[11px]">🌱 Cotton Bacterial Blight</p>
+                  <p className="text-[10px] text-slate-500">Angular vein-bound spot</p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => loadPresetSample('groundnut_tikka')}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
+                >
+                  <p className="font-bold text-slate-800 text-[11px]">🥜 Groundnut Tikka Spot</p>
+                  <p className="text-[10px] text-slate-500">Spots with yellow halos</p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => loadPresetSample('maize_blight')}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
+                >
+                  <p className="font-bold text-slate-800 text-[11px]">🌽 Maize Northern Blight</p>
+                  <p className="text-[10px] text-slate-500">Cigar-shaped tan lesion</p>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => loadPresetSample('chilli_curl')}
+                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
+                >
+                  <p className="font-bold text-slate-800 text-[11px]">🌶️ Chilli Leaf Curl</p>
+                  <p className="text-[10px] text-slate-500">Puckered leaf margin</p>
+                </button>
               </div>
             </div>
 
@@ -719,6 +801,15 @@ export default function DiseaseDetection() {
                       }`}
                       style={{ width: `${diagnosis.confidenceScore * 100}%` }}
                     />
+                  </div>
+                </div>
+
+                {/* Crop Consistency & Field Scouting Advisory */}
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5">
+                  <Info className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                  <div className="text-[11px] text-slate-600 leading-relaxed">
+                    <span className="font-bold text-slate-800">Crop Consistency Notice: </span>
+                    Screened against the <span className="font-bold text-emerald-700">{diagnosis.crop || selectedCrop}</span> foliar pathology baseline. Computer vision models classify lesion morphology, chlorosis, and necrosis; always verify that the physical field plant matches the selected crop category before applying chemical fungicides.
                   </div>
                 </div>
 

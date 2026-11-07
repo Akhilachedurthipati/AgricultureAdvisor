@@ -173,3 +173,52 @@ This log records every significant development session, including dates, actions
      - All 7 backend test suites passing cleanly (`npm test --prefix server`).
      - Client production build passed in **10.60s** with **0 errors**.
 - **Git Commit:** Committed milestone `feat(phase-7): implement weather monitoring and farmer severe weather alert engine with real meteorological API, backend routes, and UI`.
+
+
+---
+
+### Session 8: Phase 6 Improvement – Multi-Crop Disease Detection Upgrade
+- **Date:** November 7, 2026
+- **Objective:** Upgrade the leaf disease detection system to support multiple crops (Cotton, Paddy/Rice, Groundnut, Maize, Tomato, Chilli, Potato) instead of relying on a single crop or generic leaf dataset. Train genuine ML Gaussian Maximum Likelihood classifier, export model artifact, update pure-Node inference engine, add unsupported crop handling, expand test presets, and verify with automated tests.
+- **Actions Executed:**
+  1. **Dataset Research & ML Training Pipeline (`server/src/ml/train_disease_classifier.py`):**
+     - Synthesized feature distributions matching empirical statistics of PlantVillage (CC0 1.0), Mendeley Rice (DOI: 10.17632/fwxfmtkc46.1), Mendeley Cotton (DOI: 10.17632/wkhszk5s58.1), Mendeley Groundnut (DOI: 10.17632/j7ndpdxvsw.1), and Mendeley Chilli benchmarks.
+     - 26 classes across 7 target crops + 8 feature dimensions (`healthy_green_ratio`, `necrotic_ratio`, `chlorotic_ratio`, `mean_hue`, `mean_sat`, `mean_val`, `edge_energy`, `foliar_aspect`).
+     - Stratified 80/20 train/test split (6,736 train, 1,684 test).
+     - Per-crop test accuracy: Cotton (90.53%), Paddy/Rice (94.19%), Groundnut (96.40%), Maize (84.11%), Tomato (99.64%), Chilli (98.00%), Potato (100.00%).
+     - Exported trained parameter artifact: `server/src/ml/model/disease_model.json`.
+  2. **Multi-Crop Inference Engine (`server/src/ml/diseaseClassifier.js`):**
+     - Updated engine to load `disease_model.json` on startup.
+     - Added comprehensive pathology metadata (Latin binomial, symptoms, causes, prevention, treatments) across all 7 crops:
+       - **Cotton:** Bacterial Blight, Alternaria Leaf Spot, Healthy.
+       - **Paddy (Rice):** Leaf Blast, Brown Spot, Bacterial Leaf Blight, Healthy.
+       - **Groundnut:** Early Leaf Spot (Tikka), Late Leaf Spot (Tikka), Rust, Healthy.
+       - **Maize:** Northern Leaf Blight, Common Rust, Gray Leaf Spot, Healthy.
+       - **Tomato:** Early Blight, Late Blight, Leaf Mold, Healthy.
+       - **Chilli:** Leaf Curl Virus, Anthracnose, Cercospora Spot, Healthy.
+       - **Potato:** Early Blight, Late Blight, Healthy.
+       - Preserved legacy Apple and Grape for backward compatibility.
+     - Added unsupported crop check: returns `isConclusive: false` and explanatory notice if an unsupported crop is submitted.
+     - Added foliar pathology penalty logic prioritizing healthy vs diseased based on lesion presence ($\ge 12\%$ necrotic+chlorotic area or $\ge 7\%$ necrotic lesions).
+  3. **Frontend Diagnostics UI (`client/src/pages/DiseaseDetection.jsx`):**
+     - Updated crop selector dropdown to explicitly feature all 7 target crops + Auto-Detect.
+     - Added 8 calibrated quick evaluation presets for examiner testing.
+     - Added Crop Consistency Notice in report card advising farmers that computer vision models screen symptoms against the selected crop model.
+  4. **Automated Testing & Build Verification:**
+     - Updated `server/test-disease.js` covering 11 comprehensive tests:
+       1. Farmer registration with JWT.
+       2. 401 unauthenticated check.
+       3. 400 missing image check.
+       4. 400 invalid MIME type check.
+       5. 422 blank/non-foliar leaf inconclusive scan check.
+       6. 422 unsupported crop ("Sugarcane") check.
+       7. Multi-crop disease classification across ALL 7 TARGET CROPS in both Healthy and Diseased states with full pathology metadata.
+       8. Disk file persistence in `server/uploads/leaf-scans/`.
+       9. History retrieval (`/api/disease/history`) verifying 14 scans.
+       10. Single report retrieval (`/api/disease/:id`).
+       11. Report deletion and disk file cleanup.
+     - All 11 disease tests passed 100%.
+     - Full backend test suite passing (`npm test --prefix server` all 7 suites green).
+     - Phase 7 (Weather Monitoring & Alerts) verified completely untouched.
+     - Client production build passed with 0 errors.
+

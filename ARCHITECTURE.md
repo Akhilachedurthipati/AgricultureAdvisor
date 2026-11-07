@@ -325,31 +325,48 @@ Agriculture-Advisor/
 
 ---
 
-## 7. Crop Disease Detection Computer Vision & Pathology Engine
+## 7. Multi-Crop Disease Detection Computer Vision & ML Pathology Engine
 
 ### A. Architecture & Privacy
 - **Secure Image Upload:** Multer disk storage in `server/uploads/leaf-scans/` with unique timestamp and random hash naming. File size limit 10MB; MIME restricted to `image/jpeg`, `image/png`, and `image/webp`.
 - **Automatic Lifecycle Cleanup:** Inconclusive scans and deleted reports automatically remove image files from disk. Raw camera dumps are not retained permanently without user consent.
 - **Pure-Node Computer Vision:** Decodes images via `jpeg-js` and `pngjs` with zero native C++ compilation dependencies.
 
-### B. Foliar Feature Extraction
+### B. Foliar Feature Extraction (8 Dimensions)
 - **Color Space Segmentation:** Converts pixels to Excess Green Index (ExG = 2G - R - B) and HSV (Hue, Saturation, Value).
 - **Tissue Classification:** Segregates background non-foliar pixels, healthy chlorophyll ($H \in [70^\circ, 165^\circ], \text{ExG} > 10$), chlorotic yellow halo/mildew ($H \in [42^\circ, 70^\circ]$), and necrotic lesions/blights ($H \in [10^\circ, 42^\circ]$ or low Value).
-- **Pathology Metrics:** Computes healthy green ratio, necrotic ratio, chlorotic ratio, mean hue, and spatial edge gradient energy.
-- **Inconclusive Check:** Flags non-foliar scans (<100 foliar pixels) with HTTP status 422 and farmer guidance.
+- **8 Feature Dimensions Extracted:**
+  1. `healthyGreenRatio`: Ratio of vibrant chlorophyll green pixels to total foliar pixels.
+  2. `necroticRatio`: Ratio of dead/brown/black necrotic lesion pixels.
+  3. `chloroticRatio`: Ratio of yellow/chlorotic halo pixels.
+  4. `meanHue`: Average HSV hue angle across all foliar tissue.
+  5. `meanSat`: Average foliar saturation level.
+  6. `meanVal`: Average foliar brightness value.
+  7. `edgeEnergy`: Spatial gradient energy reflecting lesion boundary sharpness and texture.
+  8. `foliarAspect`: Aspect ratio estimate of leaf bounding box (monocots vs broadleaves).
+- **Inconclusive Check:** Flags non-foliar scans (<80 foliar pixels) with HTTP status 422 and farmer guidance.
 
-### C. Supervised Pathology Profiles & Softmax Posterior
-- Evaluates weighted distance against calibrated crop foliar disease profiles:
+### C. Trained Multi-Crop Gaussian ML Inference Engine
+- **Trained Model Artifact:** `server/src/ml/model/disease_model.json` trained via `train_disease_classifier.py` referencing empirical benchmark statistics:
+  - PlantVillage Dataset (CC0 1.0)
+  - Mendeley Data Rice Leaf Disease Dataset (DOI: 10.17632/fwxfmtkc46.1)
+  - Mendeley Data Cotton Leaf Disease Dataset (DOI: 10.17632/wkhszk5s58.1)
+  - Mendeley Data Groundnut Leaf Disease Dataset (DOI: 10.17632/j7ndpdxvsw.1)
+  - Mendeley / Kaggle Chilli Plant Disease Dataset
+- **26 Classes Supported across 7 Target Crops (+ 2 Legacy):**
+  - **Cotton:** Bacterial Blight (*Xanthomonas citri* pv. *malvacearum*), Alternaria Leaf Spot (*Alternaria macrospora*), Healthy.
+  - **Paddy (Rice):** Leaf Blast (*Magnaporthe oryzae*), Brown Spot (*Bipolaris oryzae*), Bacterial Leaf Blight (*Xanthomonas oryzae*), Healthy.
+  - **Groundnut:** Early Leaf Spot (*Cercospora arachidicola*), Late Leaf Spot (*Phaeoisariopsis personata*), Rust (*Puccinia arachidis*), Healthy.
+  - **Maize:** Northern Leaf Blight (*Exserohilum turcicum*), Common Rust (*Puccinia sorghi*), Gray Leaf Spot (*Cercospora zeae-maydis*), Healthy.
   - **Tomato:** Early Blight (*Alternaria solani*), Late Blight (*Phytophthora infestans*), Leaf Mold (*Passalora fulva*), Healthy.
+  - **Chilli:** Leaf Curl Virus (*ChLCV / Begomovirus*), Anthracnose (*Colletotrichum capsici*), Cercospora Spot (*Cercospora capsici*), Healthy.
   - **Potato:** Early Blight (*Alternaria solani*), Late Blight (*Phytophthora infestans*), Healthy.
-  - **Rice (Paddy):** Leaf Blast (*Magnaporthe oryzae*), Brown Spot (*Bipolaris oryzae*), Healthy.
-  - **Cotton:** Bacterial Blight (*Xanthomonas citri* pv. *malvacearum*), Healthy.
-  - **Corn / Maize:** Northern Leaf Blight (*Exserohilum turcicum*), Common Rust (*Puccinia sorghi*), Healthy.
-  - **Apple:** Scab (*Venturia inaequalis*), Healthy.
-  - **Grape:** Black Rot (*Guignardia bidwellii*), Healthy.
-- Computes genuine calibrated confidence scores (78% - 97%) via temperature-controlled softmax posterior distribution.
-- Categorizes severity: Healthy, Mild (<15% affected), Moderate (15-40%), Severe (>40%).
-- Provides actionable symptoms, biological causes, cultural prevention, and university-approved fungicides with application dosages.
+  - *(Apple Scab and Grape Black Rot preserved for backward compatibility).*
+- **Unsupported Crop Rejection:** Enforces supported crop validation; queries for unsupported crops return `isConclusive: false` with descriptive guidance.
+- **Lesion Pathology Logic:** Leaves with $\ge 12\%$ necrotic+chlorotic area or $\ge 7\%$ necrotic lesions are prevented from matching healthy classes.
+- **Calibrated Confidence:** Grounded in model test accuracy, softmax posterior probability, and Mahalanobis feature distance.
+- **Severity Rating:** Healthy, Mild (<15% affected), Moderate (15-40%), Severe (>40%).
+- **Agronomic Metadata:** Every class includes specific primary symptoms, Latin binomial pathogen names, biological triggers, preventive cultural practices, and approved chemical treatments with exact dosages.
 
 
 ---

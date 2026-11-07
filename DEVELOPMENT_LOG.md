@@ -313,3 +313,50 @@ This log records every significant development session, including dates, actions
      - All 8 backend test suites (68 total tests) passed cleanly.
      - Client production build passed in **7.41s** with **0 errors**.
 - **Git Commit:** Committed milestone `feat(phase-9): implement multilingual voice assistant and AI farming chatbot with Web Speech STT, TTS, knowledge engine, and API`.
+
+---
+
+### Session 11: Phase 10 – Module 8: Recommendation History & Farmer Profile
+- **Date:** November 7, 2026
+- **Objective:** Implement a centralized recommendation history dashboard aggregating crop recommendations, fertilizer plans, disease diagnostics, and AI assistant chats, with search, module/crop/date filtering, pagination, detailed inspection modal, printable slips, multi-tenant security isolation, disk image cleanup, and farmer profile management.
+- **Actions Executed:**
+  1. **Memory Fallback Store Exports:**
+     - Exported in-memory storage arrays from `crop.controller.js`, `fertilizer.controller.js`, `disease.controller.js`, and `chat.controller.js` to guarantee seamless test suite execution without external MongoDB daemon dependencies.
+  2. **Centralized History Controller & Routes (`server/src/controllers/history.controller.js`, `server/src/routes/history.routes.js`):**
+     - Formulated a unified presentation schema standardizing heterogenous records into unified cards with module badges, crop tags, timestamps, human-readable summaries, and full item payloads.
+     - Built `GET /api/history`: supports module filtering (`all`, `crop`, `fertilizer`, `disease`, `chat`), keyword search, crop filter, start/end dates, descending chronological sorting, and page-based pagination.
+     - Built `GET /api/history/:module/:id`: loads complete record details with strict multi-tenant ownership check (returns 403 Forbidden on tenant mismatch).
+     - Built `DELETE /api/history/:module/:id`: performs authorized single record deletion from DB or memory fallback store, safely unlinking scan images (`uploads/leaf-scans/`) for disease reports.
+     - Built `DELETE /api/history/clear`: bulk-clears records for a single module or all modules with automated image file cleanup.
+     - Mounted routes under `/api/history` in `server/src/app.js` with `protect` authentication middleware.
+  3. **Client History Service (`client/src/services/historyService.js`):**
+     - Implemented `fetchUnifiedHistory`, `fetchHistoryItemDetails`, `deleteHistoryItem`, and `clearUnifiedHistory`.
+  4. **Frontend Centralized History Dashboard (`client/src/pages/RecommendationHistory.jsx`):**
+     - Replaced layout placeholder with full-featured dashboard.
+     - Implemented 5 module filter tabs with live icons.
+     - Integrated search bar with debounce, crop dropdown selector, date range inputs, and filter reset.
+     - Designed responsive history cards with color-coded badges, timestamps, summary text, and action buttons.
+     - Added pagination controls with active page indicators and total count badges.
+     - Designed full Record Details Modal with tabbed agronomic breakdowns, disease symptom lists, leaf scan previews, and printable advisory slip button (`window.print()`).
+     - Added clear history modal with explicit confirmation.
+  5. **Automated Testing Suite (`server/test-history.js`):**
+     - Formulated and ran 14 end-to-end test cases:
+       1. Register Farmer A with JWT.
+       2. Register Farmer B with JWT (Tenant Isolation verification).
+       3. Create Crop Recommendation for Farmer A.
+       4. Create Fertilizer Plan for Farmer A.
+       5. Create Chat Consultation for Farmer A.
+       6. Centralized history aggregated across modules.
+       7. Module filters (`module=crop`, `module=fertilizer`).
+       8. Keyword search filter ("Cotton").
+       9. Pagination verification (`page=1&limit=2`).
+       10. Single record retrieval by ID.
+       11. Security Isolation: Farmer B unauthorized read (403) and delete (403) blocked.
+       12. Single record delete by owner (Farmer A).
+       13. Clear all history for Farmer A and verify 0 remaining.
+       14. Farmer profile update API validated with JWT and Zod.
+     - All 14 tests passed 100%.
+     - Added `test-history.js` to `server/package.json` test script.
+     - All 9 backend test suites (79 total tests) passed cleanly.
+     - Vite client production bundle built cleanly in 7.62s with 0 errors.
+- **Git Commit:** Committed milestone `feat(phase-10): implement centralized recommendation history, multi-tenant isolation, and farmer profile`.

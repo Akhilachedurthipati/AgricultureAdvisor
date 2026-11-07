@@ -8,7 +8,7 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 9 (Module 5: Multilingual Voice Assistant & AI Farming Chatbot) Completed & Verified -> Entering **Phase 10: Module 8 – Recommendation History & Farmer Profile**
+- **Current Phase:** Phase 10 (Module 8: Recommendation History & Farmer Profile) Completed & Verified -> Entering **Phase 11: Final Integration, Testing, Viva & Deployment Preparation**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
 - **Completed Phases:**
@@ -21,26 +21,28 @@
   - Phase 7: Module 4 – Weather Monitoring & Farmer Alerts (Real Meteorological API + Agronomic Alert Engine + UI) - *Untouched and Fully Operational*
   - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali)
   - Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot (Speech-to-Text STT, Text-to-Speech TTS, Agricultural Knowledge Engine, Safety Guardrails, MongoDB History)
+  - Phase 10: Module 8 – Recommendation History & Farmer Profile (Centralized History Dashboard, Module/Keyword/Crop Filtering, Pagination, Record Details Modal, Multi-Tenant Data Isolation, Image Unlinking)
 
 ---
 
-## 2. Last Completed Milestones (Phase 9: Multilingual Voice Assistant)
-1. **AI Agronomic Service (`server/src/services/ai.service.js`):**
-   - Curated agricultural knowledge base covering soil types, sowing calendars, organic pest control, fertilizer split timings, foliar chlorosis diagnostics, storm precautions, and welfare schemes.
-   - Multilingual response generation across English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, and Bengali.
-   - Non-agricultural safety guardrail pattern matcher deflecting off-topic queries with a courteous agricultural redirect.
-   - Optional Google Gemini generative AI fallback when `GEMINI_API_KEY` is provided.
-2. **Backend Mongoose Schema & API Routes (`server/src/models/ChatHistory.js`, `server/src/controllers/chat.controller.js`, `server/src/routes/chat.routes.js`):**
-   - Mounted `POST /api/chat/message`, `GET /api/chat/history`, `DELETE /api/chat/history` under `/api/chat` with JWT authentication and Zod input validation (`chatInputSchema`).
-3. **Frontend Diagnostics & Speech Interface (`client/src/pages/AIFarmingAssistant.jsx` & `client/src/services/chatService.js`):**
-   - Integrated browser Web Speech STT (`SpeechRecognition` / `webkitSpeechRecognition`) supporting BCP-47 Indian language codes (`en-IN`, `hi-IN`, `te-IN`, `ta-IN`, `kn-IN`, `ml-IN`, `mr-IN`, `bn-IN`).
-   - Integrated browser Web Speech TTS (`SpeechSynthesis`) with speech rate optimization, speaker toggle, and replay buttons.
-   - Added instant evaluation question chips for viva testing.
-4. **Automated Testing & Builds:**
-   - Created test suite `server/test-chat.js` with 11 automated test cases verifying JWT auth, Zod validation, crop questions, fertilizer advice, organic pest control, Telugu, Hindi, off-topic deflection, history retrieval, and history deletion.
-   - Added `test-chat.js` to `server/package.json` test script.
-   - All 8 backend test suites (68 total tests) passed 100% (`npm test --prefix server`).
-   - Vite client production bundle built cleanly in 7.41s (`npm run build --prefix client`).
+## 2. Last Completed Milestones (Phase 10: Recommendation History & Farmer Profile)
+1. **Centralized History Backend (`server/src/controllers/history.controller.js`, `server/src/routes/history.routes.js`):**
+   - Implemented unified aggregation across Crop Recommendations, Fertilizer Plans, Disease Scans, and AI Consultations.
+   - Standardized presentation schema with icons, color badges, search snippets, and full record models.
+   - Built endpoints: `GET /api/history` (with `module`, `search`, `crop`, `startDate`, `endDate`, `page`, `limit`), `GET /api/history/:module/:id`, `DELETE /api/history/:module/:id`, and `DELETE /api/history/clear`.
+   - Strictly enforced multi-tenant security isolation (403 Forbidden on mismatched user access or deletion).
+   - Ensured safe disk cleanup of leaf scan images upon diagnostic report deletion.
+2. **Client History Service & Dashboard (`client/src/services/historyService.js`, `client/src/pages/RecommendationHistory.jsx`):**
+   - Connected React frontend to live aggregated history endpoints.
+   - Implemented module filter tabs (`All Records`, `Crop Advisory`, `Fertilizer Plans`, `Disease Scans`, `AI Consultations`).
+   - Integrated debounced keyword search, crop selector dropdown, date range filter, and reset button.
+   - Designed comprehensive Record Details Modal displaying full inputs, scientific recommendations, split schedules, disease symptoms/treatment, scan images, and a browser print slip button.
+   - Added interactive Clear History modal with explicit user confirmation.
+3. **Automated Testing & Production Builds:**
+   - Built automated test suite `server/test-history.js` with 14 test cases verifying cross-module aggregation, filtering, search, pagination, single item retrieval, multi-tenant security isolation, single deletion, disk cleanup, and user profile updates.
+   - Added `test-history.js` to `server/package.json` test script.
+   - All 9 backend test suites (79 total tests) passed 100% (`npm test --prefix server`).
+   - Vite client production bundle built cleanly in 7.62s (`npm run build --prefix client`).
 
 ---
 
@@ -71,10 +73,9 @@ npm run build:client
 
 ---
 
-## 4. Exact Next Action (Phase 10: Recommendation History & Farmer Profile)
-Proceed directly with **Phase 10**:
-1. Inspect `client/src/pages/RecommendationHistory.jsx`.
-2. Implement backend aggregated history route (`GET /api/history/all`) or unified history service querying across `CropRecommendation`, `FertilizerRecommendation`, `DiseaseReport`, and `ChatHistory` collections with strict user multi-tenant isolation.
-3. Support filter tabs: `All Records`, `Crop Recommendations`, `Fertilizer Plans`, `Disease Screenings`, and `AI Consultations`.
-4. Provide delete action with modal confirmation, timestamp formatting, and detail preview modal.
-5. Verify with automated tests (`server/test-history.js`) and build verification.
+## 4. Exact Next Action (Phase 11: Final Integration, Testing, Viva & Deployment Preparation)
+Proceed directly with **Phase 11**:
+1. Run complete end-to-end integration verification across all modules (Auth, Crop, Fertilizer, Disease, Weather, Multilingual, AI Voice Chat, History, Profile).
+2. Perform responsive layout audit across standard viewports (Mobile 375px, Tablet 768px, Desktop 1280px+).
+3. Conduct final security and reliability check (CORS configuration, rate limiting, error handling, token expiration, secret management).
+4. Create comprehensive B.Tech project presentation artifacts, architecture diagrams, viva defense cheat sheet, and deployment runbook.

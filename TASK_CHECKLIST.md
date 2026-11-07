@@ -146,13 +146,13 @@ Status Legend:
 ---
 
 ## Phase 10: Module 8 – Recommendation History & Profile
-- [ ] MongoDB Schemas for CropRecommendation, FertilizerRecommendation, DiseaseReport, ChatHistory
-- [ ] Backend history endpoints (`GET/DELETE /api/history/...`) with user authorization checks
-- [ ] History page with filtered views (All, Crops, Fertilizers, Diseases, Consultations)
-- [ ] Record detail modal / drawer with timestamp, inputs, and recommendations
-- [ ] Farmer delete action with confirmation modal
-- [ ] Farmer profile page with localized preferences, location, and account details
-- [ ] Strict multi-tenant isolation testing (users cannot view/delete other users' records)
+- [x] MongoDB Schemas for CropRecommendation, FertilizerRecommendation, DiseaseReport, ChatHistory
+- [x] Backend history endpoints (`GET/DELETE /api/history/...`) with user authorization checks
+- [x] History page with filtered views (All, Crops, Fertilizers, Diseases, Consultations)
+- [x] Record detail modal / drawer with timestamp, inputs, and recommendations
+- [x] Farmer delete action with confirmation modal
+- [x] Farmer profile page with localized preferences, location, and account details
+- [x] Strict multi-tenant isolation testing (users cannot view/delete other users' records)
 
 ---
 

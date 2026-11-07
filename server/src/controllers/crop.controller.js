@@ -4,7 +4,7 @@ import { predictCrop } from '../ml/cropPredictor.js';
 import CropRecommendation from '../models/CropRecommendation.js';
 
 // Memory fallback store for crop recommendation history
-const memoryCropHistory = [];
+export const memoryCropHistory = [];
 
 export const cropInputSchema = z.object({
   soilType: z.string({

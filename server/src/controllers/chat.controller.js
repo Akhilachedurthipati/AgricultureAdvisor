@@ -21,7 +21,7 @@ export const chatInputSchema = z.object({
 });
 
 // In-memory chat store fallback for offline test environments
-const inMemoryChatHistory = [];
+export const inMemoryChatHistory = [];
 
 /**
  * Handle incoming farmer AI chat query

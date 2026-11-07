@@ -445,3 +445,34 @@ Agriculture-Advisor/
 - **Model:** `server/src/models/ChatHistory.js` storing `userId`, `message`, `response`, `language`, `category`, and `isVoice`.
 - **Indexing:** Compound index `{ userId: 1, createdAt: -1 }` ensures fast query history paging and guarantees strict user isolation.
 - **Endpoints:** `POST /api/chat/message`, `GET /api/chat/history`, and `DELETE /api/chat/history` secured with JWT authentication middleware (`protect`).
+
+---
+
+## 11. Centralized Recommendation History & Multi-Tenant Isolation Architecture
+
+### A. Heterogeneous Module Aggregation
+- **Unified Querying:** Aggregates records across 4 disparate database models (`CropRecommendation`, `FertilizerRecommendation`, `DiseaseReport`, `ChatHistory`) through `server/src/controllers/history.controller.js`.
+- **Normalized Representation:** Maps diverse domain payloads into a uniform card schema:
+  - `id`: Unique record identifier (MongoDB ObjectId or fallback memory key).
+  - `module`: Category discriminator (`crop`, `fertilizer`, `disease`, `chat`).
+  - `title`: Primary headline (e.g. Recommended Crop, Fertilizer Combo, Disease Name, Chat Question).
+  - `subtitle`: Contextual metadata (e.g. "Kharif Season • Clay Soil", "2 Acres • Basal + Topdress", "Foliar Blast • Severe").
+  - `crop`: Standardized crop tag for filtering across all modules.
+  - `createdAt`: ISO 8601 creation timestamp.
+  - `summary`: Concise snippet preview for table/card views.
+  - `badgeColor`: Visual indicator class based on status/severity.
+  - `details`: Complete uncompressed record payload for comprehensive modal review.
+
+### B. Strict Multi-Tenant Security Isolation
+- **Mandatory Authentication:** All history endpoints require valid JWT authentication via `protect` middleware.
+- **Tenant Scope Enforcement:** All database queries require `{ userId: req.user._id }`.
+- **Ownership Verification on Direct Access:** `GET /api/history/:module/:id` and `DELETE /api/history/:module/:id` strictly compare `record.userId.toString() === req.user._id.toString()`. Mismatched requests immediately terminate with `HTTP 403 Forbidden` (`"Access denied: You do not own this record"`), preventing cross-tenant information disclosure or unauthorized deletion.
+
+### C. Resource Lifecycle & Disk Cleanup
+- **Automatic File Unlinking:** When a disease diagnostic report is deleted (either individually or via bulk clear), the associated leaf scan image on the filesystem (`server/uploads/leaf-scans/`) is unlinked using `fs.unlinkSync` wrapped in safe exception handling.
+- **Bulk Clear Operations:** `DELETE /api/history/clear?module=...` supports clearing individual module records or all history for the authenticated user, unlinking all associated image assets.
+
+### D. Client-Side Presentation & UX
+- **Filter Controls:** Module tabs (`All Records`, `Crop Advisory`, `Fertilizer Plans`, `Disease Scans`, `AI Consultations`), debounced text search, crop dropdown, and date range inputs.
+- **Inspection & Printing:** Record detail modal displays complete agronomic parameters, split schedules, disease symptoms, treatment recommendations, leaf image previews, and includes a 1-click printable advisory slip (`window.print()`).
+- **Confirmation Guards:** Bulk history deletion requires explicit confirmation modal to prevent accidental data loss.

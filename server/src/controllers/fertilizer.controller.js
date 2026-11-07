@@ -4,7 +4,7 @@ import { calculateFertilizerRecommendation } from '../services/fertilizer.servic
 import FertilizerRecommendation from '../models/FertilizerRecommendation.js';
 
 // Memory fallback store for fertilizer recommendation history
-const memoryFertilizerHistory = [];
+export const memoryFertilizerHistory = [];
 
 export const fertilizerInputSchema = z.object({
   soilType: z.string({

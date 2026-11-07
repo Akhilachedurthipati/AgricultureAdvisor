@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Memory fallback store for disease history when MongoDB is not connected
-const memoryDiseaseHistory = [];
+export const memoryDiseaseHistory = [];
 
 /**
  * @desc    Analyze uploaded leaf image and detect disease/pathogen

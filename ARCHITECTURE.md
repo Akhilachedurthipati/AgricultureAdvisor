@@ -386,3 +386,33 @@ Agriculture-Advisor/
 - **High Humidity Disease Risk Advisory:** Evaluates sustained relative humidity ($\ge 80\%$) under warm conditions ($22 - 32^\circ$C); alerts farmers to high risk of foliar blast and blight, advising daily lower canopy scouting.
 - **Optimal Spraying Window Advisory:** Detects calm winds ($\le 15$ km/h), zero precipitation, and moderate temperatures; informs farmers of optimal foliar bio-agent and micronutrient spray timing.
 - **Exclusion Compliance:** Deliberately excludes irrigation scheduling, watering timers, and farming calendars as requested.
+
+
+---
+
+## 9. Multilingual Interface Engine (i18next)
+
+### A. Localization Architecture
+- **Framework:** Configured with `i18next`, `react-i18next`, and `i18next-browser-languagedetector`.
+- **Locale Management:** Modular JSON resource dictionaries in `client/src/i18n/locales/` covering 8 major agricultural Indian languages:
+  1. `en.json`: English (Fallback)
+  2. `hi.json`: हिन्दी (Hindi)
+  3. `te.json`: తెలుగు (Telugu)
+  4. `ta.json`: தமிழ் (Tamil)
+  5. `kn.json`: ಕನ್ನಡ (Kannada)
+  6. `ml.json`: മലയാളം (Malayalam)
+  7. `mr.json`: मराठी (Marathi)
+  8. `bn.json`: বাংলা (Bengali)
+- **Namespaces:** Structured across `common`, `nav`, `home`, `dashboard`, `crop`, `fertilizer`, `disease`, `weather`, and `auth`.
+
+### B. Language Resolution & Persistence Hierarchy
+1. **Local Storage:** Checks key `agri_preferred_language` on startup.
+2. **Navigator:** Falls back to browser navigator language if no stored preference.
+3. **Fallback:** Defaults gracefully to English (`en`) if a translation key is missing.
+4. **Document Sync:** Updates `document.documentElement.lang` on every `languageChanged` event to ensure accessibility and appropriate font rendering.
+5. **Backend Profile Sync:** When an authenticated farmer changes their language via `LanguageSelector` or saves their User Profile, the backend profile is updated (`PUT /api/auth/profile`) so preferences persist across sessions and devices.
+
+### C. UI Component Integration
+- **`LanguageSelector.jsx`:** Accessible interactive dropdown displaying native script labels alongside English names and regional context tags (e.g. "తెలుగు - Andhra Pradesh & Telangana", "मराठी - Maharashtra").
+- **Navbar & Navigation Drawer:** Placed prominently in both desktop header and responsive mobile drawer for rapid 1-click language toggling.
+- **Full Interface Coverage:** All 8 major modules, dashboards, forms, advisory alert banners, and disclaimers render reactively upon language change without full-page reloads.

@@ -31,10 +31,12 @@ import Badge from '../components/common/Badge';
 import AlertBanner from '../components/common/AlertBanner';
 import StatCard from '../components/common/StatCard';
 import { useAuth } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { fetchWeather, searchWeatherLocations } from '../services/weatherService';
 
 export default function WeatherMonitoring() {
   const { user } = useAuth();
+  const { t } = useTranslation();
   const defaultCity = user?.location?.city || user?.location?.district || 'Guntur';
 
   const [cityInput, setCityInput] = useState(defaultCity);
@@ -177,15 +179,15 @@ export default function WeatherMonitoring() {
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-bold text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full uppercase">
-              Module 04
+              {t('weather.moduleBadge', 'Module 04')}
             </span>
             <span className="text-xs text-slate-400 font-medium">Agro-Meteorology & Early Warning</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            Weather Monitoring & Farmer Alerts
+            {t('weather.title', 'Weather Monitoring & Farmer Alerts')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Real-time agricultural microclimate surveillance, 7-day weather forecasting, and severe storm early warnings
+            {t('weather.subtitle', 'Real-time agricultural microclimate surveillance, 7-day weather forecasting, and severe storm early warnings')}
           </p>
         </div>
 
@@ -232,7 +234,7 @@ export default function WeatherMonitoring() {
                 setShowSuggestions(true);
               }}
               onFocus={() => setShowSuggestions(true)}
-              placeholder="Search agricultural district, mandal, or city (e.g. Guntur, Karimnagar, Pune, Ludhiana)..."
+              placeholder={t('weather.searchPlaceholder', 'Search agricultural district, mandal, or city (e.g. Guntur, Karimnagar, Pune, Ludhiana)...')}
               className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 text-xs sm:text-sm transition"
             />
 
@@ -263,7 +265,7 @@ export default function WeatherMonitoring() {
               icon={Search}
               className="flex-1 sm:flex-initial bg-sky-600 hover:bg-sky-700"
             >
-              Update Weather
+              {t('common.search', 'Update Weather')}
             </Button>
 
             <Button
@@ -275,7 +277,7 @@ export default function WeatherMonitoring() {
               title="Detect GPS location from device"
               className="px-3"
             >
-              <span className="hidden sm:inline">My Farm</span>
+              <span className="hidden sm:inline">{t('weather.myFarm', 'My Farm')}</span>
             </Button>
           </div>
         </form>
@@ -283,7 +285,7 @@ export default function WeatherMonitoring() {
         {/* Quick Evaluation Presets */}
         <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
           <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-            Quick Agricultural Zones:
+            {t('weather.presetsTitle', 'Quick Agricultural Zones:')}
           </span>
           {PRESET_LOCATIONS.map((preset) => (
             <button
@@ -343,7 +345,7 @@ export default function WeatherMonitoring() {
                   </span>
                   <div className="space-y-0.5">
                     <p className="text-sm font-semibold text-sky-200">
-                      Feels like {weatherData.current.apparentTemperature}°C
+                      {t('weather.feelsLike', 'Feels like')} {weatherData.current.apparentTemperature}°C
                     </p>
                     <p className="text-xs text-slate-300 font-medium">
                       {weatherData.current.condition}
@@ -365,15 +367,15 @@ export default function WeatherMonitoring() {
                 <div className="text-xs space-y-1">
                   <div className="flex items-center gap-2">
                     <Droplets className="w-3.5 h-3.5 text-sky-300" />
-                    <span>Humidity: <strong>{weatherData.current.humidity}%</strong></span>
+                    <span>{t('weather.humidity', 'Humidity')}: <strong>{weatherData.current.humidity}%</strong></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Wind className="w-3.5 h-3.5 text-emerald-300" />
-                    <span>Wind: <strong>{weatherData.current.windSpeed} km/h</strong></span>
+                    <span>{t('weather.wind', 'Wind Speed')}: <strong>{weatherData.current.windSpeed} km/h</strong></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CloudRain className="w-3.5 h-3.5 text-blue-300" />
-                    <span>Rainfall: <strong>{weatherData.current.precipitation} mm</strong></span>
+                    <span>{t('weather.rainfall', 'Precipitation')}: <strong>{weatherData.current.precipitation} mm</strong></span>
                   </div>
                 </div>
               </div>
@@ -387,7 +389,7 @@ export default function WeatherMonitoring() {
               <div className="flex items-center gap-2">
                 <ShieldAlert className="w-5 h-5 text-rose-600" />
                 <h3 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
-                  Farmer Severe Weather Advisories & Alerts
+                  {t('weather.activeAlerts', 'Agricultural Weather Warnings & Advisories')}
                 </h3>
               </div>
               <span className="text-xs font-semibold text-slate-400">
@@ -404,7 +406,7 @@ export default function WeatherMonitoring() {
                   <div>
                     <h4 className="text-xs font-bold text-emerald-900">Normal Agricultural Weather Conditions</h4>
                     <p className="text-[11px] text-emerald-700 mt-0.5 leading-relaxed">
-                      No severe storms, extreme heatwaves, or flash flooding threats detected for this district. Ambient parameters remain favorable for routine agricultural fieldwork.
+                      {t('weather.noAlerts', 'No severe weather alerts active for your district. Conditions are favorable.')}
                     </p>
                   </div>
                 </div>
@@ -476,28 +478,28 @@ export default function WeatherMonitoring() {
           {/* 4 Agricultural Microclimate Stat Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
-              label="Ambient Temperature"
+              label={t('weather.temp', 'Ambient Temperature')}
               value={`${weatherData.current.temperature}°C`}
               subtext={`Feels like ${weatherData.current.apparentTemperature}°C`}
               icon={Thermometer}
               color="rose"
             />
             <StatCard
-              label="Relative Humidity"
+              label={t('weather.humidity', 'Relative Humidity')}
               value={`${weatherData.current.humidity}%`}
               subtext={weatherData.current.humidity >= 75 ? 'High moisture (Pathogen risk)' : 'Balanced ambient humidity'}
               icon={Droplets}
               color="sky"
             />
             <StatCard
-              label="Wind Speed"
+              label={t('weather.wind', 'Wind Speed')}
               value={`${weatherData.current.windSpeed} km/h`}
               subtext={`Direction: ${weatherData.current.windDirection}° Azimuth`}
               icon={Wind}
               color="agri"
             />
             <StatCard
-              label="Precipitation"
+              label={t('weather.rainfall', 'Precipitation')}
               value={`${weatherData.current.precipitation} mm`}
               subtext={weatherData.current.precipitation > 0 ? 'Active precipitation' : 'No current rainfall'}
               icon={CloudRain}
@@ -507,7 +509,7 @@ export default function WeatherMonitoring() {
 
           {/* 7-Day Agricultural Forecast */}
           <Card
-            title={`7-Day Agricultural Forecast (${currentLocation?.name || 'District'})`}
+            title={`${t('weather.forecast', '7-Day Agricultural Forecast')} (${currentLocation?.name || 'District'})`}
             subtitle="Anticipate upcoming weather shifts to plan spray windows, fertilization, and harvesting operations"
             icon={Calendar}
           >

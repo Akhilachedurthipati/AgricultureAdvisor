@@ -13,8 +13,10 @@ import {
   Sparkles
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 export default function Login() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -63,10 +65,10 @@ export default function Login() {
             <Sprout className="w-8 h-8" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Welcome to Agriculture Advisor
+            {t('auth.loginTitle', 'Farmer Login')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
-            Sign in to access your farm recommendations and records
+            {t('auth.loginSubtitle', 'Sign in to access your farm recommendations and records')}
           </p>
         </div>
 
@@ -103,7 +105,7 @@ export default function Login() {
             {/* Email Field */}
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                Email Address
+                {t('auth.email', 'Email Address')}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -124,7 +126,7 @@ export default function Login() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="block text-xs font-semibold text-slate-700">
-                  Password
+                  {t('auth.password', 'Password')}
                 </label>
               </div>
               <div className="relative">
@@ -158,12 +160,12 @@ export default function Login() {
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>Verifying account...</span>
+                  <span>{t('common.loading', 'Verifying account...')}</span>
                 </>
               ) : (
                 <>
                   <LogIn className="w-4 h-4" />
-                  <span>Sign In</span>
+                  <span>{t('auth.loginBtn', 'Sign In')}</span>
                 </>
               )}
             </button>
@@ -171,12 +173,12 @@ export default function Login() {
 
           {/* Registration Redirect */}
           <div className="mt-6 pt-5 border-t border-slate-100 text-center text-xs text-slate-500">
-            <span>New to Agriculture Advisor? </span>
+            <span>{t('auth.noAccount', "Don't have an account?")} </span>
             <Link 
               to="/register" 
               className="font-bold text-agri-700 hover:text-agri-800 hover:underline"
             >
-              Register Farmer Account
+              {t('auth.registerTitle', 'Register Farmer Account')}
             </Link>
           </div>
 

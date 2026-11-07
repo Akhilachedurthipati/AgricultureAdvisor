@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   FlaskConical, 
   Sparkles, 
@@ -8,11 +9,11 @@ import {
   CheckCircle2, 
   AlertCircle, 
   Scale, 
-  SlidersHorizontal,
-  BookmarkCheck,
-  Package,
-  Clock,
-  Info
+  SlidersHorizontal, 
+  BookmarkCheck, 
+  Package, 
+  Clock, 
+  Info 
 } from 'lucide-react';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
@@ -90,6 +91,7 @@ const PRESETS = [
 ];
 
 export default function FertilizerRecommendation() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     soilType: 'Black Cotton Soil',
     season: 'Kharif (Monsoon: Jun - Oct)',
@@ -161,35 +163,35 @@ export default function FertilizerRecommendation() {
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full uppercase">
-              Module 02
+              {t('fertilizer.moduleBadge', 'Module 02')}
             </span>
             <span className="text-xs text-slate-400 font-medium">Validated Agronomic STCR Calculations</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            Precision Fertilizer Recommendation
+            {t('fertilizer.title', 'Precision Fertilizer Recommendation')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Calculate accurate N-P-K nutrient replenishment, split application timetables, and chemical safety protocols
+            {t('fertilizer.subtitle', 'Calculate accurate N-P-K nutrient replenishment, split application timetables, and chemical safety protocols')}
           </p>
         </div>
 
         <Badge variant="warning" pulse={true}>
-          STCR Engine Active
+          {t('common.operational', 'STCR Engine Active')}
         </Badge>
       </div>
 
       {/* Advisory Banner */}
       <AlertBanner
         variant="advisory"
-        title="Official Soil Health & Chemical Safety Notice"
-        message="Exact nutrient requirements depend heavily on recent soil health card lab reports. Follow calculated application guidelines to prevent groundwater contamination or fertilizer burn. Always consult your district agricultural extension officer."
+        title={t('common.preliminaryNotice', 'Official Soil Health & Chemical Safety Notice')}
+        message={t('common.disclaimer', 'Exact nutrient requirements depend heavily on recent soil health card lab reports. Follow calculated application guidelines to prevent groundwater contamination or fertilizer burn. Always consult your district agricultural extension officer.')}
       />
 
       {/* Quick Test Presets */}
       <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-2 text-slate-700 font-semibold">
           <SlidersHorizontal className="w-4 h-4 text-amber-600" />
-          <span>Quick Evaluation Scenarios:</span>
+          <span>{t('crop.presetsTitle', 'Quick Evaluation Scenarios:')}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {PRESETS.map((p, idx) => (
@@ -230,7 +232,7 @@ export default function FertilizerRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Soil Type *</span>
+                    <span>{t('fertilizer.soilType', 'Soil Type')} *</span>
                   </label>
                   <select
                     name="soilType"
@@ -248,7 +250,7 @@ export default function FertilizerRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Season *</span>
+                    <span>{t('fertilizer.season', 'Season')} *</span>
                   </label>
                   <select
                     name="season"
@@ -268,7 +270,7 @@ export default function FertilizerRecommendation() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Target Crop *
+                    {t('fertilizer.selectCrop', 'Target Crop')} *
                   </label>
                   <select
                     name="crop"
@@ -286,7 +288,7 @@ export default function FertilizerRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
                     <Scale className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Land Area (Acres) *</span>
+                    <span>{t('fertilizer.landArea', 'Land Area (Acres)')} *</span>
                   </label>
                   <input
                     type="number"
@@ -310,7 +312,7 @@ export default function FertilizerRecommendation() {
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   <div>
-                    <span className="text-[11px] font-semibold text-blue-700 block mb-1">Nitrogen (N) *</span>
+                    <span className="text-[11px] font-semibold text-blue-700 block mb-1">{t('fertilizer.nitrogen', 'Nitrogen (N)')} *</span>
                     <input
                       type="number"
                       min="0"
@@ -324,7 +326,7 @@ export default function FertilizerRecommendation() {
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-semibold text-amber-700 block mb-1">Phosphorus (P) *</span>
+                    <span className="text-[11px] font-semibold text-amber-700 block mb-1">{t('fertilizer.phosphorus', 'Phosphorus (P)')} *</span>
                     <input
                       type="number"
                       min="0"
@@ -338,7 +340,7 @@ export default function FertilizerRecommendation() {
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-semibold text-emerald-700 block mb-1">Potassium (K) *</span>
+                    <span className="text-[11px] font-semibold text-emerald-700 block mb-1">{t('fertilizer.potassium', 'Potassium (K)')} *</span>
                     <input
                       type="number"
                       min="0"
@@ -360,7 +362,7 @@ export default function FertilizerRecommendation() {
                   icon={Sparkles}
                   className="w-full !bg-amber-600 hover:!bg-amber-700 active:!bg-amber-800"
                 >
-                  Calculate Scientifically Defensible Advisory
+                  {loading ? t('common.loading', 'Processing...') : t('fertilizer.calculateBtn', 'Calculate Fertilizer Dosage')}
                 </Button>
               </div>
 
@@ -372,8 +374,8 @@ export default function FertilizerRecommendation() {
         <div className="lg:col-span-6 space-y-4">
           {result ? (
             <Card
-              title="Tailored Fertilizer Advisory"
-              subtitle={`Agronomic recommendation for ${result.landArea} Acre(s) of ${result.crop}`}
+              title={t('fertilizer.resultsTitle', 'Tailored Fertilizer Advisory')}
+              subtitle={`Agronomic recommendation for ${result.landArea} ${t('common.acres', 'Acre(s)')} of ${result.crop}`}
               className="border-amber-300 ring-2 ring-amber-500/15 animate-in fade-in"
             >
               <div className="space-y-4">
@@ -392,7 +394,7 @@ export default function FertilizerRecommendation() {
                 <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
                   <span className="text-xs font-bold text-amber-950 flex items-center gap-1.5">
                     <Package className="w-4 h-4 text-amber-700" />
-                    <span>Total Purchase Requirements for {result.landArea} Acre(s):</span>
+                    <span>{t('fertilizer.purchaseBreakdown', 'Total Purchase Requirements')} ({result.landArea} {t('common.acres', 'Acres')}):</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">

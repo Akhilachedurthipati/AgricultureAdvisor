@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   Sprout, 
   FlaskConical, 
@@ -18,8 +19,10 @@ import {
   ChevronDown
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import LanguageSelector from '../common/LanguageSelector';
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
@@ -37,12 +40,12 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
 
   const NAV_LINKS = [
-    { name: 'Crop Advisory', path: '/crop-recommendation', icon: Sprout },
-    { name: 'Fertilizer', path: '/fertilizer-recommendation', icon: FlaskConical },
-    { name: 'Disease Detection', path: '/disease-detection', icon: ScanSearch },
-    { name: 'Weather', path: '/weather', icon: CloudSun },
-    { name: 'AI Assistant', path: '/ai-assistant', icon: Bot },
-    { name: 'History', path: '/history', icon: History },
+    { name: t('nav.cropAdvisory', 'Crop Advisory'), path: '/crop-recommendation', icon: Sprout },
+    { name: t('nav.fertilizer', 'Fertilizer'), path: '/fertilizer-recommendation', icon: FlaskConical },
+    { name: t('nav.diseaseDetection', 'Disease Detection'), path: '/disease-detection', icon: ScanSearch },
+    { name: t('nav.weather', 'Weather'), path: '/weather', icon: CloudSun },
+    { name: t('nav.aiAssistant', 'AI Assistant'), path: '/ai-assistant', icon: Bot },
+    { name: t('nav.history', 'History'), path: '/history', icon: History },
   ];
 
   return (
@@ -79,7 +82,7 @@ export default function Navbar() {
             }`}
           >
             <Home className="w-3.5 h-3.5" />
-            <span>Home</span>
+            <span>{t('nav.home', 'Home')}</span>
           </Link>
 
           {isAuthenticated && (
@@ -93,7 +96,7 @@ export default function Navbar() {
                 }`}
               >
                 <LayoutDashboard className="w-3.5 h-3.5" />
-                <span>Dashboard</span>
+                <span>{t('nav.dashboard', 'Dashboard')}</span>
               </Link>
 
               {/* Advisory Modules Dropdown */}
@@ -108,7 +111,7 @@ export default function Navbar() {
                   }`}
                 >
                   <Sprout className="w-3.5 h-3.5 text-agri-600" />
-                  <span>Modules</span>
+                  <span>{t('nav.modules', 'Modules')}</span>
                   <ChevronDown className="w-3 h-3 text-slate-400" />
                 </button>
 
@@ -145,7 +148,7 @@ export default function Navbar() {
                     : 'text-slate-600 hover:text-agri-700 hover:bg-slate-50'
                 }`}
               >
-                <span>Crops</span>
+                <span>{t('nav.cropAdvisory', 'Crops')}</span>
               </Link>
 
               <Link
@@ -156,7 +159,7 @@ export default function Navbar() {
                     : 'text-slate-600 hover:text-agri-700 hover:bg-slate-50'
                 }`}
               >
-                <span>Fertilizer</span>
+                <span>{t('nav.fertilizer', 'Fertilizer')}</span>
               </Link>
 
               <Link
@@ -167,14 +170,16 @@ export default function Navbar() {
                     : 'text-slate-600 hover:text-agri-700 hover:bg-slate-50'
                 }`}
               >
-                <span>Weather</span>
+                <span>{t('nav.weather', 'Weather')}</span>
               </Link>
             </>
           )}
         </nav>
 
-        {/* Right Section: Auth State / Farmer Profile */}
+        {/* Right Section: Language Selector + Auth State / Farmer Profile */}
         <div className="hidden md:flex items-center space-x-3">
+          <LanguageSelector />
+
           {isAuthenticated ? (
             <div className="relative">
               <button
@@ -215,7 +220,7 @@ export default function Navbar() {
                     className="flex items-center gap-2 px-4 py-2 text-xs text-slate-700 hover:bg-agri-50 hover:text-agri-800 transition"
                   >
                     <User className="w-4 h-4 text-slate-400" />
-                    <span>Farmer Profile</span>
+                    <span>{t('nav.farmerProfile', 'Farmer Profile')}</span>
                   </Link>
 
                   <Link
@@ -224,7 +229,7 @@ export default function Navbar() {
                     className="flex items-center gap-2 px-4 py-2 text-xs text-slate-700 hover:bg-agri-50 hover:text-agri-800 transition"
                   >
                     <LayoutDashboard className="w-4 h-4 text-slate-400" />
-                    <span>Farmer Dashboard</span>
+                    <span>{t('nav.dashboard', 'Farmer Dashboard')}</span>
                   </Link>
 
                   <div className="border-t border-slate-100 my-1"></div>
@@ -234,7 +239,7 @@ export default function Navbar() {
                     className="w-full flex items-center gap-2 px-4 py-2 text-xs text-rose-600 hover:bg-rose-50 transition font-semibold text-left cursor-pointer"
                   >
                     <LogOut className="w-4 h-4 text-rose-500" />
-                    <span>Sign Out</span>
+                    <span>{t('nav.logout', 'Sign Out')}</span>
                   </button>
                 </div>
               )}
@@ -246,21 +251,22 @@ export default function Navbar() {
                 className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:text-agri-700 hover:bg-slate-100 transition"
               >
                 <LogIn className="w-3.5 h-3.5" />
-                <span>Sign In</span>
+                <span>{t('nav.login', 'Sign In')}</span>
               </Link>
               <Link
                 to="/register"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-agri-600 hover:bg-agri-700 text-white shadow-md shadow-agri-600/20 transition cursor-pointer"
               >
                 <UserPlus className="w-3.5 h-3.5" />
-                <span>Register Farmer</span>
+                <span>{t('nav.register', 'Register Farmer')}</span>
               </Link>
             </div>
           )}
         </div>
 
-        {/* Mobile menu hamburger button */}
+        {/* Mobile menu right side: compact language selector + hamburger button */}
         <div className="flex lg:hidden items-center space-x-2">
+          <LanguageSelector compact />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-xl text-slate-600 hover:bg-slate-100 focus:outline-none"
@@ -275,6 +281,13 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3 animate-in fade-in">
+          <div className="pb-2 border-b border-slate-100 flex items-center justify-between">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+              {t('nav.selectLanguage', 'Language')}
+            </span>
+            <LanguageSelector compact />
+          </div>
+
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
@@ -283,7 +296,7 @@ export default function Navbar() {
             }`}
           >
             <Home className="w-4 h-4 text-agri-600" />
-            <span>Home</span>
+            <span>{t('nav.home', 'Home')}</span>
           </Link>
 
           {isAuthenticated ? (
@@ -296,12 +309,12 @@ export default function Navbar() {
                 }`}
               >
                 <LayoutDashboard className="w-4 h-4 text-agri-600" />
-                <span>Dashboard</span>
+                <span>{t('nav.dashboard', 'Dashboard')}</span>
               </Link>
 
               <div className="pt-2 pb-1 border-t border-slate-100">
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3">
-                  Advisory Modules
+                  {t('nav.modules', 'Advisory Modules')}
                 </span>
               </div>
 
@@ -329,7 +342,7 @@ export default function Navbar() {
                   className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50"
                 >
                   <User className="w-4 h-4 text-slate-500" />
-                  <span>Farmer Profile ({user?.name})</span>
+                  <span>{t('nav.farmerProfile', 'Farmer Profile')} ({user?.name})</span>
                 </Link>
 
                 <button
@@ -337,7 +350,7 @@ export default function Navbar() {
                   className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50"
                 >
                   <LogOut className="w-4 h-4 text-rose-500" />
-                  <span>Sign Out</span>
+                  <span>{t('nav.logout', 'Sign Out')}</span>
                 </button>
               </div>
             </>
@@ -349,7 +362,7 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100"
               >
                 <LogIn className="w-4 h-4" />
-                <span>Sign In</span>
+                <span>{t('nav.login', 'Sign In')}</span>
               </Link>
               <Link
                 to="/register"
@@ -357,7 +370,7 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-agri-600 text-white shadow-md shadow-agri-600/20"
               >
                 <UserPlus className="w-4 h-4" />
-                <span>Register Farmer Account</span>
+                <span>{t('nav.register', 'Register Farmer Account')}</span>
               </Link>
             </div>
           )}

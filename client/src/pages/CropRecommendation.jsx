@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   Sprout, 
   Sparkles, 
@@ -75,6 +76,7 @@ const PRESETS = [
 ];
 
 export default function CropRecommendation() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     soilType: 'Clay Soil',
     season: 'Kharif (Monsoon: Jun - Oct)',
@@ -143,35 +145,35 @@ export default function CropRecommendation() {
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-bold text-agri-700 bg-agri-100 px-2.5 py-0.5 rounded-full uppercase">
-              Module 01
+              {t('crop.moduleBadge', 'Module 01')}
             </span>
             <span className="text-xs text-slate-400 font-medium">Verified ML Pipeline (98.86% Accuracy)</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            Intelligent Crop Recommendation
+            {t('crop.title', 'Intelligent Crop Recommendation')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Predict the single most optimal crop tailored for your soil profile, cropping season, and local climate
+            {t('crop.subtitle', 'Predict the single most optimal crop tailored for your soil profile, cropping season, and local climate')}
           </p>
         </div>
 
         <Badge variant="success" pulse={true}>
-          Live ML Inference Active
+          {t('common.operational', 'Live ML Inference Active')}
         </Badge>
       </div>
 
       {/* Advisory Banner */}
       <AlertBanner
         variant="disclaimer"
-        title="Official Agricultural Advisory Disclaimer"
-        message="Recommendations are machine learning predictions trained on historical agronomic observations. They are computational advisories and do not guarantee yield outcomes. Always consult a local agricultural extension officer or soil testing laboratory before purchase of seed stocks."
+        title={t('common.preliminaryNotice', 'Official Agricultural Advisory Disclaimer')}
+        message={t('common.disclaimer', 'Recommendations are machine learning predictions trained on historical agronomic observations. They are computational advisories and do not guarantee yield outcomes. Always consult a local agricultural extension officer or soil testing laboratory before purchase of seed stocks.')}
       />
 
       {/* Quick Test Climate Scenarios */}
       <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-2 text-slate-700 font-semibold">
           <SlidersHorizontal className="w-4 h-4 text-agri-600" />
-          <span>Quick Evaluation Climate Presets:</span>
+          <span>{t('crop.presetsTitle', 'Quick Evaluation Climate Presets:')}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {PRESETS.map((p, idx) => (
@@ -212,7 +214,7 @@ export default function CropRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5 text-agri-600" />
-                    <span>Soil Type *</span>
+                    <span>{t('crop.soilType', 'Soil Type')} *</span>
                   </label>
                   <select
                     name="soilType"
@@ -230,7 +232,7 @@ export default function CropRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-agri-600" />
-                    <span>Cropping Season *</span>
+                    <span>{t('crop.season', 'Cropping Season')} *</span>
                   </label>
                   <select
                     name="season"
@@ -252,7 +254,7 @@ export default function CropRecommendation() {
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
                       <Thermometer className="w-3.5 h-3.5 text-rose-500" />
-                      <span>Average Temperature (°C) *</span>
+                      <span>{t('crop.temperature', 'Average Temperature (°C)')} *</span>
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">{formData.temperature}°C</span>
                   </label>
@@ -273,7 +275,7 @@ export default function CropRecommendation() {
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
                       <Droplets className="w-3.5 h-3.5 text-sky-500" />
-                      <span>Relative Humidity (%) *</span>
+                      <span>{t('crop.humidity', 'Relative Humidity (%)')} *</span>
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">{formData.humidity}%</span>
                   </label>
@@ -296,7 +298,7 @@ export default function CropRecommendation() {
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
                       <Gauge className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Soil pH Level (3.5 - 9.5) *</span>
+                      <span>{t('crop.soilPh', 'Soil pH Level (3.5 - 9.5)')} *</span>
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">{formData.ph}</span>
                   </label>
@@ -317,7 +319,7 @@ export default function CropRecommendation() {
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
                       <CloudRain className="w-3.5 h-3.5 text-blue-500" />
-                      <span>Expected Rainfall (mm) *</span>
+                      <span>{t('crop.rainfall', 'Expected Rainfall (mm)')} *</span>
                     </span>
                     <span className="text-[11px] font-bold text-slate-500">{formData.rainfall} mm</span>
                   </label>
@@ -341,7 +343,7 @@ export default function CropRecommendation() {
                   icon={Sparkles}
                   className="w-full"
                 >
-                  Run ML Model & Recommend Single Best Crop
+                  {loading ? t('crop.analyzing', 'Running Machine Learning Model...') : t('crop.predictBtn', 'Find Optimal Crop')}
                 </Button>
               </div>
 
@@ -353,8 +355,8 @@ export default function CropRecommendation() {
         <div className="lg:col-span-5 space-y-4">
           {result ? (
             <Card
-              title="Best-Suited Crop Advisory"
-              subtitle="Single optimal crop predicted by the trained ML pipeline"
+              title={t('crop.resultTitle', 'Best-Suited Crop Advisory')}
+              subtitle={t('crop.subtitle', 'Single optimal crop predicted by the trained ML pipeline')}
               className="border-agri-400 ring-2 ring-agri-500/15 animate-in fade-in"
             >
               <div className="space-y-4">
@@ -363,14 +365,14 @@ export default function CropRecommendation() {
                 <div className="p-5 rounded-2xl bg-gradient-to-br from-agri-700 via-agri-600 to-agri-800 text-white flex items-center justify-between shadow-lg shadow-agri-950/10">
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-agri-200 font-bold block">
-                      Recommended Single Crop
+                      {t('crop.resultTitle', 'Recommended Single Crop')}
                     </span>
                     <h2 className="text-2xl sm:text-3xl font-black mt-0.5 tracking-tight">
                       {result.cropName}
                     </h2>
                   </div>
                   <div className="text-right bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 backdrop-blur-sm">
-                    <span className="text-[10px] uppercase text-agri-200 block font-bold">Model Confidence</span>
+                    <span className="text-[10px] uppercase text-agri-200 block font-bold">{t('crop.confidence', 'Model Confidence')}</span>
                     <span className="text-xl font-extrabold">{(result.confidenceScore * 100).toFixed(0)}%</span>
                   </div>
                 </div>
@@ -379,7 +381,7 @@ export default function CropRecommendation() {
                 <div className="space-y-1.5 text-xs">
                   <span className="font-bold text-slate-800 flex items-center gap-1.5">
                     <BookmarkCheck className="w-4 h-4 text-agri-600" />
-                    <span>Agronomic Suitability Rationale</span>
+                    <span>{t('crop.suitability', 'Agronomic Suitability Rationale')}</span>
                   </span>
                   <p className="text-slate-700 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100">
                     {result.suitabilityExplanation}
@@ -388,7 +390,7 @@ export default function CropRecommendation() {
 
                 {/* Cultivation Guidance */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-slate-800 block">Cultivation Information</span>
+                  <span className="font-bold text-slate-800 block">{t('crop.cultivationGuide', 'Cultivation & Management Guidelines')}</span>
                   <p className="text-slate-700 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100">
                     {result.cultivationInformation}
                   </p>

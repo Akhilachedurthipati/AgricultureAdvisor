@@ -12,25 +12,17 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-
-const LANGUAGES = [
-  { code: 'en', name: 'English' },
-  { code: 'te', name: 'తెలుగు (Telugu)' },
-  { code: 'hi', name: 'हिन्दी (Hindi)' },
-  { code: 'ta', name: 'தமிழ் (Tamil)' },
-  { code: 'kn', name: 'ಕನ್ನಡ (Kannada)' },
-  { code: 'ml', name: 'മലയാളം (Malayalam)' },
-  { code: 'mr', name: 'मराठी (Marathi)' },
-  { code: 'bn', name: 'বাংলা (Bengali)' },
-];
+import { useTranslation } from 'react-i18next';
+import { SUPPORTED_LANGUAGES } from '../i18n';
 
 export default function UserProfile() {
   const { user, updateProfile } = useAuth();
+  const { t, i18n } = useTranslation();
 
   const [formData, setFormData] = useState({
     name: user?.name || '',
     phone: user?.phone || '',
-    preferredLanguage: user?.preferredLanguage || 'en',
+    preferredLanguage: user?.preferredLanguage || i18n.language || 'en',
     state: user?.location?.state || '',
     district: user?.location?.district || '',
     city: user?.location?.city || ''
@@ -41,9 +33,10 @@ export default function UserProfile() {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [name]: value
     }));
   };
 
@@ -64,6 +57,13 @@ export default function UserProfile() {
           city: formData.city
         }
       });
+      
+      // Keep live interface language synchronized with user profile
+      if (formData.preferredLanguage && formData.preferredLanguage !== i18n.language) {
+        i18n.changeLanguage(formData.preferredLanguage);
+        localStorage.setItem('agri_preferred_language', formData.preferredLanguage);
+      }
+
       setSuccessMessage('Profile information saved successfully!');
       setTimeout(() => setSuccessMessage(''), 4000);
     } catch (err) {
@@ -80,7 +80,7 @@ export default function UserProfile() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Farmer Profile
+            {t('nav.farmerProfile', 'Farmer Profile')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Manage your personal farm details, preferred language, and geographical location
@@ -154,7 +154,7 @@ export default function UserProfile() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Full Name
+                  {t('auth.name', 'Full Name')}
                 </label>
                 <input
                   type="text"
@@ -168,7 +168,7 @@ export default function UserProfile() {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Email Address (Immutable)
+                  {t('auth.email', 'Email Address')} (Immutable)
                 </label>
                 <input
                   type="email"
@@ -183,7 +183,7 @@ export default function UserProfile() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Contact Mobile Number
+                  {t('auth.phone', 'Contact Mobile Number')}
                 </label>
                 <input
                   type="tel"
@@ -197,17 +197,17 @@ export default function UserProfile() {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  Default Advisory Language
+                  {t('auth.preferredLanguage', 'Default Advisory Language')}
                 </label>
                 <select
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm bg-white text-slate-800"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm bg-white text-slate-800 font-medium"
                 >
-                  {LANGUAGES.map((lang) => (
+                  {SUPPORTED_LANGUAGES.map((lang) => (
                     <option key={lang.code} value={lang.code}>
-                      {lang.name}
+                      {lang.nativeName} ({lang.name})
                     </option>
                   ))}
                 </select>
@@ -221,7 +221,7 @@ export default function UserProfile() {
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <span className="text-[11px] text-slate-400 block mb-1">State</span>
+                  <span className="text-[11px] text-slate-400 block mb-1">{t('auth.state', 'State')}</span>
                   <input
                     type="text"
                     name="state"
@@ -232,7 +232,7 @@ export default function UserProfile() {
                   />
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 block mb-1">District</span>
+                  <span className="text-[11px] text-slate-400 block mb-1">{t('auth.district', 'District')}</span>
                   <input
                     type="text"
                     name="district"
@@ -243,7 +243,7 @@ export default function UserProfile() {
                   />
                 </div>
                 <div>
-                  <span className="text-[11px] text-slate-400 block mb-1">Village / City</span>
+                  <span className="text-[11px] text-slate-400 block mb-1">{t('auth.city', 'Village / City')}</span>
                   <input
                     type="text"
                     name="city"
@@ -266,12 +266,12 @@ export default function UserProfile() {
                 {saving ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>Saving...</span>
+                    <span>{t('common.loading', 'Saving...')}</span>
                   </>
                 ) : (
                   <>
                     <Save className="w-4 h-4" />
-                    <span>Save Changes</span>
+                    <span>{t('common.save', 'Save Changes')}</span>
                   </>
                 )}
               </button>

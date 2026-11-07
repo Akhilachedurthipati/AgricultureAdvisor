@@ -24,9 +24,11 @@ import Card from '../components/common/Card';
 import Button from '../components/common/Button';
 import Badge from '../components/common/Badge';
 import AlertBanner from '../components/common/AlertBanner';
+import { useTranslation } from 'react-i18next';
 import { detectCropDisease, fetchDiseaseHistory, deleteDiseaseRecord } from '../services/diseaseService';
 
 export default function DiseaseDetection() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('upload'); // 'upload' | 'camera'
   const [selectedCrop, setSelectedCrop] = useState('auto');
   const [selectedFile, setSelectedFile] = useState(null);
@@ -392,15 +394,15 @@ export default function DiseaseDetection() {
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[11px] font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full uppercase">
-              Module 03
+              {t('disease.moduleBadge', 'Module 03')}
             </span>
             <span className="text-xs text-slate-400 font-medium">Computer Vision Pathology Screening</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            Crop Disease Detection
+            {t('disease.title', 'Crop Disease Detection')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Identify leaf pathogens, fungal blights, and leaf health with instant AI computer vision diagnosis
+            {t('disease.subtitle', 'Identify leaf pathogens, fungal blights, and leaf health with instant AI computer vision diagnosis')}
           </p>
         </div>
 
@@ -411,7 +413,7 @@ export default function DiseaseDetection() {
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm transition"
           >
             <History className="w-4 h-4 text-slate-500" />
-            <span>{showHistory ? 'Hide History' : 'Past Scans'}</span>
+            <span>{showHistory ? 'Hide History' : t('common.history', 'Past Scans')}</span>
             {historyList.length > 0 && (
               <span className="ml-1 px-1.5 py-0.2 rounded-full bg-slate-100 text-[10px] font-bold text-slate-600">
                 {historyList.length}
@@ -420,7 +422,7 @@ export default function DiseaseDetection() {
           </button>
 
           <Badge variant="success">
-            Vision Engine Operational
+            {t('common.operational', 'Vision Engine Operational')}
           </Badge>
         </div>
       </div>
@@ -428,8 +430,8 @@ export default function DiseaseDetection() {
       {/* Advisory Banner */}
       <AlertBanner
         variant="advisory"
-        title="Preliminary Diagnostic Notice"
-        message="Computer vision results are preliminary screening aids and can be influenced by lighting or camera angle. Confirm diagnosis with an agricultural extension officer before applying scheduled chemical fungicides."
+        title={t('common.preliminaryNotice', 'Preliminary Diagnostic Notice')}
+        message={t('common.disclaimer', 'Computer vision results are preliminary screening aids and can be influenced by lighting or camera angle. Confirm diagnosis with an agricultural extension officer before applying scheduled chemical fungicides.')}
       />
 
       {/* Inconclusive Scan Alert */}

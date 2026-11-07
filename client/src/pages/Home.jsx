@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   Sprout, 
   FlaskConical, 
@@ -21,78 +22,79 @@ import {
 import { checkBackendHealth } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
-const MODULES = [
-  {
-    id: 1,
-    title: 'Crop Recommendation',
-    desc: 'Intelligent single best-suited crop advisory based on climate and soil metrics.',
-    icon: Sprout,
-    status: 'Phase 4',
-    color: 'from-emerald-500 to-green-600'
-  },
-  {
-    id: 2,
-    title: 'Fertilizer Recommendation',
-    desc: 'Precision NPK and soil-tailored nutrient dosage with safety precautions.',
-    icon: FlaskConical,
-    status: 'Phase 5',
-    color: 'from-amber-500 to-orange-600'
-  },
-  {
-    id: 3,
-    title: 'Crop Disease Detection',
-    desc: 'Leaf image analysis via photo upload & live camera to detect pathologies.',
-    icon: ScanSearch,
-    status: 'Phase 6',
-    color: 'from-rose-500 to-red-600'
-  },
-  {
-    id: 4,
-    title: 'Weather Monitoring & Alerts',
-    desc: 'Real-time forecasts and automated warnings for heavy rain and extreme weather.',
-    icon: CloudSun,
-    status: 'Phase 7',
-    color: 'from-sky-500 to-blue-600'
-  },
-  {
-    id: 5,
-    title: 'AI Farming Voice Assistant',
-    desc: 'Multilingual conversational assistant with voice input and speech synthesis.',
-    icon: Bot,
-    status: 'Phase 9',
-    color: 'from-purple-500 to-indigo-600'
-  },
-  {
-    id: 6,
-    title: 'Multilingual Interface',
-    desc: 'Full localization in English, Telugu, Hindi, Tamil, Kannada, and more.',
-    icon: Languages,
-    status: 'Phase 8',
-    color: 'from-teal-500 to-emerald-700'
-  },
-  {
-    id: 7,
-    title: 'Farmer Authentication',
-    desc: 'Secure registration, login, JWT authorization, and profile management.',
-    icon: ShieldCheck,
-    status: 'Implemented (Phase 2)',
-    color: 'from-blue-600 to-cyan-600'
-  },
-  {
-    id: 8,
-    title: 'Recommendation History',
-    desc: 'Personal audit trail of past recommendations, diagnoses, and chats.',
-    icon: History,
-    status: 'Phase 10',
-    color: 'from-stone-600 to-slate-700'
-  }
-];
-
 export default function Home() {
+  const { t } = useTranslation();
   const { isAuthenticated, user } = useAuth();
   const [health, setHealth] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const MODULES = [
+    {
+      id: 1,
+      title: t('crop.title', 'Crop Recommendation'),
+      desc: t('crop.subtitle', 'Intelligent single best-suited crop advisory based on climate and soil metrics.'),
+      icon: Sprout,
+      status: 'Implemented (Phase 4)',
+      color: 'from-emerald-500 to-green-600'
+    },
+    {
+      id: 2,
+      title: t('fertilizer.title', 'Fertilizer Recommendation'),
+      desc: t('fertilizer.subtitle', 'Precision NPK and soil-tailored nutrient dosage with safety precautions.'),
+      icon: FlaskConical,
+      status: 'Implemented (Phase 5)',
+      color: 'from-amber-500 to-orange-600'
+    },
+    {
+      id: 3,
+      title: t('disease.title', 'Crop Disease Detection'),
+      desc: t('disease.subtitle', 'Multi-crop leaf image analysis via photo upload & live camera to detect pathologies.'),
+      icon: ScanSearch,
+      status: 'Implemented (Phase 6)',
+      color: 'from-rose-500 to-red-600'
+    },
+    {
+      id: 4,
+      title: t('weather.title', 'Weather Monitoring & Alerts'),
+      desc: t('weather.subtitle', 'Real-time forecasts and automated warnings for heavy rain and extreme weather.'),
+      icon: CloudSun,
+      status: 'Implemented (Phase 7)',
+      color: 'from-sky-500 to-blue-600'
+    },
+    {
+      id: 5,
+      title: t('nav.aiAssistant', 'AI Farming Voice Assistant'),
+      desc: 'Multilingual conversational assistant with voice input and speech synthesis.',
+      icon: Bot,
+      status: 'Phase 9',
+      color: 'from-purple-500 to-indigo-600'
+    },
+    {
+      id: 6,
+      title: t('nav.selectLanguage', 'Multilingual Interface'),
+      desc: 'Full localization in English, Telugu, Hindi, Tamil, Kannada, Malayalam, Marathi, Bengali.',
+      icon: Languages,
+      status: 'Implemented (Phase 8)',
+      color: 'from-teal-500 to-emerald-700'
+    },
+    {
+      id: 7,
+      title: t('auth.registerTitle', 'Farmer Authentication'),
+      desc: 'Secure registration, login, JWT authorization, and profile management.',
+      icon: ShieldCheck,
+      status: 'Implemented (Phase 2)',
+      color: 'from-blue-600 to-cyan-600'
+    },
+    {
+      id: 8,
+      title: t('nav.history', 'Recommendation History'),
+      desc: 'Personal audit trail of past recommendations, diagnoses, and chats.',
+      icon: History,
+      status: 'Phase 10',
+      color: 'from-stone-600 to-slate-700'
+    }
+  ];
 
   const testBackend = async () => {
     setLoading(true);
@@ -123,11 +125,11 @@ export default function Home() {
           </div>
 
           <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-            AI-Powered Multilingual <span className="text-agri-300">Agricultural Advisor</span>
+            {t('home.heroTitle', 'Intelligent Decisions for Greater Agricultural Yields')}
           </h1>
 
           <p className="text-agri-100/90 text-sm md:text-base leading-relaxed">
-            Welcome to Agriculture Advisor — an intelligent decision support platform assisting farmers with single-crop recommendation models, precision fertilizer guidance, dual-mode leaf disease detection, agro-meteorological warnings, and voice-enabled conversational AI.
+            {t('home.heroSubtitle', 'Welcome to Agriculture Advisor — an intelligent decision support platform assisting farmers with single-crop recommendation models, precision fertilizer guidance, dual-mode leaf disease detection, agro-meteorological warnings, and voice-enabled conversational AI.')}
           </p>
 
           <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -136,7 +138,7 @@ export default function Home() {
                 to="/dashboard"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-agri-500 hover:bg-agri-400 text-agri-950 font-bold text-sm shadow-lg shadow-agri-500/30 transition cursor-pointer"
               >
-                <span>Go to Dashboard ({user?.name})</span>
+                <span>{t('nav.dashboard', 'Go to Dashboard')} ({user?.name})</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             ) : (
@@ -146,14 +148,14 @@ export default function Home() {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-agri-500 hover:bg-agri-400 text-agri-950 font-bold text-sm shadow-lg shadow-agri-500/30 transition cursor-pointer"
                 >
                   <UserPlus className="w-4 h-4" />
-                  <span>Register Farmer Account</span>
+                  <span>{t('auth.registerBtn', 'Register Farmer Account')}</span>
                 </Link>
                 <Link
                   to="/login"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition cursor-pointer"
                 >
                   <LogIn className="w-4 h-4" />
-                  <span>Farmer Sign In</span>
+                  <span>{t('auth.loginBtn', 'Farmer Sign In')}</span>
                 </Link>
               </>
             )}

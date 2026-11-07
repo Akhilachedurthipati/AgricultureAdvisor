@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { 
   Sprout, 
   FlaskConical, 
@@ -27,43 +28,44 @@ import StatCard from '../components/common/StatCard';
 import { useAuth } from '../context/AuthContext';
 
 export default function Dashboard() {
+  const { t, i18n } = useTranslation();
   const { user } = useAuth();
 
   const QUICK_ACTIONS = [
     {
-      title: 'Recommend Best Crop',
-      subtitle: 'Analyze soil, climate, pH & rainfall for single optimal crop',
+      title: t('dashboard.cropCard', 'Crop Recommendation'),
+      subtitle: t('dashboard.cropDesc', 'Analyze soil, climate, pH & rainfall for single optimal crop'),
       icon: Sprout,
       route: '/crop-recommendation',
       color: 'from-emerald-600 to-green-700',
       badge: 'Module 01'
     },
     {
-      title: 'Calculate Fertilizer',
-      subtitle: 'Nutrient-deficit N-P-K calculation with safety precautions',
+      title: t('dashboard.fertCard', 'Fertilizer Plan'),
+      subtitle: t('dashboard.fertDesc', 'Nutrient-deficit N-P-K calculation with safety precautions'),
       icon: FlaskConical,
       route: '/fertilizer-recommendation',
       color: 'from-amber-500 to-orange-600',
       badge: 'Module 02'
     },
     {
-      title: 'Diagnose Crop Disease',
-      subtitle: 'Upload leaf photo or capture via camera for pathogen diagnosis',
+      title: t('dashboard.diseaseCard', 'Disease Screening'),
+      subtitle: t('dashboard.diseaseDesc', 'Upload leaf photo or capture via camera for pathogen diagnosis'),
       icon: ScanSearch,
       route: '/disease-detection',
       color: 'from-rose-500 to-red-600',
       badge: 'Module 03'
     },
     {
-      title: 'Weather & Storm Alerts',
-      subtitle: 'Real-time forecasts and localized heavy precipitation warnings',
+      title: t('dashboard.weatherCard', 'Weather & Storm Alerts'),
+      subtitle: t('dashboard.weatherDesc', 'Real-time forecasts and localized heavy precipitation warnings'),
       icon: CloudSun,
       route: '/weather',
       color: 'from-sky-500 to-blue-600',
       badge: 'Module 04'
     },
     {
-      title: 'AI Farming Assistant',
+      title: t('nav.aiAssistant', 'AI Farming Assistant'),
       subtitle: 'Voice & text conversational chatbot for general farming Q&A',
       icon: Bot,
       route: '/ai-assistant',
@@ -71,7 +73,7 @@ export default function Dashboard() {
       badge: 'Module 05'
     },
     {
-      title: 'Recommendation History',
+      title: t('nav.history', 'Recommendation History'),
       subtitle: 'Review and audit past crop recommendations & disease scans',
       icon: History,
       route: '/history',
@@ -92,11 +94,11 @@ export default function Dashboard() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
-            Namaste, <span className="text-agri-300">{user?.name || 'Farmer'}</span>! 🌾
+            {t('dashboard.welcome', 'Welcome')}, <span className="text-agri-300">{user?.name || 'Farmer'}</span>! 🌾
           </h1>
 
           <p className="text-xs sm:text-sm text-agri-100/90 leading-relaxed">
-            Welcome to Agriculture Advisor. Access real-time agricultural machine learning models, weather alerts, and multilingual AI assistance tailored for your fields.
+            {t('dashboard.subtitle', 'Welcome to Agriculture Advisor. Access real-time agricultural machine learning models, weather alerts, and multilingual AI assistance tailored for your fields.')}
           </p>
 
           {/* Quick Badges */}
@@ -112,14 +114,14 @@ export default function Dashboard() {
 
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-agri-100 border border-white/10 font-medium">
               <Languages className="w-3.5 h-3.5 text-agri-300" />
-              <span>Preferred Language: <strong className="uppercase">{user?.preferredLanguage || 'en'}</strong></span>
+              <span>{t('auth.preferredLanguage', 'Preferred Language')}: <strong className="uppercase">{i18n.language?.substring(0, 2) || user?.preferredLanguage || 'en'}</strong></span>
             </span>
 
             <Link
               to="/profile"
               className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-agri-500/80 hover:bg-agri-500 text-white text-xs font-bold transition ml-auto"
             >
-              <span>Edit Profile</span>
+              <span>{t('nav.farmerProfile', 'Edit Profile')}</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -131,8 +133,8 @@ export default function Dashboard() {
       {/* Advisory Notice Banner */}
       <AlertBanner
         variant="disclaimer"
-        title="Official Agricultural Advisory Disclaimer"
-        message="All models and recommendations provided on this platform are computational agronomic advisories. They do not constitute guaranteed agricultural yield. Always verify critical decisions with local agricultural extension officers or certified testing laboratories."
+        title={t('common.preliminaryNotice', 'Official Agricultural Advisory Disclaimer')}
+        message={t('common.disclaimer', 'All models and recommendations provided on this platform are computational agronomic advisories. They do not constitute guaranteed agricultural yield. Always verify critical decisions with local agricultural extension officers or certified testing laboratories.')}
       />
 
       {/* Farm Metrics Row */}
@@ -171,8 +173,8 @@ export default function Dashboard() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold text-slate-900">Advisory Quick Launchers</h2>
-            <p className="text-xs text-slate-500">Jump directly into specialized agricultural advisory tools</p>
+            <h2 className="text-xl font-bold text-slate-900">{t('dashboard.quickActions', 'Advisory Quick Launchers')}</h2>
+            <p className="text-xs text-slate-500">{t('dashboard.subtitle', 'Jump directly into specialized agricultural advisory tools')}</p>
           </div>
         </div>
 

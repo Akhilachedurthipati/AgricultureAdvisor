@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Sprout, ShieldCheck, Heart } from 'lucide-react';
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="mt-auto border-t border-slate-200/80 bg-white/90 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
@@ -14,45 +17,45 @@ export default function Footer() {
                 <Sprout className="w-5 h-5" />
               </div>
               <span className="font-extrabold text-base tracking-tight text-agri-950">
-                AGRICULTURE ADVISOR
+                {t('common.appName', 'AGRICULTURE ADVISOR')}
               </span>
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
-              AI-powered multilingual agricultural decision support platform. B.Tech Computer Science and Engineering (Artificial Intelligence and Machine Learning) Major Project.
+              {t('home.heroSubtitle', 'AI-powered multilingual agricultural decision support platform. B.Tech Computer Science and Engineering (Artificial Intelligence and Machine Learning) Major Project.')}
             </p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs">
             <div className="space-y-2">
               <span className="font-bold text-slate-800 uppercase tracking-wider text-[11px] block">
-                Advisory Engines
+                {t('nav.modules', 'Advisory Engines')}
               </span>
               <ul className="space-y-1.5 text-slate-500">
-                <li><Link to="/crop-recommendation" className="hover:text-agri-700 transition">Crop Advisory</Link></li>
-                <li><Link to="/fertilizer-recommendation" className="hover:text-agri-700 transition">Fertilizer Advisory</Link></li>
-                <li><Link to="/disease-detection" className="hover:text-agri-700 transition">Disease Detection</Link></li>
+                <li><Link to="/crop-recommendation" className="hover:text-agri-700 transition">{t('nav.cropAdvisory', 'Crop Advisory')}</Link></li>
+                <li><Link to="/fertilizer-recommendation" className="hover:text-agri-700 transition">{t('nav.fertilizer', 'Fertilizer Advisory')}</Link></li>
+                <li><Link to="/disease-detection" className="hover:text-agri-700 transition">{t('nav.diseaseDetection', 'Disease Detection')}</Link></li>
               </ul>
             </div>
 
             <div className="space-y-2">
               <span className="font-bold text-slate-800 uppercase tracking-wider text-[11px] block">
-                Intelligence
+                {t('home.features.title', 'Intelligence')}
               </span>
               <ul className="space-y-1.5 text-slate-500">
-                <li><Link to="/weather" className="hover:text-agri-700 transition">Weather Alerts</Link></li>
-                <li><Link to="/ai-assistant" className="hover:text-agri-700 transition">AI Farming Assistant</Link></li>
-                <li><Link to="/history" className="hover:text-agri-700 transition">Recommendation History</Link></li>
+                <li><Link to="/weather" className="hover:text-agri-700 transition">{t('nav.weather', 'Weather Alerts')}</Link></li>
+                <li><Link to="/ai-assistant" className="hover:text-agri-700 transition">{t('nav.aiAssistant', 'AI Farming Assistant')}</Link></li>
+                <li><Link to="/history" className="hover:text-agri-700 transition">{t('nav.history', 'Recommendation History')}</Link></li>
               </ul>
             </div>
 
             <div className="space-y-2 col-span-2 sm:col-span-1">
               <span className="font-bold text-slate-800 uppercase tracking-wider text-[11px] block">
-                Account
+                {t('nav.farmerProfile', 'Account')}
               </span>
               <ul className="space-y-1.5 text-slate-500">
-                <li><Link to="/dashboard" className="hover:text-agri-700 transition">Dashboard</Link></li>
-                <li><Link to="/profile" className="hover:text-agri-700 transition">Farmer Profile</Link></li>
-                <li><Link to="/login" className="hover:text-agri-700 transition">Sign In</Link></li>
+                <li><Link to="/dashboard" className="hover:text-agri-700 transition">{t('nav.dashboard', 'Dashboard')}</Link></li>
+                <li><Link to="/profile" className="hover:text-agri-700 transition">{t('nav.farmerProfile', 'Farmer Profile')}</Link></li>
+                <li><Link to="/login" className="hover:text-agri-700 transition">{t('nav.login', 'Sign In')}</Link></li>
               </ul>
             </div>
           </div>
@@ -61,10 +64,10 @@ export default function Footer() {
         {/* Disclaimer Notice */}
         <div className="text-[11px] text-slate-400 leading-relaxed text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>
-            ⚠️ <strong>Agronomic Disclaimer:</strong> All recommendations are computational advisories and do not guarantee agricultural yields. Always confirm with certified local agricultural officers or soil testing laboratories.
+            ⚠️ <strong>{t('common.preliminaryNotice', 'Agronomic Disclaimer')}:</strong> {t('common.disclaimer', 'All recommendations are computational advisories and do not guarantee agricultural yields. Always confirm with certified local agricultural officers or soil testing laboratories.')}
           </p>
           <p className="shrink-0 font-medium text-slate-500">
-            © {new Date().getFullYear()} AGRICULTURE ADVISOR
+            © {new Date().getFullYear()} {t('common.appName', 'AGRICULTURE ADVISOR')}
           </p>
         </div>
 

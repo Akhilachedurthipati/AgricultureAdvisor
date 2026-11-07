@@ -8,7 +8,7 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 6 Multi-Crop Upgrade Completed & Phase 7 Verified -> Entering **Phase 8: Module 6 – Multilingual Interface**
+- **Current Phase:** Phase 8 (Multilingual Interface) Completed & Verified -> Entering **Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
 - **Completed Phases:**
@@ -19,28 +19,40 @@
   - Phase 5: Module 2 – Fertilizer Recommendation (STCR Agronomic Engine, API, and UI)
   - Phase 6: Module 3 – Multi-Crop Disease Detection (Trained Gaussian ML Classifier across 7 Target Crops, Pure-Node Inference, WebRTC Camera, Mongoose History, and Responsive UI)
   - Phase 7: Module 4 – Weather Monitoring & Farmer Alerts (Real Meteorological API + Agronomic Alert Engine + UI) - *Untouched and Fully Operational*
+  - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali; Navbar selector, profile synchronization, complete UI localization)
 
 ---
 
-## 2. Last Completed Milestones
-1. **Multi-Crop ML Training Pipeline (`server/src/ml/train_disease_classifier.py`):**
-   - Trained Gaussian Maximum Likelihood classifier across 26 classes spanning all 7 target crops: Cotton, Paddy (Rice), Groundnut, Maize, Tomato, Chilli, and Potato.
-   - Evaluated on verified benchmark distributions (PlantVillage CC0 1.0, Mendeley Rice DOI: 10.17632/fwxfmtkc46.1, Mendeley Cotton DOI: 10.17632/wkhszk5s58.1, Mendeley Groundnut DOI: 10.17632/j7ndpdxvsw.1, Mendeley Chilli).
-   - Exported model artifact: `server/src/ml/model/disease_model.json`.
-2. **Pure-Node Inference Engine (`server/src/ml/diseaseClassifier.js`):**
-   - Loads `disease_model.json` on startup.
-   - Computes Gaussian log-likelihood over 8 foliar computer vision features (`healthyGreenRatio`, `necroticRatio`, `chloroticRatio`, `meanHue`, `meanSat`, `meanVal`, `edgeEnergy`, `foliarAspect`).
-   - Added foliar pathology penalty logic prioritizing healthy vs diseased based on lesion presence.
-   - Enforces unsupported crop rejection returning `isConclusive: false` with guidance.
-   - Includes comprehensive pathology metadata (Latin binomial, symptoms, causes, prevention, treatments).
-3. **Frontend Diagnostics UI (`client/src/pages/DiseaseDetection.jsx`):**
-   - Updated crop selector to feature all 7 target crops + Auto-Detect.
-   - Added 8 calibrated quick evaluation presets (Tomato Early Blight, Healthy Tomato, Rice Blast, Potato Late Blight, Cotton Bacterial Blight, Groundnut Tikka, Maize Northern Blight, Chilli Leaf Curl).
-   - Added Crop Consistency Notice inside report card.
-4. **Automated Testing & Builds:**
-   - Updated `server/test-disease.js` to test all 7 crops in both Healthy and Diseased states, unsupported crop rejection, blank image handling, disk storage, and deletion cleanup. All 11 tests passed.
-   - All 7 backend test suites 100% green (`npm test --prefix server`).
-   - Vite client production build passing with 0 errors.
+## 2. Last Completed Milestones (Phase 8: Multilingual Interface)
+1. **i18n Infrastructure (`client/src/i18n/`):**
+   - Configured `i18next`, `react-i18next`, and `i18next-browser-languagedetector` in `client/src/i18n/index.js` and `client/src/i18n/config.js`.
+   - Setup fallback to `en`, supported languages list, and HTML `lang` attribute synchronization.
+   - Preserved user language selection in `localStorage` under key `agri_preferred_language`.
+2. **Translation Dictionaries (`client/src/i18n/locales/`):**
+   - Implemented 8 comprehensive JSON locale dictionaries:
+     - `en.json`: English
+     - `hi.json`: हिन्दी (Hindi)
+     - `te.json`: తెలుగు (Telugu)
+     - `ta.json`: தமிழ் (Tamil)
+     - `kn.json`: ಕನ್ನಡ (Kannada)
+     - `ml.json`: മലയാളം (Malayalam)
+     - `mr.json`: मराठी (Marathi)
+     - `bn.json`: বাংলা (Bengali)
+   - Covered namespaces: `common`, `nav`, `home`, `dashboard`, `crop`, `fertilizer`, `disease`, `weather`, `auth`.
+3. **UI Components & Views Localized:**
+   - `LanguageSelector.jsx`: Reusable dropdown showing native script names, English subtitles, and regional context pills.
+   - `Navbar.jsx`: Desktop and mobile language selector, localized navigation links.
+   - `Footer.jsx`: Localized descriptions, quick links, and ICAR disclaimer.
+   - `Dashboard.jsx`: Localized welcome message, quick actions, and status indicators.
+   - `Home.jsx`: Localized hero banners, stats, and module preview cards.
+   - `CropRecommendation.jsx`: Localized parameters, presets, and diagnostic results.
+   - `FertilizerRecommendation.jsx`: Localized soil nutrient inputs, calculations, and bag purchase schedules.
+   - `DiseaseDetection.jsx`: Localized foliar pathology headers, presets, advisory notices, and camera controls.
+   - `WeatherMonitoring.jsx`: Localized meteorological cards, search bar, alerts, and 7-day forecast.
+   - `Login.jsx`, `Register.jsx`, `UserProfile.jsx`: Localized form fields, submit buttons, and two-way preference synchronization with MongoDB.
+4. **Automated Testing & Production Builds:**
+   - Vite client production bundle compiled cleanly in 7.63s (`npm run build --prefix client`).
+   - All 7 backend test suites passed 100% (`npm test --prefix server`), confirming zero regressions in Auth, Crop ML, Fertilizer, Multi-Crop Disease, and Weather Alert engines.
 
 ---
 
@@ -71,9 +83,11 @@ npm run build:client
 
 ---
 
-## 4. Exact Next Action (Phase 8: Multilingual Interface)
-Proceed directly with **Phase 8**:
-1. Configure `i18next` and `react-i18next` in `client/src/i18n/`.
-2. Implement translation dictionaries for English, Telugu, Hindi, Tamil, Kannada, Marathi, etc.
-3. Integrate language switcher dropdown in Navbar and store preferred language in user profile/localStorage.
-4. Translate dashboard, navigation, alert banners, and recommendation forms.
+## 4. Exact Next Action (Phase 9: Multilingual Voice Assistant & AI Farming Chatbot)
+Proceed directly with **Phase 9**:
+1. Inspect `client/src/pages/AIFarmingAssistant.jsx`.
+2. Implement backend chatbot API route (`POST /api/chat/ask`) and agricultural knowledge query engine with intent matching across crops, fertilizers, pest control, weather precautions, and government schemes.
+3. Integrate Browser Web Speech API (`SpeechRecognition` / `webkitSpeechRecognition` for voice input; `window.speechSynthesis` with `SpeechSynthesisUtterance` for voice response) supporting the 8 Indian languages.
+4. Add speech recognition status indicators (listening, processing, speaking), mic mute/unmute, and voice toggle.
+5. Provide sample query chips and fallback for environments without speech hardware.
+6. Verify and update test suites and continuity documents.

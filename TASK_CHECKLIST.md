@@ -101,13 +101,13 @@ Status Legend:
 ---
 
 ## Phase 7: Module 4 – Weather Monitoring & Alerts
-- [ ] Weather API service integration on backend (`GET /api/weather`)
-- [ ] Farmer location input (by city, district, or browser geolocation)
-- [ ] Current weather presentation (Temp, Humidity, Rain probability, Wind, Conditions)
-- [ ] 5-day / 7-day farming forecast
-- [ ] Automated farmer alert system (Heavy rainfall, Heatwave/High temperature, Frost, High winds/Storms)
-- [ ] Farmer-friendly UI with iconography and actionable weather advisories
-- [ ] Verification with varied geographical coordinates and alert thresholds
+- [x] Weather API service integration on backend (`server/src/services/weather.service.js`, `GET /api/weather`)
+- [x] Farmer location input (by city, district, autocomplete search, or browser geolocation)
+- [x] Current weather presentation (Temp, Humidity, Rain probability, Wind, Conditions)
+- [x] 7-day agricultural weather forecast
+- [x] Automated farmer alert system (Heavy rainfall, Heatwave/High temperature, Frost, High winds/Storms)
+- [x] Farmer-friendly UI with iconography, severity levels, timing, and actionable precautions (`client/src/pages/WeatherMonitoring.jsx`)
+- [x] Verification with varied geographical coordinates and alert thresholds (`server/test-weather.js` all 9 tests passing)
 
 ---
 

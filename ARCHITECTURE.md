@@ -350,3 +350,22 @@ Agriculture-Advisor/
 - Computes genuine calibrated confidence scores (78% - 97%) via temperature-controlled softmax posterior distribution.
 - Categorizes severity: Healthy, Mild (<15% affected), Moderate (15-40%), Severe (>40%).
 - Provides actionable symptoms, biological causes, cultural prevention, and university-approved fungicides with application dosages.
+
+
+---
+
+## 8. Weather Monitoring & Early Warning Alert Engine
+
+### A. Meteorological Service Integration
+- **Global Meteorological Models:** Integrates live atmospheric observations via Open-Meteo & OpenWeatherMap standard with real meteorological readings (temperature, apparent temperature, relative humidity, precipitation, wind speed, wind direction, surface pressure, and WMO weather codes).
+- **Geocoding & Location Resolution:** Supports city/district text search, live autocomplete matching, and GPS coordinate reverse mapping. Defaults to the authenticated farmer's registered profile district.
+- **In-Memory Caching:** Implements a 10-minute cache per geographic coordinate pair to eliminate redundant API calls, reduce network latency (<5ms on cache hit), and prevent rate limit exhaustion.
+
+### B. Agricultural Early Warning Alert Engine
+- **Heavy Rainfall & Waterlogging Alert:** Evaluates forecasted precipitation sum ($\ge 30$ mm) and rain codes (65, 82, 95); triggers drainage maintenance warnings, immediate harvest alerts for standing mature crops, and halts foliar chemical spraying.
+- **Extreme Heatwave Advisory:** Evaluates maximum temperatures ($\ge 40^\circ$C or $\ge 38^\circ$C with high humidity); advises protective nursery netting, organic soil mulching, and farm labor shift adjustments away from peak afternoon heat.
+- **Severe Storm & High Wind Warning:** Evaluates wind gusts ($\ge 35$ km/h) and thunderstorm codes (95-99); advises lodging prevention via bamboo staking and earthen mounding for tall crops (banana, maize, sugarcane, tomato trellises) and polyhouse securing.
+- **Frost & Cold Wave Advisory:** Evaluates minimum temperatures ($\le 5^\circ$C); advises bedtime straw cover and upwind smoke screens (smudging) to protect nursery seedlings from intracellular freezing.
+- **High Humidity Disease Risk Advisory:** Evaluates sustained relative humidity ($\ge 80\%$) under warm conditions ($22 - 32^\circ$C); alerts farmers to high risk of foliar blast and blight, advising daily lower canopy scouting.
+- **Optimal Spraying Window Advisory:** Detects calm winds ($\le 15$ km/h), zero precipitation, and moderate temperatures; informs farmers of optimal foliar bio-agent and micronutrient spray timing.
+- **Exclusion Compliance:** Deliberately excludes irrigation scheduling, watering timers, and farming calendars as requested.

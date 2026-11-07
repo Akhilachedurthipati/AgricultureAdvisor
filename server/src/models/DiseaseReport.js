@@ -63,3 +63,4 @@ const diseaseReportSchema = new mongoose.Schema(
 
 const DiseaseReport = mongoose.model('DiseaseReport', diseaseReportSchema);
 export default DiseaseReport;
+

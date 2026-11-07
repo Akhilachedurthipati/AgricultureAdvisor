@@ -52,3 +52,4 @@ router.get('/:id', protect, getDiseaseReportById);
 router.delete('/:id', protect, deleteDiseaseReport);
 
 export default router;
+

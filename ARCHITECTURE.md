@@ -416,3 +416,32 @@ Agriculture-Advisor/
 - **`LanguageSelector.jsx`:** Accessible interactive dropdown displaying native script labels alongside English names and regional context tags (e.g. "తెలుగు - Andhra Pradesh & Telangana", "मराठी - Maharashtra").
 - **Navbar & Navigation Drawer:** Placed prominently in both desktop header and responsive mobile drawer for rapid 1-click language toggling.
 - **Full Interface Coverage:** All 8 major modules, dashboards, forms, advisory alert banners, and disclaimers render reactively upon language change without full-page reloads.
+
+
+---
+
+## 10. Multilingual Voice Assistant & AI Farming Chatbot Engine
+
+### A. Conversational Agronomy Architecture
+- **Engine File:** `server/src/services/ai.service.js`.
+- **Knowledge Base:** Curated domain rules and verified agricultural practices across 7 key categories:
+  1. `crop`: Soil-crop affinities (Regur, Red, Alluvial, Laterite), certified seed recommendations, and rotational crop scheduling.
+  2. `fertilizer`: Balanced N-P-K nutrient management, split application timings (Basal, vegetative tillering, panicle emergence), and micronutrient supplementation (Zinc, Boron).
+  3. `pest_control`: Integrated Pest Management (IPM), yellow/blue sticky trap installation densities, cold-pressed neem formulations, biological predators, and threshold-based chemical interventions.
+  4. `disease`: Foliar chlorosis diagnostics, viral vector management (whitefly, aphids), and fungal blight containment.
+  5. `weather`: Pre-cyclone lodging prevention (bamboo staking, earthing up), drainage clearing, and post-flood foliar urea-zinc shock revival.
+  6. `schemes`: Government welfare initiatives including PM-KISAN direct transfers, PMFBY crop insurance premiums, and Soil Health Card soil testing.
+  7. `general`: Sustainable farm management principles and extension officer contact recommendations.
+
+### B. Safety Guardrails & Domain Deflection
+- **Boundary Enforcement:** Regular expression pattern matcher rejects non-agricultural inquiries (cryptocurrency, cinema, sports tournaments, coding, partisan politics) with polite agricultural redirects in the user's selected language.
+- **Dosage Safety:** Prohibits hallucinatory pesticide cocktails or unverified chemical combinations, strictly referencing standard ICAR / State Agricultural University guidelines.
+
+### C. Speech Integration (Web Speech STT & TTS)
+- **Speech-to-Text (STT):** Browser `window.SpeechRecognition` / `window.webkitSpeechRecognition` dynamically configured with BCP-47 Indian language locale tags (`en-IN`, `hi-IN`, `te-IN`, `ta-IN`, `kn-IN`, `ml-IN`, `mr-IN`, `bn-IN`). Includes interim result live preview and pulsing recording visualizer.
+- **Text-to-Speech (TTS):** Browser `window.speechSynthesis` with `SpeechSynthesisUtterance`, configured at 0.95x rate for clear articulation. Includes toggle control for auto-reading answers and per-bubble audio replay buttons.
+
+### D. Data Persistence & Multi-Tenant Isolation
+- **Model:** `server/src/models/ChatHistory.js` storing `userId`, `message`, `response`, `language`, `category`, and `isVoice`.
+- **Indexing:** Compound index `{ userId: 1, createdAt: -1 }` ensures fast query history paging and guarantees strict user isolation.
+- **Endpoints:** `POST /api/chat/message`, `GET /api/chat/history`, and `DELETE /api/chat/history` secured with JWT authentication middleware (`protect`).

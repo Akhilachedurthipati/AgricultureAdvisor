@@ -134,14 +134,14 @@ Status Legend:
 ---
 
 ## Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot
-- [ ] Backend Gemini / AI integration service (`POST /api/chat/message`)
-- [ ] System prompt engineered strictly for agriculture, farming techniques, pest control, crop management
-- [ ] Contextual memory & conversation session handling
-- [ ] Safety guardrails (refuse non-farming topics politely, avoid dangerous chemical formulations, include expert disclaimers)
-- [ ] Browser Speech Recognition API (Web Speech STT) integration with language configuration
-- [ ] Browser Speech Synthesis API (TTS) integration with voice selection, play/pause/stop
-- [ ] Voice and text chat interface with microphone toggle and audio playback controls
-- [ ] Testing with typical farmer queries across English, Hindi, Telugu, and other Indian languages
+- [x] Backend AI integration service (`server/src/services/ai.service.js`, `POST /api/chat/message`)
+- [x] Curated agronomy knowledge base engineered strictly for agriculture, soil health, pest control, and fertilizer timing
+- [x] Contextual memory & conversation session handling in MongoDB (`server/src/models/ChatHistory.js`)
+- [x] Safety guardrails (refuses non-farming topics politely, avoids dangerous chemical mixtures, includes advisory notices)
+- [x] Browser Speech Recognition API (Web Speech STT) integration with 8 Indian language configurations (`en-IN`, `hi-IN`, `te-IN`, etc.)
+- [x] Browser Speech Synthesis API (TTS) integration with voice selection, speech rate, replay controls
+- [x] Voice and text chat interface with microphone toggle, audio controls, and quick evaluation chips (`client/src/pages/AIFarmingAssistant.jsx`)
+- [x] Automated testing with typical farmer queries across English, Hindi, Telugu (`server/test-chat.js` all 11 tests passing)
 
 ---
 

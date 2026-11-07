@@ -11,6 +11,7 @@ import cropRoutes from './routes/crop.routes.js';
 import fertilizerRoutes from './routes/fertilizer.routes.js';
 import diseaseRoutes from './routes/disease.routes.js';
 import weatherRoutes from './routes/weather.routes.js';
+import chatRoutes from './routes/chat.routes.js';
 import { notFoundHandler, errorHandler } from './middleware/error.middleware.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -72,6 +73,7 @@ app.use('/api/crop', cropRoutes);
 app.use('/api/fertilizer', fertilizerRoutes);
 app.use('/api/disease', diseaseRoutes);
 app.use('/api/weather', weatherRoutes);
+app.use('/api/chat', chatRoutes);
 
 // Error Handling Middlewares
 app.use(notFoundHandler);

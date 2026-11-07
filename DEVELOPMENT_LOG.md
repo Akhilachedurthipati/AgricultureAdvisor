@@ -270,3 +270,46 @@ This log records every significant development session, including dates, actions
        - `test-disease.js`: 11/11 Passed (all 7 crops verified)
        - `test-weather.js`: 9/9 Passed (Phase 7 verified 100% untouched)
 - **Git Commit:** Committed milestone `feat(phase-8): implement comprehensive multilingual interface with i18next across 8 Indian languages`.
+
+---
+
+### Session 10: Phase 9 – Module 5: Multilingual Voice Assistant & AI Farming Chatbot
+- **Date:** November 7, 2026
+- **Objective:** Implement an intelligent, voice-enabled, multilingual conversational agriculture assistant (Module 5) with domain agronomic knowledge, intent classification, safety guardrails, Web Speech STT, Web Speech TTS, MongoDB conversation history, and automated testing.
+- **Actions Executed:**
+  1. **Chat History Model (`server/src/models/ChatHistory.js`):**
+     - Mongoose schema tracking `userId`, `message`, `response`, `language`, `category`, `isVoice`, and `tokensUsed`.
+     - Indexed by `{ userId: 1, createdAt: -1 }` for high-performance history paging.
+  2. **AI Agricultural Knowledge Engine (`server/src/services/ai.service.js`):**
+     - Curated domain knowledge base across 7 agricultural categories (Crop selection, Soil types, Sowing calendars, Fertilizers & STCR timings, Organic pest management, Foliar chlorosis diagnostics, Storm precautions, Government welfare schemes).
+     - Multilingual response generation across English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, and Bengali.
+     - Strict safety guardrails pattern-matching non-agricultural inquiries (sports, cinema, coding, politics, crypto) and deflecting with polite agricultural guidance.
+     - Optional Google Gemini generative AI fallback when a valid `GEMINI_API_KEY` is provided.
+  3. **Backend API Controller & Routes (`server/src/controllers/chat.controller.js`, `server/src/routes/chat.routes.js`):**
+     - Built `POST /api/chat/message`, `GET /api/chat/history`, and `DELETE /api/chat/history` with JWT authentication and Zod input validation (`chatInputSchema`).
+     - Mounted routes under `/api/chat` in `server/src/app.js`.
+  4. **Client Chat Service (`client/src/services/chatService.js`):**
+     - Created `sendChatMessage`, `getChatHistory`, and `clearChatHistory` using Axios.
+  5. **Frontend Voice & Chat Interface (`client/src/pages/AIFarmingAssistant.jsx`):**
+     - Integrated Browser Web Speech Recognition (STT) supporting BCP-47 locale tags (`en-IN`, `hi-IN`, `te-IN`, `ta-IN`, `kn-IN`, `ml-IN`, `mr-IN`, `bn-IN`) with live microphone recording indicator.
+     - Integrated Browser Web Speech Synthesis (TTS) with rate optimization, speaker toggle, and replay button on individual assistant messages.
+     - Provided instant evaluation question chips for viva testing.
+     - Added history loading, clear conversation action, and copy message button.
+  6. **Automated Testing Suite (`server/test-chat.js`):**
+     - Created automated test suite covering 11 critical scenarios:
+       1. Farmer registration with JWT authentication.
+       2. Rejection of unauthenticated requests (401).
+       3. Zod validation rejection on empty query message (400).
+       4. Crop advisory query in English.
+       5. Fertilizer split dosage advisory in English.
+       6. Organic pest control advisory in English.
+       7. Multilingual response in Telugu.
+       8. Multilingual response in Hindi.
+       9. Safety guardrail deflection of non-agricultural query.
+       10. History retrieval (`/api/chat/history`).
+       11. History deletion (`/api/chat/history`).
+     - All 11 chat tests passed 100%.
+     - Added `test-chat.js` to `server/package.json` test script.
+     - All 8 backend test suites (68 total tests) passed cleanly.
+     - Client production build passed in **7.41s** with **0 errors**.
+- **Git Commit:** Committed milestone `feat(phase-9): implement multilingual voice assistant and AI farming chatbot with Web Speech STT, TTS, knowledge engine, and API`.

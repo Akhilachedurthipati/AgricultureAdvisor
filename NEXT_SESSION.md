@@ -8,7 +8,7 @@
 
 ## 1. Current State Snapshot
 - **Project Name:** AGRICULTURE ADVISOR
-- **Current Phase:** Phase 8 (Multilingual Interface) Completed & Verified -> Entering **Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot**
+- **Current Phase:** Phase 9 (Module 5: Multilingual Voice Assistant & AI Farming Chatbot) Completed & Verified -> Entering **Phase 10: Module 8 – Recommendation History & Farmer Profile**
 - **Repository Location:** `c:\Users\hp\Desktop\Agriculture Advisor`
 - **Active Branch:** `master`
 - **Completed Phases:**
@@ -19,40 +19,28 @@
   - Phase 5: Module 2 – Fertilizer Recommendation (STCR Agronomic Engine, API, and UI)
   - Phase 6: Module 3 – Multi-Crop Disease Detection (Trained Gaussian ML Classifier across 7 Target Crops, Pure-Node Inference, WebRTC Camera, Mongoose History, and Responsive UI)
   - Phase 7: Module 4 – Weather Monitoring & Farmer Alerts (Real Meteorological API + Agronomic Alert Engine + UI) - *Untouched and Fully Operational*
-  - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali; Navbar selector, profile synchronization, complete UI localization)
+  - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali)
+  - Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot (Speech-to-Text STT, Text-to-Speech TTS, Agricultural Knowledge Engine, Safety Guardrails, MongoDB History)
 
 ---
 
-## 2. Last Completed Milestones (Phase 8: Multilingual Interface)
-1. **i18n Infrastructure (`client/src/i18n/`):**
-   - Configured `i18next`, `react-i18next`, and `i18next-browser-languagedetector` in `client/src/i18n/index.js` and `client/src/i18n/config.js`.
-   - Setup fallback to `en`, supported languages list, and HTML `lang` attribute synchronization.
-   - Preserved user language selection in `localStorage` under key `agri_preferred_language`.
-2. **Translation Dictionaries (`client/src/i18n/locales/`):**
-   - Implemented 8 comprehensive JSON locale dictionaries:
-     - `en.json`: English
-     - `hi.json`: हिन्दी (Hindi)
-     - `te.json`: తెలుగు (Telugu)
-     - `ta.json`: தமிழ் (Tamil)
-     - `kn.json`: ಕನ್ನಡ (Kannada)
-     - `ml.json`: മലയാളം (Malayalam)
-     - `mr.json`: मराठी (Marathi)
-     - `bn.json`: বাংলা (Bengali)
-   - Covered namespaces: `common`, `nav`, `home`, `dashboard`, `crop`, `fertilizer`, `disease`, `weather`, `auth`.
-3. **UI Components & Views Localized:**
-   - `LanguageSelector.jsx`: Reusable dropdown showing native script names, English subtitles, and regional context pills.
-   - `Navbar.jsx`: Desktop and mobile language selector, localized navigation links.
-   - `Footer.jsx`: Localized descriptions, quick links, and ICAR disclaimer.
-   - `Dashboard.jsx`: Localized welcome message, quick actions, and status indicators.
-   - `Home.jsx`: Localized hero banners, stats, and module preview cards.
-   - `CropRecommendation.jsx`: Localized parameters, presets, and diagnostic results.
-   - `FertilizerRecommendation.jsx`: Localized soil nutrient inputs, calculations, and bag purchase schedules.
-   - `DiseaseDetection.jsx`: Localized foliar pathology headers, presets, advisory notices, and camera controls.
-   - `WeatherMonitoring.jsx`: Localized meteorological cards, search bar, alerts, and 7-day forecast.
-   - `Login.jsx`, `Register.jsx`, `UserProfile.jsx`: Localized form fields, submit buttons, and two-way preference synchronization with MongoDB.
-4. **Automated Testing & Production Builds:**
-   - Vite client production bundle compiled cleanly in 7.63s (`npm run build --prefix client`).
-   - All 7 backend test suites passed 100% (`npm test --prefix server`), confirming zero regressions in Auth, Crop ML, Fertilizer, Multi-Crop Disease, and Weather Alert engines.
+## 2. Last Completed Milestones (Phase 9: Multilingual Voice Assistant)
+1. **AI Agronomic Service (`server/src/services/ai.service.js`):**
+   - Curated agricultural knowledge base covering soil types, sowing calendars, organic pest control, fertilizer split timings, foliar chlorosis diagnostics, storm precautions, and welfare schemes.
+   - Multilingual response generation across English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, and Bengali.
+   - Non-agricultural safety guardrail pattern matcher deflecting off-topic queries with a courteous agricultural redirect.
+   - Optional Google Gemini generative AI fallback when `GEMINI_API_KEY` is provided.
+2. **Backend Mongoose Schema & API Routes (`server/src/models/ChatHistory.js`, `server/src/controllers/chat.controller.js`, `server/src/routes/chat.routes.js`):**
+   - Mounted `POST /api/chat/message`, `GET /api/chat/history`, `DELETE /api/chat/history` under `/api/chat` with JWT authentication and Zod input validation (`chatInputSchema`).
+3. **Frontend Diagnostics & Speech Interface (`client/src/pages/AIFarmingAssistant.jsx` & `client/src/services/chatService.js`):**
+   - Integrated browser Web Speech STT (`SpeechRecognition` / `webkitSpeechRecognition`) supporting BCP-47 Indian language codes (`en-IN`, `hi-IN`, `te-IN`, `ta-IN`, `kn-IN`, `ml-IN`, `mr-IN`, `bn-IN`).
+   - Integrated browser Web Speech TTS (`SpeechSynthesis`) with speech rate optimization, speaker toggle, and replay buttons.
+   - Added instant evaluation question chips for viva testing.
+4. **Automated Testing & Builds:**
+   - Created test suite `server/test-chat.js` with 11 automated test cases verifying JWT auth, Zod validation, crop questions, fertilizer advice, organic pest control, Telugu, Hindi, off-topic deflection, history retrieval, and history deletion.
+   - Added `test-chat.js` to `server/package.json` test script.
+   - All 8 backend test suites (68 total tests) passed 100% (`npm test --prefix server`).
+   - Vite client production bundle built cleanly in 7.41s (`npm run build --prefix client`).
 
 ---
 
@@ -83,11 +71,10 @@ npm run build:client
 
 ---
 
-## 4. Exact Next Action (Phase 9: Multilingual Voice Assistant & AI Farming Chatbot)
-Proceed directly with **Phase 9**:
-1. Inspect `client/src/pages/AIFarmingAssistant.jsx`.
-2. Implement backend chatbot API route (`POST /api/chat/ask`) and agricultural knowledge query engine with intent matching across crops, fertilizers, pest control, weather precautions, and government schemes.
-3. Integrate Browser Web Speech API (`SpeechRecognition` / `webkitSpeechRecognition` for voice input; `window.speechSynthesis` with `SpeechSynthesisUtterance` for voice response) supporting the 8 Indian languages.
-4. Add speech recognition status indicators (listening, processing, speaking), mic mute/unmute, and voice toggle.
-5. Provide sample query chips and fallback for environments without speech hardware.
-6. Verify and update test suites and continuity documents.
+## 4. Exact Next Action (Phase 10: Recommendation History & Farmer Profile)
+Proceed directly with **Phase 10**:
+1. Inspect `client/src/pages/RecommendationHistory.jsx`.
+2. Implement backend aggregated history route (`GET /api/history/all`) or unified history service querying across `CropRecommendation`, `FertilizerRecommendation`, `DiseaseReport`, and `ChatHistory` collections with strict user multi-tenant isolation.
+3. Support filter tabs: `All Records`, `Crop Recommendations`, `Fertilizer Plans`, `Disease Screenings`, and `AI Consultations`.
+4. Provide delete action with modal confirmation, timestamp formatting, and detail preview modal.
+5. Verify with automated tests (`server/test-history.js`) and build verification.

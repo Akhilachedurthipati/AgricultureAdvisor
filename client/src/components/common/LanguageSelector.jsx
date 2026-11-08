@@ -50,18 +50,18 @@ export default function LanguageSelector({ compact = false }) {
         aria-haspopup="true"
         aria-expanded={isOpen}
         aria-label={t('nav.selectLanguage', 'Select Language')}
-        className={`flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 transition font-medium shadow-sm ${
+        className={`flex items-center gap-1.5 rounded-xl border border-slate-200/90 bg-white hover:bg-slate-50 text-[#202923] transition font-medium shadow-xs ${
           compact ? 'px-2.5 py-1 text-xs' : 'px-3 py-1.5 text-xs'
-        } ${isOpen ? 'ring-2 ring-agri-500/20 border-agri-500' : ''}`}
+        } ${isOpen ? 'ring-2 ring-[#123D2A]/15 border-[#123D2A]' : ''}`}
       >
-        <Languages className="w-4 h-4 text-agri-600 shrink-0" />
-        <span className="font-bold text-slate-800">{currentLang.nativeName}</span>
-        <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <Languages className="w-4 h-4 text-[#246B45] shrink-0" />
+        <span className="font-bold text-[#202923]">{currentLang.nativeName}</span>
+        <ChevronDown className={`w-3 h-3 text-slate-400 transition-transform ${isOpen ? 'rotate-180 text-[#246B45]' : ''}`} />
       </button>
 
       {isOpen && (
         <div 
-          className="absolute right-0 mt-2 w-64 rounded-2xl bg-white shadow-2xl border border-slate-100 py-2 z-50 animate-in fade-in slide-in-from-top-2 origin-top-right focus:outline-none"
+          className="absolute right-0 mt-2 w-64 rounded-2xl bg-white shadow-2xl border border-slate-200/90 py-2 z-50 animate-in fade-in slide-in-from-top-2 origin-top-right focus:outline-none"
           role="menu"
         >
           <div className="px-3.5 py-1.5 border-b border-slate-100 mb-1">
@@ -78,10 +78,10 @@ export default function LanguageSelector({ compact = false }) {
                   key={lang.code}
                   type="button"
                   onClick={() => handleLanguageChange(lang.code)}
-                  className={`w-full flex items-center justify-between px-3.5 py-2 text-left transition ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2 text-left transition cursor-pointer ${
                     isSelected
-                      ? 'bg-agri-50/80 text-agri-900 font-bold'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-agri-700'
+                      ? 'bg-[#123D2A]/10 text-[#123D2A] font-bold'
+                      : 'text-slate-700 hover:bg-[#F7F7F0] hover:text-[#123D2A]'
                   }`}
                   role="menuitem"
                 >
@@ -95,8 +95,8 @@ export default function LanguageSelector({ compact = false }) {
                   </div>
 
                   {isSelected && (
-                    <div className="w-5 h-5 rounded-full bg-agri-600 text-white flex items-center justify-center shrink-0">
-                      <Check className="w-3 h-3" />
+                    <div className="w-5 h-5 rounded-full bg-[#123D2A] text-white flex items-center justify-center shrink-0">
+                      <Check className="w-3 h-3 text-[#B6D957]" />
                     </div>
                   )}
                 </button>

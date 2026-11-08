@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
 import Sidebar from './components/layout/Sidebar';
 import FloatingChatbot from './components/common/FloatingChatbot';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Home from './pages/Home';
+import GetStarted from './pages/GetStarted';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -145,93 +144,90 @@ function AppLayout() {
               </Routes>
             </main>
           </div>
+
+          {/* Floating Robot Chatbot on Dashboard & App Pages */}
+          <FloatingChatbot />
         </div>
       ) : (
-        <div className="flex-1 flex flex-col">
-          <Navbar />
-          <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <Routes>
-              {/* Public Routes */}
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+        <div className="flex-1 flex flex-col min-h-screen">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/get-started" element={<GetStarted />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-              {/* Protected Routes (for unauthenticated redirection) */}
-              <Route 
-                path="/dashboard" 
-                element={
-                  <ProtectedRoute>
-                    <Dashboard />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/profile" 
-                element={
-                  <ProtectedRoute>
-                    <UserProfile />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/crop-recommendation" 
-                element={
-                  <ProtectedRoute>
-                    <CropRecommendation />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/fertilizer-recommendation" 
-                element={
-                  <ProtectedRoute>
-                    <FertilizerRecommendation />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/disease-detection" 
-                element={
-                  <ProtectedRoute>
-                    <DiseaseDetection />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/weather" 
-                element={
-                  <ProtectedRoute>
-                    <WeatherMonitoring />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/ai-assistant" 
-                element={
-                  <ProtectedRoute>
-                    <AIFarmingAssistant />
-                  </ProtectedRoute>
-                } 
-              />
-              <Route 
-                path="/history" 
-                element={
-                  <ProtectedRoute>
-                    <RecommendationHistory />
-                  </ProtectedRoute>
-                } 
-              />
+            {/* Protected Routes (redirects unauthenticated users to /login) */}
+            <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/profile" 
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/crop-recommendation" 
+              element={
+                <ProtectedRoute>
+                  <CropRecommendation />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/fertilizer-recommendation" 
+              element={
+                <ProtectedRoute>
+                  <FertilizerRecommendation />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/disease-detection" 
+              element={
+                <ProtectedRoute>
+                  <DiseaseDetection />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/weather" 
+              element={
+                <ProtectedRoute>
+                  <WeatherMonitoring />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/ai-assistant" 
+              element={
+                <ProtectedRoute>
+                  <AIFarmingAssistant />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/history" 
+              element={
+                <ProtectedRoute>
+                  <RecommendationHistory />
+                </ProtectedRoute>
+              } 
+            />
 
-              {/* Catch-all */}
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-          </main>
-          <Footer />
+            {/* Catch-all */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
         </div>
       )}
-
-      {/* Floating Robot Chatbot at Bottom-Right */}
-      <FloatingChatbot />
     </div>
   );
 }

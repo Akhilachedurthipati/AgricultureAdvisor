@@ -42,9 +42,9 @@
   },
   "home": {
     "badge": "AI-Powered Smart Farming Platform",
-    "heroTitle": "Intelligent Decisions for Greater Agricultural Yields",
-    "heroSubtitle": "Empowering Indian farmers with machine learning crop recommendations, precision STCR fertilizer schedules, instant leaf disease screening, and real-time severe weather alerts.",
-    "getStarted": "Get Started Free",
+    "heroTitle": "Grow Smarter. Farm Better.",
+    "heroSubtitle": "Smart farming guidance for a better harvest.",
+    "getStarted": "Get Started",
     "exploreModules": "Explore Modules",
     "quickStats": {
       "accuracy": "98.8% Model Accuracy",
@@ -166,6 +166,13 @@
     "registerBtn": "Create Farmer Account",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already registered?"
+  },
+  "getStartedPage": {
+    "title": "Get Started with Agriculture Advisor",
+    "subtitle": "Choose how you would like to proceed",
+    "loginTitle": "Farmer Login",
+    "loginDesc": "Already registered? Sign in to access your farm dashboard and advisory records.",
+    "registerTitle": "Farmer Registration",
+    "registerDesc": "New farmer? Create an account to get personalized crop and fertilizer recommendations."
   }
 }
-

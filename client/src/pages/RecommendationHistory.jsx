@@ -201,10 +201,10 @@ export default function RecommendationHistory() {
               Personal Farmer Archive
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#123D2A] tracking-tight mt-1">
             Recommendation & Advisory History
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-700 font-medium mt-0.5">
             Comprehensive archive of machine learning crop predictions, fertilizer schedules, disease scans, and AI assistant consultations
           </p>
         </div>
@@ -404,9 +404,9 @@ export default function RecommendationHistory() {
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-slate-500 mt-1 line-clamp-1">{record.summary}</p>
-                    <span className="text-[11px] text-slate-400 flex items-center gap-1 mt-1 font-medium">
-                      <Clock className="w-3 h-3 text-slate-400" />
+                    <p className="text-xs text-slate-700 font-medium mt-1 line-clamp-1">{record.summary}</p>
+                    <span className="text-[11px] text-slate-600 flex items-center gap-1 mt-1 font-semibold">
+                      <Clock className="w-3 h-3 text-slate-500" />
                       <span>{new Date(record.date).toLocaleDateString([], { month: 'short', day: 'numeric', year: 'numeric' })} at {new Date(record.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                     </span>
                   </div>
@@ -420,16 +420,16 @@ export default function RecommendationHistory() {
                       e.stopPropagation();
                       handleOpenDetailModal(record);
                     }}
-                    className="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 bg-white text-slate-700 text-xs font-semibold shadow-xs transition"
+                    className="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold shadow-xs transition"
                   >
-                    <Eye className="w-3.5 h-3.5 text-slate-500" />
+                    <Eye className="w-3.5 h-3.5 text-slate-600" />
                     <span>View Slip</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={(e) => handleDeleteRecord(record, e)}
-                    className="p-1.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                    className="p-1.5 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
                     title="Delete Record"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -441,11 +441,11 @@ export default function RecommendationHistory() {
         ) : (
           /* Empty State */
           <div className="text-center py-16 px-4 space-y-3">
-            <div className="w-14 h-14 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mx-auto">
+            <div className="w-14 h-14 rounded-2xl bg-slate-100 text-slate-500 flex items-center justify-center mx-auto">
               <History className="w-7 h-7" />
             </div>
-            <h3 className="font-bold text-sm text-slate-800">No Agricultural Records Found</h3>
-            <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            <h3 className="font-bold text-sm text-[#123D2A]">No Agricultural Records Found</h3>
+            <p className="text-xs text-slate-700 font-medium max-w-sm mx-auto">
               {searchInput || selectedCrop !== 'All Crops' || startDate || endDate
                 ? 'No past advisories match your active search filters. Try resetting the filters to view all records.'
                 : 'You have not saved any advisory queries yet. Try using Crop Recommendation, Fertilizer Calculation, or Disease Screening.'}
@@ -517,7 +517,7 @@ export default function RecommendationHistory() {
                   <h3 className="font-black text-slate-900 text-base leading-tight">
                     {activeModalItem.title}
                   </h3>
-                  <p className="text-[11px] text-slate-400">
+                  <p className="text-[11px] text-slate-600 font-medium">
                     Timestamp: {new Date(activeModalItem.date).toLocaleString()}
                   </p>
                 </div>
@@ -527,7 +527,7 @@ export default function RecommendationHistory() {
                 <button
                   type="button"
                   onClick={handlePrint}
-                  className="p-2 rounded-xl text-slate-500 hover:text-slate-800 hover:bg-slate-100 transition"
+                  className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
                   title="Print Advisory Slip"
                 >
                   <Printer className="w-4 h-4" />
@@ -535,7 +535,7 @@ export default function RecommendationHistory() {
                 <button
                   type="button"
                   onClick={() => setActiveModalItem(null)}
-                  className="p-2 rounded-xl text-slate-400 hover:text-slate-800 hover:bg-slate-100 transition"
+                  className="p-2 rounded-xl text-slate-500 hover:text-slate-900 hover:bg-slate-100 transition"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -543,7 +543,7 @@ export default function RecommendationHistory() {
             </div>
 
             {/* Modal Body: Module-Specific Renderings */}
-            <div className="p-6 space-y-5 text-xs text-slate-700">
+            <div className="p-6 space-y-5 text-xs text-slate-800">
               
               {/* Crop Recommendation Details */}
               {activeModalItem.module === 'crop' && (
@@ -566,18 +566,18 @@ export default function RecommendationHistory() {
                     </Badge>
                   </div>
 
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-3.5 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-3.5 rounded-2xl bg-slate-50 border border-slate-200">
                     <div>
-                      <span className="text-[10px] text-slate-400 font-bold block">Soil Type:</span>
-                      <span className="font-semibold">{activeModalItem.details?.inputs?.soilType || 'N/A'}</span>
+                      <span className="text-[10px] text-slate-600 font-bold block">Soil Type:</span>
+                      <span className="font-bold text-slate-900">{activeModalItem.details?.inputs?.soilType || 'N/A'}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-bold block">Season:</span>
-                      <span className="font-semibold">{activeModalItem.details?.inputs?.season || 'N/A'}</span>
+                      <span className="text-[10px] text-slate-600 font-bold block">Season:</span>
+                      <span className="font-bold text-slate-900">{activeModalItem.details?.inputs?.season || 'N/A'}</span>
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-400 font-bold block">Rainfall:</span>
-                      <span className="font-semibold">{activeModalItem.details?.inputs?.rainfall} mm</span>
+                      <span className="text-[10px] text-slate-600 font-bold block">Rainfall:</span>
+                      <span className="font-bold text-slate-900">{activeModalItem.details?.inputs?.rainfall} mm</span>
                     </div>
                     <div>
                       <span className="text-[10px] text-slate-400 font-bold block">Temperature:</span>

@@ -5,23 +5,15 @@ import {
   MicOff, 
   Volume2, 
   VolumeX, 
-  Send, 
   Sparkles, 
-  User, 
-  HelpCircle,
-  Languages,
-  AlertTriangle,
   RotateCcw,
   Copy,
   Check,
   Trash2,
   Radio,
-  Info
+  Info,
+  ShieldAlert
 } from 'lucide-react';
-import Card from '../components/common/Card';
-import Button from '../components/common/Button';
-import Badge from '../components/common/Badge';
-import AlertBanner from '../components/common/AlertBanner';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { SUPPORTED_LANGUAGES } from '../i18n';
@@ -39,34 +31,11 @@ const SPEECH_LANG_MAP = {
   bn: 'bn-IN'
 };
 
-// Multilingual evaluation chips
-const SAMPLE_QUESTIONS = {
-  en: [
-    'Which crop is suitable for black cotton soil?',
-    'When is the best time to sow paddy in Kharif season?',
-    'Why are my tomato crop leaves turning yellow?',
-    'How can I control whiteflies and sucking pests organically?',
-    'When and how should urea fertilizer be applied to paddy?',
-    'What precautions protect standing crops during heavy rainfall?',
-    'What benefits does the PM-KISAN scheme offer?'
-  ],
-  hi: [
-    'काली मिट्टी में कौन सी फसल सबसे अच्छी होती है?',
-    'धान में यूरिया डालने का सही समय और तरीका क्या है?',
-    'टमाटर के पत्तों के पीले पड़ने का क्या कारण और इलाज है?',
-    'कपास में सफेद मक्खी की रोकथाम के लिए जैविक उपाय क्या हैं?',
-    'भारी बारिश में खड़ी फसलों को नुकसान से कैसे बचाएं?',
-    'पीएम-किसान योजना के क्या लाभ हैं?'
-  ],
-  te: [
-    'నల్ల రేగడి నేలల్లో ఏ పంటలు వేస్తే మంచి దిగుబడి వస్తుంది?',
-    'వరి పైరుకు యూరియా ఎరువును ఏయే దశల్లో వేయాలి?',
-    'టమాటా ఆకులు పసుపు రంగులోకి మారడానికి గల కారణాలేమిటి?',
-    'పత్తి పంటలో తెల్లదోమ నివారణకు ఎలాంటి చర్యలు తీసుకోవాలి?',
-    'భారీ వర్షాలు పడినప్పుడు నిలిచిన నీటిని ఎలా తొలగించాలి?',
-    'ప్రభుత్వ రైతు సంక్షేమ పథకాలు (పీఎం-కిసాన్) వివరాలేమిటి?'
-  ]
-};
+const SUGGESTED_QUESTIONS = [
+  'Which crop is suitable for black cotton soil?',
+  'How can I control pests organically?',
+  'When should I apply fertilizer to paddy?'
+];
 
 export default function AIFarmingAssistant() {
   const { user } = useAuth();
@@ -81,6 +50,7 @@ export default function AIFarmingAssistant() {
   const [speechError, setSpeechError] = useState(null);
   const [copiedId, setCopiedId] = useState(null);
   const [currentlySpeakingId, setCurrentlySpeakingId] = useState(null);
+  const [inquiriesCount, setInquiriesCount] = useState(0);
 
   const messagesEndRef = useRef(null);
   const recognitionRef = useRef(null);
@@ -98,6 +68,7 @@ export default function AIFarmingAssistant() {
       try {
         const historyRes = await getChatHistory(30);
         if (historyRes.success && Array.isArray(historyRes.data) && historyRes.data.length > 0) {
+          setInquiriesCount(historyRes.data.length);
           const formatted = historyRes.data.reverse().flatMap((item) => [
             {
               id: `${item._id || item.id}_user`,
@@ -120,17 +91,19 @@ export default function AIFarmingAssistant() {
         // Fallback to default greeting
       }
 
+      const farmerName = user?.name ? ` ${user.name}` : '';
       const defaultGreeting = {
         id: 'initial_welcome',
         sender: 'bot',
-        text: getLocalizedGreeting(selectedLanguage, user?.name),
+        text: `Namaste${farmerName}! How can I help you with your farming today?`,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages([defaultGreeting]);
+      setInquiriesCount(0);
     }
 
     loadInitialChat();
-  }, []);
+  }, [user?.name]);
 
   // Auto-scroll chat to bottom
   useEffect(() => {
@@ -187,7 +160,7 @@ export default function AIFarmingAssistant() {
   const handleToggleListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
-      setSpeechError('Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.');
+      setSpeechError('Speech recognition is not supported in this browser. Please use Chrome or Edge.');
       return;
     }
 
@@ -224,28 +197,26 @@ export default function AIFarmingAssistant() {
     utterance.rate = 0.95;
     utterance.pitch = 1.0;
 
-    utterance.onend = () => {
-      setCurrentlySpeakingId(null);
-    };
-
-    utterance.onerror = () => {
-      setCurrentlySpeakingId(null);
-    };
+    utterance.onend = () => setCurrentlySpeakingId(null);
+    utterance.onerror = () => setCurrentlySpeakingId(null);
 
     window.speechSynthesis.speak(utterance);
   };
 
+  const handleCopyText = (text, messageId) => {
+    navigator.clipboard.writeText(text);
+    setCopiedId(messageId);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
+
   // Send message handler
-  const handleSendMessage = async (textToSend = null, isVoiceInput = false) => {
+  const handleSendMessage = async (textToSend = null) => {
     const query = (textToSend || inputMessage).trim();
     if (!query || loading) return;
 
-    // Stop listening if active
     if (isListening) {
       recognitionRef.current?.stop();
     }
-
-    // Stop active speech
     if (window.speechSynthesis) {
       window.speechSynthesis.cancel();
       setCurrentlySpeakingId(null);
@@ -263,12 +234,13 @@ export default function AIFarmingAssistant() {
     setInputMessage('');
     setLoading(true);
     setSpeechError(null);
+    setInquiriesCount((c) => c + 1);
 
     try {
       const result = await sendChatMessage({
         message: query,
         language: selectedLanguage,
-        isVoice: isVoiceInput || isListening
+        isVoice: isListening
       });
 
       if (result.success && result.data) {
@@ -284,7 +256,6 @@ export default function AIFarmingAssistant() {
 
         setMessages((prev) => [...prev, botMsg]);
 
-        // Auto-play speech synthesis if voice mode is enabled
         if (isVoiceResponseActive) {
           handleSpeakText(result.data.response, botMessageId);
         }
@@ -302,405 +273,257 @@ export default function AIFarmingAssistant() {
     }
   };
 
-  // Change conversation language
-  const handleLanguageChange = (newLang) => {
-    setSelectedLanguage(newLang);
-    if (newLang !== i18n.language) {
-      i18n.changeLanguage(newLang);
-      localStorage.setItem('agri_preferred_language', newLang);
-    }
-    if (window.speechSynthesis) {
-      window.speechSynthesis.cancel();
-      setCurrentlySpeakingId(null);
-    }
-  };
-
-  // Clear conversation history
   const handleClearChat = async () => {
     if (window.confirm('Are you sure you want to clear your conversation history?')) {
       try {
         await clearChatHistory();
-      } catch {
-        // Continue
+        const farmerName = user?.name ? ` ${user.name}` : '';
+        setMessages([
+          {
+            id: `welcome_${Date.now()}`,
+            sender: 'bot',
+            text: `Namaste${farmerName}! How can I help you with your farming today?`,
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+          }
+        ]);
+        setInquiriesCount(0);
+      } catch (err) {
+        console.warn('Failed to clear history:', err);
       }
-      if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        setCurrentlySpeakingId(null);
-      }
-      setMessages([
-        {
-          id: `welcome_${Date.now()}`,
-          sender: 'bot',
-          text: getLocalizedGreeting(selectedLanguage, user?.name),
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-        }
-      ]);
     }
   };
 
-  // Copy text to clipboard
-  const handleCopyText = (text, id) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
-
-  const sampleQuestions = SAMPLE_QUESTIONS[selectedLanguage] || SAMPLE_QUESTIONS.en;
-
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="w-full max-w-4xl mx-auto space-y-4 animate-in fade-in duration-300">
       
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-purple-700">
-              Conversational Advisory
-            </span>
-          </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            Multilingual Voice & AI Farming Assistant
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Voice-enabled interactive conversational advisor answering natural language farming inquiries in 8 Indian languages
-          </p>
-        </div>
-
-        {/* Controls: Language Selector & Voice Toggle */}
-        <div className="flex items-center gap-2.5">
-          <div className="relative">
-            <select
-              value={selectedLanguage}
-              onChange={(e) => handleLanguageChange(e.target.value)}
-              className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold bg-white text-slate-800 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20"
-            >
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <option key={lang.code} value={lang.code}>
-                  {lang.nativeName} ({lang.name})
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => {
-              const newState = !isVoiceResponseActive;
-              setIsVoiceResponseActive(newState);
-              if (!newState && window.speechSynthesis) {
-                window.speechSynthesis.cancel();
-                setCurrentlySpeakingId(null);
-              }
-            }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border text-xs font-semibold shadow-sm transition ${
-              isVoiceResponseActive
-                ? 'bg-purple-50 text-purple-700 border-purple-200'
-                : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-            }`}
-            title="Toggle Voice Output (Text-To-Speech)"
-          >
-            {isVoiceResponseActive ? (
-              <>
-                <Volume2 className="w-3.5 h-3.5 text-purple-600" />
-                <span className="hidden sm:inline">Voice Speech On</span>
-              </>
-            ) : (
-              <>
-                <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                <span className="hidden sm:inline">Voice Speech Off</span>
-              </>
-            )}
-          </button>
-
-          {messages.length > 1 && (
-            <button
-              type="button"
-              onClick={handleClearChat}
-              className="p-1.5 rounded-xl border border-slate-200 bg-white text-slate-500 hover:text-rose-600 hover:border-rose-200 transition shadow-sm text-xs"
-              title="Clear Conversation History"
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Advisory Banner */}
-      <AlertBanner
-        variant="disclaimer"
-        title="Verified Agricultural Safety & Advisory Protocol"
-        message="The AI assistant is strictly bound to agronomic science, ICAR dosage guidelines, and organic practices. It automatically deflects non-agricultural topics and refuses unverified chemical tank mixes. Always verify agrochemical sprays with your local extension officer."
-      />
-
-      {speechError && (
-        <AlertBanner
-          variant="warning"
-          title="Voice Hardware Notice"
-          message={speechError}
-        />
-      )}
-
-      {/* Main Chat Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Main Chatbot Dark Container matching user screenshot */}
+      <div className="rounded-3xl bg-[#060A07] border border-[#1F2937] p-6 sm:p-8 text-white shadow-2xl relative overflow-hidden">
         
-        {/* Chat Window Container */}
-        <div className="lg:col-span-8 flex flex-col h-[600px] bg-white rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 overflow-hidden">
-          
-          {/* Chat Window Header */}
-          <div className="p-4 bg-slate-50/90 border-b border-slate-100 flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex items-center justify-center shadow-md shadow-purple-600/30">
-                <Bot className="w-5 h-5" />
-              </div>
-              <div>
-                <p className="font-bold text-xs text-slate-900 flex items-center gap-2">
-                  <span>AI Agriculture Decision Support</span>
-                  <span className="text-[10px] font-semibold text-purple-700 bg-purple-100 px-2 py-0.2 rounded-full uppercase">
-                    {selectedLanguage.toUpperCase()}
-                  </span>
-                </p>
-                <p className="text-[11px] text-emerald-600 font-medium flex items-center gap-1.5 mt-0.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>Active Assistant • Web Speech STT & Generative Agronomy Ready</span>
-                </p>
-              </div>
+        {/* Header Section */}
+        <div className="flex items-start justify-between pb-4 border-b border-[#1F2937]/70">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#00D26A]">
+              AI Farming Assistant
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">
+              Your multilingual agricultural companion
+            </p>
+            <div className="mt-3 flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#052e16] text-[#22c55e] border border-[#15803d]/40 shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+                Assistant Active
+              </span>
+              <span className="text-[11px] font-bold text-slate-300 uppercase tracking-wider bg-[#111827] px-3 py-1 rounded-full border border-[#1F2937]">
+                {SUPPORTED_LANGUAGES.find(l => l.code === selectedLanguage)?.name || 'English'}
+              </span>
             </div>
-
-            <Badge variant="neutral">
-              {messages.filter(m => m.sender === 'user').length} Inquiries
-            </Badge>
           </div>
 
-          {/* Messages Feed */}
-          <div className="flex-1 p-4 sm:p-5 overflow-y-auto space-y-4 bg-slate-50/30">
-            {messages.map((msg) => (
-              <div
-                key={msg.id}
-                className={`flex gap-3 max-w-[88%] ${
-                  msg.sender === 'user' ? 'ml-auto flex-row-reverse' : ''
-                }`}
-              >
-                {/* Avatar */}
-                <div
-                  className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-white text-xs font-bold shadow-sm ${
-                    msg.sender === 'user' 
-                      ? 'bg-[#123D2A] shadow-xs' 
-                      : 'bg-[#246B45] shadow-xs'
-                  }`}
-                >
-                  {msg.sender === 'user' ? <User className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-[#B6D957]" />}
-                </div>
-
-                {/* Bubble Container */}
-                <div className="space-y-1">
-                  <div
-                    className={`p-4 rounded-3xl text-xs sm:text-[13px] leading-relaxed shadow-sm transition ${
-                      msg.sender === 'user'
-                        ? 'bg-[#123D2A] text-white rounded-tr-none'
-                        : 'bg-white text-[#202923] rounded-tl-none border border-slate-200/90'
-                    }`}
-                  >
-                    <p className="whitespace-pre-line font-medium">{msg.text}</p>
-                  </div>
-
-                  {/* Bubble Footer Actions */}
-                  <div className={`flex items-center gap-2 px-1 text-[10px] text-slate-400 ${
-                    msg.sender === 'user' ? 'justify-end' : 'justify-start'
-                  }`}>
-                    <span>{msg.timestamp}</span>
-
-                    {msg.sender === 'bot' && (
-                      <div className="flex items-center gap-1 ml-2">
-                        <button
-                          type="button"
-                          onClick={() => handleSpeakText(msg.text, msg.id)}
-                          className={`p-1 rounded-md transition hover:bg-slate-200/60 ${
-                            currentlySpeakingId === msg.id ? 'text-purple-600 bg-purple-50' : 'text-slate-400'
-                          }`}
-                          title="Read Aloud (TTS)"
-                        >
-                          <Volume2 className={`w-3.5 h-3.5 ${currentlySpeakingId === msg.id ? 'animate-pulse' : ''}`} />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleCopyText(msg.text, msg.id)}
-                          className="p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-200/60 transition"
-                          title="Copy Answer"
-                        >
-                          {copiedId === msg.id ? (
-                            <Check className="w-3.5 h-3.5 text-emerald-600" />
-                          ) : (
-                            <Copy className="w-3.5 h-3.5" />
-                          )}
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Loading Indicator */}
-            {loading && (
-              <div className="flex gap-3 max-w-[85%]">
-                <div className="w-8 h-8 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0">
-                  <Bot className="w-4 h-4 animate-spin" />
-                </div>
-                <div className="p-4 rounded-3xl bg-white border border-slate-200/80 shadow-sm text-xs flex items-center gap-2 text-slate-500">
-                  <div className="flex space-x-1">
-                    <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                    <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                    <span className="w-2 h-2 bg-purple-600 rounded-full animate-bounce"></span>
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-500 ml-1">
-                    Analyzing agricultural knowledge base...
-                  </span>
-                </div>
-              </div>
-            )}
-
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Voice Listening Active Strip */}
-          {isListening && (
-            <div className="px-4 py-2 bg-rose-50 border-t border-rose-200 flex items-center justify-between text-xs text-rose-800 animate-in fade-in">
-              <div className="flex items-center gap-2 font-bold">
-                <Radio className="w-4 h-4 text-rose-600 animate-pulse" />
-                <span>Microphone active... Speak your farming question now</span>
-              </div>
+          <div className="flex flex-col items-end gap-2">
+            <span className="text-xs sm:text-sm text-slate-400 font-semibold">
+              {inquiriesCount} Inquiries
+            </span>
+            <div className="flex items-center gap-1.5 mt-1">
+              {/* Audio Read-Aloud Toggle */}
               <button
                 type="button"
-                onClick={() => recognitionRef.current?.stop()}
-                className="text-[11px] font-bold text-rose-700 underline hover:text-rose-900"
+                onClick={() => setIsVoiceResponseActive(!isVoiceResponseActive)}
+                className={`p-1.5 rounded-xl border text-xs transition cursor-pointer ${
+                  isVoiceResponseActive 
+                    ? 'bg-[#052e16] border-[#15803d] text-[#22c55e]' 
+                    : 'bg-[#111827] border-[#1F2937] text-slate-400 hover:text-white'
+                }`}
+                title={isVoiceResponseActive ? 'Speech read-aloud ON' : 'Speech read-aloud OFF'}
               >
-                Stop
+                {isVoiceResponseActive ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
               </button>
+
+              {/* Clear Chat */}
+              <button
+                type="button"
+                onClick={handleClearChat}
+                className="p-1.5 rounded-xl border border-[#1F2937] bg-[#111827] text-slate-400 hover:text-rose-400 hover:border-rose-900 transition cursor-pointer"
+                title="Clear conversation"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Speech Error Banner */}
+        {speechError && (
+          <div className="my-3 p-3 rounded-2xl bg-amber-950/60 border border-amber-800 text-xs text-amber-200">
+            {speechError}
+          </div>
+        )}
+
+        {/* Messages Stream */}
+        <div className="py-6 space-y-5 max-h-[500px] overflow-y-auto">
+          {messages.map((msg) => {
+            const isUser = msg.sender === 'user';
+
+            return (
+              <div
+                key={msg.id}
+                className={`flex flex-col ${isUser ? 'items-end' : 'items-start'} space-y-1.5 animate-in fade-in duration-200`}
+              >
+                {/* Bot Label & Icon */}
+                {!isUser && (
+                  <div className="flex items-center gap-2 text-white font-bold text-sm">
+                    <div className="w-6 h-6 rounded-lg bg-[#052e16] border border-[#15803d]/50 flex items-center justify-center">
+                      <Bot className="w-3.5 h-3.5 text-[#00D26A]" />
+                    </div>
+                    <span>AI Agriculture Advisor</span>
+                  </div>
+                )}
+
+                {/* Message Bubble */}
+                <div
+                  className={`p-4 rounded-2xl text-sm leading-relaxed ${
+                    isUser
+                      ? 'bg-[#008744] text-white rounded-tr-none font-medium max-w-[85%] shadow-md'
+                      : 'bg-[#0B130E] text-slate-100 rounded-tl-none border border-[#1F2937] max-w-[90%] shadow-sm'
+                  }`}
+                >
+                  <p className="whitespace-pre-line">{msg.text}</p>
+                </div>
+
+                {/* Action Bar for Bot Messages */}
+                {!isUser && (
+                  <div className="flex items-center gap-3 pl-2 text-[11px] text-slate-400">
+                    <span>{msg.timestamp}</span>
+                    <button
+                      type="button"
+                      onClick={() => handleSpeakText(msg.text, msg.id)}
+                      className={`hover:text-white transition cursor-pointer ${
+                        currentlySpeakingId === msg.id ? 'text-[#00D26A] font-bold' : ''
+                      }`}
+                      title="Read aloud"
+                    >
+                      <Volume2 className="w-3.5 h-3.5 inline mr-1" />
+                      Listen
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyText(msg.text, msg.id)}
+                      className="hover:text-white transition cursor-pointer"
+                      title="Copy text"
+                    >
+                      {copiedId === msg.id ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 inline mr-1 text-[#00D26A]" />
+                          Copied
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 inline mr-1" />
+                          Copy
+                        </>
+                      )}
+                    </button>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          {/* Loading Indicator */}
+          {loading && (
+            <div className="flex items-center gap-2.5 text-xs text-slate-400 bg-[#0B130E] p-3 rounded-2xl border border-[#1F2937] w-fit">
+              <Bot className="w-4 h-4 text-[#00D26A] animate-spin" />
+              <span>Analyzing agricultural advisory database...</span>
             </div>
           )}
 
-          {/* Input Bar */}
-          <div className="p-3.5 bg-white border-t border-slate-100 flex items-center gap-2">
-            
-            {/* Microphone Button */}
+          <div ref={messagesEndRef} />
+        </div>
+
+        {/* "Try asking" Section matching screenshot */}
+        <div className="pt-2 border-t border-[#1F2937]/70 space-y-2.5">
+          <h3 className="text-sm font-bold text-white tracking-wide">
+            Try asking
+          </h3>
+          <div className="space-y-2">
+            {SUGGESTED_QUESTIONS.map((question) => (
+              <button
+                key={question}
+                type="button"
+                onClick={() => handleSendMessage(question)}
+                disabled={loading}
+                className="w-full text-left px-5 py-3 rounded-2xl bg-[#0B0F0C] border border-[#1F2937] hover:border-[#00D26A]/60 text-slate-200 text-xs sm:text-sm font-medium hover:text-white transition cursor-pointer flex items-center justify-between group shadow-xs disabled:opacity-50"
+              >
+                <span>{question}</span>
+                <span className="text-xs text-slate-500 group-hover:text-[#00D26A] transition">→</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Input Card matching screenshot */}
+        <div className="mt-5 rounded-2xl border border-[#1F2937] bg-black/50 p-3.5 focus-within:border-[#00D26A] transition shadow-inner">
+          <textarea
+            rows={2}
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+              }
+            }}
+            placeholder={
+              isListening 
+                ? 'Listening to speech...' 
+                : 'Ask your farming question...'
+            }
+            disabled={loading}
+            className="w-full bg-transparent text-white placeholder-slate-500 text-sm outline-none resize-none leading-relaxed"
+          />
+
+          <div className="flex items-center justify-between pt-2 border-t border-[#1F2937]/60 mt-1">
+            {/* Green Microphone Icon on bottom-left */}
             <button
               type="button"
               onClick={handleToggleListening}
-              className={`p-3 rounded-2xl transition flex items-center justify-center shrink-0 shadow-xs ${
+              className={`p-1.5 rounded-xl transition cursor-pointer ${
                 isListening
-                  ? 'bg-rose-500 text-white animate-pulse ring-4 ring-rose-500/20'
-                  : 'bg-[#F7F7F0] text-[#123D2A] hover:bg-[#123D2A]/10 border border-[#D7DBC5]'
+                  ? 'bg-rose-500/20 text-rose-400 animate-pulse ring-2 ring-rose-500/40'
+                  : 'text-[#00D26A] hover:text-[#4ADE80] hover:bg-white/5'
               }`}
-              title={isListening ? 'Stop Listening' : 'Speak Question (Speech-to-Text)'}
+              title={isListening ? 'Listening... Speak now' : 'Speak your question'}
             >
-              {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+              {isListening ? <MicOff className="w-5 h-5 text-rose-400" /> : <Mic className="w-5 h-5" />}
             </button>
 
-            {/* Text Input */}
-            <input
-              type="text"
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
-              placeholder={
-                isListening
-                  ? 'Listening to speech...'
-                  : selectedLanguage === 'te'
-                  ? 'వ్యవసాయ లేదా పంట సంబంధిత ప్రశ్న అడగండి...'
-                  : selectedLanguage === 'hi'
-                  ? 'खेती या फसल से संबंधित कोई भी सवाल पूछें...'
-                  : 'Ask any farming, crop, fertilizer, pest, or weather question...'
-              }
-              className="flex-1 px-4 py-2.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#123D2A] focus:ring-2 focus:ring-[#123D2A]/15 text-xs sm:text-sm text-[#202923] transition"
-              disabled={loading}
-            />
-
-            {/* Send Button */}
-            <Button
+            {/* Green Pill Send Button on bottom-right */}
+            <button
+              type="button"
               onClick={() => handleSendMessage()}
               disabled={!inputMessage.trim() || loading}
-              icon={Send}
-              loading={loading}
-              className="!bg-[#123D2A] hover:!bg-[#1D5939] text-white shrink-0 px-4 py-2.5 rounded-2xl shadow-premium"
+              className="px-5 py-1.5 rounded-full font-bold text-xs bg-[#008744] hover:bg-[#009E52] active:bg-[#006F37] text-white flex items-center gap-1.5 transition disabled:opacity-40 cursor-pointer shadow-md"
             >
-              <span className="hidden sm:inline">Ask AI</span>
-            </Button>
+              <span>Send</span>
+              <span className="text-sm font-extrabold leading-none">↑</span>
+            </button>
           </div>
-
         </div>
 
-        {/* Suggested Prompts Column */}
-        <div className="lg:col-span-4 space-y-4">
-          <Card
-            title="Instant Evaluation Prompts"
-            subtitle="Click any agricultural question chip to test live"
-            icon={HelpCircle}
-          >
-            <div className="space-y-2 pt-1">
-              {sampleQuestions.map((question, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => handleSendMessage(question)}
-                  disabled={loading}
-                  className="w-full text-left p-3 rounded-2xl bg-slate-50 hover:bg-purple-50 border border-slate-100 hover:border-purple-200 text-xs text-slate-700 hover:text-purple-900 transition font-medium cursor-pointer shadow-xs disabled:opacity-50"
-                >
-                  <span className="text-purple-600 font-bold mr-1.5">?</span>
-                  "{question}"
-                </button>
-              ))}
-            </div>
-          </Card>
+        {/* Bottom Helper Caption */}
+        <p className="text-xs text-slate-500 mt-3 text-left">
+          Voice input and spoken responses available in supported languages.
+        </p>
 
-          <Card
-            title="Voice & Speech Guidelines"
-            subtitle="How to use speech features"
-            icon={Info}
-          >
-            <ul className="space-y-2 text-xs text-slate-600">
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0" />
-                <span><strong>Voice Input (STT):</strong> Click the purple microphone, speak in your chosen language, and your speech will transcribe automatically.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0" />
-                <span><strong>Speech Output (TTS):</strong> Keep 'Voice Speech On' to hear responses read aloud in native Indian accents. Click the speaker icon to replay.</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0" />
-                <span><strong>Multi-Language:</strong> Switch language anytime from the header dropdown to toggle both UI and speech synthesizer.</span>
-              </li>
-            </ul>
-          </Card>
-        </div>
+      </div>
 
+      {/* Advisory & Safety Disclaimer */}
+      <div className="p-4 rounded-2xl bg-amber-50/90 border border-amber-200 text-xs text-amber-900 flex items-start gap-2.5">
+        <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+        <p className="leading-relaxed font-medium">
+          <strong>Advisory Notice:</strong> AI Agriculture Advisor provides scientific and organic farming guidance based on ICAR recommendations. Always verify chemical dosages with local Krishi Vigyan Kendra (KVK) officers before large-scale pesticide applications.
+        </p>
       </div>
 
     </div>
   );
-}
-
-/**
- * Localized Greeting Helper
- */
-function getLocalizedGreeting(lang, userName = 'Farmer') {
-  const name = userName || 'Farmer';
-  switch (lang) {
-    case 'hi':
-      return `नमस्ते ${name}! मैं आपका एआई कृषि सलाहकार हूं। आप मुझसे फसलों, मिट्टी की जांच, खाद की मात्रा, जैविक कीट नियंत्रण या मौसम की सावधानियों के बारे में बोलकर या लिखकर पूछ सकते हैं।`;
-    case 'te':
-      return `నమస్కారం ${name}! నేను మీ ఏఐ వ్యవసాయ సలహాదారుడిని. మీరు పంటల ఎంపిక, నేల స్వభావం, ఎరువుల సమయాలు, చీడపీడల నివారణ లేదా వాతావరణ హెచ్చరికల గురించి టైప్ చేయడం ద్వారా లేదా మాట్లాడటం ద్వారా నన్ను అడగవచ్చు.`;
-    case 'ta':
-      return `வணக்கம் ${name}! நான் உங்கள் ஏஐ விவசாய ஆலோசகர். பயிர்கள், உர மேலாண்மை, பூச்சி கட்டுப்பாடு அல்லது வானிலை குறித்து வாய்மொழி அல்லது தட்டச்சு மூலம் என்னிடம் கேட்கலாம்.`;
-    case 'kn':
-      return `ನಮಸ್ಕಾರ ${name}! ನಾನು ನಿಮ್ಮ ಕೃಷಿ ಎಐ ಸಲಹೆಗಾರ. ಬೆಳೆಗಳು, ರಸಗೊಬ್ಬರ ಮತ್ತು ಕೀಟ ನಿಯಂತ್ರಣದ ಬಗ್ಗೆ ಧ್ವನಿ ಅಥವಾ ಟೈಪಿಂಗ್ ಮೂಲಕ ನನ್ನನ್ನು ಕೇಳಬಹುದು.`;
-    case 'ml':
-      return `നമസ്കാരം ${name}! ഞാൻ നിങ്ങളുടെ കാർഷിക എഐ സഹായിയാണ്. കൃഷി, വളപ്രയോഗം, കീടനിയന്ത്രണം എന്നിവയെക്കുറിച്ച് ചോദിക്കാം.`;
-    case 'mr':
-      return `नमस्कार ${name}! मी आपला एआय शेती सल्लागार आहे. पिके, खते, कीड नियंत्रण किंवा हवामानाविषयी आपण मला बोलून किंवा लिहून विचारू शकता.`;
-    case 'bn':
-      return `নমস্কার ${name}! আমি আপনার এআই কৃষি উপদেষ্টা। ফসল, সার ও পোকা দমন সম্পর্কে আপনি আমাকে ভয়েস বা টাইপ করে জিজ্ঞাসা করতে পারেন।`;
-    default:
-      return `Namaste ${name}! I am your AI Agriculture Advisor. You can ask me questions about crops, soil health, fertilizer timings, organic pest management, or severe weather precautions via typing or voice.`;
-  }
 }

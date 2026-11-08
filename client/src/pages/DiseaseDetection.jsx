@@ -49,6 +49,7 @@ export default function DiseaseDetection() {
   const [historyList, setHistoryList] = useState([]);
   const [showHistory, setShowHistory] = useState(false);
   const [loadingHistory, setLoadingHistory] = useState(false);
+  const [showTestingMode, setShowTestingMode] = useState(false);
 
   // Supported crops
   const CROP_OPTIONS = [
@@ -429,8 +430,8 @@ export default function DiseaseDetection() {
       {/* Advisory Banner */}
       <AlertBanner
         variant="advisory"
-        title={t('common.preliminaryNotice', 'Preliminary Diagnostic Notice')}
-        message={t('common.disclaimer', 'Computer vision results are preliminary screening aids and can be influenced by lighting or camera angle. Confirm diagnosis with an agricultural extension officer before applying scheduled chemical fungicides.')}
+        title={t('common.preliminaryNotice', 'Preliminary Diagnostic Screening Notice')}
+        message="Computer vision results are preliminary screening aids and can be influenced by lighting or camera angle. Always confirm field diagnoses with your local Krishi Vigyan Kendra (KVK) or agricultural extension officer before applying scheduled chemical fungicides."
       />
 
       {/* Inconclusive Scan Alert */}
@@ -663,77 +664,85 @@ export default function DiseaseDetection() {
               </div>
             )}
 
-            {/* Quick Test Presets */}
+            {/* Testing Mode Toggle */}
             <div className="mt-4 pt-4 border-t border-slate-100">
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
-                Quick Evaluation Presets (Examiner Testing):
-              </span>
-              <div className="grid grid-cols-2 gap-2 text-xs">
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('tomato_blight')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🍅 Tomato Early Blight</p>
-                  <p className="text-[10px] text-slate-500">Concentric rings & halo</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('tomato_healthy')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-emerald-800 text-[11px]">🍃 Healthy Tomato Leaf</p>
-                  <p className="text-[10px] text-slate-500">Uniform chlorophyll green</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('rice_blast')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🌾 Rice Leaf Blast</p>
-                  <p className="text-[10px] text-slate-500">Spindle diamond lesion</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('potato_late_blight')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🥔 Potato Late Blight</p>
-                  <p className="text-[10px] text-slate-500">Water-soaked blotch</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('cotton_blight')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🌱 Cotton Bacterial Blight</p>
-                  <p className="text-[10px] text-slate-500">Angular vein-bound spot</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('groundnut_tikka')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🥜 Groundnut Tikka Spot</p>
-                  <p className="text-[10px] text-slate-500">Spots with yellow halos</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('maize_blight')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🌽 Maize Northern Blight</p>
-                  <p className="text-[10px] text-slate-500">Cigar-shaped tan lesion</p>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => loadPresetSample('chilli_curl')}
-                  className="p-2 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:bg-agri-50/30 text-left transition"
-                >
-                  <p className="font-bold text-slate-800 text-[11px]">🌶️ Chilli Leaf Curl</p>
-                  <p className="text-[10px] text-slate-500">Puckered leaf margin</p>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setShowTestingMode(!showTestingMode)}
+                className="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition cursor-pointer"
+              >
+                <span>🧪 Testing Mode: Calibrated Foliar Presets</span>
+                <span className="text-[11px] text-slate-600 font-semibold">{showTestingMode ? 'Hide Presets ▲' : 'Show Presets ▼'}</span>
+              </button>
+
+              {showTestingMode && (
+                <div className="grid grid-cols-2 gap-2 text-xs pt-3 animate-in fade-in duration-200">
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('tomato_blight')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🍅 Tomato Early Blight</p>
+                    <p className="text-[10px] text-slate-600">Concentric rings & halo</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('tomato_healthy')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-emerald-800 text-[11px]">🍃 Healthy Tomato Leaf</p>
+                    <p className="text-[10px] text-slate-600">Uniform chlorophyll green</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('rice_blast')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🌾 Rice Leaf Blast</p>
+                    <p className="text-[10px] text-slate-600">Spindle diamond lesion</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('potato_late_blight')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🥔 Potato Late Blight</p>
+                    <p className="text-[10px] text-slate-600">Water-soaked blotch</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('cotton_blight')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🌱 Cotton Bacterial Blight</p>
+                    <p className="text-[10px] text-slate-600">Angular vein-bound spot</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('groundnut_tikka')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🥜 Groundnut Tikka Spot</p>
+                    <p className="text-[10px] text-slate-600">Spots with yellow halos</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('maize_blight')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🌽 Maize Northern Blight</p>
+                    <p className="text-[10px] text-slate-600">Cigar-shaped tan lesion</p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => loadPresetSample('chilli_curl')}
+                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                  >
+                    <p className="font-bold text-slate-800 text-[11px]">🌶️ Chilli Leaf Curl</p>
+                    <p className="text-[10px] text-slate-600">Puckered leaf margin</p>
+                  </button>
+                </div>
+              )}
             </div>
 
           </Card>

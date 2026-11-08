@@ -9,12 +9,12 @@
 
   body {
     background-color: #F7F7F0;
-    color: #202923;
+    color: #0F172A;
     @apply antialiased min-h-screen flex flex-col font-sans selection:bg-[#B6D957] selection:text-[#123D2A];
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #202923;
+    color: #123D2A;
     letter-spacing: -0.02em;
   }
 }

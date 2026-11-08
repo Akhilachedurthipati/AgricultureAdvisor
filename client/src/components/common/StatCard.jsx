@@ -41,9 +41,9 @@ export default function StatCard({
         </div>
       )}
       <div className="overflow-hidden">
-        <p className="text-xs font-medium text-slate-500 truncate">{label}</p>
-        <p className="text-lg font-bold text-slate-900 leading-tight mt-0.5">{value}</p>
-        {subtext && <p className="text-[11px] text-slate-400 mt-0.5 truncate">{subtext}</p>}
+        <p className="text-xs font-semibold text-slate-700 truncate">{label}</p>
+        <p className="text-xl font-extrabold text-[#123D2A] leading-tight mt-0.5">{value}</p>
+        {subtext && <p className="text-[11px] text-slate-600 font-medium mt-0.5 truncate">{subtext}</p>}
       </div>
     </div>
   );

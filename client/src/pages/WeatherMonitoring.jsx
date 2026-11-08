@@ -37,9 +37,12 @@ import { fetchWeather, searchWeatherLocations } from '../services/weatherService
 export default function WeatherMonitoring() {
   const { user } = useAuth();
   const { t } = useTranslation();
-  const defaultCity = user?.location?.city || user?.location?.district || 'Guntur';
+  
+  // Resolve farmer's registered location
+  const profileLocation = user?.location?.district?.trim() || user?.location?.city?.trim() || user?.location?.state?.trim() || '';
+  const initialCity = profileLocation || 'Warangal';
 
-  const [cityInput, setCityInput] = useState(defaultCity);
+  const [cityInput, setCityInput] = useState(initialCity);
   const [currentLocation, setCurrentLocation] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -47,20 +50,23 @@ export default function WeatherMonitoring() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showTestingMode, setShowTestingMode] = useState(false);
 
-  // Quick evaluation presets for examiner & farmer rapid testing
+  // Quick evaluation presets for examiner & testing mode
   const PRESET_LOCATIONS = [
     { label: 'Guntur (AP)', city: 'Guntur' },
-    { label: 'Karimnagar (TS)', city: 'Karimnagar' },
+    { label: 'Warangal (TS)', city: 'Warangal' },
     { label: 'Pune (MH)', city: 'Pune' },
     { label: 'Ludhiana (PB)', city: 'Ludhiana' },
     { label: 'Anand (GJ)', city: 'Anand' }
   ];
 
-  // Load weather on mount
+  // Load weather when farmer profile location is ready
   useEffect(() => {
-    loadWeather({ city: defaultCity });
-  }, []);
+    const loc = profileLocation || 'Warangal';
+    setCityInput(loc);
+    loadWeather({ city: loc });
+  }, [profileLocation]);
 
   // Handle Autocomplete Input Debounce
   useEffect(() => {
@@ -257,7 +263,7 @@ export default function WeatherMonitoring() {
             )}
           </div>
 
-          <div className="flex items-center gap-2 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             <Button
               type="submit"
               loading={loading}
@@ -266,6 +272,21 @@ export default function WeatherMonitoring() {
             >
               {t('common.search', 'Update Weather')}
             </Button>
+
+            {profileLocation && (
+              <button
+                type="button"
+                onClick={() => {
+                  setCityInput(profileLocation);
+                  loadWeather({ city: profileLocation });
+                }}
+                className="px-3 py-2 rounded-xl border border-[#123D2A]/30 bg-[#123D2A]/10 text-[#123D2A] hover:bg-[#123D2A] hover:text-white text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-xs"
+                title="Use location from farmer profile"
+              >
+                <MapPin className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Profile ({profileLocation})</span>
+              </button>
+            )}
 
             <Button
               type="button"
@@ -281,28 +302,43 @@ export default function WeatherMonitoring() {
           </div>
         </form>
 
-        {/* Quick Evaluation Presets */}
-        <div className="mt-3 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-2 text-xs">
-          <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-            {t('weather.presetsTitle', 'Quick Agricultural Zones:')}
-          </span>
-          {PRESET_LOCATIONS.map((preset) => (
+        {/* Examiner Testing Mode Toggle & Open-Meteo Attribution */}
+        <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col gap-2">
+          <div className="flex items-center justify-between flex-wrap gap-2">
             <button
-              key={preset.city}
               type="button"
-              onClick={() => {
-                setCityInput(preset.city);
-                loadWeather({ city: preset.city });
-              }}
-              className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition ${
-                currentLocation?.name?.toLowerCase().includes(preset.city.toLowerCase())
-                  ? 'bg-sky-100 text-sky-800 border-sky-300 shadow-sm'
-                  : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-sky-50 hover:border-sky-200'
-              }`}
+              onClick={() => setShowTestingMode(!showTestingMode)}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold text-slate-800 hover:text-[#123D2A] bg-slate-100 hover:bg-slate-200 border border-slate-200 transition cursor-pointer"
             >
-              {preset.label}
+              <span>🧪 Testing Mode: District Presets</span>
+              <span className="text-[10px] text-slate-600 font-semibold">({showTestingMode ? 'Hide' : 'Show'})</span>
             </button>
-          ))}
+            <span className="text-[11px] text-slate-600 font-medium">
+              Source: Open-Meteo Meteorological Service
+            </span>
+          </div>
+
+          {showTestingMode && (
+            <div className="flex flex-wrap items-center gap-2 pt-2 animate-in fade-in duration-200">
+              {PRESET_LOCATIONS.map((preset) => (
+                <button
+                  key={preset.city}
+                  type="button"
+                  onClick={() => {
+                    setCityInput(preset.city);
+                    loadWeather({ city: preset.city });
+                  }}
+                  className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition cursor-pointer ${
+                    currentLocation?.name?.toLowerCase().includes(preset.city.toLowerCase())
+                      ? 'bg-[#123D2A] text-white border-[#123D2A] shadow-xs'
+                      : 'bg-white text-slate-800 border-slate-300 hover:bg-[#123D2A]/10 hover:text-[#123D2A]'
+                  }`}
+                >
+                  {preset.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </Card>
 

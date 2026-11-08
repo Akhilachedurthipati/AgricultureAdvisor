@@ -79,10 +79,10 @@ export default function UserProfile() {
       {/* Page Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#123D2A] tracking-tight">
             {t('nav.farmerProfile', 'Farmer Profile')}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
+          <p className="text-xs sm:text-sm text-slate-700 font-medium mt-1">
             Manage your personal farm details, preferred language, and geographical location
           </p>
         </div>
@@ -114,29 +114,31 @@ export default function UserProfile() {
             {formData.name ? formData.name.charAt(0).toUpperCase() : 'F'}
           </div>
           <div>
-            <h3 className="font-bold text-lg text-[#202923]">{formData.name || 'Farmer'}</h3>
-            <p className="text-xs text-slate-500 mt-0.5">{user?.email}</p>
+            <h3 className="font-extrabold text-lg text-[#123D2A]">{formData.name || 'Farmer'}</h3>
+            <p className="text-xs text-slate-600 font-semibold mt-0.5">{user?.phone || user?.email}</p>
           </div>
 
           <div className="w-full pt-4 border-t border-slate-100 space-y-2.5 text-xs text-left">
-            <div className="flex items-center text-slate-600 gap-2">
-              <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-              <span className="truncate">{user?.email}</span>
-            </div>
-            <div className="flex items-center text-slate-600 gap-2">
-              <Phone className="w-4 h-4 text-slate-400 shrink-0" />
+            {user?.email && (
+              <div className="flex items-center text-slate-700 font-medium gap-2">
+                <Mail className="w-4 h-4 text-[#246B45] shrink-0" />
+                <span className="truncate">{user.email}</span>
+              </div>
+            )}
+            <div className="flex items-center text-slate-700 font-medium gap-2">
+              <Phone className="w-4 h-4 text-[#246B45] shrink-0" />
               <span>{formData.phone || 'No phone added'}</span>
             </div>
-            <div className="flex items-center text-slate-600 gap-2">
-              <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
+            <div className="flex items-center text-slate-700 font-medium gap-2">
+              <MapPin className="w-4 h-4 text-[#246B45] shrink-0" />
               <span>
                 {formData.state 
                   ? `${formData.city ? `${formData.city}, ` : ''}${formData.district ? `${formData.district}, ` : ''}${formData.state}` 
                   : 'Location not configured'}
               </span>
             </div>
-            <div className="flex items-center text-slate-600 gap-2">
-              <Calendar className="w-4 h-4 text-slate-400 shrink-0" />
+            <div className="flex items-center text-slate-700 font-medium gap-2">
+              <Calendar className="w-4 h-4 text-[#246B45] shrink-0" />
               <span>Member since {user?.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'Active'}</span>
             </div>
           </div>

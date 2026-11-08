@@ -95,10 +95,10 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-[#F7F7F0] text-[#202923] select-none">
+    <div className="min-h-screen flex flex-col justify-between bg-transparent text-[#202923] select-none">
       
       {/* Top Header Bar: Logo on Left, Language Dropdown on Right */}
-      <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between border-b border-slate-200/80 bg-white/70 backdrop-blur-sm">
+      <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between border-b border-slate-200/50 bg-white/60 backdrop-blur-sm">
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="w-9 h-9 rounded-xl bg-[#123D2A] text-white flex items-center justify-center shadow-xs border border-[#246B45]/30">
             <Sprout className="w-5 h-5 text-[#B6D957]" />

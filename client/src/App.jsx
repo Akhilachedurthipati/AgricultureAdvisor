@@ -17,6 +17,7 @@ import WeatherMonitoring from './pages/WeatherMonitoring';
 import AIFarmingAssistant from './pages/AIFarmingAssistant';
 import RecommendationHistory from './pages/RecommendationHistory';
 import { Menu, Sprout } from 'lucide-react';
+import farmingHeroImg from './assets/farming-hero.jpg';
 
 function AppLayout() {
   const location = useLocation();
@@ -42,9 +43,21 @@ function AppLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-[#F7F7F0] flex flex-col font-sans text-[#202923]">
-      {isAppRoute ? (
-        <div className="flex-1 flex flex-col lg:flex-row min-h-screen">
+    <div className="min-h-screen bg-[#F7F7F0] flex flex-col font-sans text-[#202923] relative isolate">
+      {/* Universal Fixed Agricultural Background Image */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img
+          src={farmingHeroImg}
+          alt=""
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.06]"
+        />
+        {/* Soft natural overlay that highlights the lush farm landscape while keeping text 100% crisp and readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#F7F7F0]/85 via-[#F7F7F0]/65 to-[#F7F7F0]/90" />
+      </div>
+
+      <div className="relative z-10 flex-1 flex flex-col">
+        {isAppRoute ? (
+          <div className="flex-1 flex flex-col lg:flex-row min-h-screen">
           {/* Left Navigation Sidebar */}
           <Sidebar 
             isOpen={mobileSidebarOpen} 
@@ -228,6 +241,7 @@ function AppLayout() {
           </Routes>
         </div>
       )}
+      </div>
     </div>
   );
 }

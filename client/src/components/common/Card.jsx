@@ -29,8 +29,8 @@ export default function Card({
               </div>
             )}
             <div>
-              {title && <h3 className="font-bold text-[#202923] text-base sm:text-lg leading-tight tracking-tight">{title}</h3>}
-              {subtitle && <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">{subtitle}</p>}
+              {title && <h3 className="font-extrabold text-[#123D2A] text-base sm:text-lg leading-tight tracking-tight">{title}</h3>}
+              {subtitle && <p className="text-xs text-slate-600 font-medium mt-0.5 leading-relaxed">{subtitle}</p>}
             </div>
           </div>
           {action && <div className="shrink-0">{action}</div>}

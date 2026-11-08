@@ -104,7 +104,7 @@ export default function Sidebar({ isOpen, onClose }) {
                 <span className="text-base font-extrabold tracking-tight text-[#123D2A] block leading-tight truncate">
                   Agriculture Advisor
                 </span>
-                <span className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase block leading-none truncate mt-0.5">
+                <span className="text-[10px] text-slate-600 font-bold tracking-wider uppercase block leading-none truncate mt-0.5">
                   Smart Farming
                 </span>
               </div>
@@ -114,7 +114,7 @@ export default function Sidebar({ isOpen, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 lg:hidden cursor-pointer"
+              className="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 lg:hidden cursor-pointer"
               aria-label="Close Sidebar"
             >
               <X className="w-5 h-5" />
@@ -132,13 +132,13 @@ export default function Sidebar({ isOpen, onClose }) {
                   key={item.path}
                   to={item.path}
                   onClick={onClose}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors duration-150 ${
+                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-colors duration-150 ${
                     active 
-                      ? 'bg-[#123D2A]/10 text-[#123D2A] font-bold border-l-4 border-[#123D2A]' 
-                      : 'text-slate-600 hover:text-[#123D2A] hover:bg-[#F7F7F0]'
+                      ? 'bg-[#123D2A]/10 text-[#123D2A] border-l-4 border-[#123D2A]' 
+                      : 'text-slate-700 hover:text-[#123D2A] hover:bg-[#F7F7F0]'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-[#123D2A]' : 'text-slate-400'}`} />
+                  <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-[#123D2A]' : 'text-slate-500'}`} />
                   <span className="truncate">{item.name}</span>
                 </Link>
               );
@@ -147,9 +147,9 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         {/* Bottom: Farmer Profile, Language & Logout */}
-        <div className="p-3 border-t border-slate-100 space-y-2 bg-[#F7F7F0]/60">
+        <div className="p-3 border-t border-slate-200 space-y-2 bg-[#F7F7F0]/80">
           <div className="px-2 py-1 flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-slate-700 uppercase tracking-wider">
               Language
             </span>
             <LanguageSelector compact />
@@ -157,16 +157,16 @@ export default function Sidebar({ isOpen, onClose }) {
 
           {/* Farmer Card */}
           {user && (
-            <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-xs flex items-center space-x-2.5">
+            <div className="p-2.5 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center space-x-2.5">
               <div className="w-8 h-8 rounded-full bg-[#123D2A] text-white flex items-center justify-center font-bold text-xs shrink-0">
                 {user.name ? user.name.charAt(0).toUpperCase() : 'F'}
               </div>
               <div className="overflow-hidden flex-1 text-left">
-                <p className="text-xs font-bold text-[#202923] truncate leading-tight">
+                <p className="text-xs font-bold text-[#123D2A] truncate leading-tight">
                   {user.name || 'Farmer'}
                 </p>
-                <p className="text-[10px] text-slate-400 truncate">
-                  {user.location?.district ? `${user.location.district}, ` : ''}{user.location?.state || user.email || 'Farm'}
+                <p className="text-[10px] text-slate-600 font-medium truncate">
+                  {user.location?.district ? `${user.location.district}, ` : ''}{user.location?.state || user.phone || user.email || 'Farm'}
                 </p>
               </div>
             </div>

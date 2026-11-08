@@ -150,10 +150,10 @@ export default function CropRecommendation() {
               Intelligent Advisory
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-0.5">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#123D2A] tracking-tight mt-0.5">
             {t('crop.title', 'Crop Recommendation')}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
+          <p className="text-xs sm:text-sm text-slate-700 font-medium mt-0.5">
             {t('crop.subtitle', 'Predict the single most optimal crop tailored for your soil profile, cropping season, and local climate.')}
           </p>
         </div>
@@ -172,7 +172,7 @@ export default function CropRecommendation() {
 
       {/* Quick Test Climate Scenarios */}
       <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-        <div className="flex items-center space-x-2 text-[#202923] font-semibold">
+        <div className="flex items-center space-x-2 text-[#123D2A] font-bold">
           <SlidersHorizontal className="w-4 h-4 text-[#246B45]" />
           <span>Quick Evaluation Scenarios:</span>
         </div>
@@ -182,7 +182,7 @@ export default function CropRecommendation() {
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="px-3 py-1.5 rounded-xl bg-[#F7F7F0] hover:bg-[#123D2A]/10 hover:text-[#123D2A] border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
+              className="px-3 py-1.5 rounded-xl bg-[#F7F7F0] hover:bg-[#123D2A]/10 hover:text-[#123D2A] border border-slate-300 text-slate-800 font-semibold transition cursor-pointer text-xs"
             >
               {p.name}
             </button>
@@ -213,7 +213,7 @@ export default function CropRecommendation() {
               {/* Soil Type & Season */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center gap-1.5">
                     <Layers className="w-3.5 h-3.5 text-[#246B45]" />
                     <span>{t('crop.soilType', 'Soil Type')} *</span>
                   </label>
@@ -222,7 +222,7 @@ export default function CropRecommendation() {
                     value={formData.soilType}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-900 font-medium outline-none transition"
                   >
                     {SOIL_TYPES.map((st) => (
                       <option key={st} value={st}>{st}</option>
@@ -231,7 +231,7 @@ export default function CropRecommendation() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-[#246B45]" />
                     <span>{t('crop.season', 'Cropping Season')} *</span>
                   </label>
@@ -240,7 +240,7 @@ export default function CropRecommendation() {
                     value={formData.season}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-900 font-medium outline-none transition"
                   >
                     {SEASONS.map((sn) => (
                       <option key={sn} value={sn}>{sn}</option>
@@ -252,12 +252,12 @@ export default function CropRecommendation() {
               {/* Temperature & Humidity */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <Thermometer className="w-3.5 h-3.5 text-rose-500" />
+                      <Thermometer className="w-3.5 h-3.5 text-rose-600" />
                       <span>{t('crop.temperature', 'Average Temperature (°C)')} *</span>
                     </span>
-                    <span className="text-xs font-bold text-slate-600">{formData.temperature}°C</span>
+                    <span className="text-xs font-extrabold text-[#123D2A]">{formData.temperature}°C</span>
                   </label>
                   <input
                     type="number"
@@ -268,17 +268,17 @@ export default function CropRecommendation() {
                     value={formData.temperature}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-900 font-medium outline-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <Droplets className="w-3.5 h-3.5 text-sky-500" />
+                      <Droplets className="w-3.5 h-3.5 text-sky-600" />
                       <span>{t('crop.humidity', 'Relative Humidity (%)')} *</span>
                     </span>
-                    <span className="text-xs font-bold text-slate-600">{formData.humidity}%</span>
+                    <span className="text-xs font-extrabold text-[#123D2A]">{formData.humidity}%</span>
                   </label>
                   <input
                     type="number"
@@ -288,7 +288,7 @@ export default function CropRecommendation() {
                     value={formData.humidity}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-900 font-medium outline-none transition"
                   />
                 </div>
               </div>
@@ -296,12 +296,12 @@ export default function CropRecommendation() {
               {/* Soil pH & Rainfall */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
                       <Gauge className="w-3.5 h-3.5 text-[#246B45]" />
                       <span>{t('crop.soilPh', 'Soil pH Level')} *</span>
                     </span>
-                    <span className="text-xs font-bold text-slate-600">{formData.ph}</span>
+                    <span className="text-xs font-extrabold text-[#123D2A]">{formData.ph}</span>
                   </label>
                   <input
                     type="number"
@@ -312,17 +312,17 @@ export default function CropRecommendation() {
                     value={formData.ph}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-900 font-medium outline-none transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+                  <label className="block text-xs font-bold text-slate-800 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <CloudRain className="w-3.5 h-3.5 text-blue-500" />
+                      <CloudRain className="w-3.5 h-3.5 text-blue-600" />
                       <span>{t('crop.rainfall', 'Expected Rainfall (mm)')} *</span>
                     </span>
-                    <span className="text-xs font-bold text-slate-600">{formData.rainfall} mm</span>
+                    <span className="text-xs font-extrabold text-[#123D2A]">{formData.rainfall} mm</span>
                   </label>
                   <input
                     type="number"
@@ -332,7 +332,7 @@ export default function CropRecommendation() {
                     value={formData.rainfall}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-900 font-medium outline-none transition"
                   />
                 </div>
               </div>
@@ -391,21 +391,55 @@ export default function CropRecommendation() {
                   </div>
                 )}
 
+                {/* Original Input Parameters Summary */}
+                <div className="space-y-1.5 text-xs">
+                  <span className="font-bold text-[#123D2A] flex items-center gap-1.5">
+                    <Layers className="w-4 h-4 text-[#246B45]" />
+                    <span>Evaluated Input Parameters Summary</span>
+                  </span>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 bg-[#F7F7F0] p-3 rounded-xl border border-slate-300 text-[11px]">
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Soil Type</span>
+                      <span className="font-bold text-slate-900">{formData.soilType}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Season</span>
+                      <span className="font-bold text-slate-900">{formData.season.split(' ')[0]}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Temperature</span>
+                      <span className="font-bold text-slate-900">{formData.temperature}°C</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Humidity</span>
+                      <span className="font-bold text-slate-900">{formData.humidity}%</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Soil pH</span>
+                      <span className="font-bold text-slate-900">{formData.ph}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-600 block text-[10px] font-semibold">Rainfall</span>
+                      <span className="font-bold text-slate-900">{formData.rainfall} mm</span>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Suitability Explanation */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-[#202923] flex items-center gap-1.5">
+                  <span className="font-bold text-[#123D2A] flex items-center gap-1.5">
                     <BookmarkCheck className="w-4 h-4 text-[#246B45]" />
                     <span>Agronomic Suitability Rationale</span>
                   </span>
-                  <p className="text-slate-700 leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-200">
+                  <p className="text-slate-900 font-medium leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-300">
                     {result.suitabilityExplanation}
                   </p>
                 </div>
 
                 {/* Cultivation Guidance */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-[#202923] block">Cultivation & Field Guidelines</span>
-                  <p className="text-slate-700 leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-200">
+                  <span className="font-bold text-[#123D2A] block">Practical Cultivation & Field Guidelines</span>
+                  <p className="text-slate-900 font-medium leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-300">
                     {result.cultivationInformation}
                   </p>
                 </div>
@@ -413,23 +447,23 @@ export default function CropRecommendation() {
                 {/* Optimal Agronomic Ranges */}
                 {result.agronomicParameters && (
                   <div className="space-y-1.5 text-xs">
-                    <span className="font-bold text-[#202923] block">Optimal Agronomic Ranges for {result.cropName}</span>
+                    <span className="font-bold text-[#123D2A] block">Optimal Agronomic Ranges for {result.cropName}</span>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
-                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
-                        <span className="text-slate-400 block text-[10px]">Optimal Temp</span>
-                        <span className="font-bold text-slate-700">{result.agronomicParameters.optimalTemperature}</span>
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-300">
+                        <span className="text-slate-600 block text-[10px] font-semibold">Optimal Temp</span>
+                        <span className="font-bold text-slate-900">{result.agronomicParameters.optimalTemperature}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
-                        <span className="text-slate-400 block text-[10px]">Optimal Humidity</span>
-                        <span className="font-bold text-slate-700">{result.agronomicParameters.optimalHumidity}</span>
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-300">
+                        <span className="text-slate-600 block text-[10px] font-semibold">Optimal Humidity</span>
+                        <span className="font-bold text-slate-900">{result.agronomicParameters.optimalHumidity}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
-                        <span className="text-slate-400 block text-[10px]">Optimal Soil pH</span>
-                        <span className="font-bold text-slate-700">{result.agronomicParameters.optimalSoilPh}</span>
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-300">
+                        <span className="text-slate-600 block text-[10px] font-semibold">Optimal Soil pH</span>
+                        <span className="font-bold text-slate-900">{result.agronomicParameters.optimalSoilPh}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
-                        <span className="text-slate-400 block text-[10px]">Optimal Rainfall</span>
-                        <span className="font-bold text-slate-700">{result.agronomicParameters.optimalRainfall}</span>
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-300">
+                        <span className="text-slate-600 block text-[10px] font-semibold">Optimal Rainfall</span>
+                        <span className="font-bold text-slate-900">{result.agronomicParameters.optimalRainfall}</span>
                       </div>
                     </div>
                   </div>
@@ -447,8 +481,8 @@ export default function CropRecommendation() {
               <div className="w-14 h-14 rounded-2xl bg-[#F7F7F0] text-[#123D2A] flex items-center justify-center border border-[#D7DBC5]">
                 <Sprout className="w-7 h-7 text-[#246B45]" />
               </div>
-              <h3 className="font-bold text-[#202923] text-base">Awaiting Parameters</h3>
-              <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
+              <h3 className="font-extrabold text-[#123D2A] text-base">Awaiting Parameters</h3>
+              <p className="text-xs text-slate-700 font-medium max-w-xs leading-relaxed">
                 Provide your farm's soil type, cropping season, and weather observations, then click "Find Optimal Crop".
               </p>
             </Card>

@@ -15,285 +15,219 @@ import {
   CheckCircle2,
   Sparkles,
   Leaf,
-  CloudRain,
+  Layers,
+  HeartHandshake,
+  TrendingUp,
   Sun,
-  Activity
+  Compass
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import LanguageSelector from '../components/common/LanguageSelector';
+import heroImg from '../assets/hero.png';
 
 export default function Home() {
   const { t } = useTranslation();
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
 
-  const MODULES = [
+  const SERVICES = [
     {
       id: 'crop',
       title: t('crop.title', 'Crop Recommendation'),
-      desc: t('crop.subtitle', 'Get the single most optimal crop recommendation for your land based on soil type, season, temperature, rainfall, and pH.'),
+      desc: 'Predict the single most optimal crop for your land based on soil type, season, and regional climate.',
       icon: Sprout,
       link: '/crop-recommendation',
-      tag: 'Machine Learning',
-      accent: 'border-emerald-200 hover:border-[#22A06B]'
+      color: 'bg-emerald-50 text-[#176B45] group-hover:bg-[#176B45] group-hover:text-white',
+      accent: 'hover:border-[#22A06B]'
     },
     {
       id: 'fertilizer',
-      title: t('fertilizer.title', 'Fertilizer Guidance'),
-      desc: t('fertilizer.subtitle', 'Precision NPK nutrient replenishment dosages, standard 50-kg bag counts, and 3-stage split application schedules.'),
+      title: t('fertilizer.title', 'Fertilizer Recommendation'),
+      desc: 'Calculate exact N-P-K nutrient replenishment, 50-kg commercial bag counts, and 3-stage split application schedules.',
       icon: FlaskConical,
       link: '/fertilizer-recommendation',
-      tag: 'Nutrient Engine',
-      accent: 'border-amber-200 hover:border-amber-500'
+      color: 'bg-amber-50 text-amber-700 group-hover:bg-amber-600 group-hover:text-white',
+      accent: 'hover:border-amber-500'
     },
     {
       id: 'disease',
       title: t('disease.title', 'Crop Disease Detection'),
-      desc: t('disease.subtitle', 'Visual foliar pathology screening across 7 major crops with instant severity assessment and organic/chemical remedies.'),
+      desc: 'Analyze leaf photos or use your camera to identify pathologies across 7 target crops with organic remedies.',
       icon: ScanSearch,
       link: '/disease-detection',
-      tag: 'Visual Diagnosis',
-      accent: 'border-rose-200 hover:border-rose-500'
+      color: 'bg-rose-50 text-rose-700 group-hover:bg-rose-600 group-hover:text-white',
+      accent: 'hover:border-rose-500'
     },
     {
       id: 'weather',
-      title: t('weather.title', 'Weather & Farmer Alerts'),
-      desc: t('weather.subtitle', 'Live meteorological data, 7-day agricultural forecasts, and automated warnings for heavy rainfall and spraying windows.'),
+      title: t('weather.title', 'Weather Monitoring'),
+      desc: 'Real-time forecasts and localized alerts for heavy rain, heatwaves, and favorable spraying windows.',
       icon: CloudSun,
       link: '/weather',
-      tag: 'Forecast & Alerts',
-      accent: 'border-sky-200 hover:border-sky-500'
+      color: 'bg-sky-50 text-sky-700 group-hover:bg-sky-600 group-hover:text-white',
+      accent: 'hover:border-sky-500'
     },
     {
       id: 'ai-assistant',
       title: t('nav.aiAssistant', 'AI Farming Assistant'),
-      desc: 'Multilingual conversational farming assistant with voice input, speech readout, and curated agronomic knowledge base.',
+      desc: 'Ask questions in English, Telugu, or Hindi with speech recognition, voice readout, and agronomic knowledge.',
       icon: Bot,
       link: '/ai-assistant',
-      tag: 'Voice & Chat',
-      accent: 'border-purple-200 hover:border-purple-500'
+      color: 'bg-purple-50 text-purple-700 group-hover:bg-purple-600 group-hover:text-white',
+      accent: 'hover:border-purple-500'
     },
     {
       id: 'language',
       title: t('nav.selectLanguage', 'Multilingual Support'),
-      desc: 'Fully translated into 8 Indian regional languages including English, Telugu, Hindi, Tamil, Kannada, Marathi, Malayalam, and Bengali.',
+      desc: 'Full translation into 8 Indian regional languages including English, Telugu, Hindi, Tamil, Kannada, Marathi, Malayalam, and Bengali.',
       icon: Languages,
       link: isAuthenticated ? '/profile' : '/register',
-      tag: '8 Languages',
-      accent: 'border-teal-200 hover:border-teal-500'
+      color: 'bg-teal-50 text-teal-700 group-hover:bg-teal-600 group-hover:text-white',
+      accent: 'hover:border-teal-500'
     },
     {
       id: 'profile',
-      title: t('nav.farmerProfile', 'Farmer Registration & Profile'),
-      desc: 'Secure personalized accounts with localized district preferences, soil history context, and multi-tenant data isolation.',
+      title: t('nav.farmerProfile', 'Farmer Profile'),
+      desc: 'Personalized account with saved farm location, language preferences, and strict multi-tenant data privacy.',
       icon: UserCheck,
       link: isAuthenticated ? '/profile' : '/register',
-      tag: 'Personalized',
-      accent: 'border-blue-200 hover:border-blue-500'
+      color: 'bg-blue-50 text-blue-700 group-hover:bg-blue-600 group-hover:text-white',
+      accent: 'hover:border-blue-500'
     },
     {
       id: 'history',
       title: t('nav.history', 'Recommendation History'),
-      desc: 'Comprehensive centralized audit trail of past crop plans, fertilizer dosages, leaf scans, and voice consultations.',
+      desc: 'Comprehensive personal audit trail of your past crop recommendations, fertilizer schedules, and leaf scans.',
       icon: History,
       link: '/history',
-      tag: 'Audit Trail',
-      accent: 'border-slate-200 hover:border-slate-500'
+      color: 'bg-slate-100 text-slate-700 group-hover:bg-slate-800 group-hover:text-white',
+      accent: 'hover:border-slate-500'
     }
   ];
 
   return (
-    <div className="space-y-12 pb-8">
+    <div className="space-y-16 pb-12">
       
-      {/* Welcome Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-card p-6 sm:p-10 lg:p-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* 1. HERO SECTION */}
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#E8F5EE] via-[#F7FAF7] to-white border border-[#C7E7D6] p-6 sm:p-10 lg:p-14 shadow-sm">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Welcome Text Column */}
+          {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#E8F5EE] text-[#176B45] border border-[#C7E7D6]">
-                <Sparkles className="w-3.5 h-3.5 text-[#22A06B]" />
-                Intelligent Agricultural Advisory
-              </span>
-              <div className="sm:hidden">
-                <LanguageSelector compact />
-              </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white text-[#176B45] border border-[#C7E7D6] shadow-xs">
+              <Sprout className="w-4 h-4 text-[#22A06B]" />
+              <span>India's Intelligent Agricultural Platform</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1F2937] leading-[1.15]">
-              Smart Farming <br className="hidden sm:inline" />
-              <span className="text-[#176B45]">Starts Here</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1F2937] leading-[1.12]">
+              Grow Smarter. <br />
+              <span className="text-[#176B45]">Farm Better.</span>
             </h1>
 
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
-              Get intelligent crop recommendations, fertilizer guidance, crop disease detection and weather insights to make better farming decisions.
+              Empowering farmers with intelligent crop recommendations, precision fertilizer schedules, instant disease detection, and multilingual AI guidance tailored for your land.
             </p>
 
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              {isAuthenticated ? (
-                <Link
-                  to="/dashboard"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-sm shadow-sm transition cursor-pointer"
-                >
-                  <span>Open Farmer Dashboard</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              ) : (
-                <>
-                  <Link
-                    to="/register"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-sm shadow-sm transition cursor-pointer"
-                  >
-                    <span>Get Started</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#1F2937] font-semibold text-sm border border-slate-200 shadow-xs transition cursor-pointer"
-                  >
-                    <span>Login</span>
-                  </Link>
-                </>
-              )}
+            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+              <Link
+                to={isAuthenticated ? "/dashboard" : "/register"}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-bold text-sm shadow-sm transition cursor-pointer"
+              >
+                <span>{isAuthenticated ? "Open Dashboard" : "Get Started"}</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+
+              <a
+                href="#services"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#1F2937] font-semibold text-sm border border-slate-200 shadow-xs transition cursor-pointer"
+              >
+                <span>Explore Services</span>
+              </a>
             </div>
 
-            {/* Quick Feature Checklist */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600 border-t border-slate-100">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
-                <span>One Best Crop Output</span>
+            {/* Quick trust metrics */}
+            <div className="pt-3 grid grid-cols-3 gap-3 border-t border-[#C7E7D6]/60 text-xs text-slate-600">
+              <div>
+                <p className="font-extrabold text-[#176B45] text-base sm:text-lg">1 Single</p>
+                <p className="text-[11px] text-slate-500">Optimal crop output</p>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
-                <span>Precision STCR Fertilizer</span>
+              <div>
+                <p className="font-extrabold text-[#176B45] text-base sm:text-lg">8 Regional</p>
+                <p className="text-[11px] text-slate-500">Indian languages</p>
               </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
-                <span>Voice in 8 Languages</span>
+              <div>
+                <p className="font-extrabold text-[#176B45] text-base sm:text-lg">100% Free</p>
+                <p className="text-[11px] text-slate-500">For every farmer</p>
               </div>
             </div>
           </div>
 
-          {/* Agricultural Graphic / Interactive Preview Column */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-gradient-to-br from-[#E8F5EE] via-[#F7FAF7] to-white p-6 border border-[#C7E7D6]/60 shadow-sm space-y-4">
-              
-              <div className="flex items-center justify-between pb-3 border-b border-[#C7E7D6]/40">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 rounded-lg bg-[#176B45] text-white flex items-center justify-center shadow-xs">
-                    <Leaf className="w-4 h-4 text-[#A3E635]" />
+          {/* Right Visual Column (Lush Green Farm Illustration) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-lg border border-[#C7E7D6] bg-white group">
+              <div className="aspect-4/3 overflow-hidden bg-emerald-900 relative">
+                {heroImg ? (
+                  <img 
+                    src={heroImg} 
+                    alt="Lush green agricultural crop field" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#176B45] via-[#22A06B] to-emerald-800 flex items-center justify-center p-6 text-white text-center">
+                    <Sprout className="w-16 h-16 text-[#A3E635]" />
                   </div>
-                  <div>
-                    <h2 className="text-xs font-bold text-[#1F2937]">Farm Health Snapshot</h2>
-                    <p className="text-[10px] text-slate-500">Live decision indicators</p>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-5">
+                  <div className="text-white">
+                    <p className="font-bold text-sm sm:text-base">Science-Backed Precision Farming</p>
+                    <p className="text-xs text-emerald-100">Tailored for Indian agro-climatic zones</p>
                   </div>
-                </div>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-[#176B45]">
-                  Active Telemetry
-                </span>
-              </div>
-
-              {/* Sample Cards inside illustration */}
-              <div className="space-y-2.5">
-                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#176B45] flex items-center justify-center">
-                      <Sprout className="w-3.5 h-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#1F2937]">Optimal Crop Match</p>
-                      <p className="text-[10px] text-slate-500">Soil: Black Cotton • Kharif</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-[#176B45]">Pigeonpeas (99%)</span>
-                </div>
-
-                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
-                      <CloudSun className="w-3.5 h-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#1F2937]">Spraying Window</p>
-                      <p className="text-[10px] text-slate-500">Calm Winds &lt; 10 km/h</p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-sky-700">Favorable</span>
-                </div>
-
-                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
-                      <Bot className="w-3.5 h-3.5" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-[#1F2937]">AI Assistant</p>
-                      <p className="text-[10px] text-slate-500">Voice in English, Telugu, Hindi</p>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-semibold text-purple-700">Ready</span>
                 </div>
               </div>
-
-              <div className="pt-2 text-center">
-                <span className="text-[11px] font-medium text-slate-500">
-                  Reliable agronomic decision support for Indian agriculture
-                </span>
-              </div>
-
             </div>
           </div>
 
         </div>
       </section>
 
-      {/* Services Grid (8 Main Modules) */}
-      <section className="space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#176B45] block">
-              Core Capabilities
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
-              Agricultural Advisory Services
-            </h2>
-          </div>
-          <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-            Everything a farmer needs to plan, protect, and optimize crop yields across every season.
+      {/* 2. SERVICES SECTION */}
+      <section id="services" className="space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#176B45]">
+            Comprehensive Advisory Suite
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1F2937] tracking-tight">
+            Everything Your Farm Needs
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500">
+            Eight specialized tools designed to guide you through crop selection, nutrient management, disease screening, and daily weather decisions.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {MODULES.map((module) => {
-            const Icon = module.icon;
+          {SERVICES.map((service) => {
+            const Icon = service.icon;
             return (
               <Link
-                key={module.id}
-                to={module.link}
-                className={`group bg-white rounded-2xl border p-5 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between ${module.accent}`}
+                key={service.id}
+                to={service.link}
+                className={`group bg-white rounded-2xl border border-slate-200/90 p-5 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between ${service.accent}`}
               >
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 rounded-xl bg-[#E8F5EE] text-[#176B45] flex items-center justify-center group-hover:bg-[#176B45] group-hover:text-white transition-colors shadow-xs">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                      {module.tag}
-                    </span>
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors shadow-xs ${service.color}`}>
+                    <Icon className="w-5 h-5" />
                   </div>
 
                   <div>
                     <h3 className="font-bold text-[#1F2937] group-hover:text-[#176B45] transition-colors text-base leading-snug">
-                      {module.title}
+                      {service.title}
                     </h3>
                     <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
-                      {module.desc}
+                      {service.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#176B45] group-hover:text-[#114F33]">
-                  <span>Access Service</span>
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#176B45]">
+                  <span>Explore</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </Link>
@@ -302,43 +236,94 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust & Principles Strip */}
-      <section className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
-          <div className="flex items-start space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#176B45] flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-5 h-5" />
+      {/* 3. HOW AGRICULTURE ADVISOR HELPS FARMERS */}
+      <section className="bg-white rounded-3xl border border-slate-200/90 p-8 sm:p-12 shadow-card space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#176B45]">
+            Simple Step-by-Step Workflow
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
+            How Agriculture Advisor Helps Farmers
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500">
+            Four simple steps to transform scientific agricultural knowledge into greater crop productivity.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="p-5 rounded-2xl bg-[#F7FAF7] border border-slate-200/80 space-y-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#176B45] text-white font-extrabold text-sm flex items-center justify-center">
+              1
             </div>
-            <div>
-              <h4 className="font-bold text-slate-800 text-sm">Agronomic Integrity</h4>
-              <p className="text-slate-500 mt-0.5 leading-relaxed">
-                Single-crop guarantees and ICAR-aligned Soil Test Crop Response (STCR) calculations designed to avoid farmer confusion.
-              </p>
-            </div>
+            <h3 className="font-bold text-[#1F2937] text-sm">Provide Field Metrics</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Enter your soil type, season, land area, or upload a photo of an affected plant leaf.
+            </p>
           </div>
 
-          <div className="flex items-start space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-              <CloudSun className="w-5 h-5" />
+          <div className="p-5 rounded-2xl bg-[#F7FAF7] border border-slate-200/80 space-y-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#176B45] text-white font-extrabold text-sm flex items-center justify-center">
+              2
             </div>
-            <div>
-              <h4 className="font-bold text-slate-800 text-sm">Actionable Intelligence</h4>
-              <p className="text-slate-500 mt-0.5 leading-relaxed">
-                Weather alerts with specific operational advice for spraying, heatwaves, and moisture management.
-              </p>
-            </div>
+            <h3 className="font-bold text-[#1F2937] text-sm">Intelligent Evaluation</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Trained machine learning models and ICAR STCR agronomic formulas process your inputs.
+            </p>
           </div>
 
-          <div className="flex items-start space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-              <Languages className="w-5 h-5" />
+          <div className="p-5 rounded-2xl bg-[#F7FAF7] border border-slate-200/80 space-y-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#176B45] text-white font-extrabold text-sm flex items-center justify-center">
+              3
             </div>
-            <div>
-              <h4 className="font-bold text-slate-800 text-sm">Inclusive & Accessible</h4>
-              <p className="text-slate-500 mt-0.5 leading-relaxed">
-                Complete regional language support and conversational speech recognition allowing farmers to ask questions naturally.
-              </p>
+            <h3 className="font-bold text-[#1F2937] text-sm">Actionable Advisory</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Get one optimal crop recommendation, exact 50-kg fertilizer bag counts, or disease remedies.
+            </p>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-[#F7FAF7] border border-slate-200/80 space-y-2.5">
+            <div className="w-8 h-8 rounded-full bg-[#176B45] text-white font-extrabold text-sm flex items-center justify-center">
+              4
             </div>
+            <h3 className="font-bold text-[#1F2937] text-sm">Audit & Track Records</h3>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              Every consultation is securely saved to your personal history for seasonal farm recordkeeping.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. BENEFITS STRIP */}
+      <section className="bg-gradient-to-br from-[#176B45] to-[#114F33] text-white rounded-3xl p-8 sm:p-12 shadow-sm space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-xs">
+          <div className="space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <ShieldCheck className="w-5 h-5 text-[#A3E635]" />
+            </div>
+            <h3 className="text-base font-bold text-white">Trustworthy & ICAR Aligned</h3>
+            <p className="text-emerald-100/90 leading-relaxed">
+              Formulations follow standard Soil Test Crop Response (STCR) principles to safeguard soil health and prevent over-application.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <Languages className="w-5 h-5 text-[#A3E635]" />
+            </div>
+            <h3 className="text-base font-bold text-white">Accessible in 8 Languages</h3>
+            <p className="text-emerald-100/90 leading-relaxed">
+              Farmers can ask questions through voice or text in their native regional language with instant bilingual speech playback.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+              <HeartHandshake className="w-5 h-5 text-[#A3E635]" />
+            </div>
+            <h3 className="text-base font-bold text-white">Farmer-First Privacy</h3>
+            <p className="text-emerald-100/90 leading-relaxed">
+              Strict multi-tenant security ensures your farm location, soil data, and diagnosis reports remain private to your account.
+            </p>
           </div>
         </div>
       </section>

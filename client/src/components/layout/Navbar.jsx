@@ -25,30 +25,24 @@ export default function Navbar() {
   const { t } = useTranslation();
   const { user, isAuthenticated, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const profileRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleLogout = () => {
     logout();
-    setProfileDropdownOpen(false);
     setMobileMenuOpen(false);
     navigate('/login');
   };
 
   const isActive = (path) => location.pathname === path;
 
-  // Close dropdowns on outside click
+  // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setServicesDropdownOpen(false);
-      }
-      if (profileRef.current && !profileRef.current.contains(event.target)) {
-        setProfileDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -108,20 +102,20 @@ export default function Navbar() {
             <Sprout className="w-6 h-6 text-[#A3E635]" />
           </div>
           <div>
-            <span className="text-lg sm:text-xl font-bold tracking-tight text-[#176B45] block leading-tight">
+            <span className="text-lg sm:text-xl font-extrabold tracking-tight text-[#176B45] block leading-tight">
               Agriculture Advisor
             </span>
             <span className="text-[10px] text-slate-500 font-medium tracking-wide block">
-              Smart Farming Decision Platform
+              Smart Farming Platform
             </span>
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center space-x-1">
+        {/* Simplified Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center space-x-2">
           <Link
             to="/"
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 ${
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 ${
               isActive('/') 
                 ? 'bg-[#E8F5EE] text-[#176B45]' 
                 : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
@@ -131,26 +125,12 @@ export default function Navbar() {
             <span>{t('nav.home', 'Home')}</span>
           </Link>
 
-          {isAuthenticated && (
-            <Link
-              to="/dashboard"
-              className={`px-3 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 ${
-                isActive('/dashboard') 
-                  ? 'bg-[#E8F5EE] text-[#176B45]' 
-                  : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
-              }`}
-            >
-              <LayoutDashboard className="w-4 h-4" />
-              <span>{t('nav.dashboard', 'Dashboard')}</span>
-            </Link>
-          )}
-
           {/* Services Dropdown */}
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
               onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-              className={`px-3 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1 cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1 cursor-pointer ${
                 SERVICES.some((s) => isActive(s.path))
                   ? 'bg-[#E8F5EE] text-[#176B45] font-bold'
                   : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
@@ -196,50 +176,19 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Quick Direct Links */}
-          <Link
-            to="/crop-recommendation"
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition ${
-              isActive('/crop-recommendation') 
-                ? 'bg-[#E8F5EE] text-[#176B45]' 
-                : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
-            }`}
-          >
-            {t('nav.cropAdvisory', 'Crops')}
-          </Link>
-
-          <Link
-            to="/fertilizer-recommendation"
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition ${
-              isActive('/fertilizer-recommendation') 
-                ? 'bg-[#E8F5EE] text-[#176B45]' 
-                : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
-            }`}
-          >
-            {t('nav.fertilizer', 'Fertilizer')}
-          </Link>
-
-          <Link
-            to="/weather"
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition ${
-              isActive('/weather') 
-                ? 'bg-[#E8F5EE] text-[#176B45]' 
-                : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
-            }`}
-          >
-            {t('nav.weather', 'Weather')}
-          </Link>
-
-          <Link
-            to="/ai-assistant"
-            className={`px-3 py-2 rounded-xl text-xs font-semibold transition ${
-              isActive('/ai-assistant') 
-                ? 'bg-[#E8F5EE] text-[#176B45]' 
-                : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
-            }`}
-          >
-            {t('nav.aiAssistant', 'AI Assistant')}
-          </Link>
+          {isAuthenticated && (
+            <Link
+              to="/dashboard"
+              className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 ${
+                isActive('/dashboard') 
+                  ? 'bg-[#E8F5EE] text-[#176B45]' 
+                  : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
+              }`}
+            >
+              <LayoutDashboard className="w-4 h-4" />
+              <span>{t('nav.dashboard', 'Dashboard')}</span>
+            </Link>
+          )}
         </nav>
 
         {/* Right Section: Language Selector + Auth Actions */}
@@ -247,77 +196,22 @@ export default function Navbar() {
           <LanguageSelector />
 
           {isAuthenticated ? (
-            <div className="relative" ref={profileRef}>
+            <div className="flex items-center space-x-2">
+              <Link
+                to="/dashboard"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[#176B45] hover:bg-[#114F33] text-white shadow-xs transition"
+              >
+                <LayoutDashboard className="w-3.5 h-3.5" />
+                <span>Go to Dashboard</span>
+              </Link>
               <button
                 type="button"
-                onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
-                className="flex items-center space-x-2.5 p-1.5 pr-3 rounded-full hover:bg-slate-100 transition border border-slate-200 cursor-pointer"
+                onClick={handleLogout}
+                className="p-2 rounded-xl text-slate-500 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer"
+                title="Sign Out"
               >
-                <div className="w-8 h-8 rounded-full bg-[#176B45] text-white flex items-center justify-center font-bold text-xs shadow-xs">
-                  {user?.name ? user.name.charAt(0).toUpperCase() : 'F'}
-                </div>
-                <div className="text-left text-xs">
-                  <span className="font-semibold text-slate-800 block leading-tight truncate max-w-[120px]">
-                    {user?.name || 'Farmer'}
-                  </span>
-                  <span className="text-[10px] text-slate-500 block leading-none">
-                    {user?.location?.district ? `${user.location.district}, ` : ''}{user?.location?.state || 'Farm'}
-                  </span>
-                </div>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <LogOut className="w-4 h-4" />
               </button>
-
-              {/* Profile Dropdown */}
-              {profileDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-xl border border-slate-200 py-1.5 z-50 animate-in fade-in slide-in-from-top-1">
-                  <div className="px-4 py-2.5 border-b border-slate-100">
-                    <p className="text-xs font-bold text-slate-800 truncate">{user?.name}</p>
-                    <p className="text-[11px] text-slate-500 truncate">{user?.email}</p>
-                    {user?.location?.state && (
-                      <p className="text-[10px] text-slate-400 mt-0.5">
-                        {user.location.district ? `${user.location.district}, ` : ''}{user.location.state}
-                      </p>
-                    )}
-                  </div>
-
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setProfileDropdownOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-xs text-slate-700 hover:bg-[#E8F5EE] hover:text-[#176B45] transition"
-                  >
-                    <LayoutDashboard className="w-4 h-4 text-slate-400" />
-                    <span>{t('nav.dashboard', 'Farmer Dashboard')}</span>
-                  </Link>
-
-                  <Link
-                    to="/profile"
-                    onClick={() => setProfileDropdownOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-xs text-slate-700 hover:bg-[#E8F5EE] hover:text-[#176B45] transition"
-                  >
-                    <User className="w-4 h-4 text-slate-400" />
-                    <span>{t('nav.farmerProfile', 'Farmer Profile')}</span>
-                  </Link>
-
-                  <Link
-                    to="/history"
-                    onClick={() => setProfileDropdownOpen(false)}
-                    className="flex items-center gap-2 px-4 py-2 text-xs text-slate-700 hover:bg-[#E8F5EE] hover:text-[#176B45] transition"
-                  >
-                    <History className="w-4 h-4 text-slate-400" />
-                    <span>{t('nav.history', 'Recommendation History')}</span>
-                  </Link>
-
-                  <div className="border-t border-slate-100 my-1"></div>
-
-                  <button
-                    onClick={handleLogout}
-                    className="w-full flex items-center gap-2 px-4 py-2 text-xs text-rose-600 hover:bg-rose-50 transition font-semibold text-left cursor-pointer"
-                  >
-                    <LogOut className="w-4 h-4 text-rose-500" />
-                    <span>{t('nav.logout', 'Sign Out')}</span>
-                  </button>
-                </div>
-              )}
             </div>
           ) : (
             <div className="flex items-center space-x-2">
@@ -330,7 +224,7 @@ export default function Navbar() {
               </Link>
               <Link
                 to="/register"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[#176B45] hover:bg-[#114F33] text-white shadow-sm transition cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[#176B45] hover:bg-[#114F33] text-white shadow-xs transition cursor-pointer"
               >
                 <UserPlus className="w-3.5 h-3.5" />
                 <span>{t('nav.register', 'Get Started')}</span>
@@ -339,7 +233,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Mobile menu right side: compact language selector + hamburger button */}
+        {/* Mobile menu right side */}
         <div className="flex lg:hidden items-center space-x-2">
           <LanguageSelector compact />
           <button
@@ -356,13 +250,6 @@ export default function Navbar() {
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-3 animate-in fade-in">
-          <div className="pb-2 border-b border-slate-100 flex items-center justify-between">
-            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-              {t('nav.selectLanguage', 'Language')}
-            </span>
-            <LanguageSelector compact />
-          </div>
-
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
@@ -410,45 +297,36 @@ export default function Navbar() {
             );
           })}
 
-          {isAuthenticated ? (
-            <div className="pt-2 border-t border-slate-100 space-y-2">
-              <Link
-                to="/profile"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-slate-700 hover:bg-slate-50"
-              >
-                <User className="w-4 h-4 text-slate-500" />
-                <span>{t('nav.farmerProfile', 'Farmer Profile')} ({user?.name})</span>
-              </Link>
-
+          <div className="pt-2 border-t border-slate-100">
+            {isAuthenticated ? (
               <button
                 onClick={handleLogout}
-                className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50 cursor-pointer"
+                className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold text-rose-600 hover:bg-rose-50"
               >
                 <LogOut className="w-4 h-4 text-rose-500" />
                 <span>{t('nav.logout', 'Sign Out')}</span>
               </button>
-            </div>
-          ) : (
-            <div className="pt-3 border-t border-slate-100 flex flex-col space-y-2">
-              <Link
-                to="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>{t('nav.login', 'Sign In')}</span>
-              </Link>
-              <Link
-                to="/register"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#176B45] text-white shadow-sm"
-              >
-                <UserPlus className="w-4 h-4" />
-                <span>{t('nav.register', 'Get Started')}</span>
-              </Link>
-            </div>
-          )}
+            ) : (
+              <div className="flex flex-col space-y-2">
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-slate-100"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>{t('nav.login', 'Sign In')}</span>
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold bg-[#176B45] text-white"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  <span>{t('nav.register', 'Get Started')}</span>
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </header>

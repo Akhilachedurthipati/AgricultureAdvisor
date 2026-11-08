@@ -22,8 +22,8 @@
   - Phase 8: Module 6 – Multilingual Interface (i18next with 8 Indian Languages: English, Hindi, Telugu, Tamil, Kannada, Malayalam, Marathi, Bengali)
   - Phase 9: Module 5 – Multilingual Voice Assistant & AI Farming Chatbot (Speech-to-Text STT, Text-to-Speech TTS, Agricultural Knowledge Engine, Safety Guardrails, MongoDB History)
   - Phase 10: Module 8 – Recommendation History & Farmer Profile (Centralized History Dashboard, Module/Keyword/Crop Filtering, Pagination, Record Details Modal, Multi-Tenant Data Isolation, Image Unlinking)
-  - Phase 11: Final Integration, Testing, Viva & Deployment Preparation (Master E2E System Test Suite, 11 Test Suites, 96 Automated Tests 100% Green, Comprehensive Viva Guide & Examiner Cheat Sheet)
-  - Crop Confidence & Normalization Improvement: Removed artificial clamping, added canonical alias normalization, implemented OOD detection and uncertainty warnings, fixed percentage formatting, verified with 6 regression tests.
+  - Phase 11: Final Integration, Testing, Viva & Deployment Preparation (Master E2E System Test Suite, 11 Test Suites, 95 Automated Tests 100% Green, Comprehensive Viva Guide & Examiner Cheat Sheet)
+  - Crop Confidence & Normalization Improvement: Removed artificial clamping, added canonical alias normalization, implemented OOD detection and uncertainty warnings, fixed percentage formatting, verified with 9 regression tests.
 
 ---
 
@@ -36,9 +36,9 @@
    - Standardized percentage calculation (`score <= 1.0 ? Math.round(score * 100) : Math.round(score)`) in `test-master-integration.js`, `CropRecommendation.jsx`, `history.controller.js`, and `RecommendationHistory.jsx`.
    - Rendered explicit advisory warning banner in `CropRecommendation.jsx` whenever `uncertaintyWarning` is present.
 3. **Automated Testing & Builds:**
-   - Built dedicated regression test suite `server/test-crop-regression.js` with 6 automated tests.
-   - All 11 backend test suites (96 total tests) passed 100% (`npm test --prefix server`).
-   - Vite client production bundle built cleanly in 9.37s with 0 errors (`npm run build --prefix client`).
+   - Built dedicated regression test suite `server/test-crop-regression.js` with 9 automated tests (covering Mothbeans, all 6 season aliases, unknown soil consistency, and legacy history record compatibility).
+   - All 11 backend test suites (95 total tests) passed 100% (`npm test --prefix server`).
+   - Vite client production bundle built cleanly in 8.31s with 0 errors (`npm run build --prefix client`).
 
 ---
 

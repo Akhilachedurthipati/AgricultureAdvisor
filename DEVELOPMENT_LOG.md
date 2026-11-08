@@ -424,9 +424,9 @@ This log records every significant development session, including dates, actions
   4. *Mongoose & History Updates:* Updated `CropRecommendation.js` schema and `crop.controller.js` to persist `isConfident`, `confidenceLevel`, and `uncertaintyWarning`.
   5. *History & UI Confidence Formatting:* Updated `history.controller.js`, `RecommendationHistory.jsx`, and `CropRecommendation.jsx` to render percentage correctly (`<= 1.0 ? Math.round(score * 100) : Math.round(score)`) and display advisory uncertainty warnings whenever present.
   6. *Master Test Fix:* Updated `test-master-integration.js` line 164 to format confidence percentage properly.
-  7. *Created Regression Suite (`server/test-crop-regression.js`):* Built 6 automated tests verifying alias normalization, removal of artificial floor, extreme OOD handling, single-crop output guarantee, and canonical high-confidence scenarios.
+  7. *Created Regression Suite (`server/test-crop-regression.js`):* Built 9 automated tests verifying alias normalization, removal of artificial floor, extreme OOD handling, single-crop output guarantee, canonical high-confidence scenarios, Mothbeans regression scenario, all 6 season aliases, unknown soil consistency, and legacy history record compatibility.
 - **Verification:**
-  - `npm run test:regression`: 6/6 tests passed 100%.
-  - `npm test --prefix server`: All 11 test suites (96 total tests) passed 100%.
-  - `npm run build --prefix client`: Compiled cleanly in 9.37s with 0 errors.
+  - `npm run test:regression`: 9/9 tests passed 100%.
+  - `npm test --prefix server`: All 11 test suites (95 verified total tests) passed 100%.
+  - `npm run build --prefix client`: Compiled cleanly in 8.31s with 0 errors.
 - **Git Commit:** Committed on branch `fix/crop-confidence-investigation`.

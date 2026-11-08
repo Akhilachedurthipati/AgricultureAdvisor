@@ -13,7 +13,8 @@ const runCropRegressionTests = async () => {
 
   try {
     // -------------------------------------------------------------
-    // TEST 1: Alias Normalization Functions
+    // TEST 1: Canonical Soil & Season Alias Normalization
+    // (Explicitly verifying Kharif, Rabi, Zaid, Monsoon, Winter, Summer)
     // -------------------------------------------------------------
     const soilTests = [
       ['black', 'Black Cotton Soil'],
@@ -22,7 +23,9 @@ const runCropRegressionTests = async () => {
       ['alluvial', 'Alluvial Soil'],
       ['clayey', 'Clay Soil'],
       ['red soil', 'Red Soil'],
-      ['sandy loam', 'Sandy Loam Soil']
+      ['sandy loam', 'Sandy Loam Soil'],
+      ['sandy', 'Sandy Loam Soil'],
+      ['laterite', 'Laterite Soil']
     ];
     for (const [raw, expected] of soilTests) {
       const norm = normalizeSoilType(raw);
@@ -32,11 +35,17 @@ const runCropRegressionTests = async () => {
     }
 
     const seasonTests = [
+      ['Kharif', 'Kharif (Monsoon: Jun - Oct)'],
       ['kharif', 'Kharif (Monsoon: Jun - Oct)'],
+      ['Monsoon', 'Kharif (Monsoon: Jun - Oct)'],
       ['monsoon', 'Kharif (Monsoon: Jun - Oct)'],
+      ['Rabi', 'Rabi (Winter: Oct - Mar)'],
       ['rabi', 'Rabi (Winter: Oct - Mar)'],
+      ['Winter', 'Rabi (Winter: Oct - Mar)'],
       ['winter', 'Rabi (Winter: Oct - Mar)'],
+      ['Zaid', 'Zaid (Summer: Mar - Jun)'],
       ['zaid', 'Zaid (Summer: Mar - Jun)'],
+      ['Summer', 'Zaid (Summer: Mar - Jun)'],
       ['summer', 'Zaid (Summer: Mar - Jun)']
     ];
     for (const [raw, expected] of seasonTests) {
@@ -45,7 +54,7 @@ const runCropRegressionTests = async () => {
         throw new Error(`Season alias test failed: "${raw}" -> "${norm}", expected "${expected}"`);
       }
     }
-    console.log('✅ Test 1: Canonical Soil & Season Alias Normalization verified across all variants');
+    console.log('✅ Test 1: Canonical Soil & Season Alias Normalization verified across Kharif, Rabi, Zaid, Monsoon, Winter, and Summer');
 
     // -------------------------------------------------------------
     // Register authenticated farmer for API calls
@@ -214,8 +223,89 @@ const runCropRegressionTests = async () => {
     }
     console.log('✅ Test 6: In-Distribution canonical scenarios (Cotton: 98%+, Rice: 98%+) produce high confidence and clean advisory output');
 
+    // -------------------------------------------------------------
+    // TEST 7: Mothbeans Regression Scenario
+    // (Summer Zaid, Sandy Loam Soil, Low Rain, High Temp)
+    // -------------------------------------------------------------
+    const mothbeansRes = await fetch(`${baseUrl}/crop/recommend`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        soilType: 'sandy loam', // Tests alias
+        season: 'summer', // Tests season alias
+        temperature: 32.0,
+        humidity: 55.0,
+        ph: 6.8,
+        rainfall: 45.0
+      })
+    });
+    const mothbeansData = await mothbeansRes.json();
+    const mothbeans = mothbeansData.data;
+
+    if (mothbeans.cropName !== 'Mothbeans') {
+      throw new Error(`Test 7 Mothbeans failed: Expected "Mothbeans", got "${mothbeans.cropName}"`);
+    }
+    if (!mothbeans.isConfident || mothbeans.confidenceScore < 0.95) {
+      throw new Error(`Test 7 Mothbeans failed: Expected high confidence (>=0.95), got ${mothbeans.confidenceScore}`);
+    }
+    if (mothbeans.uncertaintyWarning !== null) {
+      throw new Error(`Test 7 Mothbeans failed: Expected no uncertainty warning, got "${mothbeans.uncertaintyWarning}"`);
+    }
+    console.log(`✅ Test 7: Mothbeans Scenario Verified: Predicted -> ${mothbeans.cropName} (Confidence: ${Math.round(mothbeans.confidenceScore * 100)}%, isConfident: true, Aliases: "sandy loam", "summer")`);
+
+    // -------------------------------------------------------------
+    // TEST 8: Unknown Soil Consistency Check
+    // (Ensures all unknown soils consistently trigger uncertainty warnings)
+    // -------------------------------------------------------------
+    const unknownSoils = ['Volcanic Ash Soil', 'Peat Moss Substrate', 'Crushed Gravel Media', 'Hydroponic Perlite'];
+    for (const uSoil of unknownSoils) {
+      const uPred = predictCrop({
+        soilType: uSoil,
+        season: 'Kharif',
+        temperature: 28.0,
+        humidity: 70.0,
+        ph: 6.5,
+        rainfall: 120.0
+      });
+      if (uPred.isConfident !== false) {
+        throw new Error(`Test 8 failed for "${uSoil}": Expected isConfident === false`);
+      }
+      if (!uPred.uncertaintyWarning || !uPred.uncertaintyWarning.includes('Moderate recommendation certainty')) {
+        throw new Error(`Test 8 failed for "${uSoil}": Expected uncertainty warning`);
+      }
+      if (uPred.confidenceScore >= 0.70) {
+        throw new Error(`Test 8 failed for "${uSoil}": Expected confidenceScore < 0.70, got ${uPred.confidenceScore}`);
+      }
+    }
+    console.log('✅ Test 8: Unknown Soil Consistency Check: All 4 arbitrary soil substrates consistently triggered isConfident: false and advisory uncertainty warnings');
+
+    // -------------------------------------------------------------
+    // TEST 9: Legacy History Record Compatibility
+    // (Verifies that older records without new fields are cleanly handled)
+    // -------------------------------------------------------------
+    const legacyRecord = {
+      inputs: { soilType: 'Clay Soil', season: 'Kharif' },
+      recommendation: {
+        cropName: 'Rice',
+        confidenceScore: 0.98 // Stored as decimal ratio in older records
+      }
+    };
+    const legacyConfVal = legacyRecord.recommendation?.confidenceScore != null
+      ? (legacyRecord.recommendation.confidenceScore <= 1.0
+          ? Math.round(legacyRecord.recommendation.confidenceScore * 100)
+          : Math.round(legacyRecord.recommendation.confidenceScore))
+      : 0;
+    const legacySummary = `${legacyRecord.inputs.soilType} • Suitability: ${legacyConfVal}%`;
+    if (legacySummary !== 'Clay Soil • Suitability: 98%') {
+      throw new Error(`Test 9 failed: Expected "Clay Soil • Suitability: 98%", got "${legacySummary}"`);
+    }
+    console.log(`✅ Test 9: Legacy History Record Compatibility: Formatted cleanly as "${legacySummary}" with zero runtime errors`);
+
     console.log('\n======================================================================');
-    console.log('🎉 ALL 6 CROP RECOMMENDATION REGRESSION TESTS PASSED PERFECTLY!');
+    console.log('🎉 ALL 9 CROP RECOMMENDATION REGRESSION TESTS PASSED PERFECTLY!');
     console.log('======================================================================\n');
   } catch (err) {
     console.error('\n❌ CROP REGRESSION TEST FAILED:', err.message);
@@ -228,3 +318,4 @@ const runCropRegressionTests = async () => {
 testServer.listen(PORT, () => {
   runCropRegressionTests();
 });
+

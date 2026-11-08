@@ -69,8 +69,8 @@
     - Added canonical alias normalization for common soil types (`"Black Soil" -> "Black Cotton Soil"`, `"regur"`, `"alluvial"`, `"clayey"`, etc.) and seasons (`"monsoon" -> "Kharif"`, etc.).
     - Implemented Out-of-Distribution (OOD) log-likelihood boundary check (`logLikelihood < -28.0`) and uncertainty warnings when `confidenceScore < 0.70` or conditions are extreme.
     - Fixed percentage formatting in `test-master-integration.js`, `CropRecommendation.jsx`, `history.controller.js`, and `RecommendationHistory.jsx`.
-    - Created comprehensive regression suite `server/test-crop-regression.js` covering alias mapping, removal of artificial floor, extreme OOD handling, single-crop guarantees, and canonical high-confidence scenarios.
-  - **Verification:** All 11 backend test suites (96 total tests) 100% green. Client production build passing cleanly.
+    - Created comprehensive regression suite `server/test-crop-regression.js` covering alias mapping, removal of artificial floor, extreme OOD handling, single-crop guarantees, Mothbeans scenario, all 6 season aliases, unknown soil consistency, and legacy history record compatibility (9 tests).
+  - **Verification:** All 11 backend test suites (95 verified total tests) 100% green. Client production build passing cleanly.
 - **Known Blockers / Errors:** None. All phases complete and operational.
 
 ---

@@ -55,7 +55,7 @@ npm run client
 # Runs on http://localhost:5173
 ```
 
-To run all 11 automated test suites (96 tests):
+To run all 11 automated test suites (95 tests):
 ```bash
 npm run test:server
 # or: cd server && npm test

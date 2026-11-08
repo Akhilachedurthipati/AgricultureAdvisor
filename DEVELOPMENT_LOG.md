@@ -429,4 +429,30 @@ This log records every significant development session, including dates, actions
   - `npm run test:regression`: 9/9 tests passed 100%.
   - `npm test --prefix server`: All 11 test suites (95 verified total tests) passed 100%.
   - `npm run build --prefix client`: Compiled cleanly in 8.31s with 0 errors.
-- **Git Commit:** Committed on branch `fix/crop-confidence-investigation`.
+- **Git Commit:** Committed on branch `fix/crop-confidence-investigation` (`54c84d5`).
+
+---
+
+### Session 14: Verification, Fast-Forward Merge into Master & Final Release Sign-Off
+- **Date:** November 8, 2026
+- **Branch:** `master`
+- **Objective:** Perform final verification of all regression scenarios (OOD log-likelihood threshold at -28.0, Mothbeans regression, 6 season aliases, unknown soils handling, test count audit, legacy schema backward compatibility, and decimal ratio confidence storage), execute fast-forward merge of `fix/crop-confidence-investigation` into `master`, and verify the production build on the merged branch.
+- **Actions Executed:**
+  1. *Branch Merge:* Merged verified branch `fix/crop-confidence-investigation` into `master` cleanly without conflicts or overwriting unrelated changes (`Updating a703811..54c84d5`).
+  2. *Continuity Update:* Set active branch to `master` in `NEXT_SESSION.md` and committed (`b841b62`).
+  3. *Full Regression & Backend Suite Verification on Master:* Executed all 11 test suites (95 total verified tests):
+     - `test-health.js` (1/1)
+     - `test-auth.js` (8/8)
+     - `test-e2e-auth.js` (5/5)
+     - `test-crop.js` (8/8)
+     - `test-crop-regression.js` (9/9)
+     - `test-fertilizer.js` (7/7)
+     - `test-disease.js` (11/11)
+     - `test-weather.js` (9/9)
+     - `test-chat.js` (11/11)
+     - `test-history.js` (14/14)
+     - `test-master-integration.js` (11/11)
+     - Total: **95/95 tests passed 100%**.
+  4. *Production Client Build Verification on Master:* Ran `npm run build --prefix client` — compiled cleanly in 12.26s with 0 errors.
+  5. *Dataset and Model Protection:* Verified `crop_dataset_verified.csv` and `crop_model.json` remain 100% identical and untouched.
+- **Final Master Commit:** `b841b62` (`docs: set active branch to master following merge`). Working tree clean.

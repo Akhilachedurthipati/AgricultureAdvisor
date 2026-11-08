@@ -8,17 +8,27 @@ export default {
     extend: {
       colors: {
         agri: {
-          50: '#f2fbf4',
-          100: '#e1f6e7',
-          200: '#c3ecd0',
-          300: '#94dbae',
-          400: '#5dc085',
-          500: '#2e9e60', // Primary Green
-          600: '#23844f',
-          700: '#1e6840',
-          800: '#1b5336',
-          900: '#18452e',
-          950: '#0a2618',
+          50: '#F7FAF7',   // Background very light green/white
+          100: '#E8F5EE',
+          200: '#C7E7D6',
+          300: '#94D2B3',
+          400: '#54B787',
+          500: '#22A06B',  // Fresh green (Secondary)
+          600: '#1B8255',
+          700: '#176B45',  // Deep forest green (Primary)
+          800: '#135738',
+          900: '#0F442C',
+          950: '#09271A',
+        },
+        forest: {
+          DEFAULT: '#176B45',
+          dark: '#114F33',
+          light: '#1E8557',
+        },
+        fresh: {
+          DEFAULT: '#22A06B',
+          dark: '#1B8255',
+          light: '#34BA80',
         },
         earth: {
           50: '#faf8f5',
@@ -35,9 +45,12 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+      boxShadow: {
+        'card': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
+        'card-hover': '0 10px 25px -5px rgba(23, 107, 69, 0.08), 0 8px 10px -6px rgba(23, 107, 69, 0.04)',
       }
     },
   },
   plugins: [],
 }
-

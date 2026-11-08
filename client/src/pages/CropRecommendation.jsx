@@ -13,7 +13,8 @@ import {
   CheckCircle2,
   Info,
   SlidersHorizontal,
-  BookmarkCheck
+  BookmarkCheck,
+  Check
 } from 'lucide-react';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
@@ -56,7 +57,7 @@ const PRESETS = [
     rainfall: 85
   },
   {
-    name: 'Winter Grain (Wheat/Chickpea)',
+    name: 'Winter Grain (Wheat)',
     soilType: 'Alluvial Soil',
     season: 'Rabi (Winter: Oct - Mar)',
     temperature: 19.5,
@@ -65,7 +66,7 @@ const PRESETS = [
     rainfall: 65
   },
   {
-    name: 'Summer Arid Pulse',
+    name: 'Summer Arid Pulse (Mothbeans)',
     soilType: 'Sandy Loam Soil',
     season: 'Zaid (Summer: Mar - Jun)',
     temperature: 32.0,
@@ -138,42 +139,41 @@ export default function CropRecommendation() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6 pb-8">
       
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-agri-700 bg-agri-100 px-2.5 py-0.5 rounded-full uppercase">
-              {t('crop.moduleBadge', 'Module 01')}
+            <span className="text-xs font-bold uppercase tracking-wider text-[#176B45]">
+              Intelligent Advisory
             </span>
-            <span className="text-xs text-slate-400 font-medium">Verified ML Pipeline (98.86% Accuracy)</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            {t('crop.title', 'Intelligent Crop Recommendation')}
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
+            {t('crop.title', 'Crop Recommendation')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            {t('crop.subtitle', 'Predict the single most optimal crop tailored for your soil profile, cropping season, and local climate')}
+            {t('crop.subtitle', 'Predict the single most optimal crop tailored for your soil profile, cropping season, and local climate.')}
           </p>
         </div>
 
-        <Badge variant="success" pulse={true}>
-          {t('common.operational', 'Live ML Inference Active')}
+        <Badge variant="agri">
+          Single Optimal Crop Engine
         </Badge>
       </div>
 
       {/* Advisory Banner */}
       <AlertBanner
         variant="disclaimer"
-        title={t('common.preliminaryNotice', 'Official Agricultural Advisory Disclaimer')}
-        message={t('common.disclaimer', 'Recommendations are machine learning predictions trained on historical agronomic observations. They are computational advisories and do not guarantee yield outcomes. Always consult a local agricultural extension officer or soil testing laboratory before purchase of seed stocks.')}
+        title="Agronomic Advisory Notice"
+        message="Recommendations are machine learning predictions based on verified agricultural observations and regional climatic envelopes. Always verify critical decisions with your local agricultural extension officer."
       />
 
       {/* Quick Test Climate Scenarios */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-        <div className="flex items-center space-x-2 text-slate-700 font-semibold">
-          <SlidersHorizontal className="w-4 h-4 text-agri-600" />
-          <span>{t('crop.presetsTitle', 'Quick Evaluation Climate Presets:')}</span>
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center space-x-2 text-[#1F2937] font-semibold">
+          <SlidersHorizontal className="w-4 h-4 text-[#176B45]" />
+          <span>Quick Evaluation Scenarios:</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {PRESETS.map((p, idx) => (
@@ -181,7 +181,7 @@ export default function CropRecommendation() {
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-agri-50 hover:text-agri-800 border border-slate-200 text-slate-600 font-medium transition cursor-pointer text-[11px]"
+              className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-[#E8F5EE] hover:text-[#176B45] border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
             >
               {p.name}
             </button>
@@ -192,7 +192,7 @@ export default function CropRecommendation() {
       {errorMessage && (
         <AlertBanner
           variant="danger"
-          title="Prediction Error"
+          title="Prediction Notice"
           message={errorMessage}
           dismissible={true}
         />
@@ -203,17 +203,17 @@ export default function CropRecommendation() {
         {/* Form Column */}
         <div className="lg:col-span-7">
           <Card
-            title="Environmental & Soil Parameters"
-            subtitle="Enter verified field observations or select a preset above"
+            title="Field & Environmental Parameters"
+            subtitle="Provide your land's soil profile and expected climate observations"
             icon={Sprout}
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-5">
               
               {/* Soil Type & Season */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-agri-600" />
+                    <Layers className="w-3.5 h-3.5 text-[#176B45]" />
                     <span>{t('crop.soilType', 'Soil Type')} *</span>
                   </label>
                   <select
@@ -221,7 +221,7 @@ export default function CropRecommendation() {
                     value={formData.soilType}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm bg-white text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
                   >
                     {SOIL_TYPES.map((st) => (
                       <option key={st} value={st}>{st}</option>
@@ -231,7 +231,7 @@ export default function CropRecommendation() {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-agri-600" />
+                    <Calendar className="w-3.5 h-3.5 text-[#176B45]" />
                     <span>{t('crop.season', 'Cropping Season')} *</span>
                   </label>
                   <select
@@ -239,7 +239,7 @@ export default function CropRecommendation() {
                     value={formData.season}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm bg-white text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
                   >
                     {SEASONS.map((sn) => (
                       <option key={sn} value={sn}>{sn}</option>
@@ -256,7 +256,7 @@ export default function CropRecommendation() {
                       <Thermometer className="w-3.5 h-3.5 text-rose-500" />
                       <span>{t('crop.temperature', 'Average Temperature (°C)')} *</span>
                     </span>
-                    <span className="text-[11px] font-bold text-slate-500">{formData.temperature}°C</span>
+                    <span className="text-xs font-bold text-slate-600">{formData.temperature}°C</span>
                   </label>
                   <input
                     type="number"
@@ -267,7 +267,7 @@ export default function CropRecommendation() {
                     value={formData.temperature}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
 
@@ -277,7 +277,7 @@ export default function CropRecommendation() {
                       <Droplets className="w-3.5 h-3.5 text-sky-500" />
                       <span>{t('crop.humidity', 'Relative Humidity (%)')} *</span>
                     </span>
-                    <span className="text-[11px] font-bold text-slate-500">{formData.humidity}%</span>
+                    <span className="text-xs font-bold text-slate-600">{formData.humidity}%</span>
                   </label>
                   <input
                     type="number"
@@ -287,7 +287,7 @@ export default function CropRecommendation() {
                     value={formData.humidity}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
@@ -297,10 +297,10 @@ export default function CropRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <Gauge className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>{t('crop.soilPh', 'Soil pH Level (3.5 - 9.5)')} *</span>
+                      <Gauge className="w-3.5 h-3.5 text-[#176B45]" />
+                      <span>{t('crop.soilPh', 'Soil pH Level')} *</span>
                     </span>
-                    <span className="text-[11px] font-bold text-slate-500">{formData.ph}</span>
+                    <span className="text-xs font-bold text-slate-600">{formData.ph}</span>
                   </label>
                   <input
                     type="number"
@@ -311,7 +311,7 @@ export default function CropRecommendation() {
                     value={formData.ph}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
 
@@ -321,7 +321,7 @@ export default function CropRecommendation() {
                       <CloudRain className="w-3.5 h-3.5 text-blue-500" />
                       <span>{t('crop.rainfall', 'Expected Rainfall (mm)')} *</span>
                     </span>
-                    <span className="text-[11px] font-bold text-slate-500">{formData.rainfall} mm</span>
+                    <span className="text-xs font-bold text-slate-600">{formData.rainfall} mm</span>
                   </label>
                   <input
                     type="number"
@@ -331,7 +331,7 @@ export default function CropRecommendation() {
                     value={formData.rainfall}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs sm:text-sm text-slate-800"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
@@ -343,7 +343,7 @@ export default function CropRecommendation() {
                   icon={Sparkles}
                   className="w-full"
                 >
-                  {loading ? t('crop.analyzing', 'Running Machine Learning Model...') : t('crop.predictBtn', 'Find Optimal Crop')}
+                  {loading ? 'Evaluating Crop Suitability...' : 'Find Optimal Crop'}
                 </Button>
               </div>
 
@@ -355,25 +355,25 @@ export default function CropRecommendation() {
         <div className="lg:col-span-5 space-y-4">
           {result ? (
             <Card
-              title={t('crop.resultTitle', 'Best-Suited Crop Advisory')}
-              subtitle={t('crop.subtitle', 'Single optimal crop predicted by the trained ML pipeline')}
-              className="border-agri-400 ring-2 ring-agri-500/15 animate-in fade-in"
+              title="Optimal Recommended Crop"
+              subtitle="Single best suited crop for your environmental parameters"
+              className="border-[#22A06B]/50 ring-1 ring-[#22A06B]/20 animate-in fade-in"
             >
               <div className="space-y-4">
                 
-                {/* Result Hero Pill */}
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-agri-700 via-agri-600 to-agri-800 text-white flex items-center justify-between shadow-lg shadow-agri-950/10">
+                {/* Result Hero Header */}
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#176B45] to-[#114F33] text-white flex items-center justify-between shadow-sm">
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider text-agri-200 font-bold block">
-                      {t('crop.resultTitle', 'Recommended Single Crop')}
+                    <span className="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">
+                      Recommended Crop
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-black mt-0.5 tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl font-black mt-0.5 tracking-tight text-white">
                       {result.cropName}
                     </h2>
                   </div>
                   <div className="text-right bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 backdrop-blur-sm">
-                    <span className="text-[10px] uppercase text-agri-200 block font-bold">{t('crop.confidence', 'Model Confidence')}</span>
-                    <span className="text-xl font-extrabold">
+                    <span className="text-[10px] uppercase text-emerald-200 block font-bold">Confidence</span>
+                    <span className="text-xl font-extrabold text-white">
                       {(result.confidenceScore <= 1.0 ? Math.round(result.confidenceScore * 100) : Math.round(result.confidenceScore))}%
                     </span>
                   </div>
@@ -392,19 +392,19 @@ export default function CropRecommendation() {
 
                 {/* Suitability Explanation */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-slate-800 flex items-center gap-1.5">
-                    <BookmarkCheck className="w-4 h-4 text-agri-600" />
-                    <span>{t('crop.suitability', 'Agronomic Suitability Rationale')}</span>
+                  <span className="font-bold text-[#1F2937] flex items-center gap-1.5">
+                    <BookmarkCheck className="w-4 h-4 text-[#176B45]" />
+                    <span>Agronomic Suitability Rationale</span>
                   </span>
-                  <p className="text-slate-700 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                  <p className="text-slate-700 leading-relaxed bg-[#F7FAF7] p-3.5 rounded-xl border border-slate-200">
                     {result.suitabilityExplanation}
                   </p>
                 </div>
 
                 {/* Cultivation Guidance */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-slate-800 block">{t('crop.cultivationGuide', 'Cultivation & Management Guidelines')}</span>
-                  <p className="text-slate-700 leading-relaxed bg-slate-50 p-3.5 rounded-xl border border-slate-100">
+                  <span className="font-bold text-[#1F2937] block">Cultivation & Field Guidelines</span>
+                  <p className="text-slate-700 leading-relaxed bg-[#F7FAF7] p-3.5 rounded-xl border border-slate-200">
                     {result.cultivationInformation}
                   </p>
                 </div>
@@ -412,21 +412,21 @@ export default function CropRecommendation() {
                 {/* Optimal Agronomic Ranges */}
                 {result.agronomicParameters && (
                   <div className="space-y-1.5 text-xs">
-                    <span className="font-bold text-slate-800 block">Baseline Parameter Ranges for {result.cropName}</span>
+                    <span className="font-bold text-[#1F2937] block">Optimal Agronomic Ranges for {result.cropName}</span>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
-                      <div className="p-2 bg-slate-50 rounded-lg border border-slate-100">
+                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Temp</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalTemperature}</span>
                       </div>
-                      <div className="p-2 bg-slate-50 rounded-lg border border-slate-100">
+                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Humidity</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalHumidity}</span>
                       </div>
-                      <div className="p-2 bg-slate-50 rounded-lg border border-slate-100">
+                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Soil pH</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalSoilPh}</span>
                       </div>
-                      <div className="p-2 bg-slate-50 rounded-lg border border-slate-100">
+                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Rainfall</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalRainfall}</span>
                       </div>
@@ -434,38 +434,24 @@ export default function CropRecommendation() {
                   </div>
                 )}
 
-                <div className="p-3 bg-agri-50 rounded-xl border border-agri-200 text-[11px] text-agri-900 flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-agri-600 shrink-0 mt-0.5" />
-                  <span>Recommendation successfully recorded in your personal farmer history for future auditing.</span>
+                <div className="p-3 bg-[#E8F5EE] rounded-xl border border-[#C7E7D6] text-[11px] text-[#176B45] flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                  <span>Recommendation saved to your farmer history for seasonal auditing.</span>
                 </div>
 
               </div>
             </Card>
           ) : (
             <Card className="text-center py-14 px-6 flex flex-col items-center justify-center space-y-3">
-              <div className="w-14 h-14 rounded-2xl bg-agri-50 text-agri-600 flex items-center justify-center border border-agri-100">
-                <Sprout className="w-7 h-7" />
+              <div className="w-14 h-14 rounded-2xl bg-[#E8F5EE] text-[#176B45] flex items-center justify-center border border-[#C7E7D6]">
+                <Sprout className="w-7 h-7 text-[#22A06B]" />
               </div>
-              <h3 className="font-bold text-slate-800 text-base">Model Awaiting Parameters</h3>
+              <h3 className="font-bold text-[#1F2937] text-base">Awaiting Parameters</h3>
               <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
-                Provide your farm's soil type, cropping season, and weather observations, then click "Run ML Model" to obtain your single best-suited crop.
+                Provide your farm's soil type, cropping season, and weather observations, then click "Find Optimal Crop".
               </p>
             </Card>
           )}
-
-          {/* Project Compliance Card */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200/80 text-xs text-slate-600 space-y-2">
-            <h4 className="font-bold text-slate-800 flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>Project Specification Integrity</span>
-            </h4>
-            <ul className="list-disc list-inside space-y-1 text-slate-500 text-[11px]">
-              <li>Recommends exactly <strong>ONE</strong> crop (zero decision confusion).</li>
-              <li>Trained on 2,200 verified ICAR-augmented agricultural observations.</li>
-              <li>Includes genuine model confidence score & physiological explanation.</li>
-            </ul>
-          </div>
-
         </div>
 
       </div>

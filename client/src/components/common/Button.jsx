@@ -14,15 +14,16 @@ export default function Button({
   className = '',
   ...props
 }) {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed select-none cursor-pointer';
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed select-none cursor-pointer';
 
   const variants = {
-    primary: 'bg-agri-600 hover:bg-agri-700 active:bg-agri-800 text-white shadow-md shadow-agri-600/20 focus:ring-agri-500',
-    secondary: 'bg-slate-100 hover:bg-slate-200 active:bg-slate-300 text-slate-800 focus:ring-slate-400',
-    outline: 'border-2 border-agri-600 hover:bg-agri-50 active:bg-agri-100 text-agri-700 focus:ring-agri-500',
-    danger: 'bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white shadow-md shadow-rose-600/20 focus:ring-rose-500',
-    ghost: 'text-slate-600 hover:text-agri-800 hover:bg-agri-50/80 active:bg-agri-100/60 focus:ring-agri-500',
-    earth: 'bg-earth-600 hover:bg-earth-700 text-white shadow-md shadow-earth-600/20 focus:ring-earth-500'
+    primary: 'bg-[#176B45] hover:bg-[#114F33] active:bg-[#0D3F28] text-white shadow-sm shadow-[#176B45]/20 focus:ring-[#176B45]',
+    secondary: 'bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-800 border border-slate-200 shadow-sm focus:ring-slate-300',
+    fresh: 'bg-[#22A06B] hover:bg-[#1B8255] active:bg-[#176B45] text-white shadow-sm shadow-[#22A06B]/20 focus:ring-[#22A06B]',
+    outline: 'border border-[#176B45] hover:bg-agri-100/60 active:bg-agri-200/50 text-[#176B45] focus:ring-[#176B45]',
+    danger: 'bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white shadow-sm shadow-rose-600/20 focus:ring-rose-500',
+    ghost: 'text-slate-600 hover:text-[#176B45] hover:bg-slate-100/80 active:bg-slate-200/60 focus:ring-[#176B45]',
+    earth: 'bg-[#7C5942] hover:bg-[#674A39] text-white shadow-sm focus:ring-[#7C5942]'
   };
 
   const sizes = {
@@ -54,4 +55,3 @@ export default function Button({
     </button>
   );
 }
-

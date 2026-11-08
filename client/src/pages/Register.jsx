@@ -89,27 +89,27 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-10 bg-gradient-to-b from-agri-50/50 via-white to-slate-50">
-      <div className="max-w-xl w-full space-y-6">
+    <div className="min-h-[calc(100vh-8rem)] flex items-center justify-center px-4 py-8">
+      <div className="max-w-xl w-full space-y-5">
         
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-agri-600 text-white shadow-lg shadow-agri-600/30 mb-2">
-            <Sprout className="w-8 h-8" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#176B45] text-white shadow-sm mb-1">
+            <Sprout className="w-7 h-7 text-[#A3E635]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            {t('auth.registerTitle', 'Register as a Farmer')}
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
+            {t('auth.registerTitle', 'Register Farmer Account')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
-            {t('auth.registerSubtitle', 'Create your account to unlock AI crop recommendations, disease detection, and multilingual assistance')}
+            {t('auth.registerSubtitle', 'Join Agriculture Advisor for personalized crop and fertilizer recommendations')}
           </p>
         </div>
 
         {/* Form Container */}
-        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-200/40 p-6 sm:p-8">
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
           
           {errorMessage && (
-            <div className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2">
+            <div className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2 animate-in fade-in">
               <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
               <span>{errorMessage}</span>
             </div>
@@ -121,7 +121,7 @@ export default function Register() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  {t('auth.name', 'Full Name')} *
+                  {t('auth.name', 'Farmer Full Name')} *
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
@@ -134,7 +134,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="e.g. Ramesh Patel"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
                   />
                 </div>
               </div>
@@ -152,8 +152,8 @@ export default function Register() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="10-digit mobile number"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm"
+                    placeholder="9876543210"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
                   />
                 </div>
               </div>
@@ -176,7 +176,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="farmer@example.com"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
                   />
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function Register() {
                     name="preferredLanguage"
                     value={formData.preferredLanguage}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm bg-white font-medium"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white outline-none transition"
                   >
                     {SUPPORTED_LANGUAGES.map((lang) => (
                       <option key={lang.code} value={lang.code}>
@@ -208,7 +208,7 @@ export default function Register() {
             {/* Location (State, District, City) */}
             <div>
               <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                Farm Location Details ({t('auth.state', 'State')}, {t('auth.district', 'District')}, {t('auth.city', 'City')})
+                Farm Location Details ({t('auth.state', 'State')}, {t('auth.district', 'District')}, {t('auth.city', 'Town/Village')})
               </label>
               <div className="grid grid-cols-3 gap-2">
                 <input
@@ -217,7 +217,7 @@ export default function Register() {
                   value={formData.state}
                   onChange={handleChange}
                   placeholder={t('auth.state', 'State')}
-                  className="py-2 px-3 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
                 />
                 <input
                   type="text"
@@ -225,7 +225,7 @@ export default function Register() {
                   value={formData.district}
                   onChange={handleChange}
                   placeholder={t('auth.district', 'District')}
-                  className="py-2 px-3 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
                 />
                 <input
                   type="text"
@@ -233,7 +233,7 @@ export default function Register() {
                   value={formData.city}
                   onChange={handleChange}
                   placeholder={t('auth.city', 'Town / Village')}
-                  className="py-2 px-3 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
                 />
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm"
+                    className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
                   />
                   <button
                     type="button"
@@ -282,7 +282,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
                   />
                 </div>
               </div>
@@ -292,17 +292,17 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-4 py-3 px-4 rounded-xl bg-agri-600 hover:bg-agri-700 active:bg-agri-800 text-white font-semibold text-xs sm:text-sm shadow-md shadow-agri-600/30 flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
+              className="w-full mt-4 py-3 px-4 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-xs sm:text-sm shadow-sm flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
             >
               {loading ? (
                 <>
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  <span>{t('common.loading', 'Creating your account...')}</span>
+                  <span>Creating your account...</span>
                 </>
               ) : (
                 <>
                   <UserPlus className="w-4 h-4" />
-                  <span>{t('auth.registerBtn', 'Create Farmer Account')}</span>
+                  <span>Create Farmer Account</span>
                 </>
               )}
             </button>
@@ -313,7 +313,7 @@ export default function Register() {
             <span>{t('auth.haveAccount', 'Already registered?')} </span>
             <Link 
               to="/login" 
-              className="font-bold text-agri-700 hover:text-agri-800 hover:underline"
+              className="font-bold text-[#176B45] hover:underline"
             >
               {t('auth.loginBtn', 'Sign In to Your Account')}
             </Link>
@@ -325,4 +325,3 @@ export default function Register() {
     </div>
   );
 }
-

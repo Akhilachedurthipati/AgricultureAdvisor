@@ -20,7 +20,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <div className="min-h-screen bg-gradient-to-b from-agri-50/60 via-white to-slate-50 flex flex-col font-sans text-slate-800">
+        <div className="min-h-screen bg-[#F7FAF7] flex flex-col font-sans text-[#1F2937]">
           <Navbar />
 
           <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">

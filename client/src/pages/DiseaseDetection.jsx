@@ -393,10 +393,9 @@ export default function DiseaseDetection() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full uppercase">
-              {t('disease.moduleBadge', 'Module 03')}
+            <span className="text-xs font-bold uppercase tracking-wider text-rose-700">
+              Pathology Screening
             </span>
-            <span className="text-xs text-slate-400 font-medium">Computer Vision Pathology Screening</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
             {t('disease.title', 'Crop Disease Detection')}

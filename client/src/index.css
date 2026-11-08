@@ -4,22 +4,24 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-agri-200 selection:text-agri-900;
+    background-color: #F7FAF7;
+    color: #1F2937;
+    @apply antialiased min-h-screen flex flex-col font-sans selection:bg-agri-200 selection:text-agri-900;
   }
 }
 
 /* Custom scrollbars for clean UI */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #F7FAF7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: #CBD5E1;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #94A3B8;
 }

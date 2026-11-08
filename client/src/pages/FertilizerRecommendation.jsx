@@ -13,7 +13,8 @@ import {
   BookmarkCheck, 
   Package, 
   Clock, 
-  Info 
+  Info,
+  Check
 } from 'lucide-react';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
@@ -69,7 +70,7 @@ const PRESETS = [
     landArea: 5
   },
   {
-    name: 'Groundnut (Red Soil, 3 Acres - SSP)',
+    name: 'Groundnut (Red Soil, 3 Acres)',
     soilType: 'Red Soil',
     season: 'Kharif (Monsoon: Jun - Oct)',
     crop: 'Groundnut',
@@ -156,42 +157,41 @@ export default function FertilizerRecommendation() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6 pb-8">
       
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-amber-700 bg-amber-100 px-2.5 py-0.5 rounded-full uppercase">
-              {t('fertilizer.moduleBadge', 'Module 02')}
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
+              Nutrient Management
             </span>
-            <span className="text-xs text-slate-400 font-medium">Validated Agronomic STCR Calculations</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
-            {t('fertilizer.title', 'Precision Fertilizer Recommendation')}
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
+            {t('fertilizer.title', 'Fertilizer Guidance')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            {t('fertilizer.subtitle', 'Calculate accurate N-P-K nutrient replenishment, split application timetables, and chemical safety protocols')}
+            {t('fertilizer.subtitle', 'Calculate accurate N-P-K nutrient replenishment, split application timetables, and chemical safety protocols.')}
           </p>
         </div>
 
-        <Badge variant="warning" pulse={true}>
-          {t('common.operational', 'STCR Engine Active')}
+        <Badge variant="warning">
+          STCR Precision Engine
         </Badge>
       </div>
 
       {/* Advisory Banner */}
       <AlertBanner
         variant="advisory"
-        title={t('common.preliminaryNotice', 'Official Soil Health & Chemical Safety Notice')}
-        message={t('common.disclaimer', 'Exact nutrient requirements depend heavily on recent soil health card lab reports. Follow calculated application guidelines to prevent groundwater contamination or fertilizer burn. Always consult your district agricultural extension officer.')}
+        title="Soil Health & Chemical Safety Notice"
+        message="Exact nutrient requirements depend heavily on recent soil health card lab reports. Follow calculated application guidelines to prevent groundwater contamination or fertilizer burn. Always consult your district agricultural extension officer."
       />
 
       {/* Quick Test Presets */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 p-4 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-        <div className="flex items-center space-x-2 text-slate-700 font-semibold">
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center space-x-2 text-[#1F2937] font-semibold">
           <SlidersHorizontal className="w-4 h-4 text-amber-600" />
-          <span>{t('crop.presetsTitle', 'Quick Evaluation Scenarios:')}</span>
+          <span>Quick Evaluation Scenarios:</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
           {PRESETS.map((p, idx) => (
@@ -199,7 +199,7 @@ export default function FertilizerRecommendation() {
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 border border-slate-200 text-slate-600 font-medium transition cursor-pointer text-[11px]"
+              className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
             >
               {p.name}
             </button>
@@ -210,7 +210,7 @@ export default function FertilizerRecommendation() {
       {errorMessage && (
         <AlertBanner
           variant="danger"
-          title="Input Error"
+          title="Calculation Notice"
           message={errorMessage}
           dismissible={true}
         />
@@ -221,98 +221,96 @@ export default function FertilizerRecommendation() {
         {/* Form Column */}
         <div className="lg:col-span-6">
           <Card
-            title="Crop & Soil Nutrient Data"
-            subtitle="Provide your soil testing readings and farm acreage"
+            title="Crop & Soil Nutrients"
+            subtitle="Provide your target crop, land area, and measured soil N-P-K levels"
             icon={FlaskConical}
           >
             <form onSubmit={handleSubmit} className="space-y-4">
               
-              {/* Soil Type & Season */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{t('fertilizer.soilType', 'Soil Type')} *</span>
-                  </label>
-                  <select
-                    name="soilType"
-                    value={formData.soilType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-500 text-xs sm:text-sm bg-white"
-                  >
-                    {SOIL_TYPES.map((st) => (
-                      <option key={st} value={st}>{st}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{t('fertilizer.season', 'Season')} *</span>
-                  </label>
-                  <select
-                    name="season"
-                    value={formData.season}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-500 text-xs sm:text-sm bg-white"
-                  >
-                    {SEASONS.map((sn) => (
-                      <option key={sn} value={sn}>{sn}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Crop & Land Area */}
+              {/* Target Crop & Soil Type */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {t('fertilizer.selectCrop', 'Target Crop')} *
+                    Target Crop *
                   </label>
                   <select
                     name="crop"
                     value={formData.crop}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-500 text-xs sm:text-sm bg-white"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
                   >
-                    {CROPS.map((cr) => (
-                      <option key={cr} value={cr}>{cr}</option>
+                    {CROPS.map((c) => (
+                      <option key={c} value={c}>{c}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Scale className="w-3.5 h-3.5 text-amber-600" />
-                    <span>{t('fertilizer.landArea', 'Land Area (Acres)')} *</span>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Soil Type *
+                  </label>
+                  <select
+                    name="soilType"
+                    value={formData.soilType}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                  >
+                    {SOIL_TYPES.map((st) => (
+                      <option key={st} value={st}>{st}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Cropping Season & Land Area */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                    Cropping Season *
+                  </label>
+                  <select
+                    name="season"
+                    value={formData.season}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                  >
+                    {SEASONS.map((sn) => (
+                      <option key={sn} value={sn}>{sn}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
+                    <span>Land Area (Acres) *</span>
+                    <span className="text-xs font-bold text-amber-700">{formData.landArea} Acre(s)</span>
                   </label>
                   <input
                     type="number"
                     step="0.5"
                     min="0.1"
-                    max="5000"
+                    max="1000"
                     name="landArea"
                     value={formData.landArea}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-amber-500 text-xs sm:text-sm"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-amber-600 focus:ring-1 focus:ring-amber-600 text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
 
               {/* Measured Soil Nutrients */}
-              <div className="space-y-2">
-                <label className="block text-xs font-bold text-slate-700 flex items-center justify-between">
+              <div className="space-y-2 pt-1">
+                <label className="block text-xs font-bold text-slate-800 flex items-center justify-between">
                   <span>Soil Nutrient Test Values (from Soil Health Card)</span>
                   <span className="text-[11px] text-slate-400 font-normal">Values in kg/acre</span>
                 </label>
                 <div className="grid grid-cols-3 gap-3">
                   <div>
-                    <span className="text-[11px] font-semibold text-blue-700 block mb-1">{t('fertilizer.nitrogen', 'Nitrogen (N)')} *</span>
+                    <span className="text-[11px] font-semibold text-blue-700 block mb-1">Nitrogen (N) *</span>
                     <input
                       type="number"
                       min="0"
@@ -321,12 +319,12 @@ export default function FertilizerRecommendation() {
                       value={formData.nitrogen}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 text-xs text-slate-800"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-600 text-xs text-slate-800 outline-none transition"
                     />
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-semibold text-amber-700 block mb-1">{t('fertilizer.phosphorus', 'Phosphorus (P)')} *</span>
+                    <span className="text-[11px] font-semibold text-amber-700 block mb-1">Phosphorus (P) *</span>
                     <input
                       type="number"
                       min="0"
@@ -335,12 +333,12 @@ export default function FertilizerRecommendation() {
                       value={formData.phosphorus}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 text-xs text-slate-800"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-600 text-xs text-slate-800 outline-none transition"
                     />
                   </div>
 
                   <div>
-                    <span className="text-[11px] font-semibold text-emerald-700 block mb-1">{t('fertilizer.potassium', 'Potassium (K)')} *</span>
+                    <span className="text-[11px] font-semibold text-emerald-700 block mb-1">Potassium (K) *</span>
                     <input
                       type="number"
                       min="0"
@@ -349,7 +347,7 @@ export default function FertilizerRecommendation() {
                       value={formData.potassium}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-500 text-xs text-slate-800"
+                      className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-amber-600 text-xs text-slate-800 outline-none transition"
                     />
                   </div>
                 </div>
@@ -360,9 +358,9 @@ export default function FertilizerRecommendation() {
                   type="submit"
                   loading={loading}
                   icon={Sparkles}
-                  className="w-full !bg-amber-600 hover:!bg-amber-700 active:!bg-amber-800"
+                  className="w-full !bg-amber-600 hover:!bg-amber-700 text-white"
                 >
-                  {loading ? t('common.loading', 'Processing...') : t('fertilizer.calculateBtn', 'Calculate Fertilizer Dosage')}
+                  {loading ? 'Calculating Nutrient Dosages...' : 'Calculate Fertilizer Dosage'}
                 </Button>
               </div>
 
@@ -374,16 +372,16 @@ export default function FertilizerRecommendation() {
         <div className="lg:col-span-6 space-y-4">
           {result ? (
             <Card
-              title={t('fertilizer.resultsTitle', 'Tailored Fertilizer Advisory')}
-              subtitle={`Agronomic recommendation for ${result.landArea} ${t('common.acres', 'Acre(s)')} of ${result.crop}`}
-              className="border-amber-300 ring-2 ring-amber-500/15 animate-in fade-in"
+              title="Tailored Fertilizer Advisory"
+              subtitle={`Precision plan for ${result.landArea} Acre(s) of ${result.crop}`}
+              className="border-amber-300 ring-1 ring-amber-400/30 animate-in fade-in"
             >
               <div className="space-y-4">
                 
                 {/* Header Banner */}
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-600 via-amber-700 to-orange-700 text-white shadow-md">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-xs">
                   <span className="text-[10px] uppercase font-bold tracking-wider text-amber-200 block">
-                    Recommended Fertilizer Formulation
+                    Recommended Formulation
                   </span>
                   <h3 className="text-base sm:text-lg font-black mt-1 leading-snug">
                     {result.fertilizerCombination}
@@ -394,38 +392,38 @@ export default function FertilizerRecommendation() {
                 <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
                   <span className="text-xs font-bold text-amber-950 flex items-center gap-1.5">
                     <Package className="w-4 h-4 text-amber-700" />
-                    <span>{t('fertilizer.purchaseBreakdown', 'Total Purchase Requirements')} ({result.landArea} {t('common.acres', 'Acres')}):</span>
+                    <span>Total Purchase Requirements ({result.landArea} Acres):</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-sm text-center">
+                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">Urea (46% N)</span>
                       <span className="text-base font-extrabold text-slate-900 block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.ureaTotalKg} kg
                       </span>
-                      <span className="text-[11px] font-semibold text-amber-700">
+                      <span className="text-xs font-semibold text-amber-700">
                         {result.dosageBreakdown.totalLandArea.ureaTotalBags}
                       </span>
                     </div>
 
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-sm text-center">
+                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">
-                        {result.dosageBreakdown.totalLandArea.pCarrierName} (P₂O₅)
+                        {result.dosageBreakdown.totalLandArea.pCarrierName}
                       </span>
                       <span className="text-base font-extrabold text-slate-900 block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.pTotalKg} kg
                       </span>
-                      <span className="text-[11px] font-semibold text-amber-700">
+                      <span className="text-xs font-semibold text-amber-700">
                         {result.dosageBreakdown.totalLandArea.pTotalBags}
                       </span>
                     </div>
 
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-sm text-center">
+                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">MOP (60% K₂O)</span>
                       <span className="text-base font-extrabold text-slate-900 block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.mopTotalKg} kg
                       </span>
-                      <span className="text-[11px] font-semibold text-amber-700">
+                      <span className="text-xs font-semibold text-amber-700">
                         {result.dosageBreakdown.totalLandArea.mopTotalBags}
                       </span>
                     </div>
@@ -434,12 +432,12 @@ export default function FertilizerRecommendation() {
 
                 {/* Nutrient Deficit Status */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-slate-800 flex items-center gap-1.5">
+                  <span className="font-bold text-[#1F2937] flex items-center gap-1.5">
                     <BookmarkCheck className="w-4 h-4 text-amber-600" />
                     <span>Soil Test Nutrient Deficit Evaluation</span>
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px]">
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-slate-700">Nitrogen</span>
                         <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
@@ -448,10 +446,10 @@ export default function FertilizerRecommendation() {
                           {result.nutrientDeficitAnalysis.nitrogen.status}
                         </span>
                       </div>
-                      <span className="text-slate-500 mt-1 block">Target: {result.nutrientDeficitAnalysis.nitrogen.targetRate}</span>
+                      <p className="text-slate-500 text-[10px] mt-1">Target: {result.nutrientDeficitAnalysis.nitrogen.targetRate}</p>
                     </div>
 
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-slate-700">Phosphorus</span>
                         <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
@@ -460,80 +458,62 @@ export default function FertilizerRecommendation() {
                           {result.nutrientDeficitAnalysis.phosphorus.status}
                         </span>
                       </div>
-                      <span className="text-slate-500 mt-1 block">Target: {result.nutrientDeficitAnalysis.phosphorus.targetRate}</span>
+                      <p className="text-slate-500 text-[10px] mt-1">Target: {result.nutrientDeficitAnalysis.phosphorus.targetRate}</p>
                     </div>
 
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-slate-700">Potassium</span>
                         <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                          result.nutrientDeficitAnalysis.potassium.status === 'Low' ? 'bg-rose-100 text-rose-800' : 'bg-emerald-100 text-emerald-800'
+                          result.nutrientDeficitAnalysis.potassium.status === 'High' ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
                         }`}>
                           {result.nutrientDeficitAnalysis.potassium.status}
                         </span>
                       </div>
-                      <span className="text-slate-500 mt-1 block">Target: {result.nutrientDeficitAnalysis.potassium.targetRate}</span>
+                      <p className="text-slate-500 text-[10px] mt-1">Target: {result.nutrientDeficitAnalysis.potassium.targetRate}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Application Schedule */}
-                <div className="space-y-1 text-xs">
-                  <span className="font-bold text-slate-800 flex items-center gap-1.5">
-                    <Clock className="w-4 h-4 text-agri-600" />
-                    <span>Split Application Guidance</span>
+                {/* Split Application Schedule */}
+                <div className="space-y-1.5 text-xs">
+                  <span className="font-bold text-[#1F2937] flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-amber-600" />
+                    <span>Application Timetable</span>
                   </span>
-                  <pre className="font-sans whitespace-pre-wrap p-3 rounded-xl bg-slate-50 border border-slate-100 text-slate-700 text-[11px] leading-relaxed">
+                  <div className="bg-[#F7FAF7] p-3.5 rounded-xl border border-slate-200 text-slate-700 leading-relaxed font-mono text-[11px] whitespace-pre-line">
                     {result.applicationGuidance}
-                  </pre>
+                  </div>
                 </div>
 
                 {/* Safety Precautions */}
-                <div className="space-y-1 text-xs">
-                  <span className="font-bold text-slate-800 flex items-center gap-1.5">
-                    <ShieldAlert className="w-4 h-4 text-rose-500" />
-                    <span>Handling & Environmental Safety Precautions</span>
-                  </span>
-                  <ul className="space-y-1 bg-rose-50/60 p-3 rounded-xl border border-rose-100 text-[11px] text-rose-950">
-                    {result.safetyPrecautions.map((precaution, idx) => (
-                      <li key={idx} className="flex items-start gap-1.5">
-                        <span className="text-rose-500 mt-0.5">•</span>
-                        <span>{precaution}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200 text-[11px] text-amber-900 flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                  <span>Fertilizer recommendation recorded in your farmer history for multi-season tracking.</span>
-                </div>
+                {result.safetyPrecautions && (
+                  <div className="space-y-1.5 text-xs">
+                    <span className="font-bold text-rose-900 flex items-center gap-1.5">
+                      <ShieldAlert className="w-4 h-4 text-rose-600" />
+                      <span>Chemical Handling Safety</span>
+                    </span>
+                    <ul className="list-disc list-inside space-y-1 bg-rose-50/70 p-3 rounded-xl border border-rose-200 text-rose-900 text-[11px] leading-relaxed">
+                      {result.safetyPrecautions.slice(0, 3).map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               </div>
             </Card>
           ) : (
-            <Card className="text-center py-16 px-6 flex flex-col items-center justify-center space-y-3">
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
+            <Card className="text-center py-14 px-6 flex flex-col items-center justify-center space-y-3">
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
                 <FlaskConical className="w-7 h-7" />
               </div>
-              <h3 className="font-bold text-slate-800 text-base">Nutrient Engine Awaiting Data</h3>
+              <h3 className="font-bold text-[#1F2937] text-base">Awaiting Field Information</h3>
               <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
-                Enter your soil's N-P-K nutrient readings and acreage to calculate precise fertilizer quantities and avoid chemical over-application.
+                Select your crop, land area, and enter your soil test values to generate customized fertilizer dosage schedules.
               </p>
             </Card>
           )}
-
-          {/* ICAR Compliance Card */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200/80 text-xs text-slate-600 space-y-2">
-            <h4 className="font-bold text-slate-800 flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>Scientific Agronomic Verification</span>
-            </h4>
-            <p className="text-slate-500 text-[11px] leading-relaxed">
-              Calculations account for fertilizer nutrient carrier percentages (Urea 46% N, DAP 18% N + 46% P₂O₅, SSP 16% P₂O₅, MOP 60% K₂O) and soil texture leaching dynamics.
-            </p>
-          </div>
-
         </div>
 
       </div>

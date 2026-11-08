@@ -79,22 +79,22 @@ export default function UserProfile() {
       {/* Page Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
             {t('nav.farmerProfile', 'Farmer Profile')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Manage your personal farm details, preferred language, and geographical location
           </p>
         </div>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 self-start sm:self-auto">
-          <ShieldCheck className="w-4 h-4 text-emerald-600" />
-          <span>Verified Account</span>
+        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#E8F5EE] text-[#176B45] border border-[#C7E7D6] self-start sm:self-auto">
+          <ShieldCheck className="w-4 h-4 text-[#22A06B]" />
+          <span>Verified Farmer Profile</span>
         </div>
       </div>
 
       {successMessage && (
-        <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+        <div className="p-4 rounded-2xl bg-[#E8F5EE] border border-[#C7E7D6] text-xs text-[#176B45] flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
           <span>{successMessage}</span>
         </div>
       )}
@@ -109,12 +109,12 @@ export default function UserProfile() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Left Profile Overview Card */}
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm flex flex-col items-center text-center space-y-4">
-          <div className="w-20 h-20 rounded-full bg-agri-600 text-white flex items-center justify-center font-bold text-3xl shadow-lg shadow-agri-600/30">
+        <div className="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-card flex flex-col items-center text-center space-y-4">
+          <div className="w-20 h-20 rounded-full bg-[#176B45] text-white flex items-center justify-center font-bold text-3xl shadow-sm">
             {formData.name ? formData.name.charAt(0).toUpperCase() : 'F'}
           </div>
           <div>
-            <h3 className="font-bold text-lg text-slate-900">{formData.name || 'Farmer'}</h3>
+            <h3 className="font-bold text-lg text-[#1F2937]">{formData.name || 'Farmer'}</h3>
             <p className="text-xs text-slate-500 mt-0.5">{user?.email}</p>
           </div>
 
@@ -131,7 +131,7 @@ export default function UserProfile() {
               <MapPin className="w-4 h-4 text-slate-400 shrink-0" />
               <span>
                 {formData.state 
-                  ? `${formData.city ? `${formData.city}, ` : ''}${formData.state}` 
+                  ? `${formData.city ? `${formData.city}, ` : ''}${formData.district ? `${formData.district}, ` : ''}${formData.state}` 
                   : 'Location not configured'}
               </span>
             </div>
@@ -143,10 +143,10 @@ export default function UserProfile() {
         </div>
 
         {/* Right Form Card */}
-        <div className="md:col-span-2 bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-sm">
+        <div className="md:col-span-2 bg-white rounded-3xl border border-slate-200/90 p-6 sm:p-8 shadow-card">
           <form onSubmit={handleSubmit} className="space-y-5">
             
-            <h3 className="text-sm font-bold text-slate-800 pb-2 border-b border-slate-100">
+            <h3 className="text-sm font-bold text-[#1F2937] pb-2 border-b border-slate-100">
               Personal & Farm Information
             </h3>
 
@@ -162,7 +162,7 @@ export default function UserProfile() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm text-slate-800"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                 />
               </div>
 
@@ -191,7 +191,7 @@ export default function UserProfile() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="10-digit number"
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm text-slate-800"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
                 />
               </div>
 
@@ -203,7 +203,7 @@ export default function UserProfile() {
                   name="preferredLanguage"
                   value={formData.preferredLanguage}
                   onChange={handleChange}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-agri-500 focus:ring-2 focus:ring-agri-500/20 text-xs sm:text-sm bg-white text-slate-800 font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white text-slate-800 font-medium outline-none transition"
                 >
                   {SUPPORTED_LANGUAGES.map((lang) => (
                     <option key={lang.code} value={lang.code}>
@@ -227,8 +227,8 @@ export default function UserProfile() {
                     name="state"
                     value={formData.state}
                     onChange={handleChange}
-                    placeholder="e.g. Telangana"
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs text-slate-800"
+                    placeholder="e.g. Maharashtra"
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-[#176B45] text-xs text-slate-800 outline-none transition"
                   />
                 </div>
                 <div>
@@ -238,8 +238,8 @@ export default function UserProfile() {
                     name="district"
                     value={formData.district}
                     onChange={handleChange}
-                    placeholder="e.g. Karimnagar"
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs text-slate-800"
+                    placeholder="e.g. Nagpur"
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-[#176B45] text-xs text-slate-800 outline-none transition"
                   />
                 </div>
                 <div>
@@ -249,8 +249,8 @@ export default function UserProfile() {
                     name="city"
                     value={formData.city}
                     onChange={handleChange}
-                    placeholder="e.g. Sircilla"
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-agri-500 text-xs text-slate-800"
+                    placeholder="e.g. Katol"
+                    className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-[#176B45] text-xs text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
@@ -261,17 +261,17 @@ export default function UserProfile() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-agri-600 hover:bg-agri-700 text-white font-semibold text-xs sm:text-sm shadow-md shadow-agri-600/30 transition disabled:opacity-70 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-xs sm:text-sm shadow-sm transition disabled:opacity-70 cursor-pointer"
               >
                 {saving ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    <span>{t('common.loading', 'Saving...')}</span>
+                    <span>Saving...</span>
                   </>
                 ) : (
                   <>
                     <Save className="w-4 h-4" />
-                    <span>{t('common.save', 'Save Changes')}</span>
+                    <span>Save Changes</span>
                   </>
                 )}
               </button>
@@ -285,4 +285,3 @@ export default function UserProfile() {
     </div>
   );
 }
-

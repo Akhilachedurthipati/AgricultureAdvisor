@@ -178,10 +178,9 @@ export default function WeatherMonitoring() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full uppercase">
-              {t('weather.moduleBadge', 'Module 04')}
+            <span className="text-xs font-bold uppercase tracking-wider text-sky-700">
+              Agro-Meteorology & Alerts
             </span>
-            <span className="text-xs text-slate-400 font-medium">Agro-Meteorology & Early Warning</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
             {t('weather.title', 'Weather Monitoring & Farmer Alerts')}

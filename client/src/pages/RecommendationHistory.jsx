@@ -197,10 +197,9 @@ export default function RecommendationHistory() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded-full uppercase">
-              {t('common.module', 'Module 08')}
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+              Personal Farmer Archive
             </span>
-            <span className="text-xs text-slate-400 font-medium">Auditing, Analytics & Farmer Records</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
             Recommendation & Advisory History

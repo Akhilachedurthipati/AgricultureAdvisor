@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -8,300 +8,341 @@ import {
   CloudSun, 
   Bot, 
   Languages, 
-  ShieldCheck, 
+  UserCheck, 
   History, 
-  CheckCircle2, 
-  AlertCircle, 
-  RefreshCw, 
-  Server,
-  Layers,
   ArrowRight,
-  LogIn,
-  UserPlus
+  ShieldCheck,
+  CheckCircle2,
+  Sparkles,
+  Leaf,
+  CloudRain,
+  Sun,
+  Activity
 } from 'lucide-react';
-import { checkBackendHealth } from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import LanguageSelector from '../components/common/LanguageSelector';
 
 export default function Home() {
   const { t } = useTranslation();
   const { isAuthenticated, user } = useAuth();
-  const [health, setHealth] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const MODULES = [
     {
-      id: 1,
+      id: 'crop',
       title: t('crop.title', 'Crop Recommendation'),
-      desc: t('crop.subtitle', 'Intelligent single best-suited crop advisory based on climate and soil metrics.'),
+      desc: t('crop.subtitle', 'Get the single most optimal crop recommendation for your land based on soil type, season, temperature, rainfall, and pH.'),
       icon: Sprout,
-      status: 'Implemented (Phase 4)',
-      color: 'from-emerald-500 to-green-600'
+      link: '/crop-recommendation',
+      tag: 'Machine Learning',
+      accent: 'border-emerald-200 hover:border-[#22A06B]'
     },
     {
-      id: 2,
-      title: t('fertilizer.title', 'Fertilizer Recommendation'),
-      desc: t('fertilizer.subtitle', 'Precision NPK and soil-tailored nutrient dosage with safety precautions.'),
+      id: 'fertilizer',
+      title: t('fertilizer.title', 'Fertilizer Guidance'),
+      desc: t('fertilizer.subtitle', 'Precision NPK nutrient replenishment dosages, standard 50-kg bag counts, and 3-stage split application schedules.'),
       icon: FlaskConical,
-      status: 'Implemented (Phase 5)',
-      color: 'from-amber-500 to-orange-600'
+      link: '/fertilizer-recommendation',
+      tag: 'Nutrient Engine',
+      accent: 'border-amber-200 hover:border-amber-500'
     },
     {
-      id: 3,
+      id: 'disease',
       title: t('disease.title', 'Crop Disease Detection'),
-      desc: t('disease.subtitle', 'Multi-crop leaf image analysis via photo upload & live camera to detect pathologies.'),
+      desc: t('disease.subtitle', 'Visual foliar pathology screening across 7 major crops with instant severity assessment and organic/chemical remedies.'),
       icon: ScanSearch,
-      status: 'Implemented (Phase 6)',
-      color: 'from-rose-500 to-red-600'
+      link: '/disease-detection',
+      tag: 'Visual Diagnosis',
+      accent: 'border-rose-200 hover:border-rose-500'
     },
     {
-      id: 4,
-      title: t('weather.title', 'Weather Monitoring & Alerts'),
-      desc: t('weather.subtitle', 'Real-time forecasts and automated warnings for heavy rain and extreme weather.'),
+      id: 'weather',
+      title: t('weather.title', 'Weather & Farmer Alerts'),
+      desc: t('weather.subtitle', 'Live meteorological data, 7-day agricultural forecasts, and automated warnings for heavy rainfall and spraying windows.'),
       icon: CloudSun,
-      status: 'Implemented (Phase 7)',
-      color: 'from-sky-500 to-blue-600'
+      link: '/weather',
+      tag: 'Forecast & Alerts',
+      accent: 'border-sky-200 hover:border-sky-500'
     },
     {
-      id: 5,
-      title: t('nav.aiAssistant', 'AI Farming Voice Assistant'),
-      desc: 'Multilingual conversational assistant with voice input and speech synthesis.',
+      id: 'ai-assistant',
+      title: t('nav.aiAssistant', 'AI Farming Assistant'),
+      desc: 'Multilingual conversational farming assistant with voice input, speech readout, and curated agronomic knowledge base.',
       icon: Bot,
-      status: 'Phase 9',
-      color: 'from-purple-500 to-indigo-600'
+      link: '/ai-assistant',
+      tag: 'Voice & Chat',
+      accent: 'border-purple-200 hover:border-purple-500'
     },
     {
-      id: 6,
-      title: t('nav.selectLanguage', 'Multilingual Interface'),
-      desc: 'Full localization in English, Telugu, Hindi, Tamil, Kannada, Malayalam, Marathi, Bengali.',
+      id: 'language',
+      title: t('nav.selectLanguage', 'Multilingual Support'),
+      desc: 'Fully translated into 8 Indian regional languages including English, Telugu, Hindi, Tamil, Kannada, Marathi, Malayalam, and Bengali.',
       icon: Languages,
-      status: 'Implemented (Phase 8)',
-      color: 'from-teal-500 to-emerald-700'
+      link: isAuthenticated ? '/profile' : '/register',
+      tag: '8 Languages',
+      accent: 'border-teal-200 hover:border-teal-500'
     },
     {
-      id: 7,
-      title: t('auth.registerTitle', 'Farmer Authentication'),
-      desc: 'Secure registration, login, JWT authorization, and profile management.',
-      icon: ShieldCheck,
-      status: 'Implemented (Phase 2)',
-      color: 'from-blue-600 to-cyan-600'
+      id: 'profile',
+      title: t('nav.farmerProfile', 'Farmer Registration & Profile'),
+      desc: 'Secure personalized accounts with localized district preferences, soil history context, and multi-tenant data isolation.',
+      icon: UserCheck,
+      link: isAuthenticated ? '/profile' : '/register',
+      tag: 'Personalized',
+      accent: 'border-blue-200 hover:border-blue-500'
     },
     {
-      id: 8,
+      id: 'history',
       title: t('nav.history', 'Recommendation History'),
-      desc: 'Personal audit trail of past recommendations, diagnoses, and chats.',
+      desc: 'Comprehensive centralized audit trail of past crop plans, fertilizer dosages, leaf scans, and voice consultations.',
       icon: History,
-      status: 'Phase 10',
-      color: 'from-stone-600 to-slate-700'
+      link: '/history',
+      tag: 'Audit Trail',
+      accent: 'border-slate-200 hover:border-slate-500'
     }
   ];
 
-  const testBackend = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await checkBackendHealth();
-      setHealth(data);
-    } catch (err) {
-      setError(err.message || 'Could not connect to backend server');
-      setHealth(null);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    testBackend();
-  }, []);
-
   return (
-    <div className="space-y-8">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-agri-900 via-agri-800 to-agri-700 text-white p-8 md:p-14 shadow-xl shadow-agri-950/15">
-        <div className="relative z-10 max-w-3xl space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/10 backdrop-blur-md text-agri-200 border border-white/20">
-            <Layers className="w-3.5 h-3.5" />
-            B.Tech CSE (AI & ML) Major Project
-          </div>
+    <div className="space-y-12 pb-8">
+      
+      {/* Welcome Section */}
+      <section className="relative overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-card p-6 sm:p-10 lg:p-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          {/* Welcome Text Column */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#E8F5EE] text-[#176B45] border border-[#C7E7D6]">
+                <Sparkles className="w-3.5 h-3.5 text-[#22A06B]" />
+                Intelligent Agricultural Advisory
+              </span>
+              <div className="sm:hidden">
+                <LanguageSelector compact />
+              </div>
+            </div>
 
-          <h1 className="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-            {t('home.heroTitle', 'Intelligent Decisions for Greater Agricultural Yields')}
-          </h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#1F2937] leading-[1.15]">
+              Smart Farming <br className="hidden sm:inline" />
+              <span className="text-[#176B45]">Starts Here</span>
+            </h1>
 
-          <p className="text-agri-100/90 text-sm md:text-base leading-relaxed">
-            {t('home.heroSubtitle', 'Welcome to Agriculture Advisor — an intelligent decision support platform assisting farmers with single-crop recommendation models, precision fertilizer guidance, dual-mode leaf disease detection, agro-meteorological warnings, and voice-enabled conversational AI.')}
-          </p>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl">
+              Get intelligent crop recommendations, fertilizer guidance, crop disease detection and weather insights to make better farming decisions.
+            </p>
 
-          <div className="pt-2 flex flex-wrap items-center gap-3">
-            {isAuthenticated ? (
-              <Link
-                to="/dashboard"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-agri-500 hover:bg-agri-400 text-agri-950 font-bold text-sm shadow-lg shadow-agri-500/30 transition cursor-pointer"
-              >
-                <span>{t('nav.dashboard', 'Go to Dashboard')} ({user?.name})</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            ) : (
-              <>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              {isAuthenticated ? (
                 <Link
-                  to="/register"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-agri-500 hover:bg-agri-400 text-agri-950 font-bold text-sm shadow-lg shadow-agri-500/30 transition cursor-pointer"
+                  to="/dashboard"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-sm shadow-sm transition cursor-pointer"
                 >
-                  <UserPlus className="w-4 h-4" />
-                  <span>{t('auth.registerBtn', 'Register Farmer Account')}</span>
+                  <span>Open Farmer Dashboard</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link
-                  to="/login"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/20 transition cursor-pointer"
-                >
-                  <LogIn className="w-4 h-4" />
-                  <span>{t('auth.loginBtn', 'Farmer Sign In')}</span>
-                </Link>
-              </>
-            )}
+              ) : (
+                <>
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-sm shadow-sm transition cursor-pointer"
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#1F2937] font-semibold text-sm border border-slate-200 shadow-xs transition cursor-pointer"
+                  >
+                    <span>Login</span>
+                  </Link>
+                </>
+              )}
+            </div>
+
+            {/* Quick Feature Checklist */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-slate-600 border-t border-slate-100">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
+                <span>One Best Crop Output</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
+                <span>Precision STCR Fertilizer</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
+                <span>Voice in 8 Languages</span>
+              </div>
+            </div>
           </div>
+
+          {/* Agricultural Graphic / Interactive Preview Column */}
+          <div className="lg:col-span-5">
+            <div className="relative rounded-2xl bg-gradient-to-br from-[#E8F5EE] via-[#F7FAF7] to-white p-6 border border-[#C7E7D6]/60 shadow-sm space-y-4">
+              
+              <div className="flex items-center justify-between pb-3 border-b border-[#C7E7D6]/40">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#176B45] text-white flex items-center justify-center shadow-xs">
+                    <Leaf className="w-4 h-4 text-[#A3E635]" />
+                  </div>
+                  <div>
+                    <h2 className="text-xs font-bold text-[#1F2937]">Farm Health Snapshot</h2>
+                    <p className="text-[10px] text-slate-500">Live decision indicators</p>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-[#176B45]">
+                  Active Telemetry
+                </span>
+              </div>
+
+              {/* Sample Cards inside illustration */}
+              <div className="space-y-2.5">
+                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+                  <div className="flex items-center space-x-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 text-[#176B45] flex items-center justify-center">
+                      <Sprout className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-[#1F2937]">Optimal Crop Match</p>
+                      <p className="text-[10px] text-slate-500">Soil: Black Cotton • Kharif</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-[#176B45]">Pigeonpeas (99%)</span>
+                </div>
+
+                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+                  <div className="flex items-center space-x-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
+                      <CloudSun className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-[#1F2937]">Spraying Window</p>
+                      <p className="text-[10px] text-slate-500">Calm Winds &lt; 10 km/h</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-sky-700">Favorable</span>
+                </div>
+
+                <div className="p-3 bg-white rounded-xl border border-slate-200/80 shadow-xs flex items-center justify-between">
+                  <div className="flex items-center space-x-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+                      <Bot className="w-3.5 h-3.5" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-[#1F2937]">AI Assistant</p>
+                      <p className="text-[10px] text-slate-500">Voice in English, Telugu, Hindi</p>
+                    </div>
+                  </div>
+                  <span className="text-[11px] font-semibold text-purple-700">Ready</span>
+                </div>
+              </div>
+
+              <div className="pt-2 text-center">
+                <span className="text-[11px] font-medium text-slate-500">
+                  Reliable agronomic decision support for Indian agriculture
+                </span>
+              </div>
+
+            </div>
+          </div>
+
         </div>
+      </section>
 
-        <div className="absolute -right-12 -bottom-12 w-80 h-80 rounded-full bg-agri-500/20 blur-3xl pointer-events-none"></div>
-      </div>
-
-      {/* API Connectivity & System Diagnostics */}
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-sm">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-          <div className="flex items-center space-x-3">
-            <div className="p-2.5 rounded-xl bg-slate-100 text-slate-700">
-              <Server className="w-5 h-5" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-900 text-sm sm:text-base">MERN Backend API Status</h3>
-              <p className="text-xs text-slate-500">Live operational status of Express REST API & Authentication</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={testBackend}
-              disabled={loading}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition"
-              title="Ping API"
-            >
-              <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
-              <span>Ping</span>
-            </button>
-
-            {loading ? (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-200">
-                Checking...
-              </span>
-            ) : health ? (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                API Online (HTTP 200)
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200">
-                <AlertCircle className="w-3.5 h-3.5 text-rose-600" />
-                Server Offline
-              </span>
-            )}
-          </div>
-        </div>
-
-        {health && (
-          <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <span className="text-slate-400 block">Service</span>
-              <span className="font-semibold text-slate-800">{health.service}</span>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <span className="text-slate-400 block">Server Uptime</span>
-              <span className="font-semibold text-slate-800">{health.uptime}</span>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <span className="text-slate-400 block">Environment</span>
-              <span className="font-semibold text-slate-800 capitalize">{health.environment}</span>
-            </div>
-            <div className="p-3 bg-slate-50 rounded-xl">
-              <span className="text-slate-400 block">Database</span>
-              <span className={`font-semibold capitalize ${health.database?.isConnected ? 'text-emerald-700' : 'text-amber-600'}`}>
-                {health.database?.isConnected ? 'MongoDB Active' : 'Memory Resilient Fallback'}
-              </span>
-            </div>
-          </div>
-        )}
-
-        {error && (
-          <div className="mt-4 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2">
-            <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-            <span>{error}. Ensure the Express server is running on port 5000.</span>
-          </div>
-        )}
-      </div>
-
-      {/* Eight Modules Grid */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between">
+      {/* Services Grid (8 Main Modules) */}
+      <section className="space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
           <div>
-            <h2 className="text-xl font-bold text-slate-900">Eight Main Modules</h2>
-            <p className="text-xs text-slate-500">Overview of the core architectural features</p>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#176B45] block">
+              Core Capabilities
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
+              Agricultural Advisory Services
+            </h2>
           </div>
-          <span className="text-xs font-semibold text-agri-700 bg-agri-50 px-3 py-1 rounded-full border border-agri-200">
-            8 Modules
-          </span>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-md">
+            Everything a farmer needs to plan, protect, and optimize crop yields across every season.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {MODULES.map((mod) => {
-            const Icon = mod.icon;
-            const isPhase2 = mod.id === 7;
+          {MODULES.map((module) => {
+            const Icon = module.icon;
             return (
-              <div 
-                key={mod.id}
-                className={`group relative bg-white rounded-2xl border p-5 shadow-sm transition-all flex flex-col justify-between ${
-                  isPhase2 ? 'border-agri-400 ring-2 ring-agri-500/10' : 'border-slate-200/80 hover:border-slate-300'
-                }`}
+              <Link
+                key={module.id}
+                to={module.link}
+                className={`group bg-white rounded-2xl border p-5 shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between ${module.accent}`}
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${mod.color} text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform`}>
+                    <div className="w-11 h-11 rounded-xl bg-[#E8F5EE] text-[#176B45] flex items-center justify-center group-hover:bg-[#176B45] group-hover:text-white transition-colors shadow-xs">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-bold tracking-wider text-slate-400 uppercase">
-                      Module 0{mod.id}
+                    <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                      {module.tag}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-slate-900 group-hover:text-agri-700 transition-colors">
-                      {mod.title}
+                    <h3 className="font-bold text-[#1F2937] group-hover:text-[#176B45] transition-colors text-base leading-snug">
+                      {module.title}
                     </h3>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                      {mod.desc}
+                    <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                      {module.desc}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className={`font-semibold px-2.5 py-0.5 rounded-full text-[11px] ${
-                    isPhase2 
-                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' 
-                      : 'bg-slate-100 text-slate-600'
-                  }`}>
-                    {mod.status}
-                  </span>
-                  {isPhase2 && (
-                    <Link to="/login" className="font-semibold text-agri-700 hover:text-agri-800 flex items-center gap-0.5">
-                      <span>Test Auth</span>
-                      <ArrowRight className="w-3 h-3" />
-                    </Link>
-                  )}
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-[#176B45] group-hover:text-[#114F33]">
+                  <span>Access Service</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
-      </div>
+      </section>
+
+      {/* Trust & Principles Strip */}
+      <section className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-slate-600">
+          <div className="flex items-start space-x-3">
+            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#176B45] flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-800 text-sm">Agronomic Integrity</h4>
+              <p className="text-slate-500 mt-0.5 leading-relaxed">
+                Single-crop guarantees and ICAR-aligned Soil Test Crop Response (STCR) calculations designed to avoid farmer confusion.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-3">
+            <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+              <CloudSun className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-800 text-sm">Actionable Intelligence</h4>
+              <p className="text-slate-500 mt-0.5 leading-relaxed">
+                Weather alerts with specific operational advice for spraying, heatwaves, and moisture management.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-3">
+            <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+              <Languages className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-bold text-slate-800 text-sm">Inclusive & Accessible</h4>
+              <p className="text-slate-500 mt-0.5 leading-relaxed">
+                Complete regional language support and conversational speech recognition allowing farmers to ask questions naturally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }
-

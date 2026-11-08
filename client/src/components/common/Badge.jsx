@@ -10,9 +10,12 @@ export default function Badge({
   ...props
 }) {
   const variants = {
-    agri: 'bg-[#E8F5EE] text-[#176B45] border-[#C7E7D6]',
+    agri: 'bg-[#F7F7F0] text-[#123D2A] border-[#D7DBC5]',
+    forest: 'bg-[#123D2A]/10 text-[#123D2A] border-[#123D2A]/20',
+    rich: 'bg-[#246B45]/10 text-[#246B45] border-[#246B45]/25',
+    lime: 'bg-[#B6D957]/20 text-[#123D2A] border-[#B6D957]/40 font-semibold',
     success: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-    fresh: 'bg-emerald-50 text-[#22A06B] border-emerald-200',
+    fresh: 'bg-emerald-50 text-[#246B45] border-emerald-200',
     warning: 'bg-amber-50 text-amber-900 border-amber-200',
     info: 'bg-sky-50 text-sky-800 border-sky-200',
     danger: 'bg-rose-50 text-rose-800 border-rose-200',
@@ -27,9 +30,12 @@ export default function Badge({
   };
 
   const pulseColors = {
-    agri: 'bg-[#176B45]',
+    agri: 'bg-[#123D2A]',
+    forest: 'bg-[#123D2A]',
+    rich: 'bg-[#246B45]',
+    lime: 'bg-[#B6D957]',
     success: 'bg-emerald-500',
-    fresh: 'bg-[#22A06B]',
+    fresh: 'bg-[#246B45]',
     warning: 'bg-amber-500',
     info: 'bg-sky-500',
     danger: 'bg-rose-500',

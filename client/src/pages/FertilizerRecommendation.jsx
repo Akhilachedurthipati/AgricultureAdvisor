@@ -163,11 +163,11 @@ export default function FertilizerRecommendation() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
               Nutrient Management
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-0.5">
             {t('fertilizer.title', 'Fertilizer Guidance')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -175,22 +175,22 @@ export default function FertilizerRecommendation() {
           </p>
         </div>
 
-        <Badge variant="warning">
+        <Badge variant="forest">
           STCR Precision Engine
         </Badge>
       </div>
 
       {/* Advisory Banner */}
       <AlertBanner
-        variant="advisory"
+        variant="disclaimer"
         title="Soil Health & Chemical Safety Notice"
         message="Exact nutrient requirements depend heavily on recent soil health card lab reports. Follow calculated application guidelines to prevent groundwater contamination or fertilizer burn. Always consult your district agricultural extension officer."
       />
 
       {/* Quick Test Presets */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-        <div className="flex items-center space-x-2 text-[#1F2937] font-semibold">
-          <SlidersHorizontal className="w-4 h-4 text-amber-600" />
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center space-x-2 text-[#202923] font-semibold">
+          <SlidersHorizontal className="w-4 h-4 text-[#246B45]" />
           <span>Quick Evaluation Scenarios:</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -199,7 +199,7 @@ export default function FertilizerRecommendation() {
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-amber-50 hover:text-amber-800 border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
+              className="px-3 py-1.5 rounded-xl bg-[#F7F7F0] hover:bg-[#123D2A]/10 hover:text-[#123D2A] border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
             >
               {p.name}
             </button>
@@ -358,7 +358,7 @@ export default function FertilizerRecommendation() {
                   type="submit"
                   loading={loading}
                   icon={Sparkles}
-                  className="w-full !bg-amber-600 hover:!bg-amber-700 text-white"
+                  className="w-full !bg-[#123D2A] hover:!bg-[#1D5939] text-white shadow-premium"
                 >
                   {loading ? 'Calculating Nutrient Dosages...' : 'Calculate Fertilizer Dosage'}
                 </Button>
@@ -374,56 +374,56 @@ export default function FertilizerRecommendation() {
             <Card
               title="Tailored Fertilizer Advisory"
               subtitle={`Precision plan for ${result.landArea} Acre(s) of ${result.crop}`}
-              className="border-amber-300 ring-1 ring-amber-400/30 animate-in fade-in"
+              className="border-[#246B45]/50 ring-1 ring-[#246B45]/20 animate-in fade-in"
             >
               <div className="space-y-4">
                 
                 {/* Header Banner */}
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-xs">
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-amber-200 block">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#123D2A] to-[#1A4D35] text-white shadow-premium">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-200 block">
                     Recommended Formulation
                   </span>
-                  <h3 className="text-base sm:text-lg font-black mt-1 leading-snug">
+                  <h3 className="text-base sm:text-lg font-black mt-1 leading-snug text-white">
                     {result.fertilizerCombination}
                   </h3>
                 </div>
 
                 {/* Total Land Area Quantity Requirements (50kg Bags) */}
-                <div className="p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
-                  <span className="text-xs font-bold text-amber-950 flex items-center gap-1.5">
-                    <Package className="w-4 h-4 text-amber-700" />
+                <div className="p-4 rounded-2xl bg-[#F7F7F0] border border-[#D7DBC5]/80 space-y-3">
+                  <span className="text-xs font-bold text-[#123D2A] flex items-center gap-1.5">
+                    <Package className="w-4 h-4 text-[#246B45]" />
                     <span>Total Purchase Requirements ({result.landArea} Acres):</span>
                   </span>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
+                    <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">Urea (46% N)</span>
-                      <span className="text-base font-extrabold text-slate-900 block mt-0.5">
+                      <span className="text-base font-extrabold text-[#202923] block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.ureaTotalKg} kg
                       </span>
-                      <span className="text-xs font-semibold text-amber-700">
+                      <span className="text-xs font-bold text-[#123D2A]">
                         {result.dosageBreakdown.totalLandArea.ureaTotalBags}
                       </span>
                     </div>
 
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
+                    <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">
                         {result.dosageBreakdown.totalLandArea.pCarrierName}
                       </span>
-                      <span className="text-base font-extrabold text-slate-900 block mt-0.5">
+                      <span className="text-base font-extrabold text-[#202923] block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.pTotalKg} kg
                       </span>
-                      <span className="text-xs font-semibold text-amber-700">
+                      <span className="text-xs font-bold text-[#123D2A]">
                         {result.dosageBreakdown.totalLandArea.pTotalBags}
                       </span>
                     </div>
 
-                    <div className="p-3 bg-white rounded-xl border border-amber-100 shadow-xs text-center">
+                    <div className="p-3 bg-white rounded-xl border border-slate-200 shadow-xs text-center">
                       <span className="text-[10px] uppercase text-slate-400 font-bold block">MOP (60% K₂O)</span>
-                      <span className="text-base font-extrabold text-slate-900 block mt-0.5">
+                      <span className="text-base font-extrabold text-[#202923] block mt-0.5">
                         {result.dosageBreakdown.totalLandArea.mopTotalKg} kg
                       </span>
-                      <span className="text-xs font-semibold text-amber-700">
+                      <span className="text-xs font-bold text-[#123D2A]">
                         {result.dosageBreakdown.totalLandArea.mopTotalBags}
                       </span>
                     </div>
@@ -505,10 +505,10 @@ export default function FertilizerRecommendation() {
             </Card>
           ) : (
             <Card className="text-center py-14 px-6 flex flex-col items-center justify-center space-y-3">
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
-                <FlaskConical className="w-7 h-7" />
+              <div className="w-14 h-14 rounded-2xl bg-[#F7F7F0] text-[#123D2A] flex items-center justify-center border border-[#D7DBC5]">
+                <FlaskConical className="w-7 h-7 text-[#246B45]" />
               </div>
-              <h3 className="font-bold text-[#1F2937] text-base">Awaiting Field Information</h3>
+              <h3 className="font-bold text-[#202923] text-base">Awaiting Field Information</h3>
               <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
                 Select your crop, land area, and enter your soil test values to generate customized fertilizer dosage schedules.
               </p>

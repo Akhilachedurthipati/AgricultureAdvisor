@@ -227,7 +227,7 @@ export default function FloatingChatbot() {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Ask Agriculture Advisor Chatbot"
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#176B45] hover:bg-[#114F33] text-white shadow-xl shadow-[#176B45]/30 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-white focus:outline-none"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#123D2A] hover:bg-[#1D5939] text-white shadow-xl shadow-[#123D2A]/30 flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 border-2 border-white focus:outline-none"
         title="Ask Agriculture Advisor"
       >
         {isOpen ? (
@@ -239,13 +239,13 @@ export default function FloatingChatbot() {
 
       {/* Floating Chat Modal Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 sm:right-6 w-[360px] sm:w-[390px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[75vh] bg-white rounded-2xl shadow-2xl border border-slate-200 flex flex-col z-50 overflow-hidden animate-in fade-in slide-in-from-bottom-3">
+        <div className="fixed bottom-24 right-4 sm:right-6 w-[360px] sm:w-[400px] max-w-[calc(100vw-2rem)] h-[530px] max-h-[75vh] bg-white rounded-3xl shadow-2xl border border-slate-200/90 flex flex-col z-50 overflow-hidden animate-in fade-in slide-in-from-bottom-3">
           
           {/* Header */}
-          <div className="p-3.5 bg-[#176B45] text-white flex items-center justify-between shrink-0 shadow-sm">
+          <div className="p-3.5 bg-[#123D2A] text-white flex items-center justify-between shrink-0 shadow-sm border-b border-[#1D5939]">
             <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
-                <Bot className="w-5 h-5 text-[#A3E635]" />
+              <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center">
+                <Bot className="w-5 h-5 text-[#B6D957]" />
               </div>
               <div>
                 <h3 className="font-bold text-xs sm:text-sm leading-tight text-white">
@@ -316,7 +316,7 @@ export default function FloatingChatbot() {
           </div>
 
           {/* Messages Stream */}
-          <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-[#F7FAF7] text-xs">
+          <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-[#F7F7F0] text-xs">
             {messages.map((msg) => {
               const isUser = msg.sender === 'user';
               return (
@@ -327,8 +327,8 @@ export default function FloatingChatbot() {
                   <div
                     className={`max-w-[85%] rounded-2xl p-3 leading-relaxed shadow-xs ${
                       isUser
-                        ? 'bg-[#176B45] text-white rounded-br-xs'
-                        : 'bg-white text-[#1F2937] border border-slate-200 rounded-bl-xs'
+                        ? 'bg-[#123D2A] text-white rounded-br-xs'
+                        : 'bg-white text-[#202923] border border-slate-200/90 rounded-bl-xs'
                     }`}
                   >
                     <p className="whitespace-pre-line text-xs">{msg.text}</p>
@@ -336,14 +336,14 @@ export default function FloatingChatbot() {
                     {!isUser && (
                       <div className="mt-2 pt-1 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400">
                         {msg.category && (
-                          <span className="uppercase font-semibold text-[#176B45]">
+                          <span className="uppercase font-semibold text-[#246B45]">
                             {msg.category}
                           </span>
                         )}
                         <button
                           type="button"
                           onClick={() => handleSpeakText(msg.text, msg.id)}
-                          className="hover:text-[#176B45] transition flex items-center gap-1 cursor-pointer"
+                          className="hover:text-[#123D2A] transition flex items-center gap-1 cursor-pointer"
                           title="Read message aloud"
                         >
                           <Volume2 className="w-3 h-3" />
@@ -361,9 +361,9 @@ export default function FloatingChatbot() {
 
             {loading && (
               <div className="flex items-center space-x-1.5 bg-white p-2.5 rounded-xl border border-slate-200 w-24">
-                <div className="w-2 h-2 rounded-full bg-[#176B45] animate-bounce" />
-                <div className="w-2 h-2 rounded-full bg-[#176B45] animate-bounce [animation-delay:0.2s]" />
-                <div className="w-2 h-2 rounded-full bg-[#176B45] animate-bounce [animation-delay:0.4s]" />
+                <div className="w-2 h-2 rounded-full bg-[#123D2A] animate-bounce" />
+                <div className="w-2 h-2 rounded-full bg-[#123D2A] animate-bounce [animation-delay:0.2s]" />
+                <div className="w-2 h-2 rounded-full bg-[#123D2A] animate-bounce [animation-delay:0.4s]" />
               </div>
             )}
 
@@ -371,7 +371,7 @@ export default function FloatingChatbot() {
           </div>
 
           {/* Input Area */}
-          <div className="p-2.5 bg-white border-t border-slate-200 space-y-1.5">
+          <div className="p-2.5 bg-white border-t border-slate-200/80 space-y-1.5">
             <form onSubmit={handleSendMessage} className="flex items-center space-x-1.5">
               <input
                 type="text"
@@ -379,7 +379,7 @@ export default function FloatingChatbot() {
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Ask about crops, fertilizers, pests..."
                 disabled={loading}
-                className="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] outline-none text-slate-800 placeholder-slate-400 transition"
+                className="flex-1 px-3 py-2 text-xs rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] outline-none text-[#202923] placeholder-slate-400 transition"
               />
 
               {/* Microphone Voice Input */}
@@ -389,7 +389,7 @@ export default function FloatingChatbot() {
                 className={`p-2 rounded-xl border transition cursor-pointer ${
                   isListening
                     ? 'bg-rose-50 border-rose-300 text-rose-600 animate-pulse'
-                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-[#176B45]'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:text-[#123D2A]'
                 }`}
                 title={isListening ? 'Listening... Speak now' : 'Speak your question'}
               >
@@ -400,7 +400,7 @@ export default function FloatingChatbot() {
               <button
                 type="submit"
                 disabled={!inputMessage.trim() || loading}
-                className="p-2 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white disabled:opacity-40 transition cursor-pointer shadow-xs"
+                className="p-2 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white disabled:opacity-40 transition cursor-pointer shadow-xs"
                 title="Send inquiry"
               >
                 <Send className="w-4 h-4" />
@@ -412,7 +412,7 @@ export default function FloatingChatbot() {
               <Link
                 to="/ai-assistant"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#176B45] hover:underline"
+                className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#246B45] hover:underline"
               >
                 <span>Open Full-Screen AI Assistant</span>
                 <ExternalLink className="w-3 h-3" />

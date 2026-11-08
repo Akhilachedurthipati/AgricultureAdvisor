@@ -40,10 +40,10 @@ export default function AlertBanner({
       defaultTitle: 'Warning'
     },
     disclaimer: {
-      bg: 'bg-emerald-950/5 border-agri-300/80 text-agri-950',
-      iconColor: 'text-agri-700',
+      bg: 'bg-[#F7F7F0] border-[#D7DBC5] text-[#123D2A]',
+      iconColor: 'text-[#246B45]',
       defaultIcon: ShieldAlert,
-      defaultTitle: 'Important Agronomic Disclaimer'
+      defaultTitle: 'Important Agronomic Advisory Notice'
     }
   };
 
@@ -53,13 +53,13 @@ export default function AlertBanner({
   return (
     <div
       role="alert"
-      className={`relative p-4 rounded-2xl border text-xs leading-relaxed flex items-start gap-3 shadow-sm ${current.bg} ${className}`}
+      className={`relative p-4 rounded-2xl border text-xs leading-relaxed flex items-start gap-3 shadow-subtle ${current.bg} ${className}`}
     >
       <DisplayIcon className={`w-5 h-5 shrink-0 mt-0.5 ${current.iconColor}`} />
       
       <div className="flex-1 space-y-0.5">
         {(title || current.defaultTitle) && (
-          <p className="font-bold text-[13px]">{title || current.defaultTitle}</p>
+          <p className="font-bold text-[13px] tracking-tight">{title || current.defaultTitle}</p>
         )}
         {message && <p className="opacity-90">{message}</p>}
         {children}
@@ -69,8 +69,8 @@ export default function AlertBanner({
         <button
           type="button"
           onClick={() => setVisible(false)}
-          className="p-1 rounded-lg hover:bg-black/5 opacity-60 hover:opacity-100 transition"
-          aria-label="Dismiss notice"
+          className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-black/5 transition cursor-pointer"
+          aria-label="Dismiss alert"
         >
           <X className="w-4 h-4" />
         </button>
@@ -78,4 +78,3 @@ export default function AlertBanner({
     </div>
   );
 }
-

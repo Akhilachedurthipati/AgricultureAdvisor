@@ -393,11 +393,11 @@ export default function DiseaseDetection() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-rose-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
               Pathology Screening
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1">
             {t('disease.title', 'Crop Disease Detection')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -409,18 +409,18 @@ export default function DiseaseDetection() {
           <button
             type="button"
             onClick={() => setShowHistory(!showHistory)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm transition"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-[#F7F7F0] text-xs font-semibold shadow-xs transition"
           >
-            <History className="w-4 h-4 text-slate-500" />
+            <History className="w-4 h-4 text-[#246B45]" />
             <span>{showHistory ? 'Hide History' : t('common.history', 'Past Scans')}</span>
             {historyList.length > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-slate-100 text-[10px] font-bold text-slate-600">
+              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#123D2A]/10 text-[10px] font-bold text-[#123D2A]">
                 {historyList.length}
               </span>
             )}
           </button>
 
-          <Badge variant="success">
+          <Badge variant="forest">
             {t('common.operational', 'Vision Engine Operational')}
           </Badge>
         </div>
@@ -656,7 +656,7 @@ export default function DiseaseDetection() {
                   onClick={handleDiagnose}
                   loading={analyzing}
                   icon={Sparkles}
-                  className="w-full bg-emerald-700 hover:bg-emerald-800"
+                  className="w-full !bg-[#123D2A] hover:!bg-[#1D5939] text-white shadow-premium"
                 >
                   {analyzing ? 'Scanning Foliar Pathology...' : 'Run Deep Learning Diagnostic'}
                 </Button>

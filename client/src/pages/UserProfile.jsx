@@ -79,22 +79,22 @@ export default function UserProfile() {
       {/* Page Title */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight">
             {t('nav.farmerProfile', 'Farmer Profile')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
             Manage your personal farm details, preferred language, and geographical location
           </p>
         </div>
-        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#E8F5EE] text-[#176B45] border border-[#C7E7D6] self-start sm:self-auto">
-          <ShieldCheck className="w-4 h-4 text-[#22A06B]" />
+        <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-[#123D2A]/10 text-[#123D2A] border border-[#123D2A]/20 self-start sm:self-auto">
+          <ShieldCheck className="w-4 h-4 text-[#246B45]" />
           <span>Verified Farmer Profile</span>
         </div>
       </div>
 
       {successMessage && (
-        <div className="p-4 rounded-2xl bg-[#E8F5EE] border border-[#C7E7D6] text-xs text-[#176B45] flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0" />
+        <div className="p-4 rounded-2xl bg-[#123D2A]/10 border border-[#123D2A]/20 text-xs text-[#123D2A] flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 className="w-4 h-4 text-[#246B45] shrink-0" />
           <span>{successMessage}</span>
         </div>
       )}
@@ -109,12 +109,12 @@ export default function UserProfile() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         {/* Left Profile Overview Card */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-card flex flex-col items-center text-center space-y-4">
-          <div className="w-20 h-20 rounded-full bg-[#176B45] text-white flex items-center justify-center font-bold text-3xl shadow-sm">
+        <div className="bg-white rounded-3xl border border-slate-200/90 p-6 shadow-subtle flex flex-col items-center text-center space-y-4">
+          <div className="w-20 h-20 rounded-full bg-[#123D2A] text-white flex items-center justify-center font-bold text-3xl shadow-sm border border-[#246B45]/30">
             {formData.name ? formData.name.charAt(0).toUpperCase() : 'F'}
           </div>
           <div>
-            <h3 className="font-bold text-lg text-[#1F2937]">{formData.name || 'Farmer'}</h3>
+            <h3 className="font-bold text-lg text-[#202923]">{formData.name || 'Farmer'}</h3>
             <p className="text-xs text-slate-500 mt-0.5">{user?.email}</p>
           </div>
 
@@ -261,7 +261,7 @@ export default function UserProfile() {
               <button
                 type="submit"
                 disabled={saving}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-xs sm:text-sm shadow-sm transition disabled:opacity-70 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white font-semibold text-xs sm:text-sm shadow-premium transition disabled:opacity-70 cursor-pointer"
               >
                 {saving ? (
                   <>
@@ -270,7 +270,7 @@ export default function UserProfile() {
                   </>
                 ) : (
                   <>
-                    <Save className="w-4 h-4" />
+                    <Save className="w-4 h-4 text-[#B6D957]" />
                     <span>Save Changes</span>
                   </>
                 )}

@@ -43,7 +43,7 @@ function AppLayout() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-[#F7FAF7] flex flex-col font-sans text-[#1F2937]">
+    <div className="min-h-screen bg-[#F7F7F0] flex flex-col font-sans text-[#202923]">
       {isAppRoute ? (
         <div className="flex-1 flex flex-col lg:flex-row min-h-screen">
           {/* Left Navigation Sidebar */}
@@ -60,14 +60,14 @@ function AppLayout() {
               className="p-1.5 rounded-lg text-slate-600 hover:bg-slate-100 cursor-pointer"
               aria-label="Open navigation menu"
             >
-              <Menu className="w-6 h-6 text-[#176B45]" />
+              <Menu className="w-6 h-6 text-[#123D2A]" />
             </button>
 
             <div className="flex items-center space-x-2">
-              <div className="w-7 h-7 rounded-lg bg-[#176B45] text-white flex items-center justify-center">
-                <Sprout className="w-4 h-4 text-[#A3E635]" />
+              <div className="w-7 h-7 rounded-lg bg-[#123D2A] text-white flex items-center justify-center">
+                <Sprout className="w-4 h-4 text-[#B6D957]" />
               </div>
-              <span className="font-bold text-sm text-[#176B45]">Agriculture Advisor</span>
+              <span className="font-bold text-sm text-[#123D2A]">Agriculture Advisor</span>
             </div>
 
             <div className="w-8" />

@@ -61,10 +61,10 @@ export default function Login() {
         
         {/* Header Title */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#176B45] text-white shadow-sm mb-1">
-            <Sprout className="w-7 h-7 text-[#A3E635]" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#123D2A] text-white shadow-premium mb-1 border border-[#246B45]/30">
+            <Sprout className="w-7 h-7 text-[#B6D957]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight">
             {t('auth.loginTitle', 'Farmer Sign In')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
@@ -73,25 +73,25 @@ export default function Login() {
         </div>
 
         {/* Demo Account Quick-Fill Card */}
-        <div className="bg-[#E8F5EE] border border-[#C7E7D6] rounded-2xl p-4 flex items-center justify-between text-xs text-[#176B45]">
+        <div className="bg-[#F7F7F0] border border-[#D7DBC5] rounded-2xl p-4 flex items-center justify-between text-xs text-[#123D2A]">
           <div className="flex items-center space-x-2.5">
-            <Sparkles className="w-4 h-4 text-[#22A06B] shrink-0" />
+            <Sparkles className="w-4 h-4 text-[#246B45] shrink-0" />
             <div>
-              <p className="font-bold text-[#176B45]">Quick Demo Credentials</p>
+              <p className="font-bold text-[#123D2A]">Quick Demo Credentials</p>
               <p className="text-[11px] text-slate-600">Pre-fill demo farmer account</p>
             </div>
           </div>
           <button
             type="button"
             onClick={handleFillDemo}
-            className="px-3 py-1.5 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-medium text-xs shadow-xs transition cursor-pointer"
+            className="px-3 py-1.5 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white font-medium text-xs shadow-xs transition cursor-pointer"
           >
             Auto-Fill
           </button>
         </div>
 
         {/* Form Container */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-premium p-6 sm:p-8">
           
           {errorMessage && (
             <div className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2 animate-in fade-in">
@@ -117,7 +117,7 @@ export default function Login() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="farmer@example.com"
                   required
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 placeholder-slate-400 outline-none transition"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-[#202923] placeholder-slate-400 outline-none transition"
                 />
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 placeholder-slate-400 outline-none transition"
+                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-[#202923] placeholder-slate-400 outline-none transition"
                 />
                 <button
                   type="button"
@@ -155,7 +155,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-2 py-3 px-4 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-xs sm:text-sm shadow-sm flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
+              className="w-full mt-2 py-3 px-4 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white font-semibold text-xs sm:text-sm shadow-premium flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -164,7 +164,7 @@ export default function Login() {
                 </>
               ) : (
                 <>
-                  <LogIn className="w-4 h-4" />
+                  <LogIn className="w-4 h-4 text-[#B6D957]" />
                   <span>Sign In</span>
                 </>
               )}
@@ -176,7 +176,7 @@ export default function Login() {
             <span>{t('auth.noAccount', "Don't have an account?")} </span>
             <Link 
               to="/register" 
-              className="font-bold text-[#176B45] hover:underline"
+              className="font-bold text-[#123D2A] hover:underline"
             >
               {t('auth.registerTitle', 'Register Farmer Account')}
             </Link>

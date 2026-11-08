@@ -178,11 +178,11 @@ export default function WeatherMonitoring() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-sky-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
               Agro-Meteorology & Alerts
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1">
             {t('weather.title', 'Weather Monitoring & Farmer Alerts')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -196,7 +196,7 @@ export default function WeatherMonitoring() {
               type="button"
               onClick={() => loadWeather({ city: cityInput })}
               disabled={loading}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm transition disabled:opacity-50"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-[#F7F7F0] text-xs font-semibold shadow-xs transition disabled:opacity-50"
               title="Refresh weather data"
             >
               <RefreshCw className={`w-3.5 h-3.5 text-slate-500 ${loading ? 'animate-spin' : ''}`} />
@@ -204,7 +204,7 @@ export default function WeatherMonitoring() {
             </button>
           )}
 
-          <Badge variant="success">
+          <Badge variant="forest">
             Live Meteorological Feed Active
           </Badge>
         </div>
@@ -262,7 +262,7 @@ export default function WeatherMonitoring() {
               type="submit"
               loading={loading}
               icon={Search}
-              className="flex-1 sm:flex-initial bg-sky-600 hover:bg-sky-700"
+              className="flex-1 sm:flex-initial !bg-[#123D2A] hover:!bg-[#1D5939] text-white shadow-premium"
             >
               {t('common.search', 'Update Weather')}
             </Button>

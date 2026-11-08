@@ -484,11 +484,11 @@ export default function AIFarmingAssistant() {
                 <div
                   className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-white text-xs font-bold shadow-sm ${
                     msg.sender === 'user' 
-                      ? 'bg-agri-600 shadow-agri-600/20' 
-                      : 'bg-purple-600 shadow-purple-600/20'
+                      ? 'bg-[#123D2A] shadow-xs' 
+                      : 'bg-[#246B45] shadow-xs'
                   }`}
                 >
-                  {msg.sender === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
+                  {msg.sender === 'user' ? <User className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-[#B6D957]" />}
                 </div>
 
                 {/* Bubble Container */}
@@ -496,8 +496,8 @@ export default function AIFarmingAssistant() {
                   <div
                     className={`p-4 rounded-3xl text-xs sm:text-[13px] leading-relaxed shadow-sm transition ${
                       msg.sender === 'user'
-                        ? 'bg-agri-600 text-white rounded-tr-none'
-                        : 'bg-white text-slate-800 rounded-tl-none border border-slate-200/80'
+                        ? 'bg-[#123D2A] text-white rounded-tr-none'
+                        : 'bg-white text-[#202923] rounded-tl-none border border-slate-200/90'
                     }`}
                   >
                     <p className="whitespace-pre-line font-medium">{msg.text}</p>
@@ -586,10 +586,10 @@ export default function AIFarmingAssistant() {
             <button
               type="button"
               onClick={handleToggleListening}
-              className={`p-3 rounded-2xl transition flex items-center justify-center shrink-0 shadow-sm ${
+              className={`p-3 rounded-2xl transition flex items-center justify-center shrink-0 shadow-xs ${
                 isListening
                   ? 'bg-rose-500 text-white animate-pulse ring-4 ring-rose-500/20'
-                  : 'bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200'
+                  : 'bg-[#F7F7F0] text-[#123D2A] hover:bg-[#123D2A]/10 border border-[#D7DBC5]'
               }`}
               title={isListening ? 'Stop Listening' : 'Speak Question (Speech-to-Text)'}
             >
@@ -611,7 +611,7 @@ export default function AIFarmingAssistant() {
                   ? 'खेती या फसल से संबंधित कोई भी सवाल पूछें...'
                   : 'Ask any farming, crop, fertilizer, pest, or weather question...'
               }
-              className="flex-1 px-4 py-2.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 text-xs sm:text-sm text-slate-800 transition"
+              className="flex-1 px-4 py-2.5 rounded-2xl border border-slate-200 focus:outline-none focus:border-[#123D2A] focus:ring-2 focus:ring-[#123D2A]/15 text-xs sm:text-sm text-[#202923] transition"
               disabled={loading}
             />
 
@@ -621,7 +621,7 @@ export default function AIFarmingAssistant() {
               disabled={!inputMessage.trim() || loading}
               icon={Send}
               loading={loading}
-              className="!bg-purple-600 hover:!bg-purple-700 shrink-0 px-4 py-2.5 rounded-2xl shadow-md shadow-purple-600/30"
+              className="!bg-[#123D2A] hover:!bg-[#1D5939] text-white shrink-0 px-4 py-2.5 rounded-2xl shadow-premium"
             >
               <span className="hidden sm:inline">Ask AI</span>
             </Button>

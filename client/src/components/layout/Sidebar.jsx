@@ -85,7 +85,7 @@ export default function Sidebar({ isOpen, onClose }) {
 
       {/* Sidebar Container */}
       <aside 
-        className={`fixed top-0 bottom-0 left-0 w-64 bg-white border-r border-slate-200 z-50 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 w-64 bg-white border-r border-slate-200/90 z-50 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -97,15 +97,15 @@ export default function Sidebar({ isOpen, onClose }) {
               onClick={onClose}
               className="flex items-center space-x-2.5 group"
             >
-              <div className="w-9 h-9 rounded-xl bg-[#176B45] text-white flex items-center justify-center shadow-xs shrink-0">
-                <Sprout className="w-5 h-5 text-[#A3E635]" />
+              <div className="w-9 h-9 rounded-xl bg-[#123D2A] text-white flex items-center justify-center shadow-xs shrink-0 border border-[#246B45]/30">
+                <Sprout className="w-5 h-5 text-[#B6D957]" />
               </div>
               <div className="overflow-hidden">
-                <span className="text-base font-extrabold tracking-tight text-[#176B45] block leading-tight truncate">
+                <span className="text-base font-extrabold tracking-tight text-[#123D2A] block leading-tight truncate">
                   Agriculture Advisor
                 </span>
-                <span className="text-[10px] text-slate-400 font-medium block leading-none truncate">
-                  Smart Farming Platform
+                <span className="text-[10px] text-slate-400 font-semibold tracking-wider uppercase block leading-none truncate mt-0.5">
+                  Smart Farming
                 </span>
               </div>
             </Link>
@@ -134,11 +134,11 @@ export default function Sidebar({ isOpen, onClose }) {
                   onClick={onClose}
                   className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-colors duration-150 ${
                     active 
-                      ? 'bg-[#E8F5EE] text-[#176B45] font-bold border-l-4 border-[#176B45]' 
-                      : 'text-slate-600 hover:text-[#176B45] hover:bg-slate-50'
+                      ? 'bg-[#123D2A]/10 text-[#123D2A] font-bold border-l-4 border-[#123D2A]' 
+                      : 'text-slate-600 hover:text-[#123D2A] hover:bg-[#F7F7F0]'
                   }`}
                 >
-                  <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-[#176B45]' : 'text-slate-400'}`} />
+                  <Icon className={`w-4 h-4 shrink-0 ${active ? 'text-[#123D2A]' : 'text-slate-400'}`} />
                   <span className="truncate">{item.name}</span>
                 </Link>
               );
@@ -147,7 +147,7 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         {/* Bottom: Farmer Profile, Language & Logout */}
-        <div className="p-3 border-t border-slate-100 space-y-2 bg-[#F7FAF7]/60">
+        <div className="p-3 border-t border-slate-100 space-y-2 bg-[#F7F7F0]/60">
           <div className="px-2 py-1 flex items-center justify-between">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
               Language
@@ -158,11 +158,11 @@ export default function Sidebar({ isOpen, onClose }) {
           {/* Farmer Card */}
           {user && (
             <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-xs flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#176B45] text-white flex items-center justify-center font-bold text-xs shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#123D2A] text-white flex items-center justify-center font-bold text-xs shrink-0">
                 {user.name ? user.name.charAt(0).toUpperCase() : 'F'}
               </div>
               <div className="overflow-hidden flex-1 text-left">
-                <p className="text-xs font-bold text-[#1F2937] truncate leading-tight">
+                <p className="text-xs font-bold text-[#202923] truncate leading-tight">
                   {user.name || 'Farmer'}
                 </p>
                 <p className="text-[10px] text-slate-400 truncate">

@@ -197,11 +197,11 @@ export default function RecommendationHistory() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
               Personal Farmer Archive
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mt-1">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1">
             Recommendation & Advisory History
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -210,7 +210,7 @@ export default function RecommendationHistory() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Badge variant="neutral">
+          <Badge variant="forest">
             {totalCount} Total Saved Records
           </Badge>
 
@@ -244,7 +244,7 @@ export default function RecommendationHistory() {
       )}
 
       {/* Module Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-slate-100/90 rounded-2xl w-fit border border-slate-200/60">
+      <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#F7F7F0] rounded-2xl w-fit border border-[#D7DBC5]/80">
         {[
           { key: 'all', label: 'All Records', countLabel: '' },
           { key: 'crop', label: 'Crop Advisory', icon: Sprout },
@@ -264,11 +264,11 @@ export default function RecommendationHistory() {
               }}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition cursor-pointer ${
                 isActive
-                  ? 'bg-white text-slate-900 shadow-sm border border-slate-200/80'
-                  : 'text-slate-500 hover:text-slate-800 hover:bg-slate-200/50'
+                  ? 'bg-[#123D2A] text-white shadow-xs font-bold'
+                  : 'text-slate-600 hover:text-[#123D2A] hover:bg-white/80'
               }`}
             >
-              {Icon && <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-agri-600' : 'text-slate-400'}`} />}
+              {Icon && <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#B6D957]' : 'text-slate-400'}`} />}
               <span>{tab.label}</span>
             </button>
           );

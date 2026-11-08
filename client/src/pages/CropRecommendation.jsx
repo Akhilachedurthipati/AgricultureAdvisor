@@ -14,7 +14,8 @@ import {
   Info,
   SlidersHorizontal,
   BookmarkCheck,
-  Check
+  Check,
+  ArrowRight
 } from 'lucide-react';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
@@ -145,11 +146,11 @@ export default function CropRecommendation() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#176B45]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
               Intelligent Advisory
             </span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight mt-0.5">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-0.5">
             {t('crop.title', 'Crop Recommendation')}
           </h1>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
@@ -157,7 +158,7 @@ export default function CropRecommendation() {
           </p>
         </div>
 
-        <Badge variant="agri">
+        <Badge variant="forest">
           Single Optimal Crop Engine
         </Badge>
       </div>
@@ -170,9 +171,9 @@ export default function CropRecommendation() {
       />
 
       {/* Quick Test Climate Scenarios */}
-      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-        <div className="flex items-center space-x-2 text-[#1F2937] font-semibold">
-          <SlidersHorizontal className="w-4 h-4 text-[#176B45]" />
+      <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div className="flex items-center space-x-2 text-[#202923] font-semibold">
+          <SlidersHorizontal className="w-4 h-4 text-[#246B45]" />
           <span>Quick Evaluation Scenarios:</span>
         </div>
         <div className="flex flex-wrap items-center gap-2">
@@ -181,7 +182,7 @@ export default function CropRecommendation() {
               key={idx}
               type="button"
               onClick={() => handleApplyPreset(p)}
-              className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-[#E8F5EE] hover:text-[#176B45] border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
+              className="px-3 py-1.5 rounded-xl bg-[#F7F7F0] hover:bg-[#123D2A]/10 hover:text-[#123D2A] border border-slate-200 text-slate-700 font-medium transition cursor-pointer text-xs"
             >
               {p.name}
             </button>
@@ -213,7 +214,7 @@ export default function CropRecommendation() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[#176B45]" />
+                    <Layers className="w-3.5 h-3.5 text-[#246B45]" />
                     <span>{t('crop.soilType', 'Soil Type')} *</span>
                   </label>
                   <select
@@ -221,7 +222,7 @@ export default function CropRecommendation() {
                     value={formData.soilType}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
                   >
                     {SOIL_TYPES.map((st) => (
                       <option key={st} value={st}>{st}</option>
@@ -231,7 +232,7 @@ export default function CropRecommendation() {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#176B45]" />
+                    <Calendar className="w-3.5 h-3.5 text-[#246B45]" />
                     <span>{t('crop.season', 'Cropping Season')} *</span>
                   </label>
                   <select
@@ -239,7 +240,7 @@ export default function CropRecommendation() {
                     value={formData.season}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white text-slate-800 outline-none transition"
                   >
                     {SEASONS.map((sn) => (
                       <option key={sn} value={sn}>{sn}</option>
@@ -267,7 +268,7 @@ export default function CropRecommendation() {
                     value={formData.temperature}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
 
@@ -287,7 +288,7 @@ export default function CropRecommendation() {
                     value={formData.humidity}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
@@ -297,7 +298,7 @@ export default function CropRecommendation() {
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <Gauge className="w-3.5 h-3.5 text-[#176B45]" />
+                      <Gauge className="w-3.5 h-3.5 text-[#246B45]" />
                       <span>{t('crop.soilPh', 'Soil pH Level')} *</span>
                     </span>
                     <span className="text-xs font-bold text-slate-600">{formData.ph}</span>
@@ -311,7 +312,7 @@ export default function CropRecommendation() {
                     value={formData.ph}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
 
@@ -331,7 +332,7 @@ export default function CropRecommendation() {
                     value={formData.rainfall}
                     onChange={handleChange}
                     required
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm text-slate-800 outline-none transition"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-slate-800 outline-none transition"
                   />
                 </div>
               </div>
@@ -357,12 +358,12 @@ export default function CropRecommendation() {
             <Card
               title="Optimal Recommended Crop"
               subtitle="Single best suited crop for your environmental parameters"
-              className="border-[#22A06B]/50 ring-1 ring-[#22A06B]/20 animate-in fade-in"
+              className="border-[#246B45]/50 ring-1 ring-[#246B45]/20 animate-in fade-in"
             >
               <div className="space-y-4">
                 
                 {/* Result Hero Header */}
-                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#176B45] to-[#114F33] text-white flex items-center justify-between shadow-sm">
+                <div className="p-5 rounded-2xl bg-gradient-to-br from-[#123D2A] to-[#1A4D35] text-white flex items-center justify-between shadow-premium">
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-emerald-200 font-bold block">
                       Recommended Crop
@@ -371,9 +372,9 @@ export default function CropRecommendation() {
                       {result.cropName}
                     </h2>
                   </div>
-                  <div className="text-right bg-white/10 px-3 py-1.5 rounded-xl border border-white/20 backdrop-blur-sm">
+                  <div className="text-right bg-white/10 px-3.5 py-2 rounded-xl border border-white/20 backdrop-blur-sm">
                     <span className="text-[10px] uppercase text-emerald-200 block font-bold">Confidence</span>
-                    <span className="text-xl font-extrabold text-white">
+                    <span className="text-xl font-extrabold text-[#B6D957]">
                       {(result.confidenceScore <= 1.0 ? Math.round(result.confidenceScore * 100) : Math.round(result.confidenceScore))}%
                     </span>
                   </div>
@@ -392,19 +393,19 @@ export default function CropRecommendation() {
 
                 {/* Suitability Explanation */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-[#1F2937] flex items-center gap-1.5">
-                    <BookmarkCheck className="w-4 h-4 text-[#176B45]" />
+                  <span className="font-bold text-[#202923] flex items-center gap-1.5">
+                    <BookmarkCheck className="w-4 h-4 text-[#246B45]" />
                     <span>Agronomic Suitability Rationale</span>
                   </span>
-                  <p className="text-slate-700 leading-relaxed bg-[#F7FAF7] p-3.5 rounded-xl border border-slate-200">
+                  <p className="text-slate-700 leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-200">
                     {result.suitabilityExplanation}
                   </p>
                 </div>
 
                 {/* Cultivation Guidance */}
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-bold text-[#1F2937] block">Cultivation & Field Guidelines</span>
-                  <p className="text-slate-700 leading-relaxed bg-[#F7FAF7] p-3.5 rounded-xl border border-slate-200">
+                  <span className="font-bold text-[#202923] block">Cultivation & Field Guidelines</span>
+                  <p className="text-slate-700 leading-relaxed bg-[#F7F7F0] p-3.5 rounded-xl border border-slate-200">
                     {result.cultivationInformation}
                   </p>
                 </div>
@@ -412,21 +413,21 @@ export default function CropRecommendation() {
                 {/* Optimal Agronomic Ranges */}
                 {result.agronomicParameters && (
                   <div className="space-y-1.5 text-xs">
-                    <span className="font-bold text-[#1F2937] block">Optimal Agronomic Ranges for {result.cropName}</span>
+                    <span className="font-bold text-[#202923] block">Optimal Agronomic Ranges for {result.cropName}</span>
                     <div className="grid grid-cols-2 gap-2 text-[11px]">
-                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Temp</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalTemperature}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Humidity</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalHumidity}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Soil pH</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalSoilPh}</span>
                       </div>
-                      <div className="p-2.5 bg-[#F7FAF7] rounded-xl border border-slate-200">
+                      <div className="p-2.5 bg-[#F7F7F0] rounded-xl border border-slate-200">
                         <span className="text-slate-400 block text-[10px]">Optimal Rainfall</span>
                         <span className="font-bold text-slate-700">{result.agronomicParameters.optimalRainfall}</span>
                       </div>
@@ -434,8 +435,8 @@ export default function CropRecommendation() {
                   </div>
                 )}
 
-                <div className="p-3 bg-[#E8F5EE] rounded-xl border border-[#C7E7D6] text-[11px] text-[#176B45] flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#22A06B] shrink-0 mt-0.5" />
+                <div className="p-3 bg-[#123D2A]/10 rounded-xl border border-[#123D2A]/20 text-[11px] text-[#123D2A] flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#246B45] shrink-0 mt-0.5" />
                   <span>Recommendation saved to your farmer history for seasonal auditing.</span>
                 </div>
 
@@ -443,10 +444,10 @@ export default function CropRecommendation() {
             </Card>
           ) : (
             <Card className="text-center py-14 px-6 flex flex-col items-center justify-center space-y-3">
-              <div className="w-14 h-14 rounded-2xl bg-[#E8F5EE] text-[#176B45] flex items-center justify-center border border-[#C7E7D6]">
-                <Sprout className="w-7 h-7 text-[#22A06B]" />
+              <div className="w-14 h-14 rounded-2xl bg-[#F7F7F0] text-[#123D2A] flex items-center justify-center border border-[#D7DBC5]">
+                <Sprout className="w-7 h-7 text-[#246B45]" />
               </div>
-              <h3 className="font-bold text-[#1F2937] text-base">Awaiting Parameters</h3>
+              <h3 className="font-bold text-[#202923] text-base">Awaiting Parameters</h3>
               <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
                 Provide your farm's soil type, cropping season, and weather observations, then click "Find Optimal Crop".
               </p>

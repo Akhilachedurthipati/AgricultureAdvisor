@@ -94,10 +94,10 @@ export default function Register() {
         
         {/* Header */}
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#176B45] text-white shadow-sm mb-1">
-            <Sprout className="w-7 h-7 text-[#A3E635]" />
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-[#123D2A] text-white shadow-premium mb-1 border border-[#246B45]/30">
+            <Sprout className="w-7 h-7 text-[#B6D957]" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1F2937] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight">
             {t('auth.registerTitle', 'Register Farmer Account')}
           </h2>
           <p className="text-xs sm:text-sm text-slate-500">
@@ -106,7 +106,7 @@ export default function Register() {
         </div>
 
         {/* Form Container */}
-        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-card p-6 sm:p-8">
+        <div className="bg-white rounded-3xl border border-slate-200/90 shadow-premium p-6 sm:p-8">
           
           {errorMessage && (
             <div className="mb-5 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 flex items-start gap-2 animate-in fade-in">
@@ -134,7 +134,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="e.g. Ramesh Patel"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                   />
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function Register() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="9876543210"
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                   />
                 </div>
               </div>
@@ -176,7 +176,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="farmer@example.com"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                   />
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function Register() {
                     name="preferredLanguage"
                     value={formData.preferredLanguage}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm bg-white outline-none transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white outline-none transition text-[#202923]"
                   >
                     {SUPPORTED_LANGUAGES.map((lang) => (
                       <option key={lang.code} value={lang.code}>
@@ -217,7 +217,7 @@ export default function Register() {
                   value={formData.state}
                   onChange={handleChange}
                   placeholder={t('auth.state', 'State')}
-                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs outline-none transition text-[#202923]"
                 />
                 <input
                   type="text"
@@ -225,7 +225,7 @@ export default function Register() {
                   value={formData.district}
                   onChange={handleChange}
                   placeholder={t('auth.district', 'District')}
-                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs outline-none transition text-[#202923]"
                 />
                 <input
                   type="text"
@@ -233,7 +233,7 @@ export default function Register() {
                   value={formData.city}
                   onChange={handleChange}
                   placeholder={t('auth.city', 'Town / Village')}
-                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs outline-none transition"
+                  className="py-2.5 px-3 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs outline-none transition text-[#202923]"
                 />
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
+                    className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                   />
                   <button
                     type="button"
@@ -282,7 +282,7 @@ export default function Register() {
                     onChange={handleChange}
                     placeholder="••••••••"
                     required
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#176B45] focus:ring-1 focus:ring-[#176B45] text-xs sm:text-sm outline-none transition"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                   />
                 </div>
               </div>
@@ -292,7 +292,7 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full mt-4 py-3 px-4 rounded-xl bg-[#176B45] hover:bg-[#114F33] text-white font-semibold text-xs sm:text-sm shadow-sm flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
+              className="w-full mt-4 py-3 px-4 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white font-semibold text-xs sm:text-sm shadow-premium flex items-center justify-center space-x-2 transition disabled:opacity-70 cursor-pointer"
             >
               {loading ? (
                 <>
@@ -301,7 +301,7 @@ export default function Register() {
                 </>
               ) : (
                 <>
-                  <UserPlus className="w-4 h-4" />
+                  <UserPlus className="w-4 h-4 text-[#B6D957]" />
                   <span>Create Farmer Account</span>
                 </>
               )}
@@ -313,7 +313,7 @@ export default function Register() {
             <span>{t('auth.haveAccount', 'Already registered?')} </span>
             <Link 
               to="/login" 
-              className="font-bold text-[#176B45] hover:underline"
+              className="font-bold text-[#123D2A] hover:underline"
             >
               {t('auth.loginBtn', 'Sign In to Your Account')}
             </Link>

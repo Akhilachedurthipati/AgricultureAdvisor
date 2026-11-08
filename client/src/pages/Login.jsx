@@ -17,15 +17,15 @@ import LanguageSelector from '../components/common/LanguageSelector';
 
 export default function Login() {
   const { t } = useTranslation();
-  const [email, setEmail] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState(location.state?.defaultIdentifier || '');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-
-  const { login } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const from = location.state?.from?.pathname || '/dashboard';
   const successNotice = location.state?.successMessage || '';
@@ -35,7 +35,7 @@ export default function Login() {
     setErrorMessage('');
 
     if (!email || !password) {
-      setErrorMessage('Please enter both your email and password.');
+      setErrorMessage('Please enter both your mobile number or email and password.');
       return;
     }
 
@@ -132,19 +132,20 @@ export default function Login() {
             <form onSubmit={handleSubmit} className="space-y-4">
               
               {/* Email Field */}
+              {/* Phone or Email Field */}
               <div>
                 <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                  {t('auth.email', 'Email Address')}
+                  {t('auth.phoneOrEmail', 'Mobile Number or Email')}
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
-                    type="email"
+                    type="text"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="farmer@example.com"
+                    placeholder="e.g. 9876543210 or farmer@example.com"
                     required
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm text-[#202923] placeholder-slate-400 outline-none transition"
                   />

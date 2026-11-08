@@ -9,7 +9,7 @@ import { generateToken } from '../utils/jwt.js';
 // Input Validation Schemas
 export const registerSchema = z.object({
   name: z.string().trim().min(2, 'Full name must have at least 2 characters').max(100),
-  email: z.string().trim().email('Please enter a valid email address').toLowerCase(),
+  email: z.string().trim().email('Please enter a valid email address').toLowerCase().optional().or(z.literal('')),
   password: z.string().min(6, 'Password must be at least 6 characters long'),
   phone: z.string().trim().optional(),
   preferredLanguage: z.enum(['en', 'te', 'hi', 'ta', 'kn', 'ml', 'mr', 'bn']).optional().default('en'),
@@ -21,7 +21,7 @@ export const registerSchema = z.object({
 });
 
 export const loginSchema = z.object({
-  email: z.string().trim().email('Please enter a valid email address').toLowerCase(),
+  email: z.string().trim().min(1, 'Please enter your phone number or email address').toLowerCase(),
   password: z.string().min(1, 'Password is required')
 });
 
@@ -45,21 +45,39 @@ export const register = async (req, res, next) => {
   try {
     const { name, email, password, phone, preferredLanguage, location } = req.body;
 
-    const existingUser = await findUserByEmail(email);
+    // Deterministic email assignment for phone-only farmer registrations
+    const phoneClean = phone ? phone.replace(/\D/g, '') : '';
+    const userEmail = (email && email.trim())
+      ? email.toLowerCase().trim()
+      : phoneClean
+        ? `${phoneClean}@farmer.advisor`
+        : `farmer_${Date.now()}@farmer.advisor`;
+
+    const existingUser = await findUserByEmail(userEmail);
     if (existingUser) {
       return res.status(400).json({
         success: false,
-        message: 'An account with this email address already exists. Please log in instead.'
+        message: 'An account with this phone number or email already exists. Please log in instead.'
       });
+    }
+
+    if (phoneClean && phoneClean.length >= 7) {
+      const existingPhone = await findUserByEmail(phoneClean);
+      if (existingPhone) {
+        return res.status(400).json({
+          success: false,
+          message: 'An account with this phone number already exists. Please log in instead.'
+        });
+      }
     }
 
     const newUser = await createUser({
       name,
-      email,
+      email: userEmail,
       password,
-      phone,
-      preferredLanguage,
-      location
+      phone: phone?.trim() || '',
+      preferredLanguage: preferredLanguage || 'en',
+      location: location || {}
     });
 
     const userId = newUser._id || newUser.id;

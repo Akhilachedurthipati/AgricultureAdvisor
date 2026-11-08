@@ -155,6 +155,7 @@
     "registerTitle": "किसान पंजीकरण",
     "registerSubtitle": "एआई कृषि निर्णय सहायता से जुड़ें",
     "name": "पूरा नाम",
+    "phoneOrEmail": "मोबाइल नंबर या ईमेल",
     "email": "ईमेल पता",
     "password": "पासवर्ड",
     "phone": "मोबाइल नंबर",

@@ -3,28 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
   Sprout, 
   UserPlus, 
-  Mail, 
   Lock, 
   User, 
   Phone, 
-  MapPin, 
-  Languages, 
   Eye, 
   EyeOff, 
   AlertCircle 
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
-import { SUPPORTED_LANGUAGES } from '../i18n';
 import LanguageSelector from '../components/common/LanguageSelector';
 
 export default function Register() {
   const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
-    preferredLanguage: i18n.language || 'en',
     state: '',
     district: '',
     city: '',
@@ -45,16 +39,21 @@ export default function Register() {
       ...prev,
       [name]: value
     }));
-
-    if (name === 'preferredLanguage') {
-      i18n.changeLanguage(value);
-      localStorage.setItem('agri_preferred_language', value);
-    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
+
+    if (!formData.name.trim()) {
+      setErrorMessage('Please enter your full name.');
+      return;
+    }
+
+    if (!formData.phone.trim() || formData.phone.trim().length < 10) {
+      setErrorMessage('Please enter a valid 10-digit mobile phone number.');
+      return;
+    }
 
     if (formData.password !== formData.confirmPassword) {
       setErrorMessage('Passwords do not match. Please verify.');
@@ -69,14 +68,13 @@ export default function Register() {
     setLoading(true);
     try {
       await register({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        preferredLanguage: formData.preferredLanguage,
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        preferredLanguage: i18n.language || 'en',
         location: {
-          state: formData.state,
-          district: formData.district,
-          city: formData.city
+          state: formData.state.trim(),
+          district: formData.district.trim(),
+          city: formData.city.trim()
         },
         password: formData.password
       });
@@ -84,7 +82,10 @@ export default function Register() {
       // Redirect to Login after successful registration as required
       navigate('/login', { 
         replace: true,
-        state: { successMessage: 'Registration successful! Please sign in with your credentials.' }
+        state: { 
+          successMessage: 'Registration successful! Please sign in with your phone number and password.',
+          defaultIdentifier: formData.phone.trim()
+        }
       });
     } catch (err) {
       setErrorMessage(err.message || 'Registration failed. Please check your information.');
@@ -141,91 +142,47 @@ export default function Register() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               
-              {/* Full Name & Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {t('auth.name', 'Farmer Full Name')} *
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <User className="w-4 h-4" />
-                    </div>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="e.g. Ramesh Patel"
-                      required
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
-                    />
+              {/* Farmer Full Name */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  {t('auth.name', 'Farmer Full Name')} *
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <User className="w-4 h-4" />
                   </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {t('auth.phone', 'Phone Number')}
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="9876543210"
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
-                    />
-                  </div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. Ramesh Patel"
+                    required
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
+                  />
                 </div>
               </div>
 
-              {/* Email & Preferred Language */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {t('auth.email', 'Email Address')} *
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="farmer@example.com"
-                      required
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
-                    />
+              {/* Phone / Mobile Number */}
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                  {t('auth.phone', 'Mobile / Phone Number')} *
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <Phone className="w-4 h-4" />
                   </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    {t('auth.preferredLanguage', 'Preferred Language')}
-                  </label>
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                      <Languages className="w-4 h-4" />
-                    </div>
-                    <select
-                      name="preferredLanguage"
-                      value={formData.preferredLanguage}
-                      onChange={handleChange}
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm bg-white outline-none transition text-[#202923]"
-                    >
-                      {SUPPORTED_LANGUAGES.map((lang) => (
-                        <option key={lang.code} value={lang.code}>
-                          {lang.nativeName} ({lang.name})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="e.g. 9876543210"
+                    required
+                    pattern="[0-9]{10}"
+                    title="Please enter a 10-digit mobile number"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
+                  />
                 </div>
               </div>
 
@@ -284,7 +241,7 @@ export default function Register() {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600"
+                      className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -306,7 +263,7 @@ export default function Register() {
                       onChange={handleChange}
                       placeholder="••••••••"
                       required
-                      className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
+                      className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-200 focus:border-[#123D2A] focus:ring-1 focus:ring-[#123D2A] text-xs sm:text-sm outline-none transition text-[#202923]"
                     />
                   </div>
                 </div>

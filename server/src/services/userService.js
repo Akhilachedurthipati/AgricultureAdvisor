@@ -5,16 +5,27 @@ import User from '../models/User.js';
 // In-memory fallback store when external MongoDB daemon is not running in dev
 const memoryUsers = new Map();
 
-export const findUserByEmail = async (email) => {
-  const normalizedEmail = email.toLowerCase().trim();
+export const findUserByEmail = async (identifier) => {
+  if (!identifier) return null;
+  const clean = identifier.toString().toLowerCase().trim();
+  const phoneClean = identifier.toString().replace(/\D/g, '');
 
   if (mongoose.connection.readyState === 1) {
-    return await User.findOne({ email: normalizedEmail });
+    const conditions = [{ email: clean }];
+    if (phoneClean && phoneClean.length >= 7) {
+      conditions.push({ phone: phoneClean });
+      conditions.push({ phone: identifier.toString().trim() });
+    }
+    return await User.findOne({ $or: conditions });
   }
 
   // Memory fallback
   for (const user of memoryUsers.values()) {
-    if (user.email === normalizedEmail) {
+    const userPhoneClean = user.phone ? user.phone.replace(/\D/g, '') : '';
+    const matchEmail = user.email && user.email.toLowerCase() === clean;
+    const matchPhone = phoneClean && phoneClean.length >= 7 && userPhoneClean && userPhoneClean === phoneClean;
+
+    if (matchEmail || matchPhone) {
       return {
         ...user,
         comparePassword: async (pwd) => await bcrypt.compare(pwd, user.password),

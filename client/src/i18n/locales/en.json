@@ -155,6 +155,7 @@
     "registerTitle": "Farmer Registration",
     "registerSubtitle": "Join thousands of farmers using AI decision support",
     "name": "Full Name",
+    "phoneOrEmail": "Mobile Number or Email",
     "email": "Email Address",
     "password": "Password",
     "phone": "Phone Number",

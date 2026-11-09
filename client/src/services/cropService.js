@@ -27,3 +27,18 @@ export const fetchCropHistory = async () => {
   }
 };
 
+/**
+ * Save custom farmer land allocation for recommended crops
+ * @param {string} id - Crop recommendation ID
+ * @param {object} allocationData - { landArea, allocatedLand: [{ cropName, acres }] }
+ * @returns {Promise<object>}
+ */
+export const saveCropLandAllocation = async (id, allocationData) => {
+  try {
+    const response = await api.put(`/crop/${id}/allocation`, allocationData);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data || { success: false, message: error.message };
+  }
+};
+

@@ -42,7 +42,9 @@ function standardizeRecord(item, moduleType) {
       details: {
         inputs: item.inputs,
         recommendation: item.recommendation,
-        disclaimer: item.disclaimer
+        disclaimer: item.disclaimer,
+        allocatedLand: item.allocatedLand,
+        weatherTelemetry: item.weatherTelemetry
       }
     };
   }
@@ -61,7 +63,9 @@ function standardizeRecord(item, moduleType) {
       details: {
         inputs: item.inputs,
         recommendation: item.recommendation,
-        disclaimer: item.disclaimer
+        disclaimer: item.disclaimer,
+        allocatedLand: item.allocatedLand,
+        weatherTelemetry: item.weatherTelemetry
       }
     };
   }

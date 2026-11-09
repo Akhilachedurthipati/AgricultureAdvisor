@@ -410,3 +410,103 @@ export async function getAgriculturalWeather(params = {}) {
 
   return payload;
 }
+
+/**
+ * Standard Indian Cropping Season calendar windows and duration in months
+ */
+export const SEASON_CALENDAR = {
+  'kharif': {
+    name: 'Kharif (Monsoon)',
+    canonicalLabel: 'Kharif (Monsoon: Jun - Oct)',
+    startDate: '2025-06-01',
+    endDate: '2025-10-31',
+    months: 5,
+    description: 'Southwest Monsoon cropping season'
+  },
+  'rabi': {
+    name: 'Rabi (Winter)',
+    canonicalLabel: 'Rabi (Winter: Oct - Mar)',
+    startDate: '2024-11-01',
+    endDate: '2025-03-31',
+    months: 5,
+    description: 'Winter cropping season'
+  },
+  'zaid': {
+    name: 'Zaid (Summer)',
+    canonicalLabel: 'Zaid (Summer: Mar - Jun)',
+    startDate: '2025-03-01',
+    endDate: '2025-05-31',
+    months: 3,
+    description: 'Summer cropping season'
+  }
+};
+
+/**
+ * Resolve season string to calendar window metadata
+ */
+export function resolveSeasonWindow(seasonStr) {
+  const s = (seasonStr || '').toLowerCase();
+  if (s.includes('kharif') || s.includes('monsoon')) return SEASON_CALENDAR['kharif'];
+  if (s.includes('rabi') || s.includes('winter')) return SEASON_CALENDAR['rabi'];
+  if (s.includes('zaid') || s.includes('summer')) return SEASON_CALENDAR['zaid'];
+  return SEASON_CALENDAR['kharif'];
+}
+
+/**
+ * Retrieve seasonal climate and meteorological telemetry for crop recommendation
+ * Uses real-time Open-Meteo weather for temperature & relative humidity,
+ * and Open-Meteo historical archive for seasonal precipitation norms.
+ *
+ * @param {object} params - { city, latitude, longitude, season }
+ * @returns {Promise<object>}
+ */
+export async function getSeasonalClimateForCrop(params = {}) {
+  const { city, latitude, longitude, season } = params;
+
+  // 1. Fetch current & short-term forecast weather via existing Open-Meteo integration
+  const weatherData = await getAgriculturalWeather({ city, latitude, longitude });
+  const loc = weatherData.location;
+
+  // 2. Resolve seasonal calendar window
+  const seasonInfo = resolveSeasonWindow(season);
+
+  // 3. Query Open-Meteo Historical Archive for seasonal precipitation
+  const archiveUrl = `https://archive-api.open-meteo.com/v1/archive?latitude=${loc.latitude}&longitude=${loc.longitude}&start_date=${seasonInfo.startDate}&end_date=${seasonInfo.endDate}&daily=precipitation_sum&timezone=auto`;
+
+  let seasonalCumulativeRainfall = 0;
+  try {
+    const archiveRes = await fetch(archiveUrl, { headers: { 'User-Agent': 'AgricultureAdvisor/1.0' } });
+    if (!archiveRes.ok) {
+      throw new Error(`Open-Meteo Archive API returned HTTP ${archiveRes.status}`);
+    }
+    const archiveData = await archiveRes.json();
+    if (archiveData.daily && Array.isArray(archiveData.daily.precipitation_sum)) {
+      seasonalCumulativeRainfall = archiveData.daily.precipitation_sum.reduce((acc, val) => acc + (val || 0), 0);
+    }
+  } catch (archiveErr) {
+    console.warn('[Weather Service] Seasonal archive query error:', archiveErr.message);
+    throw new Error(`Weather telemetry unavailable: Could not retrieve seasonal climate information from Open-Meteo for ${loc.name || loc.district || 'the selected location'}. Please verify connection or select a nearby district.`);
+  }
+
+  // Model was trained on monthly equivalent precipitation values (range: ~20mm to ~300mm)
+  // Converting cumulative season precipitation to monthly equivalent preserves exact model compatibility
+  const monthlyRainfallEquivalent = Math.max(
+    15,
+    Number((seasonalCumulativeRainfall / seasonInfo.months).toFixed(1))
+  );
+
+  return {
+    location: loc,
+    temperature: weatherData.current.temperature,
+    humidity: weatherData.current.humidity,
+    weatherCondition: weatherData.current.condition,
+    weatherCode: weatherData.current.weatherCode,
+    seasonalCumulativeRainfall: Number(seasonalCumulativeRainfall.toFixed(1)),
+    monthlyRainfallEquivalent,
+    rainfallUsedInModel: monthlyRainfallEquivalent,
+    seasonName: seasonInfo.name,
+    seasonMonths: seasonInfo.months,
+    dataSource: 'Open-Meteo Forecast & Historical Archive API',
+    fetchedAt: new Date().toISOString()
+  };
+}

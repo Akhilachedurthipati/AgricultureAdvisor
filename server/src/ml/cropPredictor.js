@@ -87,31 +87,43 @@ function gaussianLogPdf(x, mean, std) {
 }
 
 /**
- * Predict the single best-suited crop based on soil and climate parameters
+ * Predict multiple suitable crops based on soil, cropping season, and weather parameters.
+ * Mathematically handles missing optional features (e.g. soil pH, NPK) via feature marginalization
+ * without inserting zero or fabricating artificial values.
+ *
  * @param {object} inputs
- * @param {string} inputs.soilType
- * @param {string} inputs.season
- * @param {number} inputs.temperature
- * @param {number} inputs.humidity
- * @param {number} inputs.ph
- * @param {number} inputs.rainfall
- * @returns {object} single recommendation result with genuine confidence and uncertainty warnings
+ * @param {string} inputs.soilType - Canonical soil type
+ * @param {string} inputs.season - Cropping season (Kharif, Rabi, Zaid)
+ * @param {number} inputs.temperature - Ambient temperature in °C
+ * @param {number} inputs.humidity - Relative humidity in %
+ * @param {number} [inputs.ph] - Optional soil pH (3.0 - 10.0)
+ * @param {number} inputs.rainfall - Monthly equivalent rainfall in mm
+ * @param {number} [inputs.landArea=1] - Available land area in acres
+ * @param {object} [inputs.npk] - Optional soil NPK test readings
+ * @param {object} [inputs.weatherTelemetry] - Open-Meteo provenance metadata
+ * @returns {object} Ranked recommendations with multiple suitable crops, confidence scores, and cultivation guidance
  */
 export function predictCrop(inputs) {
   if (!modelData || !modelData.crops) {
     throw new Error('ML Crop model artifact is not loaded');
   }
 
-  const { soilType, season, temperature, humidity, ph, rainfall } = inputs;
+  const { soilType, season, temperature, humidity, ph, rainfall, landArea = 1, npk, weatherTelemetry } = inputs;
 
-  // Validate presence and ranges
+  // Validate presence of required weather and soil parameters
   const numTemp = Number(temperature);
   const numHum = Number(humidity);
-  const numPh = Number(ph);
   const numRain = Number(rainfall);
 
-  if (isNaN(numTemp) || isNaN(numHum) || isNaN(numPh) || isNaN(numRain)) {
-    throw new Error('Temperature, humidity, soil pH, and rainfall must be valid numeric values.');
+  if (isNaN(numTemp) || isNaN(numHum) || isNaN(numRain)) {
+    throw new Error('Temperature, humidity, and rainfall must be valid numeric values.');
+  }
+
+  // Handle optional Soil pH: if undefined, null, or empty string, it is omitted (NOT set to 0)
+  const hasPh = ph !== undefined && ph !== null && ph !== '' && !isNaN(Number(ph));
+  const numPh = hasPh ? Number(ph) : null;
+  if (hasPh && (numPh < 3.0 || numPh > 10.0)) {
+    throw new Error('Soil pH, if provided, must be between 3.0 and 10.0.');
   }
 
   // Normalize soil type and season using canonical alias mappings
@@ -128,8 +140,12 @@ export function predictCrop(inputs) {
     const stats = cropInfo.numericalStats;
     logLikelihood += gaussianLogPdf(numTemp, stats.temperature.mean, stats.temperature.std);
     logLikelihood += gaussianLogPdf(numHum, stats.humidity.mean, stats.humidity.std);
-    logLikelihood += gaussianLogPdf(numPh, stats.ph.mean, stats.ph.std);
     logLikelihood += gaussianLogPdf(numRain, stats.rainfall.mean, stats.rainfall.std);
+
+    // Only include pH in log-likelihood if the farmer provided it (no zero substitution)
+    if (hasPh) {
+      logLikelihood += gaussianLogPdf(numPh, stats.ph.mean, stats.ph.std);
+    }
 
     // Categorical features (Soil type and season likelihoods)
     const soilProb = cropInfo.soilProbabilities[canonicalSoil] || 0.05;
@@ -143,7 +159,9 @@ export function predictCrop(inputs) {
       cropName: cropInfo.cropName,
       logLikelihood,
       cultivationGuide: cropInfo.cultivationGuide,
-      stats: cropInfo.numericalStats
+      stats: cropInfo.numericalStats,
+      soilProb,
+      seasonProb
     });
   }
 
@@ -155,34 +173,82 @@ export function predictCrop(inputs) {
   }));
   const sumExp = expScores.reduce((acc, c) => acc + c.weight, 0);
 
-  // Calculate posterior probability for each crop
-  const ranked = expScores.map(c => ({
+  // Calculate posterior probability for each candidate crop
+  const rankedAll = expScores.map(c => ({
     cropKey: c.cropKey,
     cropName: c.cropName,
     confidence: c.weight / sumExp,
     logLikelihood: c.logLikelihood,
     cultivationGuide: c.cultivationGuide,
-    stats: c.stats
+    stats: c.stats,
+    soilProb: c.soilProb,
+    seasonProb: c.seasonProb
   }));
 
   // Sort descending by posterior probability
-  ranked.sort((a, b) => b.confidence - a.confidence);
+  rankedAll.sort((a, b) => b.confidence - a.confidence);
 
-  // EXACTLY ONE BEST-SUITED CROP
-  const best = ranked[0];
-  const secondBest = ranked[1] || null;
+  // Top candidate crop
+  const best = rankedAll[0];
+  const secondBest = rankedAll[1] || null;
 
-  // Genuine posterior probability directly from model output (no artificial clamping)
+  // Filter multiple viable recommendations:
+  // Must have compatible agronomic conditions with the soil and season
+  const compatibleCrops = rankedAll.filter(c => c.soilProb >= 0.005 && c.seasonProb >= 0.005);
+  let viableCrops = compatibleCrops.filter(c => c.confidence >= 0.005);
+  if (viableCrops.length < 2 && compatibleCrops.length >= 2) {
+    viableCrops = compatibleCrops.slice(0, 3);
+  }
+  const multipleCandidates = viableCrops.length > 0 ? viableCrops : rankedAll.slice(0, 3);
+
+  // Helper to categorize water demand based on crop rainfall requirements
+  const getWaterDemand = (stats) => {
+    if (stats.rainfall.mean < 60) return { level: 'Low', description: 'Drought-tolerant / Low water requirement' };
+    if (stats.rainfall.mean <= 130) return { level: 'Moderate', description: 'Moderate irrigation or steady rainfall' };
+    return { level: 'High', description: 'High water requirement / standing moisture' };
+  };
+
+  // Build formatted list of multiple suitable crop recommendations
+  const suitableCrops = multipleCandidates.slice(0, 5).map((candidate, idx) => {
+    const rawConf = candidate.confidence;
+    const confScore = Number(rawConf.toFixed(2));
+    const confPercent = Math.max(1, Math.round(rawConf * 100));
+    const waterDemand = getWaterDemand(candidate.stats);
+
+    return {
+      rank: idx + 1,
+      cropKey: candidate.cropKey,
+      cropName: candidate.cropName,
+      confidenceScore: confScore,
+      confidencePercentage: confPercent,
+      isPrimary: idx === 0,
+      suitabilityExplanation: generateSuitabilityExplanation({
+        cropName: candidate.cropName,
+        soilType: canonicalSoil,
+        season: canonicalSeason,
+        temp: numTemp,
+        humidity: numHum,
+        ph: numPh,
+        rainfall: numRain,
+        idealStats: candidate.stats,
+        hasPh
+      }),
+      cultivationGuide: candidate.cultivationGuide,
+      waterDemand,
+      agronomicParameters: {
+        optimalTemperature: `${candidate.stats.temperature.min.toFixed(0)}°C - ${candidate.stats.temperature.max.toFixed(0)}°C`,
+        optimalHumidity: `${candidate.stats.humidity.min.toFixed(0)}% - ${candidate.stats.humidity.max.toFixed(0)}%`,
+        optimalSoilPh: `${candidate.stats.ph.min.toFixed(1)} - ${candidate.stats.ph.max.toFixed(1)}`,
+        optimalRainfall: `${candidate.stats.rainfall.min.toFixed(0)} mm - ${candidate.stats.rainfall.max.toFixed(0)} mm/month`
+      },
+      allocatedAcres: 0
+    };
+  });
+
+  // Out-of-Distribution (OOD) check
+  const isOutOfDistribution = best.logLikelihood < -28.0;
   const rawConfidence = best.confidence;
   const confidenceScore = Number(rawConfidence.toFixed(2));
-
-  // Out-of-Distribution (OOD) check:
-  // In-distribution minimum log-likelihood on verified dataset is -19.20.
-  // Severe environmental stress / out-of-distribution threshold is -28.0 (extreme cases reach -40 to -60).
-  const isOutOfDistribution = best.logLikelihood < -28.0;
-
-  // Uncertainty evaluation:
-  // High confidence requires in-distribution parameters and >= 70% posterior probability
   const isConfident = !isOutOfDistribution && rawConfidence >= 0.70;
 
   let confidenceLevel = 'high';
@@ -198,22 +264,10 @@ export function predictCrop(inputs) {
   } else if (!isConfident) {
     const pct = Math.round(rawConfidence * 100);
     const altMsg = secondBest && secondBest.confidence >= 0.15 
-      ? ` Alternate candidate: ${secondBest.cropName} (${Math.round(secondBest.confidence * 100)}%).` 
+      ? ` Alternate candidates: ${suitableCrops.slice(1).map(c => `${c.cropName} (${c.confidencePercentage}%)`).join(', ')}.` 
       : '';
-    uncertaintyWarning = `Moderate recommendation certainty (${pct}%). The provided climate or soil parameters sit between multiple crop suitability profiles.${altMsg} Please verify your soil test readings and local seasonal weather expectations before planting.`;
+    uncertaintyWarning = `Moderate recommendation certainty (${pct}%). Multiple suitable crops identified across the provided climate and soil conditions.${altMsg} Please verify your soil test readings and local seasonal weather expectations before planting.`;
   }
-
-  // Generate scientific suitability explanation
-  const suitabilityExplanation = generateSuitabilityExplanation({
-    cropName: best.cropName,
-    soilType: canonicalSoil,
-    season: canonicalSeason,
-    temp: numTemp,
-    humidity: numHum,
-    ph: numPh,
-    rainfall: numRain,
-    idealStats: best.stats
-  });
 
   return {
     cropName: best.cropName,
@@ -221,14 +275,22 @@ export function predictCrop(inputs) {
     isConfident,
     confidenceLevel,
     uncertaintyWarning,
-    suitabilityExplanation,
+    suitabilityExplanation: suitableCrops[0]?.suitabilityExplanation || '',
     cultivationInformation: best.cultivationGuide,
-    agronomicParameters: {
-      optimalTemperature: `${best.stats.temperature.min.toFixed(0)}°C - ${best.stats.temperature.max.toFixed(0)}°C`,
-      optimalHumidity: `${best.stats.humidity.min.toFixed(0)}% - ${best.stats.humidity.max.toFixed(0)}%`,
-      optimalSoilPh: `${best.stats.ph.min.toFixed(1)} - ${best.stats.ph.max.toFixed(1)}`,
-      optimalRainfall: `${best.stats.rainfall.min.toFixed(0)} mm - ${best.stats.rainfall.max.toFixed(0)} mm`
+    agronomicParameters: suitableCrops[0]?.agronomicParameters,
+    suitableCrops,
+    evaluatedParameters: {
+      soilType: canonicalSoil,
+      season: canonicalSeason,
+      temperature: numTemp,
+      humidity: numHum,
+      rainfall: numRain,
+      ph: numPh,
+      hasPh,
+      landArea: Number(landArea) || 1,
+      npk: npk || null
     },
+    weatherTelemetry: weatherTelemetry || null,
     advisoryDisclaimer: 'This recommendation is a computational agronomic advisory based on regional crop climate models. Environmental conditions, micro-climates, and seed varieties can vary. Confirm with your local agricultural extension officer or soil testing laboratory prior to sowing.'
   };
 }
@@ -236,20 +298,22 @@ export function predictCrop(inputs) {
 /**
  * Generate a detailed suitability explanation
  */
-function generateSuitabilityExplanation({ cropName, soilType, season, temp, humidity, ph, rainfall, idealStats }) {
+function generateSuitabilityExplanation({ cropName, soilType, season, temp, humidity, ph, rainfall, idealStats, hasPh }) {
   const tempStatus = temp >= idealStats.temperature.min && temp <= idealStats.temperature.max
     ? `average temperature of ${temp}°C is within its prime physiological range (${idealStats.temperature.min.toFixed(0)}°C - ${idealStats.temperature.max.toFixed(0)}°C)`
     : `temperature of ${temp}°C is adaptable for this variety`;
 
   const rainStatus = rainfall >= idealStats.rainfall.min && rainfall <= idealStats.rainfall.max
-    ? `expected precipitation of ${rainfall} mm meets its seasonal moisture requirement`
-    : `rainfall of ${rainfall} mm can be augmented with supplemental furrow/drip irrigation`;
+    ? `precipitation of ${rainfall} mm meets its seasonal moisture requirement`
+    : `moisture of ${rainfall} mm can be augmented with supplemental furrow/drip irrigation`;
 
-  const phStatus = ph >= idealStats.ph.min && ph <= idealStats.ph.max
-    ? `soil pH of ${ph} provides optimal nutrient bioavailability`
-    : `soil pH of ${ph} is tolerable with organic compost conditioning`;
+  const phStatus = hasPh
+    ? (ph >= idealStats.ph.min && ph <= idealStats.ph.max
+        ? `soil pH of ${ph} provides optimal nutrient bioavailability`
+        : `soil pH of ${ph} is tolerable with organic compost conditioning`)
+    : `compatible across standard ${soilType} pH ranges`;
 
-  return `${cropName} is determined to be the single most optimal crop for your land. The ${soilType} offers the appropriate physical structure, drainage, and root penetration characteristics needed during the ${season}. Furthermore, the ${tempStatus}, while ${rainStatus}, and ${phStatus}.`;
+  return `${cropName} is well-suited for your land. The ${soilType} offers appropriate root penetration during ${season}. The ${tempStatus}, while ${rainStatus}, and ${phStatus}.`;
 }
 
 export default {

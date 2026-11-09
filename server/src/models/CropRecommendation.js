@@ -13,8 +13,11 @@ const cropRecommendationSchema = new mongoose.Schema(
       season: { type: String, required: true },
       temperature: { type: Number, required: true },
       humidity: { type: Number, required: true },
-      ph: { type: Number, required: true },
-      rainfall: { type: Number, required: true }
+      ph: { type: Number, required: false },
+      rainfall: { type: Number, required: true },
+      landArea: { type: Number, default: 1 },
+      location: { type: mongoose.Schema.Types.Mixed },
+      npk: { type: mongoose.Schema.Types.Mixed }
     },
     recommendation: {
       cropName: { type: String, required: true },
@@ -24,8 +27,16 @@ const cropRecommendationSchema = new mongoose.Schema(
       uncertaintyWarning: { type: String, default: null },
       suitabilityExplanation: { type: String, required: true },
       cultivationTips: { type: String, required: true },
-      agronomicParameters: { type: mongoose.Schema.Types.Mixed }
+      agronomicParameters: { type: mongoose.Schema.Types.Mixed },
+      suitableCrops: [{ type: mongoose.Schema.Types.Mixed }]
     },
+    allocatedLand: [
+      {
+        cropName: { type: String, required: true },
+        acres: { type: Number, required: true }
+      }
+    ],
+    weatherTelemetry: { type: mongoose.Schema.Types.Mixed },
     disclaimer: {
       type: String,
       default: 'This recommendation is advisory and does not guarantee agricultural yield. Consult certified local agricultural officers.'

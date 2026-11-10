@@ -524,14 +524,6 @@ export default function AIFarmingAssistant() {
 
       </div>
 
-      {/* Advisory & Safety Disclaimer */}
-      <div className="p-4 rounded-2xl bg-amber-50/90 border border-amber-200 text-xs text-amber-900 flex items-start gap-2.5">
-        <ShieldAlert className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
-        <p className="leading-relaxed font-medium">
-          <strong>Advisory Notice:</strong> AI Agriculture Advisor provides scientific and organic farming guidance based on ICAR recommendations. Always verify chemical dosages with local Krishi Vigyan Kendra (KVK) officers before large-scale pesticide applications.
-        </p>
-      </div>
-
     </div>
   );
 }

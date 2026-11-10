@@ -406,13 +406,6 @@ export default function CropRecommendation() {
         </Badge>
       </div>
 
-      {/* Advisory Banner */}
-      <AlertBanner
-        variant="disclaimer"
-        title="Agronomic Advisory Notice"
-        message="Recommendations evaluate multi-crop suitability based on verified ICAR agronomy and regional Open-Meteo climate models. You maintain complete control over which crops to plant and how to divide your land."
-      />
-
       {/* 1. Location Selector Card */}
       <Card
         title="1. Farm Geographic Location"

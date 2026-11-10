@@ -301,13 +301,6 @@ export default function FertilizerRecommendation() {
         </div>
       </div>
 
-      {/* Advisory Notice */}
-      <AlertBanner
-        variant="disclaimer"
-        title="ICAR Agronomic Baseline & Soil Health Notice"
-        message="Doses reflect standard Recommended Dose of Fertilizer (RDF) calibrated with provisional Soil Test Crop Response (STCR) principles. Sowing date calculations provide estimated operational windows based on average thermal units."
-      />
-
       {/* Quick Test Presets */}
       <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
         <div className="flex items-center space-x-2 text-[#123D2A] font-bold shrink-0">

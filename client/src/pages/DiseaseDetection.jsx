@@ -441,13 +441,6 @@ export default function DiseaseDetection() {
         </div>
       </div>
 
-      {/* Advisory Banner */}
-      <AlertBanner
-        variant="advisory"
-        title="Preliminary Agronomic Screening Notice"
-        message="Computer vision foliar screening is an automated diagnostic aid. Lesion morphology and chlorosis can overlap with micronutrient imbalances. Always verify symptoms with your local Krishi Vigyan Kendra (KVK) or extension officer before applying scheduled chemical fungicides."
-      />
-
       {/* Inconclusive Scan Alert */}
       {inconclusiveNotice && (
         <AlertBanner

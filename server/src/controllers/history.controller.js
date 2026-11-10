@@ -51,13 +51,14 @@ function standardizeRecord(item, moduleType) {
 
   if (moduleType === 'fertilizer') {
     const targetCrop = item.inputs?.crop || 'Crop';
+    const sowingPart = item.inputs?.sowingDate ? ` • Sown: ${item.inputs.sowingDate}` : '';
     return {
       id: rawId,
       module: 'fertilizer',
       title: `${targetCrop} Fertilizer Plan`,
       crop: targetCrop,
-      resultType: 'Fertilizer Plan',
-      summary: `${item.recommendation?.fertilizerCombination || 'Nutrient Schedule'} • ${item.inputs?.landArea || 1} ${item.inputs?.landAreaUnit || 'Acres'}`,
+      resultType: item.recommendation?.recommendationMode || 'Fertilizer Plan',
+      summary: `${item.recommendation?.fertilizerCombination || 'Nutrient Schedule'} • ${item.inputs?.landArea || 1} ${item.inputs?.landAreaUnit || 'Acres'}${sowingPart}`,
       date,
       badgeColor: 'amber',
       details: {

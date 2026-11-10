@@ -31,6 +31,13 @@ try {
  * 6. Chilli
  * 7. Potato
  * (Plus legacy Apple and Grape preserved for backward compatibility)
+ *
+ * Each class provides:
+ * - symptoms, causes, prevention, treatment (legacy flat array)
+ * - treatmentBreakdown:
+ *   - culturalPractices (agronomic and sanitation measures)
+ *   - organicBiocontrol (bio-fungicides, bioagents, organic deterrents)
+ *   - chemicalInterventions (CIBRC / SAU registered active ingredients with dosage, timing, PHI, safety)
  */
 export const PATHOLOGY_DATABASE = {
   // ==========================================
@@ -69,7 +76,28 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Copper Oxychloride 50 WP (2.5 to 3.0 g/L) mixed with Streptocycline (100 mg / 10 L of water).',
       'Repeat spray after 12-15 days if rainy or overcast conditions persist.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Rogue out and destroy infected seedlings exhibiting black arm symptoms.',
+        'Avoid excessive vegetative canopy growth by moderating top-dressed nitrogen.',
+        'Collect and destroy crop debris immediately after harvest.'
+      ],
+      organicBiocontrol: [
+        'Seed biopriming with Pseudomonas fluorescens talc formulation @ 10 g/kg seed.',
+        'Foliar spray of fresh cow dung slurry extract (20% w/v) or 5% neem seed kernel extract (NSKE).'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Copper Oxychloride 50 WP + Streptocycline',
+          activeIngredient: 'Copper Oxychloride 50% WP + Streptomycin sulphate 90% + Tetracycline hydrochloride 10%',
+          dosage: 'Copper Oxychloride @ 2.5 - 3.0 g/L + Streptocycline @ 100 mg / 10 L of water',
+          applicationTiming: 'Initiate spray at earliest appearance of angular water-soaked lesions; repeat after 12-15 days if rainfall continues',
+          waitingPeriodPHI: '15 days (CIBRC recommendation for cotton)',
+          safetyPrecautions: 'Wear face shield and protective rubber gloves during mixing; avoid spraying during high wind.'
+        }
+      ]
+    }
   },
 
   'cotton_alternaria_spot': {
@@ -105,7 +133,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Apply protective Mancozeb 75 WP (2.5 g/L) or Propiconazole 25 EC (1 ml/L) at first symptom appearance.',
       'Repeat application at 12-day intervals under cloudy, humid weather conditions.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Apply recommended basal Muriate of Potash to alleviate foliar potassium stress.',
+        'Maintain 90 x 60 cm crop spacing to prevent canopy overcrowding and microclimate humidity.',
+        'Deep summer ploughing to bury overwintering fungal spores.'
+      ],
+      organicBiocontrol: [
+        'Seed biopriming with Trichoderma viride @ 4 g/kg seed.',
+        'Foliar spray of 5% Neem Seed Kernel Extract (NSKE) at early squaring.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (500 g in 200 L water per acre)',
+          applicationTiming: 'Apply at first onset of brown concentric spots on lower foliage',
+          waitingPeriodPHI: '30 days (CIBRC label for cotton)',
+          safetyPrecautions: 'Wear protective coveralls and mask; keep out of water channels.'
+        },
+        {
+          chemicalName: 'Propiconazole 25 EC',
+          activeIngredient: 'Propiconazole 25% EC',
+          dosage: '1.0 ml/L of water (200 ml/acre)',
+          applicationTiming: 'Curative spray during boll formation stage if infection spreads upward',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Toxic to aquatic life; do not wash spraying equipment in farm ponds.'
+        }
+      ]
+    }
   },
 
   'cotton_healthy': {
@@ -136,7 +193,18 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No chemical treatment required. Maintain balanced irrigation during squaring and boll development.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maintain clean field boundaries and follow scheduled irrigation without waterlogging.',
+        'Conduct regular crop scouting every 4-5 days during squaring and boll filling.'
+      ],
+      organicBiocontrol: [
+        'Install yellow sticky traps (10-12 traps/acre) to monitor sucking pest vectors.',
+        'Soil application of well-decomposed FYM enriched with Trichoderma.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -176,7 +244,36 @@ export const PATHOLOGY_DATABASE = {
       'Drain water from the field temporarily if feasible to reduce canopy humidity.',
       'Spray Tricyclazole 75 WP (0.6 g/L) or Isoprothiolane 40 EC (1.5 ml/L) at first appearance of blast lesions.',
       'In severe infections, apply Kasugamycin 3% SL (2 ml/L) or Azoxystrobin 18.2% + Difenoconazole 11.4% SC (1 ml/L).'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Avoid high urea top-dressing; delay nitrogen until blast stabilizes and apply split potash.',
+        'Drain excess standing water temporarily to lower microclimate humidity.',
+        'Maintain weed-free field bunds to eliminate collateral grass hosts.'
+      ],
+      organicBiocontrol: [
+        'Seed biopriming with Pseudomonas fluorescens @ 10 g/kg seed.',
+        'Foliar spray of Pseudomonas fluorescens talc formulation @ 5 g/L at early tillering.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Tricyclazole 75 WP',
+          activeIngredient: 'Tricyclazole 75% WP',
+          dosage: '0.6 g/L of water (120 g/acre in 200 L water)',
+          applicationTiming: 'Spray at initial appearance of diamond lesions on leaves or boot leaf emergence',
+          waitingPeriodPHI: '30 days (CIBRC standard for rice)',
+          safetyPrecautions: 'Wear face shield; do not apply within 30 days of grain harvest.'
+        },
+        {
+          chemicalName: 'Isoprothiolane 40 EC',
+          activeIngredient: 'Isoprothiolane 40% EC',
+          dosage: '1.5 ml/L of water (300 ml/acre)',
+          applicationTiming: 'Alternate systemic spray if lesions expand rapidly during active tillering',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Avoid direct inhalation of spray mist; toxic to aquatic fauna.'
+        }
+      ]
+    }
   },
 
   'rice_brown_spot': {
@@ -212,7 +309,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Apply foliar spray of Muriate of Potash (1% solution) along with recommended fungicide.',
       'Spray Propiconazole 25 EC (1 ml/L) or Mancozeb 75 WP (2 g/L) or Hexaconazole 5 EC (2 ml/L).'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Apply split doses of potassium (MOP) and well-decomposed organic manure to correct soil deficiency.',
+        'Avoid soil drying and cracking; maintain 2-3 cm shallow standing water.',
+        'Burn or deeply incorporate infected stubble after harvest.'
+      ],
+      organicBiocontrol: [
+        'Treat seeds with Trichoderma harzianum @ 5 g/kg seed.',
+        'Apply zinc sulphate (10 kg/acre) and biofertilizers at basal stage to enhance foliar vigor.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 g/L of water (400 g/acre in 200 L water)',
+          applicationTiming: 'Spray at seedling or early tillering stage upon observing oval spots',
+          waitingPeriodPHI: '30 days (CIBRC standard for rice)',
+          safetyPrecautions: 'Do not graze treated straw to cattle within 30 days of application.'
+        },
+        {
+          chemicalName: 'Propiconazole 25 EC',
+          activeIngredient: 'Propiconazole 25% EC',
+          dosage: '1.0 ml/L of water (200 ml/acre)',
+          applicationTiming: 'Curative spray at boot leaf stage if spotting is widespread',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Do not drain treated field water into nearby fish ponds.'
+        }
+      ]
+    }
   },
 
   'rice_bacterial_blight': {
@@ -250,7 +376,28 @@ export const PATHOLOGY_DATABASE = {
       'Temporarily drain field water to reduce microclimate humidity.',
       'Spray Copper Oxychloride 50 WP (2.5 g/L) mixed with Streptocycline (1 g in 10 L water).',
       'Apply fresh cow dung extract (20%) or bleaching powder (5 kg/ha) in irrigation channel in endemic zones.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Drain standing water from infected fields; prevent water movement into healthy plots.',
+        'Withhold top-dressing of urea until disease stabilizes; apply additional potash (15 kg/acre).',
+        'Avoid clipping seedlings at transplanting to eliminate bacterial entry points.'
+      ],
+      organicBiocontrol: [
+        'Seed soaking in liquid Pseudomonas fluorescens formulation (10 ml/kg seed).',
+        'Spray fresh cow dung slurry supernatant (20% w/v) at early leaf tip drying.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Copper Oxychloride 50 WP + Streptocycline',
+          activeIngredient: 'Copper Oxychloride 50% WP + Streptomycin sulphate 90% + Tetracycline 10%',
+          dosage: 'Copper Oxychloride @ 2.5 g/L + Streptocycline @ 1.0 g / 10 L of water (100 ppm)',
+          applicationTiming: 'Spray at initial appearance of wavy marginal blighting; repeat after 10-12 days if rainfall continues',
+          waitingPeriodPHI: '25-30 days',
+          safetyPrecautions: 'Wear gloves and mask; avoid spraying during hot midday hours.'
+        }
+      ]
+    }
   },
 
   'rice_healthy': {
@@ -281,7 +428,17 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No treatment required. Maintain weed-free bunds and scout for stem borer or leaf folder.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maintain 2-5 cm water depth during tillering; drain water before harvest.',
+        'Apply nitrogen in 3 splits timed with basal, active tillering, and panicle initiation.'
+      ],
+      organicBiocontrol: [
+        'Maintain bund vegetation to encourage natural predators like spiders and mirid bugs.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -319,7 +476,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Mancozeb 75 WP (2 g/L) or Carbendazim 50 WP (1 g/L) at first symptom sighting.',
       'In severe infections, apply Hexaconazole 5 EC (1.5 ml/L) or Tebuconazole 25.9 EC (1 ml/L).'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Follow 2-year crop rotation with non-legumes (sorghum, pearl millet, maize).',
+        'Collect and destroy infected haulms after harvest to eliminate overwintering inoculum.',
+        'Maintain optimum plant population (33 plants/m²) without dense overcrowding.'
+      ],
+      organicBiocontrol: [
+        'Seed treatment with Trichoderma viride @ 4 g/kg seed.',
+        'Spray 5% Neem Seed Kernel Extract (NSKE) at 35-40 days after sowing.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (400-500 g/acre in 200 L water)',
+          applicationTiming: 'First spray at 35-40 days after sowing or at onset of circular spots with yellow halos',
+          waitingPeriodPHI: '30 days (CIBRC standard for groundnut)',
+          safetyPrecautions: 'Wear protective coveralls and rubber boots during application.'
+        },
+        {
+          chemicalName: 'Hexaconazole 5 EC',
+          activeIngredient: 'Hexaconazole 5% EC',
+          dosage: '1.5 - 2.0 ml/L of water (300-400 ml/acre)',
+          applicationTiming: 'Curative systemic spray if spots spread to middle and upper canopy',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Do not exceed recommended dose; avoid spray drift into water bodies.'
+        }
+      ]
+    }
   },
 
   'groundnut_late_leaf_spot': {
@@ -354,7 +540,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Chlorothalonil 75 WP (2 g/L) or Tebuconazole 25.9 EC (1 ml/L).',
       'Apply combination fungicide Mancozeb + Carbendazim (SAAF at 2 g/L) at 12-day intervals.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Early sowing with onset of monsoon to avoid peak late-season airborne spore loads.',
+        'Apply Gypsum (200 kg/acre) at pegging stage (40-45 DAS) for shell and leaf tissue strength.',
+        'Intercrop with red gram or pearl millet in 4:1 or 6:1 row ratio.'
+      ],
+      organicBiocontrol: [
+        'Foliar spray of Verticillium chlamydosporium or Trichoderma formulation (5 g/L).',
+        'Foliar application of NSKE 5% at 50 and 65 DAS.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Tebuconazole 25.9 EC',
+          activeIngredient: 'Tebuconazole 25.9% EC',
+          dosage: '1.0 - 1.25 ml/L of water (200-250 ml/acre in 200 L water)',
+          applicationTiming: 'Spray at initial appearance of velvety dark spots on lower leaf surfaces (50-55 DAS)',
+          waitingPeriodPHI: '49 days (CIBRC label recommendation for groundnut)',
+          safetyPrecautions: 'Adhere strictly to 49-day PHI; toxic to aquatic organisms.'
+        },
+        {
+          chemicalName: 'Chlorothalonil 75 WP',
+          activeIngredient: 'Chlorothalonil 75% WP',
+          dosage: '2.0 g/L of water (400 g/acre)',
+          applicationTiming: 'Protective broad-spectrum spray prior to canopy closure',
+          waitingPeriodPHI: '14 days',
+          safetyPrecautions: 'Eye irritant; protective goggles and mask mandatory.'
+        }
+      ]
+    }
   },
 
   'groundnut_rust': {
@@ -389,7 +604,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Wettable Sulfur 80 WP (3 g/L) or Hexaconazole 5 EC (1.5 ml/L).',
       'Apply Propiconazole 25 EC (1 ml/L) or Difenoconazole 25 EC (0.5 ml/L) at first symptom detection.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Eradicate volunteer groundnut plants and self-sown seedlings between seasons.',
+        'Avoid late afternoon sprinkler irrigation that extends nighttime foliar wetness.',
+        'Maintain optimum crop spacing to ensure rapid morning canopy drying.'
+      ],
+      organicBiocontrol: [
+        'Spray Acremonium strictum or Bacillus subtilis bio-fungicide suspension.',
+        'Spray commercial neem oil formulation (3 ml/L) at first pustule notice.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Hexaconazole 5 EC',
+          activeIngredient: 'Hexaconazole 5% EC',
+          dosage: '1.5 ml/L of water (300 ml/acre in 200 L water)',
+          applicationTiming: 'Spray immediately upon spotting orange-reddish pustules on lower leaflet surface',
+          waitingPeriodPHI: '30 days (CIBRC recommendation for groundnut)',
+          safetyPrecautions: 'Wear gloves and mask; ensure thorough under-leaf canopy coverage.'
+        },
+        {
+          chemicalName: 'Wettable Sulfur 80 WP',
+          activeIngredient: 'Sulfur 80% WP',
+          dosage: '3.0 g/L of water (600 g/acre)',
+          applicationTiming: 'Protective contact spray at early pegging stage',
+          waitingPeriodPHI: '15 days',
+          safetyPrecautions: 'Do not spray during peak midday temperatures (>32°C) to prevent sulfur leaf scorch.'
+        }
+      ]
+    }
   },
 
   'groundnut_healthy': {
@@ -421,7 +665,17 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No treatment required. Maintain soil moisture avoiding water stagnation.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Earthing up at 40-45 DAS along with gypsum application (200 kg/acre).',
+        'Maintain weed-free plot until pegging commences without disturbing pegs.'
+      ],
+      organicBiocontrol: [
+        'Rhizobium and PSB biofertilizer application for healthy root nodulation.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -459,7 +713,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Apply Mancozeb 75 WP (2.5 g/L) or Azoxystrobin 18.2% + Difenoconazole 11.4% SC (1 ml/L) at tasseling stage.',
       'Follow up with Propiconazole 25 EC (1 ml/L) if lesions appear on the ear leaf.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Deep autumn ploughing to bury maize stubble harboring dormant conidia.',
+        'Rotate with non-host crops (pulses, groundnut, soybean) for at least 1-2 seasons.',
+        'Adopt recommended plant density to avoid mutual leaf shading and prolonged leaf wetness.'
+      ],
+      organicBiocontrol: [
+        'Seed treatment with Trichoderma viride @ 4 g/kg seed.',
+        'Foliar spray of Pseudomonas fluorescens bio-fungicide (5 g/L).'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.5 g/L of water (500 g/acre in 200 L water)',
+          applicationTiming: 'Spray at first notice of cigar-shaped grayish-green lesions on lower leaves',
+          waitingPeriodPHI: '25-30 days (CIBRC standard for maize)',
+          safetyPrecautions: 'Ensure full coverage of both upper and lower leaf surfaces.'
+        },
+        {
+          chemicalName: 'Azoxystrobin 18.2% + Difenoconazole 11.4% SC',
+          activeIngredient: 'Azoxystrobin 18.2% + Difenoconazole 11.4% SC',
+          dosage: '1.0 ml/L of water (200 ml/acre)',
+          applicationTiming: 'Curative spray between knee-high and tasseling stages if lesions spread upward',
+          waitingPeriodPHI: '26 days',
+          safetyPrecautions: 'Do not spray more than twice per season to prevent strobilurin resistance.'
+        }
+      ]
+    }
   },
 
   'corn_common_rust': {
@@ -492,7 +775,35 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'Spray Tebuconazole 25.9 EC (1 ml/L) or Propiconazole 25 EC (1 ml/L) or Mancozeb (2.5 g/L) at first sign of rust pustules.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Plant early in season to escape peak cool, humid conditions favorable to rust spore flights.',
+        'Eradicate Oxalis weed species (alternate host) around field borders.',
+        'Choose rust-resistant hybrid varieties recommended by ICAR-IIMR.'
+      ],
+      organicBiocontrol: [
+        'Foliar spray of 5% Neem Seed Kernel Extract (NSKE) at early vegetative stage.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (400-500 g/acre in 200 L water)',
+          applicationTiming: 'Apply when cinnamon-brown powdery pustules appear on upper leaf surface',
+          waitingPeriodPHI: '25-30 days',
+          safetyPrecautions: 'Avoid spraying during strong winds; toxic to aquatic organisms.'
+        },
+        {
+          chemicalName: 'Propiconazole 25 EC',
+          activeIngredient: 'Propiconazole 25% EC',
+          dosage: '1.0 ml/L of water (200 ml/acre)',
+          applicationTiming: 'Curative spray at pre-tasseling stage if pustules appear on ear leaf',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Wear protective coveralls and face mask.'
+        }
+      ]
+    }
   },
 
   'corn_gray_leaf_spot': {
@@ -527,7 +838,27 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Apply Pyraclostrobin (1 ml/L) or Azoxystrobin + Propiconazole (1 ml/L) between V8 and tasseling.',
       'Ensure spray coverage reaches lower and middle leaf layers.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Rotate fields out of maize for 1-2 years with pulses or oilseeds.',
+        'Shred and deeply bury maize stubbles post-harvest to reduce spore survival.',
+        'Avoid excessive plant density to ensure adequate light penetration and air movement.'
+      ],
+      organicBiocontrol: [
+        'Seed treatment with Trichoderma harzianum @ 4 g/kg seed.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Propiconazole 25 EC',
+          activeIngredient: 'Propiconazole 25% EC',
+          dosage: '1.0 ml/L of water (200 ml/acre in 200 L water)',
+          applicationTiming: 'Spray at first emergence of rectangular vein-bound lesions on lower leaves',
+          waitingPeriodPHI: '30 days (CIBRC standard for maize)',
+          safetyPrecautions: 'Ensure knapsack sprayer reaches middle canopy; wear face mask.'
+        }
+      ]
+    }
   },
 
   'corn_healthy': {
@@ -558,7 +889,17 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No treatment required. Ensure adequate irrigation during flowering/silking.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Timely earthing-up and weeding at knee-high stage (30-35 DAS).',
+        'Top-dress nitrogen in split doses at knee-high and tasseling stages.'
+      ],
+      organicBiocontrol: [
+        'Scout regularly for Fall Armyworm (FAW) whorl feeding signs.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -601,7 +942,36 @@ export const PATHOLOGY_DATABASE = {
       'Organic: Spray bio-fungicide Trichoderma viride or Pseudomonas fluorescens (5g/L) or Copper Oxychloride 50 WP (3g/L).',
       'Chemical: Apply protective Mancozeb 75 WP (2.0 to 2.5 g/L) or Chlorothalonil 75 WP (2g/L) at 7-10 day intervals under agricultural extension advisory.',
       'In severe outbreaks, apply systemic Azoxystrobin 18.2% + Difenoconazole 11.4% SC (1 ml/L).'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Stake and trellis tomato plants; prune lower suckers (up to 15-20 cm) to avoid soil splash.',
+        'Use drip irrigation at base of plants; strictly avoid overhead sprinkler watering.',
+        'Follow 3-year rotation away from solanaceous crops (potato, brinjal, chilli).'
+      ],
+      organicBiocontrol: [
+        'Seedling root dip in Pseudomonas fluorescens (10 g/L) for 30 minutes before transplanting.',
+        'Foliar spray of Trichoderma viride (5 g/L) or neem oil 3,000 ppm (3 ml/L).'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (400-500 g/acre in 200 L water)',
+          applicationTiming: 'Protective spray at first notice of dark brown concentric rings on lower foliage',
+          waitingPeriodPHI: '5 days (CIBRC recommendation for tomato)',
+          safetyPrecautions: 'Observe 5-day pre-harvest interval before picking ripe fruit; wear gloves.'
+        },
+        {
+          chemicalName: 'Chlorothalonil 75 WP',
+          activeIngredient: 'Chlorothalonil 75% WP',
+          dosage: '2.0 g/L of water (400 g/acre)',
+          applicationTiming: 'Alternate spray at 10-12 day intervals during persistent rainy/cloudy periods',
+          waitingPeriodPHI: '3 days',
+          safetyPrecautions: 'Eye irritant; wear protective goggles and gloves.'
+        }
+      ]
+    }
   },
 
   'tomato_late_blight': {
@@ -640,7 +1010,35 @@ export const PATHOLOGY_DATABASE = {
       'Prophylactic: Spray Copper Hydroxide (2.5 g/L) or Mancozeb 75 WP (2.5 g/L) ahead of cool, wet weather.',
       'Therapeutic: In active outbreaks, spray systemic Cymoxanil 8% + Mancozeb 64% WP (2 g/L) or Metalaxyl-M 4% + Mancozeb 64% WP (2.5 g/L).',
       'Observe standard pre-harvest intervals (PHI) before picking fruit.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Rogue out and destroy infected vines immediately; do not leave cull piles near fields.',
+        'Ensure wide planting geometry (90 x 45 cm) and staking for maximum canopy ventilation.',
+        'Do not work in tomato fields when leaves are wet to prevent spreading sporangia.'
+      ],
+      organicBiocontrol: [
+        'Prophylactic spray of Bordeaux mixture (1%) or Copper Oxychloride 50 WP (2.5 g/L).'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Metalaxyl 8% + Mancozeb 64% WP (Ridomil Gold)',
+          activeIngredient: 'Metalaxyl 8% + Mancozeb 64% WP',
+          dosage: '2.5 g/L of water (500 g/acre in 200 L water)',
+          applicationTiming: 'Spray immediately upon spotting irregular water-soaked lesions with white downy growth during cool, foggy/rainy weather',
+          waitingPeriodPHI: '5 days (CIBRC recommendation for tomato)',
+          safetyPrecautions: 'Do not spray more than 2-3 consecutive times to avoid resistance; wear protective gear.'
+        },
+        {
+          chemicalName: 'Cymoxanil 8% + Mancozeb 64% WP',
+          activeIngredient: 'Cymoxanil 8% + Mancozeb 64% WP',
+          dosage: '2.0 g/L of water (400 g/acre)',
+          applicationTiming: 'Curative kickback spray applied within 48 hours of infection period',
+          waitingPeriodPHI: '7 days',
+          safetyPrecautions: 'Handle with care; follow personal protective equipment protocols.'
+        }
+      ]
+    }
   },
 
   'tomato_leaf_mold': {
@@ -678,7 +1076,36 @@ export const PATHOLOGY_DATABASE = {
       'Remove and safely dispose of infected lower leaves.',
       'Spray wettable sulfur (3 g/L) or Potassium bicarbonate (4 g/L) for organic management.',
       'Apply Difenoconazole 25 EC (0.5 ml/L) or Azoxystrobin 23 SC (1 ml/L) as per university spray schedule.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maximize ventilation in polyhouses/greenhouses; maintain relative humidity below 85%.',
+        'Prune lower suckers and mature senescing leaves to promote vertical airflow.',
+        'Ensure uniform drip irrigation without splashing water onto lower leaves.'
+      ],
+      organicBiocontrol: [
+        'Spray bio-fungicide Bacillus subtilis or Potassium Bicarbonate (4 g/L).',
+        'Apply Wettable Sulfur 80 WP (2.5 g/L) at first yellow patch sighting.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Copper Oxychloride 50 WP',
+          activeIngredient: 'Copper Oxychloride 50% WP',
+          dosage: '2.5 g/L of water (500 g/acre in 200 L water)',
+          applicationTiming: 'Spray when pale yellow chlorotic spots appear with olive mold on lower leaf surface',
+          waitingPeriodPHI: '8 days',
+          safetyPrecautions: 'Ensure spray reaches underside of leaves where fungal sporulation occurs.'
+        },
+        {
+          chemicalName: 'Difenoconazole 25 EC',
+          activeIngredient: 'Difenoconazole 25% EC',
+          dosage: '0.5 ml/L of water (100 ml/acre)',
+          applicationTiming: 'Curative systemic spray for severe greenhouse outbreaks',
+          waitingPeriodPHI: '5 days',
+          safetyPrecautions: 'Wear protective mask; do not exceed label rate.'
+        }
+      ]
+    }
   },
 
   'tomato_healthy': {
@@ -711,7 +1138,18 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'No chemical treatment required.',
       'Continue standard crop management, balanced soil moisture, and preventive neem oil (3 ml/L) bio-repellent.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maintain trellising, regular suckering, and clean organic mulching at plant base.',
+        'Schedule drip irrigation to ensure uniform root moisture without waterlogging.'
+      ],
+      organicBiocontrol: [
+        'Install yellow sticky cards (10/acre) for whiteflies and pheromone traps for Helicoverpa.',
+        'Preventive spray of cold-pressed Neem oil (3 ml/L) every 14 days.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -750,7 +1188,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Neem seed kernel extract (NSKE 5%) or Neem oil 10,000 ppm (3 ml/L) as bio-repellent.',
       'Apply Diafenthiuron 50 WP (1.2 g/L) or Spiromesifen 22.9 SC (1 ml/L) under agricultural officer guidance to manage insect vectors.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Rogue out and bury severely stunted, puckered plants within 30 days of transplanting.',
+        'Plant 2-3 border rows of tall barrier crops (maize, sorghum, or bajra) to intercept incoming whitefly vectors.',
+        'Avoid planting near old solanaceous or cucurbit fields.'
+      ],
+      organicBiocontrol: [
+        'Install yellow sticky traps (15-20 traps/acre) at crop canopy level for continuous whitefly trapping.',
+        'Foliar spray of 5% NSKE (Neem Seed Kernel Extract) or 10,000 ppm Neem oil (2-3 ml/L) every 10 days.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Imidacloprid 17.8 SL',
+          activeIngredient: 'Imidacloprid 17.8% SL',
+          dosage: '0.3 - 0.5 ml/L of water (60-80 ml/acre in 200 L water)',
+          applicationTiming: 'Systemic foliar spray targeting whitefly nymphs and adults under leaves to arrest viral spread',
+          waitingPeriodPHI: '15 days (CIBRC recommendation for chilli)',
+          safetyPrecautions: 'Toxic to bees; avoid spraying during active morning flowering and foraging periods.'
+        },
+        {
+          chemicalName: 'Diafenthiuron 50 WP',
+          activeIngredient: 'Diafenthiuron 50% WP',
+          dosage: '1.2 g/L of water (240 g/acre)',
+          applicationTiming: 'Alternate spray if whitefly or yellow mite populations are exceptionally high',
+          waitingPeriodPHI: '5 days',
+          safetyPrecautions: 'Wear full protective mask and gloves; avoid inhalation of spray dust.'
+        }
+      ]
+    }
   },
 
   'chilli_anthracnose': {
@@ -784,8 +1251,37 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'Spray Copper Oxychloride 50 WP (2.5 g/L) or Azoxystrobin 23 SC (1 ml/L) at flowering stage.',
-      'Apply Difenoconazole 25 EC (0.5 ml/L) or Tebuconazole + Trifloxystrobin (Nat网上/Nativo at 0.5 g/L) if dieback begins.'
-    ]
+      'Apply Difenoconazole 25 EC (0.5 ml/L) or Tebuconazole + Trifloxystrobin (Nativo at 0.5 g/L) if dieback begins.'
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Collect and destroy infected mummified chilli fruits and dried dieback twigs after each picking.',
+        'Adopt wider spacing (60 x 45 cm) and avoid overhead sprinkling during flowering and fruiting.',
+        'Use certified seeds treated with broad-spectrum fungicides.'
+      ],
+      organicBiocontrol: [
+        'Seed biopriming with Trichoderma viride @ 4 g/kg seed.',
+        'Foliar spray of Pseudomonas fluorescens (5 g/L) at flower initiation.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Azoxystrobin 23 SC',
+          activeIngredient: 'Azoxystrobin 23% SC',
+          dosage: '1.0 ml/L of water (200 ml/acre in 200 L water)',
+          applicationTiming: 'Spray at flowering and fruit set when circular sunken lesions or dieback appear on twigs',
+          waitingPeriodPHI: '3 days (CIBRC standard for chilli)',
+          safetyPrecautions: 'Limit to maximum 2 sprays per cropping season to prevent resistance; wear gloves.'
+        },
+        {
+          chemicalName: 'Copper Oxychloride 50 WP',
+          activeIngredient: 'Copper Oxychloride 50% WP',
+          dosage: '2.5 g/L of water (500 g/acre)',
+          applicationTiming: 'Protective broad-spectrum spray prior to expected wet weather spells',
+          waitingPeriodPHI: '10 days',
+          safetyPrecautions: 'Ensure uniform coverage on all branches and developing pods.'
+        }
+      ]
+    }
   },
 
   'chilli_cercospora_spot': {
@@ -820,7 +1316,35 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Mancozeb 75 WP (2.5 g/L) or Carbendazim 50 WP (1 g/L) at first symptom appearance.',
       'Apply Chlorothalonil 75 WP (2 g/L) at 10-14 day intervals if humid weather persists.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Ensure adequate soil drainage; avoid standing water in furrows.',
+        'Rogue out and bury lower leaves showing frogeye spotting prior to flowering.',
+        'Follow 2-year crop rotation out of solanaceous vegetables.'
+      ],
+      organicBiocontrol: [
+        'Spray bio-fungicide Trichoderma viride (5 g/L) or 5% neem seed extract at initial symptom onset.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (400-500 g/acre in 200 L water)',
+          applicationTiming: 'Spray when small circular spots with white centers and brown margins appear',
+          waitingPeriodPHI: '15 days (CIBRC recommendation for chilli)',
+          safetyPrecautions: 'Wear protective coveralls; wash equipment thoroughly after use.'
+        },
+        {
+          chemicalName: 'Chlorothalonil 75 WP',
+          activeIngredient: 'Chlorothalonil 75% WP',
+          dosage: '2.0 g/L of water (400 g/acre)',
+          applicationTiming: 'Alternate spray at 10-14 day intervals under humid conditions',
+          waitingPeriodPHI: '5 days',
+          safetyPrecautions: 'Eye irritant; protective goggles required during spraying.'
+        }
+      ]
+    }
   },
 
   'chilli_healthy': {
@@ -851,7 +1375,17 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No treatment required. Maintain scheduled weeding and soil aeration.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maintain regular, moderate furrow or drip irrigation to avoid moisture stress.',
+        'Apply balanced micronutrient foliar spray (Zinc + Boron 0.2%) at flowering to prevent bud drop.'
+      ],
+      organicBiocontrol: [
+        'Periodic scouting for thrips and mites on leaf undersides using 10x hand lens.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -890,7 +1424,36 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Spray Mancozeb 75 WP (2.5 g/L) or Propineb 70 WP (2.5 g/L) at first symptom appearance.',
       'Follow up with Chlorothalonil 75 WP (2 g/L) or Tebuconazole 25.9 EC (1 ml/L) if disease persists.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Plant certified disease-free seed tubers from verified seed agencies.',
+        'Maintain adequate potassium and nitrogen nutrition to avoid premature foliar stress.',
+        'Dehaulm (cut and remove potato vines) 10-12 days before digging to prevent tuber peel infection.'
+      ],
+      organicBiocontrol: [
+        'Tuber treatment with Trichoderma viride (5 g/kg tubers) before cold storage and planting.',
+        'Foliar spray of cold-pressed neem oil (3 ml/L) at vegetative growth.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.0 - 2.5 g/L of water (500 g/acre in 200 L water)',
+          applicationTiming: 'Initiate foliar spray when brown concentric ring lesions appear on lower leaves',
+          waitingPeriodPHI: '20-25 days (CIBRC recommendation for potato)',
+          safetyPrecautions: 'Ensure thorough coverage of bottom canopy; wear rubber gloves and face mask.'
+        },
+        {
+          chemicalName: 'Hexaconazole 5 EC',
+          activeIngredient: 'Hexaconazole 5% EC',
+          dosage: '1.0 ml/L of water (200 ml/acre)',
+          applicationTiming: 'Curative systemic spray if spots spread to middle canopy during tuber bulking',
+          waitingPeriodPHI: '21 days',
+          safetyPrecautions: 'Do not spray near water reservoirs; wear protective equipment.'
+        }
+      ]
+    }
   },
 
   'potato_late_blight': {
@@ -926,7 +1489,35 @@ export const PATHOLOGY_DATABASE = {
     treatment: [
       'Prophylactic: Mancozeb 75 WP (2.5 g/L) or Copper Oxychloride 50 WP (3 g/L) before canopy closure.',
       'Curative: Metalaxyl + Mancozeb (2.5 g/L) or Dimethomorph 50 WP (1.5 g/L) sprayed at 7-day intervals.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Plant certified resistant seed tubers (e.g., Kufri Girdhari, Kufri Khyati).',
+        'Deep earthing-up (at least 15 cm ridge height) to prevent sporangia from washing onto tubers.',
+        'Follow ICAR-CPRI Indo-Blightcast disease forecasting alerts; dehaulm promptly if epidemic threatens.'
+      ],
+      organicBiocontrol: [
+        'Preventive spray of Bordeaux mixture (1%) or Copper Oxychloride 50 WP (2.5 g/L) at canopy closure.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Cymoxanil 8% + Mancozeb 64% WP',
+          activeIngredient: 'Cymoxanil 8% + Mancozeb 64% WP',
+          dosage: '2.0 - 2.5 g/L of water (500 g/acre in 200 L water)',
+          applicationTiming: 'Spray immediately upon spotting water-soaked dark lesions with white downy growth under cool (12-18°C), humid (>85% RH) conditions',
+          waitingPeriodPHI: '10 days (CIBRC standard for potato)',
+          safetyPrecautions: 'Apply with hollow-cone nozzles for complete under-leaf coverage.'
+        },
+        {
+          chemicalName: 'Dimethomorph 50 WP + Mancozeb 75 WP',
+          activeIngredient: 'Dimethomorph 50% WP (1 g/L) + Mancozeb 75% WP (2 g/L)',
+          dosage: 'Dimethomorph @ 1.0 g/L + Mancozeb @ 2.0 g/L of water',
+          applicationTiming: 'Anti-sporulant systemic spray during persistent rain, heavy dew, or dense fog',
+          waitingPeriodPHI: '14 days',
+          safetyPrecautions: 'Alternate with different chemical groups to manage fungicide resistance.'
+        }
+      ]
+    }
   },
 
   'potato_healthy': {
@@ -957,7 +1548,17 @@ export const PATHOLOGY_DATABASE = {
     ],
     treatment: [
       'No treatment needed. Maintain optimal irrigation schedule avoiding waterlogging.'
-    ]
+    ],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Proper earthing up at 30-35 DAS to prevent greening of developing tubers.',
+        'Maintain uniform soil moisture; stop irrigation 10-12 days before dehaulming.'
+      ],
+      organicBiocontrol: [
+        'Field scouting for aphid vector populations to safeguard seed tuber quality.'
+      ],
+      chemicalInterventions: []
+    }
   },
 
   // ==========================================
@@ -981,8 +1582,28 @@ export const PATHOLOGY_DATABASE = {
     symptoms: ['Olive-green to dull black circular velvety spots on leaf surface.', 'Leaves become distorted and drop prematurely.'],
     causes: ['Venturia inaequalis ascospores in cool wet spring weather.'],
     prevention: ['Rake and compost fallen leaves; prune for canopy aeration.'],
-    treatment: ['Apply Captan 50 WP (2 g/L) or Difenoconazole 25 EC (0.5 ml/L).']
+    treatment: ['Apply Captan 50 WP (2 g/L) or Difenoconazole 25 EC (0.5 ml/L).'],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Rake and compost fallen orchard leaves to reduce overwintering pseudothecia.',
+        'Prune trees during dormancy to allow sunlight and wind penetration.'
+      ],
+      organicBiocontrol: [
+        'Spray Lime sulfur during delayed dormant stage.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Difenoconazole 25 EC',
+          activeIngredient: 'Difenoconazole 25% EC',
+          dosage: '0.5 ml/L of water',
+          applicationTiming: 'Apply at green tip and petal fall stages',
+          waitingPeriodPHI: '14 days',
+          safetyPrecautions: 'Wear protective coveralls and face mask.'
+        }
+      ]
+    }
   },
+
   'apple_healthy': {
     crop: 'Apple',
     diseaseName: 'Apple Healthy Leaf',
@@ -1001,8 +1622,18 @@ export const PATHOLOGY_DATABASE = {
     symptoms: ['Glossy deep green oval leaves with serrated margins.'],
     causes: ['Balanced nutrition and absence of scab.'],
     prevention: ['Routine orchard sanitation.'],
-    treatment: ['No treatment required.']
+    treatment: ['No treatment required.'],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Maintain tree basin mulch and regular orchard sanitation.'
+      ],
+      organicBiocontrol: [
+        'Routine biological pest monitoring.'
+      ],
+      chemicalInterventions: []
+    }
   },
+
   'grape_black_rot': {
     crop: 'Grape',
     diseaseName: 'Grape Black Rot',
@@ -1021,8 +1652,28 @@ export const PATHOLOGY_DATABASE = {
     symptoms: ['Small circular reddish-brown necrotic spots with dark borders and tiny black pycnidia.'],
     causes: ['Guignardia bidwellii overwintering in mummified berries.'],
     prevention: ['Remove mummified berries during winter pruning.'],
-    treatment: ['Spray Mancozeb 75 WP (2.5 g/L) or Myclobutanil 10 WP (1 g/L).']
+    treatment: ['Spray Mancozeb 75 WP (2.5 g/L) or Myclobutanil 10 WP (1 g/L).'],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Prune and burn mummified grape clusters and diseased canes during dormancy.',
+        'Canopy management to improve air circulation and sunlight exposure.'
+      ],
+      organicBiocontrol: [
+        'Foliar spray of Bordeaux mixture (1%) at early shoot growth.'
+      ],
+      chemicalInterventions: [
+        {
+          chemicalName: 'Mancozeb 75 WP',
+          activeIngredient: 'Mancozeb 75% WP',
+          dosage: '2.5 g/L of water',
+          applicationTiming: 'Spray at new shoot growth (10-15 cm) through post-bloom',
+          waitingPeriodPHI: '30 days',
+          safetyPrecautions: 'Wear gloves and mask; toxic to aquatic organisms.'
+        }
+      ]
+    }
   },
+
   'grape_healthy': {
     crop: 'Grape',
     diseaseName: 'Grape Healthy Leaf',
@@ -1041,7 +1692,16 @@ export const PATHOLOGY_DATABASE = {
     symptoms: ['Broad palmate lush green grape leaves with clean veins.'],
     causes: ['Optimal canopy aeration and balanced nutrition.'],
     prevention: ['Proper trellising and preventive management.'],
-    treatment: ['No treatment required.']
+    treatment: ['No treatment required.'],
+    treatmentBreakdown: {
+      culturalPractices: [
+        'Proper shoot positioning and trellising for optimal sunlight distribution.'
+      ],
+      organicBiocontrol: [
+        'Routine vineyard canopy scouting.'
+      ],
+      chemicalInterventions: []
+    }
   }
 };
 
@@ -1099,7 +1759,8 @@ function decodeImageBuffer(buffer, ext) {
       height: decoded.height,
       data: decoded.data
     };
-  } catch {
+  } catch (err) {
+    // Attempt PNG decode if jpeg fails
     try {
       const png = PNG.sync.read(buffer);
       return {
@@ -1195,6 +1856,7 @@ export function extractFoliarFeatures(imageData) {
     }
   }
 
+  // Reject image if insufficient foliar pixels were found
   if (foliarCount < 80) {
     return {
       isValidLeaf: false,
@@ -1276,7 +1938,8 @@ export async function classifyLeafImage(filePathOrBuffer, options = {}) {
       isHealthy: false,
       confidenceScore: 0.0,
       severity: 'Unknown',
-      affectedAreaPercentage: 0
+      affectedAreaPercentage: 0,
+      affectedAreaEstimateNote: 'Image does not contain valid foliar tissue for estimation.'
     };
   }
 
@@ -1293,7 +1956,8 @@ export async function classifyLeafImage(filePathOrBuffer, options = {}) {
       isHealthy: false,
       confidenceScore: 0.0,
       severity: 'Unknown',
-      affectedAreaPercentage: 0
+      affectedAreaPercentage: 0,
+      affectedAreaEstimateNote: 'Unsupported crop; foliar assessment unavailable.'
     };
   }
 
@@ -1398,17 +2062,22 @@ export async function classifyLeafImage(filePathOrBuffer, options = {}) {
   }
   const softmaxPosterior = Math.exp(scores[bestClassKey] - maxLog) / sumExp;
 
-  // Calibrate confidence score
+  // Calibrate confidence score without enforcing an artificial minimum floor
   const bestDist = distances[bestClassKey];
   let calibratedConfidence = 0.85;
 
   if (trainedModel) {
-    // Ground confidence in the test accuracy of that crop and model softmax
+    // Ground confidence in softmax posterior probability, benchmark crop accuracy, and Mahalanobis distance proximity
     const cropAcc = trainedModel.metadata.per_crop_accuracy?.[PATHOLOGY_DATABASE[bestClassKey].crop] || 0.90;
-    calibratedConfidence = Number((cropAcc * 0.4 + softmaxPosterior * 0.4 + Math.max(0, 1 - bestDist * 0.04) * 0.2).toFixed(2));
-    calibratedConfidence = Math.min(0.98, Math.max(0.75, calibratedConfidence));
+    const proximity = Math.max(0, 1 - bestDist * 0.05);
+    // Well-grounded multi-factor formulation: 50% softmax posterior, 30% crop benchmark test accuracy, 20% distance proximity
+    calibratedConfidence = Number((softmaxPosterior * 0.50 + cropAcc * 0.30 + proximity * 0.20).toFixed(2));
+    // Cap at 0.98 to avoid claiming 100% certainty from visual image alone; no artificial minimum floor
+    calibratedConfidence = Math.min(0.98, Math.max(0.05, calibratedConfidence));
   } else {
-    calibratedConfidence = Math.min(0.96, Math.max(0.78, Number((0.80 + softmaxPosterior * 0.15).toFixed(2))));
+    const proximity = Math.max(0, 1 - bestDist * 0.05);
+    calibratedConfidence = Number((softmaxPosterior * 0.70 + proximity * 0.30).toFixed(2));
+    calibratedConfidence = Math.min(0.96, Math.max(0.05, calibratedConfidence));
   }
 
   const pathology = PATHOLOGY_DATABASE[bestClassKey];
@@ -1438,10 +2107,12 @@ export async function classifyLeafImage(filePathOrBuffer, options = {}) {
     confidenceScore: calibratedConfidence,
     severity,
     affectedAreaPercentage: pathology.isHealthy ? 0 : affectedArea,
+    affectedAreaEstimateNote: 'Image-based estimate calculated from segmented necrotic and chlorotic foliar pixels; actual whole-canopy field damage may vary.',
     symptoms: pathology.symptoms,
     causes: pathology.causes,
     prevention: pathology.prevention,
     treatment: pathology.treatment,
+    treatmentBreakdown: pathology.treatmentBreakdown,
     disclaimer: 'This diagnosis is generated by Agriculture Advisor computer vision screening. Visual symptoms can sometimes overlap between nutritional deficiencies and foliar pathogens. Confirm diagnosis with a local agricultural extension officer before applying scheduled chemical fungicides.',
     featuresExtracted: {
       healthyGreenRatio: Number(features.healthyGreenRatio.toFixed(3)),

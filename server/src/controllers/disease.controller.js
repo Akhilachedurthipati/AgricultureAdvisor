@@ -70,10 +70,12 @@ export const detectDisease = async (req, res, next) => {
         confidenceScore: diagnosis.confidenceScore,
         severity: diagnosis.severity,
         affectedAreaPercentage: diagnosis.affectedAreaPercentage,
+        affectedAreaEstimateNote: diagnosis.affectedAreaEstimateNote,
         symptoms: diagnosis.symptoms,
         causes: diagnosis.causes,
         prevention: diagnosis.prevention,
-        treatment: diagnosis.treatment
+        treatment: diagnosis.treatment,
+        treatmentBreakdown: diagnosis.treatmentBreakdown
       },
       featuresExtracted: diagnosis.featuresExtracted,
       disclaimer: diagnosis.disclaimer

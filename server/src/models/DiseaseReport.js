@@ -40,10 +40,25 @@ const diseaseReportSchema = new mongoose.Schema(
         default: 'Unknown'
       },
       affectedAreaPercentage: { type: Number, default: 0 },
+      affectedAreaEstimateNote: { type: String },
       symptoms: [{ type: String }],
       causes: [{ type: String }],
       prevention: [{ type: String }],
-      treatment: [{ type: String }]
+      treatment: [{ type: String }],
+      treatmentBreakdown: {
+        culturalPractices: [{ type: String }],
+        organicBiocontrol: [{ type: String }],
+        chemicalInterventions: [
+          {
+            chemicalName: { type: String },
+            activeIngredient: { type: String },
+            dosage: { type: String },
+            applicationTiming: { type: String },
+            waitingPeriodPHI: { type: String },
+            safetyPrecautions: { type: String }
+          }
+        ]
+      }
     },
     featuresExtracted: {
       healthyGreenRatio: { type: Number },

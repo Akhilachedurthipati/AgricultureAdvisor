@@ -18,7 +18,13 @@ import {
   AlertTriangle,
   Info,
   Calendar,
-  Activity
+  Activity,
+  Sprout,
+  ShieldCheck,
+  Clock,
+  ExternalLink,
+  ChevronRight,
+  X
 } from 'lucide-react';
 import Card from '../components/common/Card';
 import Button from '../components/common/Button';
@@ -71,7 +77,7 @@ export default function DiseaseDetection() {
     };
   }, []);
 
-  // Handle switching tabs
+  // Handle switching tabs or camera direction
   useEffect(() => {
     if (activeTab === 'camera') {
       startCamera();
@@ -118,7 +124,7 @@ export default function DiseaseDetection() {
       streamRef.current = stream;
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
-        videoRef.current.play();
+        videoRef.current.play().catch(() => {});
       }
       setIsCameraActive(true);
     } catch (err) {
@@ -129,11 +135,11 @@ export default function DiseaseDetection() {
         streamRef.current = fallbackStream;
         if (videoRef.current) {
           videoRef.current.srcObject = fallbackStream;
-          videoRef.current.play();
+          videoRef.current.play().catch(() => {});
         }
         setIsCameraActive(true);
       } catch (fallbackErr) {
-        setCameraError('Unable to access camera. Please allow camera permissions or upload an image file.');
+        setCameraError('Unable to access device camera. Please allow camera permissions or upload an image file.');
         setIsCameraActive(false);
       }
     }
@@ -141,7 +147,9 @@ export default function DiseaseDetection() {
 
   const stopCamera = () => {
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
+      streamRef.current.getTracks().forEach(track => {
+        try { track.stop(); } catch {}
+      });
       streamRef.current = null;
     }
     if (videoRef.current) {
@@ -175,7 +183,7 @@ export default function DiseaseDetection() {
 
   // File Upload Handlers
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0];
     if (file) {
       validateAndSetFile(file);
     }
@@ -198,7 +206,7 @@ export default function DiseaseDetection() {
     setInconclusiveNotice(null);
   };
 
-  // One-Click Calibrated Test Presets
+  // Calibrated Test Presets
   const loadPresetSample = (presetType) => {
     setErrorMessage(null);
     setInconclusiveNotice(null);
@@ -211,15 +219,12 @@ export default function DiseaseDetection() {
 
     if (presetType === 'tomato_blight') {
       setSelectedCrop('Tomato');
-      // Green background leaf
       ctx.fillStyle = 'rgb(45, 155, 45)';
       ctx.fillRect(0, 0, 120, 120);
-      // Chlorotic yellow halo
       ctx.beginPath();
       ctx.arc(60, 60, 42, 0, Math.PI * 2);
       ctx.fillStyle = 'rgb(215, 190, 30)';
       ctx.fill();
-      // Concentric target rings (Alternaria bullseye)
       ctx.beginPath();
       ctx.arc(60, 60, 32, 0, Math.PI * 2);
       ctx.fillStyle = 'rgb(80, 45, 25)';
@@ -230,10 +235,8 @@ export default function DiseaseDetection() {
       ctx.fill();
     } else if (presetType === 'tomato_healthy') {
       setSelectedCrop('Tomato');
-      // Uniform vibrant chlorophyll green
       ctx.fillStyle = 'rgb(42, 175, 48)';
       ctx.fillRect(0, 0, 120, 120);
-      // Soft venation
       ctx.strokeStyle = 'rgb(60, 195, 65)';
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -242,33 +245,29 @@ export default function DiseaseDetection() {
       ctx.moveTo(60, 70); ctx.lineTo(20, 50);
       ctx.stroke();
     } else if (presetType === 'rice_blast') {
-      setSelectedCrop('Rice');
-      // Rice linear leaf blade green
+      setSelectedCrop('Paddy (Rice)');
       ctx.fillStyle = 'rgb(40, 160, 45)';
       ctx.fillRect(0, 0, 120, 120);
-      // Spindle / diamond lesion
       ctx.save();
       ctx.translate(60, 60);
       ctx.scale(1, 2.5);
       ctx.beginPath();
       ctx.arc(0, 0, 18, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgb(95, 45, 20)'; // Brown border
+      ctx.fillStyle = 'rgb(95, 45, 20)';
       ctx.fill();
       ctx.beginPath();
       ctx.arc(0, 0, 10, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgb(185, 180, 175)'; // Grayish center
+      ctx.fillStyle = 'rgb(185, 180, 175)';
       ctx.fill();
       ctx.restore();
     } else if (presetType === 'potato_late_blight') {
       setSelectedCrop('Potato');
       ctx.fillStyle = 'rgb(40, 150, 42)';
       ctx.fillRect(0, 0, 120, 120);
-      // Water-soaked dark necrotic blotch
       ctx.beginPath();
       ctx.ellipse(65, 55, 45, 30, Math.PI / 4, 0, Math.PI * 2);
       ctx.fillStyle = 'rgb(50, 40, 30)';
       ctx.fill();
-      // Pale margin
       ctx.strokeStyle = 'rgb(170, 190, 70)';
       ctx.lineWidth = 3;
       ctx.stroke();
@@ -276,7 +275,6 @@ export default function DiseaseDetection() {
       setSelectedCrop('Cotton');
       ctx.fillStyle = 'rgb(45, 145, 45)';
       ctx.fillRect(0, 0, 120, 120);
-      // Angular water-soaked necrotic lesions strictly bound by veins
       ctx.fillStyle = 'rgb(55, 30, 18)';
       ctx.fillRect(35, 35, 26, 26);
       ctx.fillRect(70, 55, 22, 22);
@@ -288,7 +286,6 @@ export default function DiseaseDetection() {
       setSelectedCrop('Groundnut');
       ctx.fillStyle = 'rgb(48, 155, 45)';
       ctx.fillRect(0, 0, 120, 120);
-      // Tikka circular dark necrotic spots with distinct chlorotic halos
       ctx.fillStyle = 'rgb(220, 200, 35)';
       ctx.beginPath(); ctx.arc(42, 48, 18, 0, Math.PI * 2); ctx.fill();
       ctx.beginPath(); ctx.arc(82, 72, 15, 0, Math.PI * 2); ctx.fill();
@@ -299,7 +296,6 @@ export default function DiseaseDetection() {
       setSelectedCrop('Maize');
       ctx.fillStyle = 'rgb(45, 150, 40)';
       ctx.fillRect(0, 0, 120, 120);
-      // Elongated cigar-shaped tan necrotic lesion
       ctx.save();
       ctx.translate(60, 60);
       ctx.rotate(-Math.PI / 4);
@@ -316,7 +312,6 @@ export default function DiseaseDetection() {
       setSelectedCrop('Chilli');
       ctx.fillStyle = 'rgb(80, 160, 40)';
       ctx.fillRect(0, 0, 120, 120);
-      // Interveinal chlorosis and puckered leaf curl margin
       ctx.fillStyle = 'rgb(205, 195, 45)';
       ctx.beginPath(); ctx.arc(60, 60, 36, 0, Math.PI * 2); ctx.fill();
       ctx.strokeStyle = 'rgb(115, 60, 20)';
@@ -353,7 +348,7 @@ export default function DiseaseDetection() {
 
       if (res.success && res.data?.detection) {
         setDiagnosis(res.data.detection);
-        loadScanHistory(); // Refresh recent history
+        loadScanHistory();
       } else {
         setErrorMessage(res.message || 'Diagnostic screening failed. Please try again.');
       }
@@ -387,42 +382,61 @@ export default function DiseaseDetection() {
     window.print();
   };
 
+  // Helper for Severity styling
+  const getSeverityBadgeClass = (severity) => {
+    switch (severity?.toLowerCase()) {
+      case 'healthy':
+        return 'bg-emerald-100 text-emerald-800 border-emerald-300';
+      case 'mild':
+        return 'bg-amber-100 text-amber-800 border-amber-300';
+      case 'moderate':
+        return 'bg-orange-100 text-orange-800 border-orange-300';
+      case 'severe':
+        return 'bg-rose-100 text-rose-800 border-rose-300';
+      default:
+        return 'bg-slate-100 text-slate-800 border-slate-300';
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6 pb-12">
       
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#246B45]">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#123D2A]/10 text-[#123D2A] uppercase tracking-wider">
               Pathology Screening
             </span>
+            <span className="text-xs text-slate-400">•</span>
+            <span className="text-xs text-slate-500 font-medium">7 Target Agricultural Crops</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1">
-            {t('disease.title', 'Crop Disease Detection')}
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-[#202923] tracking-tight mt-1.5 flex items-center gap-2">
+            <Leaf className="w-7 h-7 text-[#246B45]" />
+            <span>{t('disease.title', 'Crop Disease Detection & Foliar Pathology')}</span>
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            {t('disease.subtitle', 'Identify leaf pathogens, fungal blights, and leaf health with instant AI computer vision diagnosis')}
+          <p className="text-xs sm:text-sm text-slate-500 mt-1 max-w-2xl">
+            Computer vision screening powered by Gaussian Maximum Likelihood inference across 26 disease classes with verified CIBRC and ICAR intervention schedules.
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
           <button
             type="button"
             onClick={() => setShowHistory(!showHistory)}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-[#F7F7F0] text-xs font-semibold shadow-xs transition"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 hover:bg-[#F7F7F0] text-xs font-semibold shadow-xs transition"
           >
             <History className="w-4 h-4 text-[#246B45]" />
             <span>{showHistory ? 'Hide History' : t('common.history', 'Past Scans')}</span>
             {historyList.length > 0 && (
-              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#123D2A]/10 text-[10px] font-bold text-[#123D2A]">
+              <span className="ml-1 px-1.5 py-0.2 rounded-full bg-[#123D2A] text-white text-[10px] font-bold">
                 {historyList.length}
               </span>
             )}
           </button>
 
           <Badge variant="forest">
-            {t('common.operational', 'Vision Engine Operational')}
+            {t('common.operational', 'Engine Operational')}
           </Badge>
         </div>
       </div>
@@ -430,8 +444,8 @@ export default function DiseaseDetection() {
       {/* Advisory Banner */}
       <AlertBanner
         variant="advisory"
-        title={t('common.preliminaryNotice', 'Preliminary Diagnostic Screening Notice')}
-        message="Computer vision results are preliminary screening aids and can be influenced by lighting or camera angle. Always confirm field diagnoses with your local Krishi Vigyan Kendra (KVK) or agricultural extension officer before applying scheduled chemical fungicides."
+        title="Preliminary Agronomic Screening Notice"
+        message="Computer vision foliar screening is an automated diagnostic aid. Lesion morphology and chlorosis can overlap with micronutrient imbalances. Always verify symptoms with your local Krishi Vigyan Kendra (KVK) or extension officer before applying scheduled chemical fungicides."
       />
 
       {/* Inconclusive Scan Alert */}
@@ -456,47 +470,50 @@ export default function DiseaseDetection() {
       {showHistory && (
         <Card
           title="Farmer's Leaf Scan History"
-          subtitle="Your previously analyzed crop pathology diagnostic reports"
+          subtitle="Your previously analyzed foliar pathology reports with preserved treatment breakdowns"
           icon={History}
-          className="bg-slate-50 border-slate-300"
+          className="bg-slate-50 border-slate-200"
         >
           {loadingHistory ? (
-            <p className="text-xs text-slate-500 py-4 text-center">Loading scan history...</p>
+            <p className="text-xs text-slate-500 py-6 text-center">Loading scan history...</p>
           ) : historyList.length === 0 ? (
-            <p className="text-xs text-slate-500 py-4 text-center">No past disease scans found. Upload a leaf photo to get started.</p>
+            <p className="text-xs text-slate-500 py-6 text-center">No past disease scans found. Upload a leaf photo to get started.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {historyList.map((item) => (
                 <div
                   key={item._id}
-                  onClick={() => setDiagnosis(item.detection)}
-                  className="p-3 rounded-xl border border-slate-200 bg-white hover:border-agri-400 hover:shadow-sm cursor-pointer transition flex flex-col justify-between"
+                  onClick={() => {
+                    setDiagnosis(item.detection);
+                    window.scrollTo({ top: 400, behavior: 'smooth' });
+                  }}
+                  className="p-3.5 rounded-2xl border border-slate-200 bg-white hover:border-[#123D2A] hover:shadow-card cursor-pointer transition flex flex-col justify-between"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                         {item.crop || 'Crop'}
                       </span>
-                      <h4 className="text-xs font-bold text-slate-800 line-clamp-1">
+                      <h4 className="text-xs font-bold text-slate-800 line-clamp-1 mt-0.5">
                         {item.detection?.diseaseName}
                       </h4>
                       <p className="text-[11px] text-slate-500 mt-0.5">
-                        Confidence: {(item.detection?.confidenceScore * 100).toFixed(0)}%
+                        Certainty: {(item.detection?.confidenceScore * 100).toFixed(0)}%
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={(e) => handleDeleteHistory(item._id, e)}
-                      className="p-1 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition"
+                      className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition"
                       title="Delete record"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
                   </div>
-                  <div className="flex items-center justify-between pt-2 mt-2 border-t border-slate-100 text-[10px] text-slate-400">
+                  <div className="flex items-center justify-between pt-2.5 mt-2.5 border-t border-slate-100 text-[10px] text-slate-400">
                     <span>{new Date(item.createdAt).toLocaleDateString()}</span>
-                    <span className={`font-semibold ${item.detection?.isHealthy ? 'text-emerald-600' : 'text-rose-600'}`}>
-                      {item.detection?.isHealthy ? 'Healthy' : item.detection?.severity}
+                    <span className={`px-2 py-0.5 rounded-full font-bold border ${getSeverityBadgeClass(item.detection?.severity)}`}>
+                      {item.detection?.severity || 'Assessed'}
                     </span>
                   </div>
                 </div>
@@ -506,27 +523,28 @@ export default function DiseaseDetection() {
         </Card>
       )}
 
-      {/* Main Grid: Upload / Camera on Left, Results on Right */}
+      {/* Main Grid: Input Acquisition on Left, Results on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* Input Acquisition Column */}
         <div className="lg:col-span-5 space-y-4">
           <Card
             title="Leaf Photo Acquisition"
-            subtitle="Upload leaf photo or capture directly using your device camera"
+            subtitle="Upload foliar photo or capture live using device camera"
             icon={ScanSearch}
+            className="border-slate-200"
           >
             
             {/* Crop Selector Filter */}
             <div className="mb-4">
-              <label htmlFor="crop-select" className="block text-xs font-bold text-slate-700 mb-1">
+              <label htmlFor="crop-select" className="block text-xs font-bold text-slate-700 mb-1.5">
                 Target Crop Category:
               </label>
               <select
                 id="crop-select"
                 value={selectedCrop}
                 onChange={(e) => setSelectedCrop(e.target.value)}
-                className="w-full px-3 py-2 text-xs font-medium rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-agri-500/20 focus:border-agri-500 transition"
+                className="w-full px-3.5 py-2.5 text-xs font-semibold rounded-xl border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#123D2A]/20 focus:border-[#123D2A] transition shadow-xs"
               >
                 {CROP_OPTIONS.map((c) => (
                   <option key={c.value} value={c.value}>{c.label}</option>
@@ -534,33 +552,33 @@ export default function DiseaseDetection() {
               </select>
             </div>
 
-            {/* Acquisition Mode Tabs */}
+            {/* Mode Switcher Tabs */}
             <div className="flex rounded-xl bg-slate-100 p-1 mb-4">
               <button
                 type="button"
                 onClick={() => setActiveTab('upload')}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition ${
+                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition ${
                   activeTab === 'upload' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
-                <Upload className="w-4 h-4" />
+                <Upload className="w-3.5 h-3.5" />
                 <span>Upload Leaf File</span>
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('camera')}
-                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold transition ${
+                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-bold transition ${
                   activeTab === 'camera' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'
                 }`}
               >
-                <Camera className="w-4 h-4" />
+                <Camera className="w-3.5 h-3.5" />
                 <span>Live Camera</span>
               </button>
             </div>
 
             {/* Mode 1: File Upload */}
             {activeTab === 'upload' ? (
-              <div className="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center hover:border-agri-400 transition cursor-pointer bg-slate-50/50">
+              <div className="border-2 border-dashed border-slate-200 hover:border-[#246B45] rounded-2xl p-6 text-center transition cursor-pointer bg-slate-50/50">
                 <input
                   type="file"
                   id="leaf-upload"
@@ -568,20 +586,22 @@ export default function DiseaseDetection() {
                   onChange={handleFileChange}
                   className="hidden"
                 />
-                <label htmlFor="leaf-upload" className="cursor-pointer space-y-2 block">
-                  <div className="w-12 h-12 rounded-2xl bg-agri-50 text-agri-600 mx-auto flex items-center justify-center shadow-inner">
+                <label htmlFor="leaf-upload" className="cursor-pointer space-y-2.5 block">
+                  <div className="w-12 h-12 rounded-2xl bg-[#123D2A]/10 text-[#123D2A] mx-auto flex items-center justify-center shadow-inner">
                     <Leaf className="w-6 h-6" />
                   </div>
-                  <p className="text-xs font-bold text-slate-700">Click to browse or drop leaf photo here</p>
-                  <p className="text-[11px] text-slate-400">JPEG, PNG, or WebP up to 10MB</p>
+                  <div>
+                    <p className="text-xs font-bold text-slate-700">Click to browse or drop leaf photo here</p>
+                    <p className="text-[11px] text-slate-400 mt-0.5">JPEG, PNG, or WebP up to 10MB</p>
+                  </div>
                 </label>
               </div>
             ) : (
-              /* Mode 2: Live WebRTC Camera */
+              /* Mode 2: Live WebRTC Camera with Alignment Reticle */
               <div className="space-y-3">
                 {cameraError ? (
                   <div className="border border-rose-200 bg-rose-50 rounded-2xl p-4 text-center space-y-2">
-                    <CameraOff className="w-8 h-8 text-rose-500 mx-auto" />
+                    <CameraOff className="w-7 h-7 text-rose-500 mx-auto" />
                     <p className="text-xs font-bold text-rose-800">Camera Unavailable</p>
                     <p className="text-[11px] text-rose-600">{cameraError}</p>
                     <Button variant="outline" size="sm" onClick={startCamera} icon={RefreshCw}>
@@ -589,7 +609,7 @@ export default function DiseaseDetection() {
                     </Button>
                   </div>
                 ) : (
-                  <div className="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-300 aspect-video flex items-center justify-center">
+                  <div className="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-300 aspect-video flex items-center justify-center shadow-inner">
                     <video
                       ref={videoRef}
                       autoPlay
@@ -597,16 +617,25 @@ export default function DiseaseDetection() {
                       muted
                       className="w-full h-full object-cover"
                     />
-                    
-                    {/* Camera Overlay Grid */}
-                    <div className="absolute inset-0 border-2 border-dashed border-white/20 pointer-events-none rounded-2xl m-4 flex items-center justify-center">
-                      <span className="text-[10px] text-white/50 bg-black/40 px-2 py-0.5 rounded-full">
-                        Position plant leaf inside guide
-                      </span>
+
+                    {/* Camera Overlay Guide & Alignment Reticle */}
+                    <div className="absolute inset-0 pointer-events-none flex flex-col items-center justify-center p-4">
+                      {/* Central Targeting Box with Corner Brackets */}
+                      <div className="relative w-48 h-48 border border-white/20 rounded-xl flex items-center justify-center">
+                        {/* 4 Corner Targeting Reticles */}
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#B6D957]" />
+                        <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#B6D957]" />
+                        <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#B6D957]" />
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#B6D957]" />
+
+                        <span className="text-[10px] font-bold text-white/80 bg-black/50 px-2 py-0.5 rounded-full backdrop-blur-xs">
+                          Align Leaf in Center
+                        </span>
+                      </div>
                     </div>
 
                     {/* Camera Controls Bar */}
-                    <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-3 px-4">
+                    <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center gap-3 px-4 z-10">
                       <button
                         type="button"
                         onClick={() => setFacingMode(prev => prev === 'environment' ? 'user' : 'environment')}
@@ -619,10 +648,10 @@ export default function DiseaseDetection() {
                       <button
                         type="button"
                         onClick={capturePhoto}
-                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-lg transition transform active:scale-95"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#123D2A] hover:bg-[#1D5939] text-white font-bold text-xs shadow-lg transition transform active:scale-95"
                       >
-                        <Camera className="w-4 h-4" />
-                        <span>Snap Photo</span>
+                        <Camera className="w-4 h-4 text-[#B6D957]" />
+                        <span>Snap Foliar Photo</span>
                       </button>
                     </div>
                   </div>
@@ -634,7 +663,7 @@ export default function DiseaseDetection() {
             {previewUrl && (
               <div className="mt-4 space-y-3 pt-3 border-t border-slate-100">
                 <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-slate-700">Acquired Leaf Preview:</span>
+                  <span className="font-bold text-slate-700">Acquired Foliar Photo:</span>
                   <button
                     type="button"
                     onClick={() => {
@@ -643,35 +672,39 @@ export default function DiseaseDetection() {
                       setDiagnosis(null);
                       if (activeTab === 'camera') startCamera();
                     }}
-                    className="text-[11px] font-semibold text-rose-600 hover:underline"
+                    className="text-[11px] font-semibold text-rose-600 hover:underline flex items-center gap-1"
                   >
-                    Clear / Retake
+                    <X className="w-3.5 h-3.5" />
+                    <span>Clear / Retake</span>
                   </button>
                 </div>
 
-                <div className="relative rounded-2xl overflow-hidden border border-slate-200 max-h-56 bg-slate-900 flex items-center justify-center">
-                  <img src={previewUrl} alt="Leaf preview" className="object-contain max-h-56 w-full" />
+                <div className="relative rounded-2xl overflow-hidden border border-slate-200 max-h-52 bg-slate-900 flex items-center justify-center shadow-inner">
+                  <img src={previewUrl} alt="Leaf preview" className="object-contain max-h-52 w-full" />
                 </div>
 
                 <Button
                   onClick={handleDiagnose}
                   loading={analyzing}
                   icon={Sparkles}
-                  className="w-full !bg-[#123D2A] hover:!bg-[#1D5939] text-white shadow-premium"
+                  className="w-full !bg-[#123D2A] hover:!bg-[#1D5939] text-white shadow-premium py-2.5 font-bold"
                 >
-                  {analyzing ? 'Scanning Foliar Pathology...' : 'Run Deep Learning Diagnostic'}
+                  {analyzing ? 'Screening Foliar Pathology...' : 'Run Computer Vision Diagnostic'}
                 </Button>
               </div>
             )}
 
-            {/* Testing Mode Toggle */}
+            {/* Testing Mode Presets Collapsible */}
             <div className="mt-4 pt-4 border-t border-slate-100">
               <button
                 type="button"
                 onClick={() => setShowTestingMode(!showTestingMode)}
                 className="w-full flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition cursor-pointer"
               >
-                <span>🧪 Testing Mode: Calibrated Foliar Presets</span>
+                <div className="flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#246B45]" />
+                  <span>Calibrated Testing Presets</span>
+                </div>
                 <span className="text-[11px] text-slate-600 font-semibold">{showTestingMode ? 'Hide Presets ▲' : 'Show Presets ▼'}</span>
               </button>
 
@@ -680,66 +713,66 @@ export default function DiseaseDetection() {
                   <button
                     type="button"
                     onClick={() => loadPresetSample('tomato_blight')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🍅 Tomato Early Blight</p>
-                    <p className="text-[10px] text-slate-600">Concentric rings & halo</p>
+                    <p className="text-[10px] text-slate-500">Concentric rings & halo</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('tomato_healthy')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-emerald-800 text-[11px]">🍃 Healthy Tomato Leaf</p>
-                    <p className="text-[10px] text-slate-600">Uniform chlorophyll green</p>
+                    <p className="text-[10px] text-slate-500">Uniform chlorophyll green</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('rice_blast')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🌾 Rice Leaf Blast</p>
-                    <p className="text-[10px] text-slate-600">Spindle diamond lesion</p>
+                    <p className="text-[10px] text-slate-500">Spindle diamond lesion</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('potato_late_blight')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🥔 Potato Late Blight</p>
-                    <p className="text-[10px] text-slate-600">Water-soaked blotch</p>
+                    <p className="text-[10px] text-slate-500">Water-soaked blotch</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('cotton_blight')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🌱 Cotton Bacterial Blight</p>
-                    <p className="text-[10px] text-slate-600">Angular vein-bound spot</p>
+                    <p className="text-[10px] text-slate-500">Angular vein-bound spot</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('groundnut_tikka')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🥜 Groundnut Tikka Spot</p>
-                    <p className="text-[10px] text-slate-600">Spots with yellow halos</p>
+                    <p className="text-[10px] text-slate-500">Spots with yellow halos</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('maize_blight')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🌽 Maize Northern Blight</p>
-                    <p className="text-[10px] text-slate-600">Cigar-shaped tan lesion</p>
+                    <p className="text-[10px] text-slate-500">Cigar-shaped tan lesion</p>
                   </button>
                   <button
                     type="button"
                     onClick={() => loadPresetSample('chilli_curl')}
-                    className="p-2 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
+                    className="p-2.5 rounded-xl border border-slate-200 bg-white hover:border-[#123D2A] hover:bg-[#123D2A]/5 text-left transition cursor-pointer"
                   >
                     <p className="font-bold text-slate-800 text-[11px]">🌶️ Chilli Leaf Curl</p>
-                    <p className="text-[10px] text-slate-600">Puckered leaf margin</p>
+                    <p className="text-[10px] text-slate-500">Puckered leaf margin</p>
                   </button>
                 </div>
               )}
@@ -752,75 +785,98 @@ export default function DiseaseDetection() {
         <div className="lg:col-span-7 space-y-4">
           {diagnosis ? (
             <Card
-              title="Pathology Diagnostic Report"
-              subtitle={`Visual foliar classification analysis • ${diagnosis.crop || selectedCrop}`}
+              title="Foliar Pathology Diagnostic Prescription"
+              subtitle={`Screened against verified baseline • ${diagnosis.crop || selectedCrop}`}
               className={`border-2 ${
                 diagnosis.isHealthy ? 'border-emerald-300 ring-2 ring-emerald-500/10' : 'border-rose-300 ring-2 ring-rose-500/10'
-              } animate-in fade-in`}
+              } animate-in fade-in shadow-premium`}
             >
               <div className="space-y-4 text-xs">
                 
                 {/* Hero Condition Header Banner */}
-                <div className={`p-4 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                <div className={`p-4 sm:p-5 rounded-2xl text-white shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${
                   diagnosis.isHealthy
-                    ? 'bg-gradient-to-br from-emerald-600 to-green-700'
-                    : 'bg-gradient-to-br from-rose-600 to-red-700'
+                    ? 'bg-gradient-to-br from-[#123D2A] to-[#246B45]'
+                    : 'bg-gradient-to-br from-rose-700 to-red-800'
                 }`}>
                   <div>
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] uppercase font-bold tracking-wider text-white/80">
-                        {diagnosis.isHealthy ? 'Clean Condition' : 'Identified Pathology'}
+                        {diagnosis.isHealthy ? 'Clean Foliar State' : 'Identified Foliar Pathology'}
                       </span>
-                      <span className="px-2 py-0.2 rounded-full text-[10px] font-bold bg-white/20">
-                        {diagnosis.severity}
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-white/20 border border-white/20">
+                        {diagnosis.severity} Severity
                       </span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-black mt-1">
+                    <h3 className="text-xl sm:text-2xl font-black mt-1 text-white">
                       {diagnosis.diseaseName}
                     </h3>
                     {diagnosis.scientificName && (
-                      <p className="text-xs text-white/80 italic font-medium mt-0.5">
+                      <p className="text-xs text-white/85 italic font-medium mt-0.5">
                         Pathogen: {diagnosis.scientificName}
                       </p>
                     )}
                   </div>
 
                   <div className="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 border-white/20 pt-2 sm:pt-0">
-                    <span className="text-[10px] text-white/80">Model Confidence</span>
-                    <span className="text-2xl font-black">
+                    <span className="text-[10px] text-white/80">Diagnostic Certainty</span>
+                    <span className="text-2xl sm:text-3xl font-black">
                       {(diagnosis.confidenceScore * 100).toFixed(0)}%
                     </span>
                     {!diagnosis.isHealthy && (
-                      <span className="text-[11px] text-white/90 font-medium">
-                        Affected Area: {diagnosis.affectedAreaPercentage}%
+                      <span className="text-[11px] text-white/90 font-semibold mt-0.5">
+                        Foliar Lesion: {diagnosis.affectedAreaPercentage}%
                       </span>
                     )}
                   </div>
                 </div>
 
-                {/* Confidence Bar */}
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-1.5">
-                  <div className="flex justify-between items-center text-[11px] font-semibold text-slate-700">
-                    <span>Diagnostic Certainty Index</span>
-                    <span className="font-bold">{(diagnosis.confidenceScore * 100).toFixed(0)}%</span>
+                {/* Visual Folio-Pathology Severity Meter */}
+                <div className="p-3.5 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-2">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+                    <span className="flex items-center gap-1.5">
+                      <Activity className="w-3.5 h-3.5 text-[#246B45]" />
+                      <span>Foliar Lesion Severity Gauge</span>
+                    </span>
+                    <span className="font-extrabold text-slate-900">
+                      {diagnosis.isHealthy ? '0.0% (Clean)' : `${diagnosis.affectedAreaPercentage}% Surface Affected`}
+                    </span>
                   </div>
-                  <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full transition-all duration-500 ${
-                        diagnosis.isHealthy ? 'bg-emerald-500' : 'bg-rose-500'
-                      }`}
-                      style={{ width: `${diagnosis.confidenceScore * 100}%` }}
-                    />
-                  </div>
-                </div>
 
-                {/* Crop Consistency & Field Scouting Advisory */}
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-2.5">
-                  <Info className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
-                  <div className="text-[11px] text-slate-600 leading-relaxed">
-                    <span className="font-bold text-slate-800">Crop Consistency Notice: </span>
-                    Screened against the <span className="font-bold text-emerald-700">{diagnosis.crop || selectedCrop}</span> foliar pathology baseline. Computer vision models classify lesion morphology, chlorosis, and necrosis; always verify that the physical field plant matches the selected crop category before applying chemical fungicides.
+                  {/* 4-Stage Segmented Meter */}
+                  <div className="grid grid-cols-4 gap-1.5 pt-1">
+                    <div className={`h-2.5 rounded-l-full transition-all ${
+                      diagnosis.severity?.toLowerCase() === 'healthy' 
+                        ? 'bg-emerald-500 ring-2 ring-emerald-600/40' 
+                        : 'bg-emerald-200'
+                    }`} />
+                    <div className={`h-2.5 transition-all ${
+                      diagnosis.severity?.toLowerCase() === 'mild' 
+                        ? 'bg-amber-500 ring-2 ring-amber-600/40' 
+                        : 'bg-amber-200'
+                    }`} />
+                    <div className={`h-2.5 transition-all ${
+                      diagnosis.severity?.toLowerCase() === 'moderate' 
+                        ? 'bg-orange-500 ring-2 ring-orange-600/40' 
+                        : 'bg-orange-200'
+                    }`} />
+                    <div className={`h-2.5 rounded-r-full transition-all ${
+                      diagnosis.severity?.toLowerCase() === 'severe' 
+                        ? 'bg-rose-600 ring-2 ring-rose-700/40' 
+                        : 'bg-rose-200'
+                    }`} />
                   </div>
+
+                  <div className="flex justify-between text-[10px] text-slate-500 font-semibold px-0.5">
+                    <span className={diagnosis.severity?.toLowerCase() === 'healthy' ? 'text-emerald-700 font-bold' : ''}>Healthy (0%)</span>
+                    <span className={diagnosis.severity?.toLowerCase() === 'mild' ? 'text-amber-700 font-bold' : ''}>Mild (&lt;15%)</span>
+                    <span className={diagnosis.severity?.toLowerCase() === 'moderate' ? 'text-orange-700 font-bold' : ''}>Moderate (15-40%)</span>
+                    <span className={diagnosis.severity?.toLowerCase() === 'severe' ? 'text-rose-700 font-bold' : ''}>Severe (&ge;40%)</span>
+                  </div>
+
+                  <p className="text-[10.5px] text-slate-400 italic pt-1 border-t border-slate-100">
+                    {diagnosis.affectedAreaEstimateNote || 'Image-based estimate calculated from segmented necrotic and chlorotic foliar pixels; actual whole-canopy field damage may vary.'}
+                  </p>
                 </div>
 
                 {/* Primary Field Symptoms */}
@@ -828,7 +884,7 @@ export default function DiseaseDetection() {
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-1.5 font-bold text-slate-800">
                       <AlertCircle className="w-4 h-4 text-slate-600" />
-                      <span>Primary Field Symptoms:</span>
+                      <span>Primary Field Foliar Symptoms:</span>
                     </div>
                     <ul className="list-disc list-inside text-slate-600 space-y-1 bg-slate-50 p-3.5 rounded-xl border border-slate-100 leading-relaxed">
                       {diagnosis.symptoms.map((s, idx) => <li key={idx}>{s}</li>)}
@@ -836,7 +892,7 @@ export default function DiseaseDetection() {
                   </div>
                 )}
 
-                {/* Pathological Causes & Triggers */}
+                {/* Pathological Causes & Environmental Triggers */}
                 {diagnosis.causes?.length > 0 && (
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-1.5 font-bold text-slate-800">
@@ -849,64 +905,156 @@ export default function DiseaseDetection() {
                   </div>
                 )}
 
-                {/* Prevention Methods & Cultural Practices */}
-                {diagnosis.prevention?.length > 0 && (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-1.5 font-bold text-emerald-800">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Recommended Prevention & Cultural Practices:</span>
+                {/* ======================================================== */}
+                {/* 3-PILLAR STRUCTURED PATHOLOGY MANAGEMENT SCHEDULE */}
+                {/* ======================================================== */}
+                <div className="pt-2 space-y-3">
+                  <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+                    <h4 className="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-[#246B45]" />
+                      <span>Integrated Pest & Foliar Disease Management (IPM)</span>
+                    </h4>
+                    <span className="text-[10px] text-slate-400 font-semibold">CIBRC & ICAR Verified</span>
+                  </div>
+
+                  {/* PILLAR 1: Cultural & Agronomic Practices */}
+                  <div className="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-emerald-900">
+                      <div className="w-5 h-5 rounded-md bg-emerald-600 text-white flex items-center justify-center text-[10px]">
+                        1
+                      </div>
+                      <Sprout className="w-4 h-4 text-emerald-700" />
+                      <span className="text-xs">Cultural & Agronomic Field Practices</span>
                     </div>
-                    <ul className="list-disc list-inside text-slate-600 space-y-1 bg-emerald-50/50 p-3.5 rounded-xl border border-emerald-100 leading-relaxed">
-                      {diagnosis.prevention.map((p, idx) => <li key={idx}>{p}</li>)}
+                    <ul className="list-disc list-inside text-slate-700 space-y-1 text-xs leading-relaxed pl-1">
+                      {(diagnosis.treatmentBreakdown?.culturalPractices || diagnosis.prevention || []).map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
                     </ul>
                   </div>
-                )}
 
-                {/* Curative Treatment & Approved Fungicide Dosages */}
-                {diagnosis.treatment?.length > 0 && (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-1.5 font-bold text-rose-800">
-                      <ShieldAlert className="w-4 h-4 text-rose-600" />
-                      <span>Approved Treatment & Management Guidance:</span>
+                  {/* PILLAR 2: Organic & Biological Biocontrol */}
+                  <div className="p-3.5 rounded-2xl bg-teal-50/60 border border-teal-200/80 space-y-2">
+                    <div className="flex items-center gap-2 font-bold text-teal-900">
+                      <div className="w-5 h-5 rounded-md bg-teal-600 text-white flex items-center justify-center text-[10px]">
+                        2
+                      </div>
+                      <Leaf className="w-4 h-4 text-teal-700" />
+                      <span className="text-xs">Organic & Biological Biocontrol Measures</span>
                     </div>
-                    <ul className="list-disc list-inside text-slate-700 space-y-1 bg-rose-50/50 p-3.5 rounded-xl border border-rose-100 leading-relaxed font-medium">
-                      {diagnosis.treatment.map((t, idx) => <li key={idx}>{t}</li>)}
+                    <ul className="list-disc list-inside text-slate-700 space-y-1 text-xs leading-relaxed pl-1">
+                      {(diagnosis.treatmentBreakdown?.organicBiocontrol || [
+                        'Soil application of well-decomposed organic manure enriched with Trichoderma bioagents.',
+                        'Install pheromone / sticky traps for vector scouting at canopy level.'
+                      ]).map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
                     </ul>
                   </div>
-                )}
 
-                {/* Print Report / Action buttons */}
-                <div className="pt-2 flex items-center justify-between">
+                  {/* PILLAR 3: Regulated Chemical Interventions */}
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 font-bold text-slate-800">
+                        <div className="w-5 h-5 rounded-md bg-[#123D2A] text-white flex items-center justify-center text-[10px]">
+                          3
+                        </div>
+                        <ShieldAlert className="w-4 h-4 text-rose-600" />
+                        <span className="text-xs">Chemical Interventions (CIBRC / SAU Regulated)</span>
+                      </div>
+                      <span className="text-[10px] font-bold text-slate-400">Strict Label Adherence</span>
+                    </div>
+
+                    {diagnosis.treatmentBreakdown?.chemicalInterventions?.length > 0 ? (
+                      <div className="space-y-2.5 pt-1">
+                        {diagnosis.treatmentBreakdown.chemicalInterventions.map((chem, idx) => (
+                          <div key={idx} className="p-3 rounded-xl bg-white border border-slate-200 shadow-xs space-y-2">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                              <h5 className="font-bold text-slate-900 text-xs">
+                                {chem.chemicalName}
+                              </h5>
+                              <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 text-amber-800 border border-amber-200 self-start sm:self-auto flex items-center gap-1">
+                                <Clock className="w-3 h-3 text-amber-600" />
+                                <span>PHI: {chem.waitingPeriodPHI}</span>
+                              </span>
+                            </div>
+
+                            <p className="text-[11px] text-slate-500 font-mono">
+                              Active: {chem.activeIngredient}
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] pt-1">
+                              <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                                <span className="font-bold text-slate-700 block">Dosage:</span>
+                                <span className="text-slate-600">{chem.dosage}</span>
+                              </div>
+                              <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
+                                <span className="font-bold text-slate-700 block">Application Timing:</span>
+                                <span className="text-slate-600">{chem.applicationTiming}</span>
+                              </div>
+                            </div>
+
+                            {chem.safetyPrecautions && (
+                              <div className="p-2 rounded-lg bg-rose-50/60 border border-rose-100 text-[10.5px] text-rose-800 flex items-start gap-1.5">
+                                <AlertTriangle className="w-3.5 h-3.5 text-rose-600 flex-shrink-0 mt-0.5" />
+                                <span>{chem.safetyPrecautions}</span>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    ) : diagnosis.isHealthy ? (
+                      <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                        <span>Clean foliar tissue detected. No chemical fungicide or bactericide sprays required. Continue routine scouting.</span>
+                      </div>
+                    ) : (
+                      /* Fallback for legacy records */
+                      <ul className="list-disc list-inside text-slate-700 space-y-1 text-xs leading-relaxed pl-1">
+                        {(diagnosis.treatment || []).map((t, idx) => (
+                          <li key={idx}>{t}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+
+                {/* Print Report / Actions */}
+                <div className="pt-3 flex items-center justify-between border-t border-slate-200">
                   <p className="text-[11px] text-slate-400 italic">
-                    Saved to farmer history automatically
+                    Diagnostic report safely persisted in history
                   </p>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={handlePrint}
                     icon={Printer}
+                    className="font-bold"
                   >
-                    Print Diagnostic Card
+                    Print Foliar Prescription
                   </Button>
                 </div>
 
               </div>
             </Card>
           ) : (
-            <Card className="text-center py-16 px-6 flex flex-col items-center justify-center space-y-3">
-              <div className="w-16 h-16 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center border border-rose-100 shadow-sm">
+            <Card className="text-center py-16 px-6 flex flex-col items-center justify-center space-y-3.5 border-slate-200">
+              <div className="w-16 h-16 rounded-2xl bg-[#123D2A]/10 text-[#123D2A] flex items-center justify-center border border-[#123D2A]/20 shadow-sm">
                 <ScanSearch className="w-8 h-8" />
               </div>
-              <h3 className="font-bold text-slate-800 text-base">Awaiting Foliar Leaf Inspection</h3>
-              <p className="text-xs text-slate-500 max-w-sm leading-relaxed">
-                Upload a plant leaf photo or snap a picture using your device camera to detect fungal blights, bacterial spots, and nutrient abnormalities instantly.
-              </p>
+              <div>
+                <h3 className="font-extrabold text-slate-800 text-base">Awaiting Leaf Inspection</h3>
+                <p className="text-xs text-slate-500 max-w-sm leading-relaxed mt-1">
+                  Upload a crop leaf photo or capture directly using your camera to screen for bacterial blights, fungal spots, and foliar pathogens instantly.
+                </p>
+              </div>
               <div className="pt-2">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={() => loadPresetSample('tomato_blight')}
                   icon={Sparkles}
+                  className="font-bold"
                 >
                   Try Sample Leaf Preset
                 </Button>

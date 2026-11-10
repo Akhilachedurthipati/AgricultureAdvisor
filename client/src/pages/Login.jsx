@@ -8,8 +8,7 @@ import {
   Eye, 
   EyeOff, 
   AlertCircle, 
-  CheckCircle2, 
-  Sparkles
+  CheckCircle2
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useTranslation } from 'react-i18next';
@@ -50,12 +49,6 @@ export default function Login() {
     }
   };
 
-  const handleFillDemo = () => {
-    setEmail('ramesh.farmer@example.com');
-    setPassword('FarmerPassword123!');
-    setErrorMessage('');
-  };
-
   return (
     <div className="min-h-screen flex flex-col justify-between bg-transparent text-[#202923] select-none">
       
@@ -90,24 +83,6 @@ export default function Login() {
             <p className="text-xs sm:text-sm text-slate-500">
               {t('auth.loginSubtitle', 'Sign in to access your farm recommendations and records')}
             </p>
-          </div>
-
-          {/* Quick Demo Credentials */}
-          <div className="bg-white border border-[#D7DBC5] rounded-2xl p-4 flex items-center justify-between text-xs text-[#123D2A] shadow-xs">
-            <div className="flex items-center space-x-2.5">
-              <Sparkles className="w-4 h-4 text-[#246B45] shrink-0" />
-              <div>
-                <p className="font-bold text-[#123D2A]">Quick Demo Credentials</p>
-                <p className="text-[11px] text-slate-500">Pre-fill demo farmer account</p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={handleFillDemo}
-              className="px-3 py-1.5 rounded-xl bg-[#123D2A] hover:bg-[#1D5939] text-white font-medium text-xs shadow-xs transition cursor-pointer"
-            >
-              Auto-Fill
-            </button>
           </div>
 
           {/* Form Card */}

@@ -27,7 +27,13 @@
 ---
 
 ## 3. Current Sprint / Active Work
-- **Completed Development Phases:**
+- **Modernization & Redesign Sprints (Branch: `ui-modern-redesign`):**
+  - **Modernization Phase 1 (Backend Crop Modernization):** Live Open-Meteo weather integration, dynamic rainfall/temperature blending, multi-crop agronomic suitability scoring, and farmer land allocation engine.
+  - **Modernization Phase 2 (Frontend Crop Modernization):** Interactive land allocation sliders, 100% field utilization enforcement, comparative multi-crop economics, climate risk factors, and nature-green visual redesign.
+  - **Modernization Phase 3 (Fertilizer Life-Cycle Planning):** Dual RDF & STCR targeted yield modes, ICAR growth stage timeline scheduling (Basal, Vegetative, Flowering/Reproductive, Grain Fill), custom start date calendar offsets, per-dose water dilution ratios, and safety precautions.
+  - **Modernization Phase 4 (Multi-Crop Foliar Pathology Modernization):** Structured 3-Pillar pathology management (Cultural, Organic/Biocontrol, Regulated Chemical), verified CIBRC active ingredients & Pre-Harvest Intervals (PHI), 4-stage visual foliar severity gauge, WebRTC live camera alignment reticle, printable slip, and backward-compatible history records.
+
+- **Completed Base Development Phases:**
   - **Phase 1 (Foundation):** Workspace, Git, Mongoose resilience, `/api/health` test, Vite client build.
   - **Phase 2 (Authentication):** Full JWT authentication, bcryptjs, Zod validation, user profile, protected routes.
   - **Phase 3 (Main UI/UX Design System):** Nature-green theme, reusable UI component library (`Button`, `Card`, `Badge`, `AlertBanner`, `StatCard`), desktop/mobile navigation, dashboard quick actions.
